@@ -1,12 +1,18 @@
 <?php
 include 'arrayLanguage.php';
 
-$idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
 session_start();
+
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     header("Location: inici.php");
 }
+if (!isset($_SESSION["idioma"])){
+  $idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+} else {
+  $idioma = $_SESSION["idioma"];
+}
+
+//var_dump($_SESSION["idioma"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +23,13 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+<form action="sesioIdioma.php" method="post">
+  <select name="language">
+    <option value="es" <?php echo ($idioma=='es')?('selected'):(''); ?>>Español</option>
+    <option value="en" <?php echo ($idioma=='en')?('selected'):(''); ?>>English</option>
+  </select>
+  <input type="submit" value="<?php echo $lang[$idioma]["change"]?>">
+</form>
 <form>
     <?php echo $lang[$idioma]["user"]?><input type="text" id="name">
     <?php echo $lang[$idioma]["password"]?><input type="password" id="pass">

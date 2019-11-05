@@ -6,20 +6,23 @@ $lang = [
         "password" => "Password", 
         "login" => "Login",
         "submit" => "Submit",
-        "closeSesion" => "Close Session"
+        "closeSesion" => "Close Session",
+        "change" => "Change"
     ],
     "es" => [
         "user" => "Usuario", 
         "password" => "Contraseña", 
         "login" => "Inicia Sesion",
         "submit" => "Enviar",
-        "closeSesion" => "Cerrar Sesion"
+        "closeSesion" => "Cerrar Sesion",
+        "change" => "Cambiar"
     ],
     "fr" => [
         "user" => "Utilisateur", 
         "password" => "Mot de passe", 
         "login" => "S'identifier",
         "submit" => "Soumettre",
-        "closeSesion" => "Fermer la session"
+        "closeSesion" => "Fermer la session",
+        "change" => "Changement"
     ]
 ];

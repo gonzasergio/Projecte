@@ -5,6 +5,13 @@ session_start();
 if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
    header("Location: login.php");
 }
+
+if (!isset($_SESSION["idioma"])){
+    $idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+} else {
+    $idioma = $_SESSION["idioma"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

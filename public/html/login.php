@@ -1,4 +1,8 @@
 <?php
+include 'arrayLanguage.php';
+
+$idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
 session_start();
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     header("Location: inici.php");
@@ -8,15 +12,15 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title><?php echo $lang[$idioma]["login"]?></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <form>
-    Name:<input type="text" id="name">
-    Pass:<input type="password" id="pass">
-    <button type="button" onClick="encripta()">Submit</button>
+    <?php echo $lang[$idioma]["user"]?><input type="text" id="name">
+    <?php echo $lang[$idioma]["password"]?><input type="password" id="pass">
+    <button type="button" onClick="encripta()"><?php echo $lang[$idioma]["submit"]?></button>
 </form>
 <p id="test"></p>
 <script>

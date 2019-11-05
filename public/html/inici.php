@@ -8,9 +8,9 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title><?php echo $lang[$idioma]["login"]?></title>
 </head>
 <body>
-<a href="tancarsessio.php">Tancar Sessio</a>
+<a href="tancarsessio.php"><?php echo $lang[$idioma]["closeSesion"]?></a>
 </body>
 </html>

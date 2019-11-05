@@ -1,4 +1,6 @@
 <?php
+include 'arrayLanguage.php';
+
 session_start();
 if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
    header("Location: login.php");

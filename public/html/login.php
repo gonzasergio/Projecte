@@ -27,6 +27,7 @@ if (!isset($_SESSION["idioma"])){
   <select name="language">
     <option value="es" <?php echo ($idioma=='es')?('selected'):(''); ?>>Español</option>
     <option value="en" <?php echo ($idioma=='en')?('selected'):(''); ?>>English</option>
+    <option value="fr" <?php echo ($idioma=='fr')?('selected'):(''); ?>>French</option>
   </select>
   <input type="submit" value="<?php echo $lang[$idioma]["change"]?>">
 </form>

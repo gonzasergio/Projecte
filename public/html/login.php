@@ -24,11 +24,11 @@ if (!isset($_SESSION["idioma"])){
 </head>
 <body>
 <form action="sesioIdioma.php" method="post">
-  <select name="language">
+  <select id="language" onChange="canviaIdioma()">
     <option value="es" <?php echo ($idioma=='es')?('selected'):(''); ?>>Español</option>
     <option value="en" <?php echo ($idioma=='en')?('selected'):(''); ?>>English</option>
+    <option value="fr" <?php echo ($idioma=='fr')?('selected'):(''); ?>>French</option>
   </select>
-  <input type="submit" value="<?php echo $lang[$idioma]["change"]?>">
 </form>
 <form>
     <?php echo $lang[$idioma]["user"]?><input type="text" id="name">
@@ -37,6 +37,11 @@ if (!isset($_SESSION["idioma"])){
 </form>
 <p id="test"></p>
 <script>
+function canviaIdioma(){
+  selector = document.getElementById('language').value;
+  post("sesioIdioma.php",{language:selector});
+}
+
 function encripta(){
     var encrypted = String(CryptoJS.MD5(document.getElementById("pass").value));
     var nom = document.getElementById("name").value;

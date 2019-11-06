@@ -15,7 +15,6 @@ if (!isset($_SESSION["idioma"])){
 } else {
     $idioma = $_SESSION["idioma"];
 }
-
 //var_dump($_SESSION["idioma"]);
 ?>
 <!DOCTYPE html>
@@ -35,9 +34,13 @@ if (!isset($_SESSION["idioma"])){
             <form action="sesioIdioma.php" method="post">
                 <div class="form-group">
                       <select class="form-control" id="language" onChange="canviaIdioma()">
-                        <option value="es" <?php echo ($idioma=='es')?('selected'):(''); ?>>Español</option>
-                        <option value="en" <?php echo ($idioma=='en')?('selected'):(''); ?>>English</option>
-                        <option value="fr" <?php echo ($idioma=='fr')?('selected'):(''); ?>>French</option>
+                      <?php 
+                      foreach ($lang as $i) {
+                          $selected = ($idioma==$i["langCode"])?('selected'):('');
+                          echo "<option value='".$i["langCode"]."'".$selected.">".$i["lang"]."</option>";
+                      }
+                      
+                      ?>
                 	</select>
                 </div>
             </form>

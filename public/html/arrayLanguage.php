@@ -6,20 +6,35 @@ $lang = [
         "password" => "Password", 
         "login" => "Login",
         "submit" => "Submit",
-        "closeSesion" => "Close Session"
+        "closeSesion" => "Close Session",
+        "lang" => "English",
+        "langCode" => "en"
     ],
     "es" => [
         "user" => "Usuario", 
         "password" => "Contraseña", 
-        "login" => "Inicia Sesion",
+        "login" => "Iniciar Sesión",
         "submit" => "Enviar",
-        "closeSesion" => "Cerrar Sesion"
+        "closeSesion" => "Cerrar Sesión",
+        "lang" => "Español",
+        "langCode" => "es"
     ],
     "fr" => [
         "user" => "Utilisateur", 
         "password" => "Mot de passe", 
         "login" => "S'identifier",
         "submit" => "Soumettre",
-        "closeSesion" => "Fermer la session"
+        "closeSesion" => "Fermer la session",
+        "lang" => "Français",
+        "langCode" => "fr"
+    ],
+    "ca" => [
+        "user" => "Usuari",
+        "password" => "Contrasenya",
+        "login" => "Iniciar Sessió",
+        "submit" => "Enviar",
+        "closeSesion" => "Tancar la sessió",
+        "lang" => "Catala",
+        "langCode" => "ca"
     ]
 ];

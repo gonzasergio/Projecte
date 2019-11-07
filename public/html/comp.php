@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     if($result == $postpass ){
 		session_start();
 		$_SESSION["AUTH"]=true;
-        header("Location: inici.php");
+        header("Location: index.php");
     } else {
         echo '<script>alert("Contrasenya incorrecte");parent.location = "login.php"</script>';
     }

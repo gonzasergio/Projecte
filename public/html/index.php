@@ -26,11 +26,12 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
 </head>
 <body>
     <div class="container-fluid">
-	<?php include '../templates/header.php'?>
+		<?php include '../templates/header.php'?>
         <div class="row d-flex justify-content-center">
     		<a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
     	</div>
+    	<br><br><br><br><br><br><br><br><br><br><br><br>
+    	<?php include '../templates/footer.php'?>
     </div>
-    <?php include '../templates/footer.php'?>
 </body>
 </html>

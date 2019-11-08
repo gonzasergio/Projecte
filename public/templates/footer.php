@@ -1,10 +1,10 @@
 <div class="row mt-5">
 	<div class="col bg-secondary mt-5 p-5 text-center">
 		<li class="list-inline-item">
-       		<h5 class="text-light">Register for free</h5>
+       		<h5 class="text-light"><?php echo $lang[$idioma]["RegistrerFree"] ?></h5>
       	</li>
       	<li class="list-inline-item">
-        	<button type="button" class="btn btn-outline-light">Sign up!</button>
+        	<button type="button" class="btn btn-outline-light"><?php echo $lang[$idioma]["SignUp"]?></button>
       	</li>
 	</div>
 </div>

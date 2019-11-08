@@ -11,7 +11,9 @@ $lang = [
         "lang" => "English",
         "langCode" => "en",
         "noRegister" => "You don't have an account? Sign up",
-        "register" => "Register"
+        "register" => "Register",
+        "SignUp" => "Sign Up!",
+        "RegistrerFree" => "Register for free"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -23,7 +25,9 @@ $lang = [
         "lang" => "Español",
         "langCode" => "es",
         "noRegister" => "¿No tienes cuenta? Registrate",
-        "register" => "Registro"
+        "register" => "Registro",
+        "SignUp" => "¡Registrarse!",
+        "RegistrerFree" => "Registrate gratuitamente"
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -35,7 +39,9 @@ $lang = [
         "lang" => "Français",
         "langCode" => "fr",
         "noRegister" => "Vous n'avez pas de compte? s'inscrire",
-        "register" => "S'inscrire"
+        "register" => "S'inscrire",
+        "SignUp" => "Inscrivez-vous!",
+        "RegistrerFree" => "Inscription gratuite"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -47,7 +53,10 @@ $lang = [
         "lang" => "Catala",
         "langCode" => "ca",
         "noRegister" => "No tens compta? Registra't",
-        "register" => "Registre"
+        "register" => "Registre",
+        "SignUp" => "Registra-se!",
+        "RegistrerFree" => "Registra't gratuitament"
+        
     ]
 ];
 

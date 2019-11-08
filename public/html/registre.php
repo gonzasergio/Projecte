@@ -25,7 +25,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     <main class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="card shadow-sm mt-5" style="width: 18rem;">
-                <h5 class="card-header"><i class="fas fa-sign-in-alt"></i> <?php echo $lang[$idioma]["register"]?></h5>
+                <h5 class="card-header"><i class="far fa-id-card"></i> <?php echo $lang[$idioma]["register"]?></h5>
                 <div class="card-body">
                     <form>
                     	<div class="form-group">

@@ -24,8 +24,23 @@ function canviaIdioma(){
     post("sesioIdioma.php",{language:selector});
 }
 
-function encripta(){
+function comprovaContrasenya(){
+    user = document.getElementById("name").value;
+    pass = document.getElementById("pass").value;
+    pass2 = document.getElementById("pass2").value;
+    if (user.length > 3){
+        if (pass == pass2){
+            encripta('compRegistre.php');
+        } else {
+            alert('Las contraseñas no coinciden');
+        }
+    } else {
+        alert('El usuario es demsiado corto');
+    }
+}
+
+function encripta(arxiu){
     var encrypted = String(CryptoJS.MD5(document.getElementById("pass").value));
     var nom = document.getElementById("name").value;
-    post("comp.php",{pass:encrypted, name:nom});
+    post(arxiu,{pass:encrypted, name:nom});
 }

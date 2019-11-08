@@ -10,7 +10,8 @@ $lang = [
         "closeSesion" => "Close Session",
         "lang" => "English",
         "langCode" => "en",
-        "register" => "You don't have an account? Sign up"
+        "noRegister" => "You don't have an account? Sign up",
+        "register" => "Register"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -21,7 +22,8 @@ $lang = [
         "closeSesion" => "Cerrar Sesión",
         "lang" => "Español",
         "langCode" => "es",
-        "register" => "¿No tienes cuenta? Registrate"
+        "noRegister" => "¿No tienes cuenta? Registrate",
+        "register" => "Registro"
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -32,7 +34,8 @@ $lang = [
         "closeSesion" => "Fermer la session",
         "lang" => "Français",
         "langCode" => "fr",
-        "register" => "Vous n'avez pas de compte? s'inscrire"
+        "noRegister" => "Vous n'avez pas de compte? s'inscrire",
+        "register" => "S'inscrire"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -43,7 +46,8 @@ $lang = [
         "closeSesion" => "Tancar la sessió",
         "lang" => "Catala",
         "langCode" => "ca",
-        "register" => "No tens compta? Registra't"
+        "noRegister" => "No tens compta? Registra't",
+        "register" => "Registre"
     ]
 ];
 

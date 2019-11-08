@@ -11,7 +11,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $lang[$idioma]["login"]?></title>
+    <title><?php echo $lang[$idioma]["register"]?></title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
@@ -25,7 +25,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 <?php include '../templates/header.html'?>
     <div class="row d-flex justify-content-center">
         <div class="card shadow-sm mt-5" style="width: 18rem;">
-            <h5 class="card-header"><i class="fas fa-sign-in-alt"></i> <?php echo $lang[$idioma]["login"]?></h5>
+            <h5 class="card-header"><i class="fas fa-sign-in-alt"></i> <?php echo $lang[$idioma]["register"]?></h5>
             <div class="card-body">
                 <form>
                 	<div class="form-group">
@@ -34,13 +34,13 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                     <div class="form-group">
                         <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label><input class="form-control" type="password" id="pass">
                     </div>
-                	<button class="btn btn-primary" type="button" onClick="encripta('comp.php')"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
+                    <div class="form-group">
+                        <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label><input class="form-control" type="password" id="pass2">
+                    </div>
+                	<button class="btn btn-primary" type="button" onClick="comprovaContrasenya()"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row d-flex justify-content-center mt-2">
-    	<a href="#"><?php echo $lang[$idioma]["noRegister"] ?>.</a>
     </div>
 </div>
 </body>

@@ -40,7 +40,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
         </div>
     </div>
     <div class="row d-flex justify-content-center mt-2">
-    	<a href="#"><?php echo $lang[$idioma]["noRegister"] ?>.</a>
+    	<a href="registre.php"><?php echo $lang[$idioma]["noRegister"] ?>.</a>
     </div>
 </div>
 </body>

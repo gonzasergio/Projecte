@@ -4,7 +4,7 @@ include 'arrayLanguage.php';
 session_start();
 
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
-    header("Location: inici.php");
+    header("Location: index.php");
 }
 if (!isset($_SESSION["idioma"])){
     if (in_array(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2), $lang)){

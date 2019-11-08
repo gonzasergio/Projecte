@@ -13,10 +13,7 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<style>
-    @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap');
-    *{font-family: 'Ubuntu', sans-serif;}
-    </style>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/40bb3d9f69.js"></script>
@@ -25,13 +22,12 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
     <script src="../js/global.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-		<?php include '../templates/header.php'?>
-        <div class="row d-flex justify-content-center">
-    		<a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
-    	</div>
-    	<br><br><br><br><br><br><br><br><br><br><br><br>
-    	<?php include '../templates/footer.php'?>
-    </div>
+	<?php include '../templates/header.php'?>
+	<main role="main" class="container-fluid">
+    	<div class="row d-flex justify-content-center">
+            <a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
+        </div>
+    </main>
+  	<?php include '../templates/footer.php'?>
 </body>
 </html>

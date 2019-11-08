@@ -26,7 +26,7 @@ if (!isset($_SESSION["idioma"])){
     </style>
     <meta charset="UTF-8">
     <title><?php echo $lang[$idioma]["login"]?></title>
-    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">

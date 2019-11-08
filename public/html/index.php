@@ -26,31 +26,11 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
 </head>
 <body>
     <div class="container-fluid">
-    		<div class="row bg-light p-2 shadow-sm">
-        		<div class="col .flex-row">
-        			<img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
-        			<h1 class="text-secondary d-inline">GOATrails</h1>
-        		</div>
-            	<div class="col d-flex justify-content-end">
-            	<i class="fas fa-language float-left text-secondary h1 mr-3"></i>
-                    <form action="sesioIdioma.php" method="post">
-                        <div class="form-group">
-                              <select class="form-control float-right" id="language" onChange="canviaIdioma()">
-                              <?php 
-                              foreach ($lang as $i) {
-                                  $selected = ($idioma==$i["langCode"])?('selected'):('');
-                                  echo "<option value='".$i["langCode"]."'".$selected.">".$i["lang"]."</option>";
-                              }
-                              
-                              ?>
-                        	</select>
-                        </div>
-                    </form>
-                </div>
-            </div>
+	<?php include '../templates/header.php'?>
         <div class="row d-flex justify-content-center">
     		<a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
     	</div>
     </div>
+    <?php include '../templates/footer.php'?>
 </body>
 </html>

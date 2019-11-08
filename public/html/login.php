@@ -22,7 +22,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 </head>
 <body>
 <div class="container-fluid">
-<?php include '../templates/header.html'?>
+	<?php include '../templates/header.php'?>
     <div class="row d-flex justify-content-center">
         <div class="card shadow-sm mt-5" style="width: 18rem;">
             <h5 class="card-header"><i class="fas fa-sign-in-alt"></i> <?php echo $lang[$idioma]["login"]?></h5>
@@ -42,6 +42,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     <div class="row d-flex justify-content-center mt-2">
     	<a href="registre.php"><?php echo $lang[$idioma]["noRegister"] ?>.</a>
     </div>
+    <?php include '../templates/footer.php'?>
 </div>
 </body>
 </html>

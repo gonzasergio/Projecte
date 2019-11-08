@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "sergio";
-$password = "123";
+$username = "admin";
+$password = "12345678";
 $dbname = "persona";
 
 $postname = $_POST['name'];

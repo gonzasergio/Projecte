@@ -1,20 +1,12 @@
 <?php
-include 'arrayLanguage.php';
-
 session_start();
+include 'arrayLanguage.php';
+include '../templates/detectarIdioma.php';
+
 if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
    header("Location: login.php");
 }
 
-if (!isset($_SESSION["idioma"])){
-    if (in_array(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2), $lang)){
-        $idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-    } else {
-        $idioma = "en";
-    }
-} else {
-    $idioma = $_SESSION["idioma"];
-}
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +22,7 @@ if (!isset($_SESSION["idioma"])){
     <script src="https://kit.fontawesome.com/40bb3d9f69.js"></script>
     <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
     <title><?php echo $lang[$idioma]["home"]?></title>
+    <script src="../js/global.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -59,31 +52,5 @@ if (!isset($_SESSION["idioma"])){
     		<a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
     	</div>
     </div>
-<script>
-function canviaIdioma(){
-    selector = document.getElementById('language').value;
-    post("sesioIdioma.php",{language:selector});
-  }
-function post(path, params, method='post') {
-    
-    const form = document.createElement('form');
-    form.method = method;
-    form.action = path;
-  
-    for (const key in params) {
-      if (params.hasOwnProperty(key)) {
-        const hiddenField = document.createElement('input');
-        hiddenField.type = 'hidden';
-        hiddenField.name = key;
-        hiddenField.value = params[key];
-  
-        form.appendChild(hiddenField);
-      }
-    }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
-</script>
 </body>
 </html>

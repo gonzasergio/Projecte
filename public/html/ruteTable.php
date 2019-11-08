@@ -1,6 +1,6 @@
 <?php
-include '../app/BDConnectio/DBConnection.php';
-include '../app/Model/Rute.php';
+include '../../app/BDConnectio/DBConnection.php';
+include '../../app/Model/Rute.php';
 
 $array = [];
 $sql = "SELECT * FROM rutes;";

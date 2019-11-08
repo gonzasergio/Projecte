@@ -35,12 +35,15 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                             <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label><input class="form-control" type="password" id="pass">
                         </div>
                         <div class="form-group">
-                            <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label><input class="form-control" type="password" id="pass2">
+                            <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["repeatPassword"]?>:</label><input class="form-control" type="password" id="pass2">
                         </div>
                     	<button class="btn btn-primary" type="button" onClick="comprovaContrasenya()"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-2">
+            <a href="login.php"><?php echo $lang[$idioma]["alreadyRegister"] ?>.</a>
         </div>
     </main>
     <?php include '../templates/footer.php'?>

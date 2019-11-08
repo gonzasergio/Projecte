@@ -3,7 +3,8 @@
 $lang = [
     "en" => [
         "user" => "User", 
-        "password" => "Password", 
+        "password" => "Password",
+        "repeatPassword" => "Repeat Password",
         "login" => "Login",
         "home" => "Home",
         "submit" => "Submit",
@@ -12,12 +13,14 @@ $lang = [
         "langCode" => "en",
         "noRegister" => "You don't have an account? Sign up",
         "register" => "Register",
-        "SignUp" => "Sign Up!",
-        "RegistrerFree" => "Register for free"
+        "signUp" => "Sign Up!",
+        "registerFree" => "Register for free",
+        "alreadyRegister" => "Your'r already have an account? Sign on"
     ],
     "es" => [
         "user" => "Usuario", 
-        "password" => "Contraseña", 
+        "password" => "Contraseña",
+        "repeatPassword" => "Repetir Contraseña",
         "login" => "Iniciar Sesión",
         "home" => "Inicio",
         "submit" => "Enviar",
@@ -26,12 +29,14 @@ $lang = [
         "langCode" => "es",
         "noRegister" => "¿No tienes cuenta? Registrate",
         "register" => "Registro",
-        "SignUp" => "¡Registrarse!",
-        "RegistrerFree" => "Registrate gratuitamente"
+        "signUp" => "¡Registrarse!",
+        "registerFree" => "Registrate gratuitamente",
+        "alreadyRegister" => "¿Ya tienes una cuenta?Inicia sesión"  
     ],
     "fr" => [
         "user" => "Utilisateur", 
-        "password" => "Mot de passe", 
+        "password" => "Mot de passe",
+        "repeatPassword" => "Répéter le mot de passe",
         "login" => "S'identifier",
         "home" => "Accueil",
         "submit" => "Soumettre",
@@ -40,12 +45,14 @@ $lang = [
         "langCode" => "fr",
         "noRegister" => "Vous n'avez pas de compte? s'inscrire",
         "register" => "S'inscrire",
-        "SignUp" => "Inscrivez-vous!",
-        "RegistrerFree" => "Inscription gratuite"
+        "signUp" => "Inscrivez-vous!",
+        "registerFree" => "Inscription gratuite",
+        "alreadyRegister" => "Vous avez déjà un compte? S'identifier"
     ],
     "ca" => [
         "user" => "Usuari",
         "password" => "Contrasenya",
+        "repeatPassword" => "Repetir Contrasenya",
         "login" => "Iniciar Sessió",
         "home" => "Inici",
         "submit" => "Enviar",
@@ -54,9 +61,9 @@ $lang = [
         "langCode" => "ca",
         "noRegister" => "No tens compta? Registra't",
         "register" => "Registre",
-        "SignUp" => "Registra-se!",
-        "RegistrerFree" => "Registra't gratuitament"
-        
+        "signUp" => "Registra-se!",
+        "registerFree" => "Registra't gratuitament",
+        "alreadyRegister" => "Ja tens un compte? Inicia sessió"
     ]
 ];
 

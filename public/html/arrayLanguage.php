@@ -31,7 +31,7 @@ $lang = [
         "register" => "Registro",
         "signUp" => "¡Registrarse!",
         "registerFree" => "Registrate gratuitamente",
-        "alreadyRegister" => "¿Ya tienes una cuenta?Inicia sesión"
+        "alreadyRegister" => "¿Ya tienes una cuenta? Inicia sesión"
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -43,7 +43,7 @@ $lang = [
         "closeSesion" => "Fermer la session",
         "lang" => "Français",
         "langCode" => "fr",
-        "noRegister" => "Vous n'avez pas de compte? s'inscrire",
+        "noRegister" => "Vous n'avez pas de compte? S'inscrire",
         "register" => "S'inscrire",
         "signUp" => "Inscrivez-vous!",
         "registerFree" => "Inscription gratuite",

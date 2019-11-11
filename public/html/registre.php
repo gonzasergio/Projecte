@@ -10,15 +10,8 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <?php include '../templates/head.php'?>
     <title><?php echo $lang[$idioma]["register"]?></title>
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
-    <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/40bb3d9f69.js"></script>
-    <script src="../js/global.js"></script>
 </head>
 <body>
     <?php include '../templates/menu.php'?>

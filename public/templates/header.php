@@ -17,12 +17,43 @@
             </form>
         </div>
     </div>
-    <div class="row bg-light p-2 shadow-sm">
-        <div class="col .flex-row">
-            <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
-            <h1 class="text-secondary d-inline">GOATrails</h1>
-        </div>
-        <div class="col d-flex justify-content-end">
-        </div>
-    </div>
 </header>
+<script type="text/javascript">
+$('document').ready(function(){
+var loc = window.location.pathname;
+var doc = loc.split(/(\\|\/)/g).pop();
+switch (doc) {
+case "login.php":
+	$("li#Login").attr("class","active");
+	break;
+case "registre.php":
+	$("li#Register").attr("class","active");
+	break;
+case "index.php":
+	$("li#Home").attr("class","active");
+	  break;
+}
+});
+</script>
+    <nav class="navbar  navbar-light navbar-expand-md bg-light p-2 shadow-sm">
+    	<a class="navbar-brand mr-5">
+            <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
+        	<h1 class="text-secondary">GOATrails</h1>
+        </a>
+      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      		<span class="navbar-toggler-icon"></span>
+      	</button>
+      	<div class="h5 collapse navbar-collapse ml-4 mt-2" id="navbarNavDropdown">
+        	<ul class="navbar-nav">
+          		<li id="Home" class="nav-item mx-1">
+            		<a class="nav-link" href="index.php"><?php echo $lang[$idioma]["home"] ?></a>
+          		</li>
+          		<li id="Login" class="nav-item mx-1">
+            		<a class="nav-link" href="login.php"><?php echo $lang[$idioma]["login"] ?></a>
+          		</li>
+          		<li id="Register" class="nav-item mx-1">
+           			<a class="nav-link" href="registre.php"><?php echo $lang[$idioma]["register"] ?></a>
+          		</li>
+        	</ul>
+      </div>
+    </nav>

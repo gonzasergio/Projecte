@@ -7,7 +7,15 @@ class DBConnection {
 
     private function __construct() {
         try {
-            $this->conn = new PDO("mysql:host=localhost;dbname=goatrails", "admin", "12345678");
+            $DBConf = null;
+            require_once '../../app/BDConnectio/DBConfig.php';
+
+            $servername = $DBConf["servername"];
+            $username = $DBConf["username"];
+            $password = $DBConf["password"];
+            $dbname = $DBConf["dbname"];
+
+            $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $e){
             echo $e->getMessage();

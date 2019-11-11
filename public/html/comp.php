@@ -1,7 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "admin";
-$password = "12345678";
+$DBConf = null;
+require_once '../../app/BDConnectio/DBConfig.php';
+
+$servername = $DBConf["servername"];
+$username = $DBConf["username"];
+$password = $DBConf["password"];
 $dbname = "persona";
 
 $postname = $_POST['name'];

@@ -16,15 +16,10 @@ include '../templates/detectarIdioma.php';
 <main role="main" class="container-fluid">
     <h1> <?= $_GET['name'] ?></h1>
 
-    <a class="btn btn-primary" href="pagament.php" role="button">Link</a>
+    <a class="btn btn-primary" href="pagament.php" role="button"><?php echo $lang[$idioma]["pay"]?></a>
 
 </main>
 <?php include '../templates/footer.php'?>
 
-<script type="text/javascript">
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
-    });
-</script>
 </body>
 </html>

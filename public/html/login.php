@@ -21,7 +21,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     <script src="../js/global.js"></script>
 </head>
 <body>
-    <?php include '../templates/header.php'?>
+    <?php include '../templates/menu.php'?>
     <main class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="card shadow-sm mt-5" style="width: 18rem;">

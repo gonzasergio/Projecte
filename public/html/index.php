@@ -22,7 +22,7 @@ if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
     <script src="../js/global.js"></script>
 </head>
 <body>
-	<?php include '../templates/header.php'?>
+	<?php include '../templates/menu.php'?>
 	<main role="main" class="container-fluid">
     	<div class="row d-flex justify-content-center">
             <a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>

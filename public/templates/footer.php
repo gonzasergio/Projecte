@@ -1,5 +1,5 @@
 <footer class="footer container-fluid">
-	<div class="row mt-5">
+	<div class="row">
       	<div class="col bg-secondary p-5 text-center">
           	<li class="list-inline-item">
                 <h5 class="text-light"><?php echo $lang[$idioma]["registerFree"] ?></h5>

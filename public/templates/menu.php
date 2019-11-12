@@ -1,5 +1,23 @@
 <header class="container-fluid">
     <div class="row bg-secondary pt-1">
+    	<div class="col">
+        		<div class="dropdown show">
+  				<a class="btn text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    			<i class="fas fa-user"></i>
+  				</a>
+
+  				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  				<?php
+  				if (!(isset($_SESSION["AUTH"]))){
+  				  echo "<a class='dropdown-item' href='login.php'><i class='fas fa-sign-in-alt' aria-hidden='true'></i>".$lang[$idioma]["login"]."</a>";
+  				} else {
+  				  echo "<a class='dropdown-item' href='tancarsessio.php'><i class='fas fa-sign-out-alt' aria-hidden='true'></i>".$lang[$idioma]["logout"]."</a>";
+    			  echo "<a class='dropdown-item' href='#'><i class='fas fa-map-marked-alt'></i>".$lang[$idioma]["yourRutes"]."</a>";
+  				}
+  				?>
+  				</div>
+</div>
+    	</div>
         <div class="col d-flex justify-content-end">
             <i class="fas fa-language float-left text-light h2 mr-3"></i>
             <form action="sesioIdioma.php" method="post">

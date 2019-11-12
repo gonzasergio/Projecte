@@ -5,7 +5,7 @@ include '../templates/detectarIdioma.php';
 include '../../app/BDConnectio/DBConnection.php';
 include '../../app/Model/Rute.php';
 
-if (!(isset($_SESSION["AUTH"])) && !($_SESSION["AUTH"] == true)){
+if (!(isset($_SESSION["AUTH"]))){
    header("Location: login.php");
 }
 
@@ -28,32 +28,33 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <body>
 	<?php include '../templates/menu.php'?>
 	<main role="main" class="container-fluid">
-
-        <table class="mt-5 table table-hover table-striped">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Zone</th>
-                <th scope="col">Km</th>
-                <th scope="col">Diff</th>
-            </tr>
-            </thead>
-            <tbody class="cursor-pointer">
-            <?php foreach ($array as $rute) : ?>
-                <tr class='clickable-row' data-href='excursio.php?name=<?= $rute->getName() ?>'>
-                    <td><?= $rute->getId() ?></td>
-                    <td><?= $rute->getName() ?></td>
-                    <td><?= $rute->getZone() ?></td>
-                    <td><?= $rute->getKm() ?></td>
-                    <td><?= $rute->getDifficulty() ?></td>
+		<div class="row d-flex justify-content-center">
+            <table class="mt-5 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm mx-5">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Zone</th>
+                    <th scope="col">Km</th>
+                    <th scope="col">Diff</th>
                 </tr>
+                </thead>
+                <tbody class="cursor-pointer">
+                <?php foreach ($array as $rute) : ?>
+                    <tr class='clickable-row' data-href='excursio.php?name=<?= $rute->getName() ?>'>
+                        <td><?= $rute->getId() ?></td>
+                        <td><?= $rute->getName() ?></td>
+                        <td><?= $rute->getZone() ?></td>
+                        <td><?= $rute->getKm() ?></td>
+                        <td><?= $rute->getDifficulty() ?></td>
+                    </tr>
+    
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-
-    	<div class="row d-flex justify-content-center">
+    	<div class="row d-flex justify-content-center">	
             <a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
         </div>
     </main>

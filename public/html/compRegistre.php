@@ -5,7 +5,7 @@ require_once '../../app/BDConnectio/DBConfig.php';
 $servername = $DBConf["servername"];
 $username = $DBConf["username"];
 $password = $DBConf["password"];
-$dbname = "persona";
+$dbname = $DBConf["dbname"];
 
 $postname = $_POST['name'];
 $postpass = $_POST['pass'];

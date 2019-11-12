@@ -53,10 +53,6 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 </tbody>
             </table>
         </div>
-
-    	<div class="row d-flex justify-content-center">	
-            <a href="tancarsessio.php" class="h1 mt-5"><i class="fas fa-sign-out-alt"></i> <?php echo $lang[$idioma]["closeSesion"]?></a>
-        </div>
     </main>
   	<?php include '../templates/footer.php'?>
 

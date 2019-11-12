@@ -12,3 +12,6 @@ main {
   bottom: 0;
   width: 100%;
 }
+.cursor-pointer {
+  cursor: pointer;
+}

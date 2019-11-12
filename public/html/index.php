@@ -29,7 +29,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 	<?php include '../templates/menu.php'?>
 	<main role="main" class="container-fluid">
 
-        <table class="table">
+        <table class="mt-5 table table-hover table-striped">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -39,7 +39,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 <th scope="col">Diff</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="cursor-pointer">
             <?php foreach ($array as $rute) : ?>
                 <tr class='clickable-row' data-href='excursio.php?name=<?= $rute->getName() ?>'>
                     <td><?= $rute->getId() ?></td>

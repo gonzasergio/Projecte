@@ -33,10 +33,10 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Zone</th>
+                    <th scope="col"><?php echo $lang[$idioma]["name"]?></th>
+                    <th scope="col"><?php echo $lang[$idioma]["zone"]?></th>
                     <th scope="col">Km</th>
-                    <th scope="col">Diff</th>
+                    <th scope="col"><?php echo $lang[$idioma]["difficulty"]?></th>
                 </tr>
                 </thead>
                 <tbody class="cursor-pointer">

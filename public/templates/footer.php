@@ -2,10 +2,12 @@
 	<div class="row">
       	<div class="col bg-secondary p-5 text-center">
           	<li class="list-inline-item">
-                <h5 class="text-light"><?php echo $lang[$idioma]["registerFree"] ?></h5>
+                <h5 class="text-light"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></h5>
             </li>
             <li class="list-inline-item">
-                <a href="registre.php" class="btn btn-outline-light"><?php echo $lang[$idioma]["signUp"]?></a>
+                <a href="<?php echo (!(isset($_SESSION["AUTH"])))?("registre.php"):("llistaexcursions.php"); ?>" class="btn btn-outline-light">
+                	<?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["signUp"]):($lang[$idioma]["search"]) ?>
+                </a>
         	</li>
       	</div>
     </div>

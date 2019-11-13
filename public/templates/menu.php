@@ -54,7 +54,7 @@ case "":
 });
 </script>
     <nav class="navbar  navbar-light navbar-expand-md bg-light p-2 shadow-sm">
-    	<a class="navbar-brand mr-5">
+    	<a class="navbar-brand mr-5" href="index.php">
             <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
         	<h1 class="text-secondary">GOATrails</h1>
         </a>

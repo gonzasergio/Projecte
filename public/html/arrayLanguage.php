@@ -24,7 +24,9 @@ $lang = [
         "difficulty" => "Difficulty",
         "routeList" => "Route list",
         "welcome" => "Welcome to GOATrails!",
-        "keyline" => "Find the Greatest Of All Trails."
+        "keyline" => "Find the Greatest Of All Trails.",
+        "startSearching" => "Start searching routes!",
+        "search" => "Search"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -48,8 +50,10 @@ $lang = [
         "zone" => "Zona",
         "difficulty" => "Dificultad",
         "routeList" => "Lista de rutas",
-        "welcome" => "Bienvenido a GOATrails!",
-        "keyline" => "Encuentra ''The Greatest Of All Trails''."
+        "welcome" => "¡Bienvenido a GOATrails!",
+        "keyline" => "Encuentra ''The Greatest Of All Trails''.",
+        "startSearching" => "¡Empieza a buscar rutas!",
+        "search" => "Buscar"
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -74,7 +78,9 @@ $lang = [
         "difficulty" => "Difficulté",
         "routeList" => "Liste des itinéraires",
         "welcome" => "Bienvenue à GOATrails!",
-        "keyline" => "Trouver ''The Greatest Of All Trails''."
+        "keyline" => "Trouver ''The Greatest Of All Trails''.",
+        "startSearching" => "Commencer à chercher des rutes!",
+        "search" => "Chercher"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -99,7 +105,9 @@ $lang = [
         "difficulty" => "Dificultat",
         "routeList" => "Llista de rutes",
         "welcome" => "Bienvingut a GOATrails!",
-        "keyline" => "Troba ''The Greatest Of All Trails''."
+        "keyline" => "Troba ''The Greatest Of All Trails''.",
+        "startSearching" => "Comença a cercar rutes!",
+        "search" => "Cercar"
     ]
 ];
 

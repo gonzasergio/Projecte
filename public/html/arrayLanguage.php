@@ -22,7 +22,9 @@ $lang = [
         "name" => "Name",
         "zone" => "Zone",
         "difficulty" => "Difficulty",
-        "routeList" => "Route list"
+        "routeList" => "Route list",
+        "welcome" => "Welcome to GOATrails!",
+        "keyline" => "Find the Greatest Of All Trails."
     ],
     "es" => [
         "user" => "Usuario", 
@@ -45,7 +47,9 @@ $lang = [
         "name" => "Nombre",
         "zone" => "Zona",
         "difficulty" => "Dificultad",
-        "routeList" => "Lista de rutas"
+        "routeList" => "Lista de rutas",
+        "welcome" => "Bienvenido a GOATrails!",
+        "keyline" => "Encuentra ''The Greatest Of All Trails''."
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -68,7 +72,9 @@ $lang = [
         "name" => "Nom",
         "zone" => "Zone",
         "difficulty" => "Difficulté",
-        "routeList" => "Liste des itinéraires"
+        "routeList" => "Liste des itinéraires",
+        "welcome" => "Bienvenue à GOATrails!",
+        "keyline" => "Trouver ''The Greatest Of All Trails''."
     ],
     "ca" => [
         "user" => "Usuari",
@@ -91,7 +97,9 @@ $lang = [
         "name" => "Nom",
         "zone" => "Zona",
         "difficulty" => "Dificultat",
-        "routeList" => "Llista de rutes"
+        "routeList" => "Llista de rutes",
+        "welcome" => "Bienvingut a GOATrails!",
+        "keyline" => "Troba ''The Greatest Of All Trails''."
     ]
 ];
 

@@ -24,7 +24,22 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <body>
 	<?php include '../templates/menu.php'?>
 	<main role="main" class="container-fluid">
-		<h1 class="m-5">Pagina inici</h1>
+    	<div class="row">
+    		<div class="videobackground">
+              <div class="overlay"></div>
+              <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+              </video>
+              <div class="container h-100">
+                <div class="d-flex h-100 text-center align-items-center">
+                  <div class="w-100 text-white">
+                    <h1 class="display-3"><?php echo $lang[$idioma]["welcome"]?></h1>
+                    <p class="lead mb-0"><?php echo $lang[$idioma]["keyline"]?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </main>
   	<?php include '../templates/footer.php'?>
 

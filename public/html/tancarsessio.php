@@ -17,5 +17,5 @@ session_start();
 
 $_SESSION["idioma"] = $idioma;
 
-header("Location: login.php");
+header("Location: index.php");
 ?>

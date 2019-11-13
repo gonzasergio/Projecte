@@ -4,6 +4,9 @@ $idioma = null;
 include 'arrayLanguage.php';
 include '../templates/detectarIdioma.php';
 
+if (!(isset($_SESSION["AUTH"]))){
+    header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +17,7 @@ include '../templates/detectarIdioma.php';
 <body>
 <?php include '../templates/menu.php'?>
 <main role="main" class="container-fluid">
-    <h1> <?php echo $lang[$idioma]["pay"]?></h1>
+    <h1 class="m-5"> <?php echo $lang[$idioma]["pay"]?></h1>
 
 
 </main>

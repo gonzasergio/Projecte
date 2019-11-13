@@ -14,10 +14,10 @@ include '../templates/detectarIdioma.php';
 <body>
 <?php include '../templates/menu.php'?>
 <main role="main" class="container-fluid">
-    <h1> <?= $_GET['name'] ?></h1>
-
-    <a class="btn btn-primary" href="pagament.php" role="button"><?php echo $lang[$idioma]["pay"]?></a>
-
+    <div class="m-5">
+        <h1> <?= $_GET['name'] ?></h1>
+        <a class="btn btn-primary mt-4" href="pagament.php" role="button"><?php echo $lang[$idioma]["pay"]?></a>
+    </div>
 </main>
 <?php include '../templates/footer.php'?>
 

@@ -41,11 +41,8 @@ $('document').ready(function(){
 var loc = window.location.pathname;
 var doc = loc.split(/(\\|\/)/g).pop();
 switch (doc) {
-case "login.php":
-	$("li#Login").attr("class","active");
-	break;
-case "registre.php":
-	$("li#Register").attr("class","active");
+case "llistaexcursions.php":
+	$("li#Llista").attr("class","active");
 	break;
 case "index.php":
 	$("li#Home").attr("class","active");
@@ -64,13 +61,10 @@ case "index.php":
       	<div class="h5 collapse navbar-collapse ml-4 mt-2" id="navbarNavDropdown">
         	<ul class="navbar-nav">
           		<li id="Home" class="nav-item mx-1">
-            		<a class="nav-link" href="index.php"><?php echo $lang[$idioma]["home"] ?></a>
+            		<a class="nav-link" href="index.php"><i class="fas fa-home"></i> <?php echo $lang[$idioma]["home"] ?></a>
           		</li>
-          		<li id="Login" class="nav-item mx-1">
-            		<a class="nav-link" href="login.php"><?php echo $lang[$idioma]["login"] ?></a>
-          		</li>
-          		<li id="Register" class="nav-item mx-1">
-           			<a class="nav-link" href="registre.php"><?php echo $lang[$idioma]["register"] ?></a>
+          		<li id="Llista" class="nav-item mx-1">
+            		<a class="nav-link" href="llistaexcursions.php"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
           		</li>
         	</ul>
       </div>

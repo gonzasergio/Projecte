@@ -33,7 +33,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
               <div class="container h-100">
                 <div class="d-flex h-100 text-center align-items-center">
                   <div class="w-100 text-white">
-                    <h1 class="display-3"><?php echo $lang[$idioma]["welcome"]?></h1>
+                    <h1 class="display-4"><?php echo $lang[$idioma]["welcome"]?></h1>
                     <p class="lead mb-0"><?php echo $lang[$idioma]["keyline"]?></p>
                   </div>
                 </div>

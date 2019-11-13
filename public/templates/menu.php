@@ -47,6 +47,9 @@ case "llistaexcursions.php":
 case "index.php":
 	$("li#Home").attr("class","active");
 	  break;
+case "":
+	$("li#Home").attr("class","active");
+	  break;
 }
 });
 </script>

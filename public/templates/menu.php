@@ -12,7 +12,7 @@
   				  echo "<a class='dropdown-item' href='login.php'><i class='fas fa-sign-in-alt' aria-hidden='true'></i> ".$lang[$idioma]["login"]."</a>";
   				} else {
   				  echo "<a class='dropdown-item' href='tancarsessio.php'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> ".$lang[$idioma]["logout"]."</a>";
-    			  echo "<a class='dropdown-item' href='#'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRutes"]."</a>";
+    			  echo "<a class='dropdown-item' href='#'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRoutes"]."</a>";
   				}
   				?>
   				</div>

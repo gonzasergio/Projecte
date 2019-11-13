@@ -18,10 +18,11 @@ $lang = [
         "alreadyRegister" => "Your'r already have an account? Sign on",
         "route" => "Route",
         "pay" => "Pay",
-        "yourRutes" => "Your rutes",
+        "yourRoutes" => "Your routes",
         "name" => "Name",
         "zone" => "Zone",
-        "difficulty" => "Difficulty"
+        "difficulty" => "Difficulty",
+        "routeList" => "Route list"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -40,10 +41,11 @@ $lang = [
         "alreadyRegister" => "¿Ya tienes una cuenta? Inicia sesión",
         "route" => "Ruta",
         "pay" => "Pagar",
-        "yourRutes" => "Tus rutas",
+        "yourRoutes" => "Tus rutas",
         "name" => "Nombre",
         "zone" => "Zona",
-        "difficulty" => "Dificultad"
+        "difficulty" => "Dificultad",
+        "routeList" => "Lista de rutas"
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -62,10 +64,11 @@ $lang = [
         "alreadyRegister" => "Vous avez déjà un compte? S'identifier",
         "route" => "Itinéraire",
         "pay" => "Payer",
-        "yourRutes" => "Vos rutes",
+        "yourRoutes" => "Vos rutes",
         "name" => "Nom",
         "zone" => "Zone",
-        "difficulty" => "Difficulté"
+        "difficulty" => "Difficulté",
+        "routeList" => "Liste des itinéraires"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -84,10 +87,11 @@ $lang = [
         "alreadyRegister" => "Ja tens un compte? Inicia sessió",
         "route" => "Ruta",
         "pay" => "Pagar",
-        "yourRutes" => "Les teves rutes",
+        "yourRoutes" => "Les teves rutes",
         "name" => "Nom",
         "zone" => "Zona",
-        "difficulty" => "Dificultat"
+        "difficulty" => "Dificultat",
+        "routeList" => "Llista de rutes"
     ]
 ];
 

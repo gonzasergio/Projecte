@@ -29,7 +29,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 	<?php include '../templates/menu.php'?>
 	<main role="main" class="container-fluid">
 		<div class="row d-flex justify-content-center">
-            <table class="mt-5 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm mx-5">
+			<h3 class="mt-5 text-secondary"><i class='fas fa-map-marked-alt'></i> <?php echo $lang[$idioma]["routeList"]?></h3>
+            <table class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm mx-5">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>

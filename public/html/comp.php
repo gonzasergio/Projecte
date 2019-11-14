@@ -25,6 +25,7 @@ if ($result->num_rows > 0) {
     if($result == $postpass ){
 		session_start();
 		$_SESSION["AUTH"]=true;
+		$_SESSION["user"]=ucfirst(strtolower($postname));
         header("Location: index.php");
     } else {
         echo '<script>alert("Contrasenya incorrecte");parent.location = "login.php"</script>';

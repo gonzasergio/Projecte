@@ -26,8 +26,11 @@
       				} else {
       				  echo "<div class='dropdown show'>";
       				  echo "<a class='btn text-light dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-      				  echo "<i class='fas fa-user'></i>";
-      				  echo "</a>"; 
+      				  echo "<i class='fas fa-user'></i>&nbsp;&nbsp;";
+      				  echo "<span class='d-none d-md-inline'>";
+      				  echo $_SESSION["user"];
+      				  echo "</span>";
+      				  echo "</a>";      				  
       				  echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>";
       				  echo "<a class='dropdown-item' href='tancarsessio.php'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> ".$lang[$idioma]["logout"]."</a>";
         			  echo "<a class='dropdown-item' href='#'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRoutes"]."</a>";

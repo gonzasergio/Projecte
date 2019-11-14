@@ -1,5 +1,5 @@
 <header class="container-fluid">
-    <div class="row bg-secondary pt-1">
+    <div class="row bg-secondary pt-2">
     	<div class="col">
       				<?php
       				if (!(isset($_SESSION["AUTH"]))){

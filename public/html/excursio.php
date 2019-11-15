@@ -1,8 +1,6 @@
 <?php
-session_start();
 $idioma = null;
-include 'arrayLanguage.php';
-include '../templates/detectarIdioma.php';
+include '../templates/globalIclude.php';
 
 ?>
 <!DOCTYPE html>

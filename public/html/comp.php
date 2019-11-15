@@ -26,7 +26,8 @@ if ($result->num_rows > 0) {
 		session_start();
 		$_SESSION["AUTH"]=true;
 		$_SESSION["user"]=ucfirst(strtolower($postname));
-        header("Location: index.php");
+		$url = $_SESSION["lastRoute"];
+        header("Location: $url ");
     } else {
         echo '<script>alert("Contrasenya incorrecte");parent.location = "login.php"</script>';
     }

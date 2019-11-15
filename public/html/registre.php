@@ -1,7 +1,5 @@
 <?php
-session_start();
-include 'arrayLanguage.php';
-include '../templates/detectarIdioma.php';
+include '../templates/globalIclude.php';
 
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     header("Location: index.php");

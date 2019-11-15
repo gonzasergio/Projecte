@@ -33,7 +33,7 @@
       				  echo "</a>";      				  
       				  echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>";
       				  echo "<a class='dropdown-item' href='tancarsessio.php'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> ".$lang[$idioma]["logout"]."</a>";
-        			  echo "<a class='dropdown-item' href='#'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRoutes"]."</a>";
+        			  echo "<a class='dropdown-item' href='misExcursiones.php'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRoutes"]."</a>";
         			  echo "</div>";
         			  echo "</div>";
       				}

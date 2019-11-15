@@ -26,7 +26,8 @@ $lang = [
         "welcome" => "Welcome to GOATrails!",
         "keyline" => "Find the Greatest Of All Trails.",
         "startSearching" => "Start searching routes!",
-        "search" => "Search"
+        "search" => "Search",
+        "myRoute" =>"My Route list"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -53,7 +54,9 @@ $lang = [
         "welcome" => "¡Bienvenido a GOATrails!",
         "keyline" => "Encuentra ''The Greatest Of All Trails''.",
         "startSearching" => "¡Empieza a buscar rutas!",
-        "search" => "Buscar"
+        "search" => "Buscar",
+        "myRoute" =>"Mi Lista de rutas"
+
     ],
     "fr" => [
         "user" => "Utilisateur", 
@@ -80,7 +83,8 @@ $lang = [
         "welcome" => "Bienvenue à GOATrails!",
         "keyline" => "Trouver ''The Greatest Of All Trails''.",
         "startSearching" => "Commencer à chercher des rutes!",
-        "search" => "Chercher"
+        "search" => "Chercher",
+        "myRoute" => "Meuro Liste des itinéraires"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -107,7 +111,8 @@ $lang = [
         "welcome" => "Bienvingut a GOATrails!",
         "keyline" => "Troba ''The Greatest Of All Trails''.",
         "startSearching" => "Comença a cercar rutes!",
-        "search" => "Cercar"
+        "search" => "Cercar",
+        "myRoute" => "La Meva Llista de rutes"
     ]
 ];
 

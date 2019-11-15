@@ -3,39 +3,9 @@
     	<div class="col">
       				<?php
       				if (!(isset($_SESSION["AUTH"]))){
-      				  echo "<div class='d-none d-md-block'>";
-      				  echo "<a href='login.php' class='btn btn-sm btn-light'>";
-      				  echo $lang[$idioma]["login"];
-      				  echo "</a>";
-      				  echo "<a href='registre.php' class='ml-2 btn btn-sm btn-outline-light'>";
-      				  echo $lang[$idioma]["register"];
-                      echo "</a>";
-                      echo "</div>";
-                      
-                      echo "<div class='d-block d-md-none'>";
-                      echo "<div class='dropdown show'>";
-                      echo "<a class='btn text-light dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-                      echo "<i class='fas fa-user'></i>";
-                      echo "</a>";
-                      echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>";
-                      echo "<a class='dropdown-item' href='login.php'><i class='fas fa-sign-in-alt' aria-hidden='true'></i> ".$lang[$idioma]["login"]."</a>";
-                      echo "<a class='dropdown-item' href='register.php'><i class='far fa-id-card' aria-hidden='true'></i> ".$lang[$idioma]["register"]."</a>";
-                      echo "</div>";
-                      echo "</div>";
-                      echo "</div>";
+      				  include '../templates/responsive-login-btn.php';
       				} else {
-      				  echo "<div class='dropdown show'>";
-      				  echo "<a class='btn text-light dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
-      				  echo "<i class='fas fa-user'></i>&nbsp;&nbsp;";
-      				  echo "<span class='d-none d-md-inline'>";
-      				  echo $_SESSION["user"];
-      				  echo "</span>";
-      				  echo "</a>";      				  
-      				  echo "<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>";
-      				  echo "<a class='dropdown-item' href='tancarsessio.php'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> ".$lang[$idioma]["logout"]."</a>";
-        			  echo "<a class='dropdown-item' href='misExcursiones.php'><i class='fas fa-map-marked-alt'></i> ".$lang[$idioma]["yourRoutes"]."</a>";
-        			  echo "</div>";
-        			  echo "</div>";
+      				  include '../templates/profile-dropdown.php';
       				}
       				?>
     	</div>

@@ -27,7 +27,7 @@ $lang = [
         "keyline" => "Find the Greatest Of All Trails.",
         "startSearching" => "Start searching routes!",
         "search" => "Search",
-        "myRoute" =>"My Route list"
+        "myRoute" =>"My Routes"
     ],
     "es" => [
         "user" => "Usuario", 
@@ -55,7 +55,7 @@ $lang = [
         "keyline" => "Encuentra ''The Greatest Of All Trails''.",
         "startSearching" => "¡Empieza a buscar rutas!",
         "search" => "Buscar",
-        "myRoute" =>"Mi Lista de rutas"
+        "myRoute" =>"Mis rutas"
 
     ],
     "fr" => [
@@ -84,7 +84,7 @@ $lang = [
         "keyline" => "Trouver ''The Greatest Of All Trails''.",
         "startSearching" => "Commencer à chercher des rutes!",
         "search" => "Chercher",
-        "myRoute" => "Meuro Liste des itinéraires"
+        "myRoute" => "Mes itinéraires"
     ],
     "ca" => [
         "user" => "Usuari",
@@ -112,7 +112,7 @@ $lang = [
         "keyline" => "Troba ''The Greatest Of All Trails''.",
         "startSearching" => "Comença a cercar rutes!",
         "search" => "Cercar",
-        "myRoute" => "La Meva Llista de rutes"
+        "myRoute" => "Les meves rutes"
     ]
 ];
 

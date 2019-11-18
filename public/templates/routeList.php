@@ -19,8 +19,11 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
 <main role="main" class="container-fluid">
     <div class="row d-flex justify-content-center">
         <h3 class="mt-5 text-secondary"><i class='fas fa-map-marked-alt'></i> <?= /** @var TYPE_NAME $title */$title?></h3>
-        <table class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm mx-5">
-            <thead class="thead-dark">
+    </div>
+	<div class="row d-flex justify-content-center">
+	<div class="col mx-5">
+        <table id="listaExcursiones" class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm">
+           <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col"><?php echo $lang[$idioma]["name"]?></th>
@@ -28,7 +31,7 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
                 <th scope="col">Km</th>
                 <th scope="col"><?php echo $lang[$idioma]["difficulty"]?></th>
             </tr>
-            </thead>
+           </thead>
             <tbody class="cursor-pointer">
             <?php foreach ($array as $rute) : ?>
                 <tr class='clickable-row' data-href="excursio.php?name=<?= $rute->getName() ?>">
@@ -42,7 +45,8 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
             <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
+	</div>
+	</div>
 </main>
 <?php include '../templates/footer.php'?>
 

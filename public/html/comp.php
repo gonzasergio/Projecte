@@ -29,6 +29,7 @@ if ($result->num_rows > 0) {
 		if (isset($_SESSION["lastRoute"])){
 		    $url = $_SESSION["lastRoute"];
 		    header("Location: $url ");
+		    var_dump($url);
 		} else {
 		    header("Location: index.php");
 		}

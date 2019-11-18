@@ -27,9 +27,9 @@ if ($result->num_rows > 0) {
 		$_SESSION["AUTH"]=true;
 		$_SESSION["user"]=ucfirst(strtolower($postname));
 		if (isset($_SESSION["lastRoute"])){
-		    $url = $_SESSION["lastRoute"];
+		    $url = ($_SESSION["lastRoute"] == '') ? 'index.php' : $_SESSION["lastRoute"];
 		    header("Location: $url ");
-		    var_dump($url);
+		    //var_dump($url);
 		} else {
 		    header("Location: index.php");
 		}

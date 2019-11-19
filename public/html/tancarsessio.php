@@ -18,5 +18,5 @@ session_start();
 
 $_SESSION["idioma"] = $idioma;
 
-header("Location: ".$link["index"]);
+header("Location: ".$link["inici"]);
 ?>

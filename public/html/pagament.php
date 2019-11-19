@@ -16,11 +16,11 @@ if (!(isset($_SESSION["AUTH"]))){
 <?php include $template["menu"]?>
 <main role="main" class="container-fluid">
 <div class="row mt-5">
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-6 col-md-10 mx-auto">
       <div class="bg-light rounded-top shadow-sm p-2 border border-bottom-0"><h5><i class="far fa-credit-card ml-3 mt-2"></i> <?php echo $lang[$idioma]["pay"]?></h5></div>
       <div class="bg-white rounded-bottom shadow-sm p-5 border">
         <!-- Credit card form tabs -->
-        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-5 mb-md-4">
           <li class="nav-item">
             <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded">
                                 <i class="far fa-credit-card"></i>

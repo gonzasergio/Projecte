@@ -20,32 +20,35 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
     <div class="row d-flex justify-content-center">
         <h3 class="mt-5 text-secondary"><i class='fas fa-map-marked-alt'></i> <?= /** @var TYPE_NAME $title */$title?></h3>
     </div>
-	<div class="row d-flex justify-content-center">
-	<div class="col mx-5">
-        <table class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm">
-           <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col"><?php echo $lang[$idioma]["name"]?></th>
-                <th scope="col"><?php echo $lang[$idioma]["zone"]?></th>
-                <th scope="col">Km</th>
-                <th scope="col"><?php echo $lang[$idioma]["difficulty"]?></th>
-            </tr>
-           </thead>
-            <tbody class="cursor-pointer">
-            <?php foreach ($array as $rute) : ?>
-                <tr class='clickable-row' data-href="<?php echo $link["excursio"] ?>?name=<?= $rute->getName() ?>">
-                    <td><?= $rute->getId() ?></td>
-                    <td><?= $rute->getName() ?></td>
-                    <td><?= $rute->getZone() ?></td>
-                    <td><?= $rute->getKm() ?></td>
-                    <td><?= $rute->getDifficulty() ?></td>
-                </tr>
-
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-	</div>
+	<div class="row mx-5 border rounded shadow-sm pt-4 mt-4">
+	 <?php foreach ($array as $rute) : ?>
+	 		<div class="container-fluid">
+                <div class="row border-bottom mx-2 mx-md-5 mb-4">
+                	<div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-2 text-center">
+                    	<a href="#" title="Usuari">
+                        	<img class="rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
+                    	</a>
+                    	<p class="text-secondary mt-1">
+                    		<a href="#" title="Usuari" class="text-secondary">Usuari</a>
+                    	</p>
+                	</div>
+                    <div class="col">
+                            <h4><a href="<?php echo $link["excursio"] ?>?name=<?= $rute->getName() ?>"><?= $rute->getName() ?></a></h4>
+                            <div class="mb-2">
+                            <div class="d-block d-sm-none mb-n1">
+                                <a href="#" title="Usuari"><small><i class='fas fa-user'></i></small> Usuari</a>
+                                <br>
+                            </div>
+                            <small>
+                                <i class="fas fa-walking"></i> <?= $rute->getKm() ?> km &nbsp;
+                                <i class="fas fa-medal"></i> <a href="#"> <?= $rute->getDifficulty() ?></a>
+                            </small>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+             </div>
+ 	<?php endforeach; ?>
 	</div>
 </main>
 <?php include $template["footer"]?>

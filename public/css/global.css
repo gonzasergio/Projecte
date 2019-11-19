@@ -15,7 +15,7 @@ main {
 .cursor-pointer {
   cursor: pointer;
 }
-
+/* Video */
 .videobackground {
   position: relative;
   background-color: black;
@@ -63,4 +63,19 @@ main {
   .videobackground video {
     display: none;
   }
+}
+/* Pagament */
+.nav-pills .nav-link {
+  color: #555;
+}
+
+.nav-pills .nav-link.active {
+  color: #fff;
+}
+/* Sticky nav */
+.sticky {
+    z-index: 5 !important;
+}
+.sticky-nav {
+    z-index: 2 !important;
 }

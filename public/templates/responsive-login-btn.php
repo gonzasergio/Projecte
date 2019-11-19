@@ -1,8 +1,8 @@
 <div class='d-none d-md-block'>
-	<a href='login.php' class='btn btn-sm btn-light'>
+	<a href='login.php' class='btn btn-sm btn-light rounded-pill'>
 		<?php echo $lang[$idioma]["login"];?>
 	</a>
-	<a href='registre.php' class='ml-2 btn btn-sm btn-outline-light'>
+	<a href='registre.php' class='ml-2 btn btn-sm btn-outline-light rounded-pill'>
 		<?php echo $lang[$idioma]["register"];?>
 	</a>
 </div>

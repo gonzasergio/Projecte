@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<header class="container-fluid sticky">
     <div class="row bg-secondary pt-2">
     	<div class="col">
       				<?php
@@ -44,7 +44,7 @@ case "":
 }
 });
 </script>
-    <nav class="navbar  navbar-light navbar-expand-md bg-light p-2 shadow-sm">
+    <nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
     	<a class="navbar-brand mr-5" href="index.php">
             <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
         	<h1 class="text-secondary">GOATrails</h1>

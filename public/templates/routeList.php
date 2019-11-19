@@ -22,7 +22,7 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
     </div>
 	<div class="row d-flex justify-content-center">
 	<div class="col mx-5">
-        <table id="listaExcursiones" class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm">
+        <table class="mt-3 table table-hover table-striped table table-borderless table-responsive-sm shadow-sm">
            <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>

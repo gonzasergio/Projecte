@@ -5,7 +5,7 @@
                 <h5 class="text-light"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></h5>
             </li>
             <li class="list-inline-item">
-                <a href="<?php echo (!(isset($_SESSION["AUTH"])))?("registre.php"):("llistaexcursions.php"); ?>" class="btn btn-outline-light">
+                <a href="<?php echo (!(isset($_SESSION["AUTH"])))?("registre.php"):("llistaexcursions.php"); ?>" class="btn btn-outline-light rounded-pill">
                 	<?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["signUp"]):($lang[$idioma]["search"]) ?>
                 </a>
         	</li>
@@ -13,7 +13,7 @@
     </div>
     <div class="row text-center bg-dark p-2">
         <div class="col text-center bg-dark p-2">
-        	<a href="#" class="text-secondary">&copy; <?php echo date("Y"); ?> Copyright - GOATrails.com</a>
+        	<a href="index.php" class="text-secondary">&copy; <?php echo date("Y"); ?> Copyright - GOATrails.com</a>
         </div>
 	</div>
 </footer>

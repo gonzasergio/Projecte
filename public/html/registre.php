@@ -28,7 +28,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                         <div class="form-group">
                             <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["repeatPassword"]?>:</label><input class="form-control" type="password" id="pass2">
                         </div>
-                    	<button class="btn btn-primary" type="button" onClick="comprovaContrasenya()"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
+                    	<button class="btn btn-primary btn-block rounded-pill mt-4" type="button" onClick="comprovaContrasenya()"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
                     </form>
                 </div>
             </div>

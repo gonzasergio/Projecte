@@ -5,7 +5,7 @@
                 <h5 class="text-light"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></h5>
             </li>
             <li class="list-inline-item">
-                <a href="<?php echo (!(isset($_SESSION["AUTH"])))?($link["registre"]):($link["excursions"]); ?>" class="btn btn-outline-light rounded-pill">
+                <a href="<?php echo (!(isset($_SESSION["AUTH"])))?($link["registre"]):($link["excursions"]); ?>" class="btn btn-outline-light rounded">
                 	<?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["signUp"]):($lang[$idioma]["search"]) ?>
                 </a>
         	</li>

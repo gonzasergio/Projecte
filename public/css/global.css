@@ -72,9 +72,6 @@ main {
 .nav-pills .nav-link.active {
   color: #fff;
 }
-.custom-rounded {
-    border-radius: 20px!important;
-}
 /* -------- */
 /* Sticky nav */
 .sticky {

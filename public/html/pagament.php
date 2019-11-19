@@ -20,21 +20,21 @@ if (!(isset($_SESSION["AUTH"]))){
       <div class="bg-light rounded-top shadow-sm p-2 border border-bottom-0"><h5><i class="far fa-credit-card ml-3 mt-2"></i> <?php echo $lang[$idioma]["pay"]?></h5></div>
       <div class="bg-white rounded-bottom shadow-sm p-5 border">
         <!-- Credit card form tabs -->
-        <ul role="tablist" class="nav bg-light nav-pills custom-rounded nav-fill mb-3">
+        <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
           <li class="nav-item">
-            <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill">
+            <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded">
                                 <i class="far fa-credit-card"></i>
                                 <?php echo $lang[$idioma]["creditCard"]?>
                             </a>
           </li>
           <li class="nav-item">
-            <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
+            <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded">
                                 <i class="fab fa-paypal"></i>
                                 Paypal
                             </a>
           </li>
           <li class="nav-item">
-            <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
+            <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded">
                                 <i class="fa fa-university"></i>
                                  <?php echo $lang[$idioma]["bankTransfer"]?>
                              </a>
@@ -88,7 +88,7 @@ if (!(isset($_SESSION["AUTH"]))){
 
 
               </div>
-              <button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"> <?php echo $lang[$idioma]["confirm"]?>  </button>
+              <button type="button" class="subscribe btn btn-primary btn-block rounded shadow-sm"> <?php echo $lang[$idioma]["confirm"]?>  </button>
             </form>
           </div>
           <!-- End -->
@@ -97,7 +97,7 @@ if (!(isset($_SESSION["AUTH"]))){
           <div id="nav-tab-paypal" class="tab-pane fade">
             <p><?php echo $lang[$idioma]["paypalEasy"]?></p>
             <p>
-              <button type="button" class="btn btn-primary rounded-pill"><i class="fab fa-paypal mr-2"></i> <?php echo $lang[$idioma]["loginPaypal"]?></button>
+              <button type="button" class="btn btn-primary rounded"><i class="fab fa-paypal mr-2"></i> <?php echo $lang[$idioma]["loginPaypal"]?></button>
             </p>
             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>

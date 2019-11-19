@@ -72,6 +72,10 @@ main {
 .nav-pills .nav-link.active {
   color: #fff;
 }
+.custom-rounded {
+    border-radius: 20px!important;
+}
+/* -------- */
 /* Sticky nav */
 .sticky {
     z-index: 5 !important;
@@ -79,3 +83,8 @@ main {
 .sticky-nav {
     z-index: 2 !important;
 }
+/* -------- */
+::selection {
+  background: #c0c0c0;
+}
+/* -------- */

@@ -41,6 +41,7 @@ $lang = [
         "bankDetails" => "Bank account details",
         "bank" => "Bank",
         "bankAccount" => "Account number",
+        "leaveAComment" => "Leave a Comment",
     ],
     "es" => [
         "user" => "Usuario", 
@@ -82,6 +83,7 @@ $lang = [
         "bankDetails" => "Detalles de cuenta bancaria",
         "bank" => "Banco",
         "bankAccount" => "Número de cuenta",
+        "leaveAComment" => "Deja un comentario",
 
     ],
     "fr" => [
@@ -124,6 +126,7 @@ $lang = [
         "bankDetails" => "Détails de compte en banque",
         "bank" => "Banque",
         "bankAccount" => "Numéro de compte",
+        "leaveAComment" => "Laissez un commentaire",
     ],
     "ca" => [
         "user" => "Usuari",
@@ -165,6 +168,7 @@ $lang = [
         "bankDetails" => "Dades del compte bancari",
         "bank" => "Banc",
         "bankAccount" => "Número de compte",
+        "leaveAComment" => "Deixa un comentari",
     ]
 ];
 

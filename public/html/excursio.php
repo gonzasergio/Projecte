@@ -1,6 +1,17 @@
 <?php
 $idioma = null;
 include '../templates/globalIclude.php';
+include '../../app/BDConnectio/DBConnection.php';
+include '../../app/Model/Rute.php';
+
+$array = [];
+$sql = "SELECT * FROM rutes WHERE id = '".$_GET['id']."';";
+$stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
+$stmt->execute();
+
+while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+    $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +29,7 @@ include '../templates/globalIclude.php';
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4"><?= $_GET['name'] ?></h1>
+        <h1 class="mt-4"><?= $array[0]->getName() ?></h1>
 
         <hr>
 
@@ -37,13 +48,13 @@ include '../templates/globalIclude.php';
 
         <!-- Comments Form -->
         <div class="card mb-3">
-          <h5 class="card-header">Leave a Comment:</h5>
+          <h5 class="card-header"><?php echo $lang[$idioma]["leaveAComment"]?>:</h5>
           <div class="card-body">
             <form>
               <div class="form-group">
                 <textarea class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
             </form>
           </div>
         </div>
@@ -80,18 +91,18 @@ include '../templates/globalIclude.php';
       <!-- Sidebar Widgets Column -->
       <div class="col">
 
-        <a class="btn btn-block btn-primary mt-4" href="<?php echo $link["pagament"]?>" type="button"><i class="far fa-credit-card"></i> <?php echo $lang[$idioma]["pay"]?></a>
+        <a class="btn btn-block btn-primary mt-4" href="<?php echo $link["pagament"]?>" type="button"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
 
 
         <!-- Categories Widget -->
         <div class="card rounded mt-5">
           <div class="card-body">
             <div class="text-center">
-                <a href="#" title="Usuari">
+                <a href="#" title="<?= $array[0]->getUserNom() ?>">
                     <img class="rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                 </a>
                 <p class="text-secondary mt-1">
-                    <a href="#" title="Usuari">Usuari</a>
+                    <a href="#" title="<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>
                 </p>
             </div>
           </div>
@@ -103,10 +114,10 @@ include '../templates/globalIclude.php';
           <div class="card-body">
 			<div class="row px-3">
 				<div class="col-6">
-					<p><i class="fas fa-walking"></i> 50 km</p>
+					<p><i class="fas fa-walking"></i> <?= $array[0]->getKm() ?> km</p>
 				</div>
 				<div class="col-6">
-					<p><i class="fas fa-medal"></i> <a href="#"> Hard</a></p>
+					<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
 				</div>
 			</div>
           </div>

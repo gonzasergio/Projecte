@@ -1,7 +1,7 @@
 <?php
 $DBConf = [
     "servername" => "localhost",
-    "username" => "root",
-    "password" => "",
+    "username" => "admin",
+    "password" => "12345678",
     "dbname" => "goatrails",
    ];

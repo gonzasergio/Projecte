@@ -3,17 +3,17 @@ $idioma = null;
 include '../templates/globalIclude.php';
 
 if (!(isset($_SESSION["AUTH"]))){
-    header("Location: login.php");
+    header("Location: ".$link["login"]);
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '../templates/head.php'?>
+    <?php include $template["head"]?>
     <title><?php echo $lang[$idioma]["pay"]?></title>
 </head>
 <body>
-<?php include '../templates/menu.php'?>
+<?php include $template["menu"]?>
 <main role="main" class="container-fluid">
 <div class="row mt-5">
     <div class="col-lg-6 mx-auto">
@@ -138,6 +138,6 @@ $(function() {
 
 
 </main>
-<?php include '../templates/footer.php'?>
+<?php include $template["footer"]?>
 </body>
 </html>

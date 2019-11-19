@@ -81,7 +81,7 @@ main {
     z-index: 5 !important;
 }
 .sticky-nav {
-    z-index: 2 !important;
+    z-index: 3 !important;
 }
 /* -------- */
 ::selection {

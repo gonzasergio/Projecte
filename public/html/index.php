@@ -18,11 +18,11 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php include '../templates/head.php'?>
+	<?php include $template["head"]?>
     <title><?php echo $lang[$idioma]["home"]?></title>
 </head>
 <body>
-	<?php include '../templates/menu.php'?>
+	<?php include $template["menu"]?>
 	<main role="main" class="container-fluid">
     	<div class="row">
     		<div class="videobackground">
@@ -41,7 +41,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             </div>
         </div>
     </main>
-  	<?php include '../templates/footer.php'?>
+  	<?php include $template["footer"]?>
 
     <script type="text/javascript">
         $(".clickable-row").click(function() {

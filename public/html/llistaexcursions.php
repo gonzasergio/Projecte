@@ -5,4 +5,4 @@ include '../../app/Model/Rute.php';
 
 $sql = "SELECT * FROM rutes;";
 $title =  $lang[$idioma]["routeList"];
-include '../templates/routeList.php';
+include $template["routeList"];

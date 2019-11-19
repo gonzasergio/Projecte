@@ -1,4 +1,6 @@
 <?php
+include '../templates/links.php';
+
 $DBConf = null;
 require_once '../../app/BDConnectio/DBConfig.php';
 
@@ -21,10 +23,10 @@ $insert = 'INSERT INTO persona VALUES("'.$postname.'", "'.$postpass.'")';
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo '<script>alert("Aquest usuari ja esta logueat");parent.location = "registre.php"</script>';
+    echo '<script>alert("Aquest usuari ja esta logueat");parent.location = "'.$link["registre"].'"</script>';
 } else {
     $conn->query($insert);
-    header("Location: login.php");
+    header("Location: ".$link["login"]);
 }
 $conn->close();
 ?>

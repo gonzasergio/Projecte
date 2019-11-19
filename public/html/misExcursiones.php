@@ -7,4 +7,4 @@ $array = [];
 $nom = $_SESSION["user"];
 $sql = "SELECT * FROM rutes where user_nom = '$nom'";
 $title =  $lang[$idioma]["myRoute"];
-include '../templates/routeList.php';
+include $template["routeList"];

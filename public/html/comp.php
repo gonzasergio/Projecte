@@ -1,4 +1,6 @@
 <?php
+include '../templates/links.php';
+
 $DBConf = null;
 require_once '../../app/BDConnectio/DBConfig.php';
 
@@ -27,17 +29,17 @@ if ($result->num_rows > 0) {
 		$_SESSION["AUTH"]=true;
 		$_SESSION["user"]=ucfirst(strtolower($postname));
 		if (isset($_SESSION["lastRoute"])){
-		    $url = ($_SESSION["lastRoute"] == '') ? 'index.php' : $_SESSION["lastRoute"];
+		    $url = ($_SESSION["lastRoute"] == '') ? $link["inici"] : $_SESSION["lastRoute"];
 		    header("Location: $url ");
 		    //var_dump($url);
 		} else {
-		    header("Location: index.php");
+		    header("Location: ".$link["inici"]);
 		}
     } else {
-        echo '<script>alert("Contrasenya incorrecte");parent.location = "login.php"</script>';
+        echo '<script>alert("Contrasenya incorrecte");parent.location = "'.$link["login"].'"</script>';
     }
 } else {
-	echo '<script>alert("Usuari incorrecte");parent.location = "login.php"</script>';
+    echo '<script>alert("Usuari incorrecte");parent.location = "'.$link["login"].'"</script>';
 }
 $conn->close();
 ?>

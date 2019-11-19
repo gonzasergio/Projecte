@@ -1,5 +1,6 @@
 <?php
-include 'arrayLanguage.php';
+include '../templates/links.php';
+include $template["arrayLanguage"];
 session_start();
 
 if (!isset($_SESSION["idioma"])){
@@ -17,5 +18,5 @@ session_start();
 
 $_SESSION["idioma"] = $idioma;
 
-header("Location: index.php");
+header("Location: ".$link["index"]);
 ?>

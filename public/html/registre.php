@@ -2,17 +2,17 @@
 include '../templates/globalIclude.php';
 
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
-    header("Location: index.php");
+    header("Location: ".$link["inici"]);
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '../templates/head.php'?>
+    <?php include $template["head"]?>
     <title><?php echo $lang[$idioma]["register"]?></title>
 </head>
 <body>
-    <?php include '../templates/menu.php'?>
+    <?php include $template["menu"]?>
     <main class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="card shadow-sm mt-5" style="width: 18rem;">
@@ -34,9 +34,9 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
             </div>
         </div>
         <div class="row d-flex justify-content-center mt-2">
-            <a href="login.php"><?php echo $lang[$idioma]["alreadyRegister"] ?>.</a>
+            <a href="<?php echo $link["login"]?>"><?php echo $lang[$idioma]["alreadyRegister"] ?>.</a>
         </div>
     </main>
-    <?php include '../templates/footer.php'?>
+    <?php include $template["footer"]?>
 </body>
 </html>

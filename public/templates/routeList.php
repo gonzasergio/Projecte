@@ -36,7 +36,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                             <h4><a href="<?php echo $link["excursio"] ?>?name=<?= $rute->getName() ?>"><?= $rute->getName() ?></a></h4>
                             <div class="mb-2">
                             <div class="d-block d-sm-none mb-n1">
-                                <a href="#" title="Usuari"><small><i class='fas fa-user'></i></small> Usuari</a>
+                                <a href="#" title="<?= $rute->getUserNom() ?>"><small><i class='fas fa-user'></i></small> <?= $rute->getUserNom() ?></a>
                                 <br>
                             </div>
                             <small>

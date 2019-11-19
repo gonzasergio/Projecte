@@ -4,7 +4,7 @@ $stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
 $stmt->execute();
 
 while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-$array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
+    $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
 }
 
 ?>
@@ -20,16 +20,16 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
     <div class="row d-flex justify-content-center">
         <h3 class="mt-5 text-secondary"><i class='fas fa-map-marked-alt'></i> <?= /** @var TYPE_NAME $title */$title?></h3>
     </div>
-	<div class="row mx-5 border rounded shadow-sm pt-4 mt-4">
+	<div class="row mx-2 mx-sm-5 border rounded shadow-sm pt-4 mt-4">
 	 <?php foreach ($array as $rute) : ?>
 	 		<div class="container-fluid">
                 <div class="row border-bottom mx-2 mx-md-5 mb-4">
                 	<div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-2 text-center">
-                    	<a href="#" title="Usuari">
+                    	<a href="#" title="<?= $rute->getUserNom() ?>">
                         	<img class="rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                     	</a>
                     	<p class="text-secondary mt-1">
-                    		<a href="#" title="Usuari" class="text-secondary">Usuari</a>
+                    		<a href="#" title="<?= $rute->getUserNom() ?>" class="text-secondary"><?= $rute->getUserNom() ?></a>
                     	</p>
                 	</div>
                     <div class="col">

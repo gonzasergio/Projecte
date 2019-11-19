@@ -6,13 +6,15 @@ class Rute {
     private $km;
     private $difficulty;
     private $name;
+    private $userNom;
 
-    public function __construct($id, $zone, $km, $difficulty, $name) {
+    public function __construct($id, $zone, $km, $difficulty, $name, $userNom) {
         $this->id = $id;
         $this->zone = $zone;
         $this->km = $km;
         $this->difficulty = $difficulty;
         $this->name = $name;
+        $this->userNom = ucfirst(strtolower($userNom));
     }
 
     public function getId() {
@@ -33,6 +35,10 @@ class Rute {
 
     public function getName() {
         return $this->name;
+    }
+
+    public function getUserNom() {
+        return $this->userNom;
     }
 
 }

@@ -3,15 +3,15 @@
     	<div class="col">
       				<?php
       				if (!(isset($_SESSION["AUTH"]))){
-      				  include '../templates/responsive-login-btn.php';
+      				  include $template["responsive-login-btn"];
       				} else {
-      				  include '../templates/profile-dropdown.php';
+      				  include $template["profile-dropdown"];
       				}
       				?>
     	</div>
         <div class="col d-flex justify-content-end">
             <i class="fas fa-language float-left text-light h2 mr-3"></i>
-            <form action="sesioIdioma.php" method="post">
+            <form action="<?php echo $link["sessioIdioma"]?>" method="post">
                 <div class="form-group">
                     <select class="form-control float-right custom-select-sm" id="language" onChange="canviaIdioma()">
                         <?php
@@ -45,7 +45,7 @@ case "":
 });
 </script>
     <nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
-    	<a class="navbar-brand mr-5" href="index.php">
+    	<a class="navbar-brand mr-5" href="<?php echo $link["inici"]?>">
             <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
         	<h1 class="text-secondary">GOATrails</h1>
         </a>
@@ -55,10 +55,10 @@ case "":
       	<div class="h5 collapse navbar-collapse ml-4 mt-2" id="navbarNavDropdown">
         	<ul class="navbar-nav">
           		<li id="Home" class="nav-item mx-1">
-            		<a class="nav-link" href="index.php"><i class="fas fa-home"></i> <?php echo $lang[$idioma]["home"] ?></a>
+            		<a class="nav-link" href="<?php echo $link["inici"]?>"><i class="fas fa-home"></i> <?php echo $lang[$idioma]["home"] ?></a>
           		</li>
           		<li id="Llista" class="nav-item mx-1">
-            		<a class="nav-link" href="llistaexcursions.php"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
+            		<a class="nav-link" href="<?php echo $link["excursions"]?>"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
           		</li>
         	</ul>
       </div>

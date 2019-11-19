@@ -1,8 +1,8 @@
 <div class='d-none d-md-block'>
-	<a href='login.php' class='btn btn-sm btn-light rounded-pill'>
+	<a href='<?php echo $link["login"] ?>' class='btn btn-sm btn-light rounded-pill'>
 		<?php echo $lang[$idioma]["login"];?>
 	</a>
-	<a href='registre.php' class='ml-2 btn btn-sm btn-outline-light rounded-pill'>
+	<a href='<?php echo $link["registre"] ?>' class='ml-2 btn btn-sm btn-outline-light rounded-pill'>
 		<?php echo $lang[$idioma]["register"];?>
 	</a>
 </div>
@@ -13,8 +13,8 @@
 			<i class='fas fa-user'></i>
  		</a>
 	<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
-	<a class='dropdown-item' href='login.php'><i class='fas fa-sign-in-alt' aria-hidden='true'></i> <?php echo $lang[$idioma]["login"]?></a>
-	<a class='dropdown-item' href='register.php'><i class='far fa-id-card' aria-hidden='true'></i> <?php echo $lang[$idioma]["register"]?></a>
+	<a class='dropdown-item' href='<?php echo $link["login"] ?>'><i class='fas fa-sign-in-alt' aria-hidden='true'></i> <?php echo $lang[$idioma]["login"]?></a>
+	<a class='dropdown-item' href='<?php echo $link["registre"] ?>'><i class='far fa-id-card' aria-hidden='true'></i> <?php echo $lang[$idioma]["register"]?></a>
 	</div>
 </div>
 </div>

@@ -11,11 +11,11 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '../templates/head.php'?>
+    <?php include $template["head"]?>
     <title><?php echo $lang[$idioma]["routeList"]?></title>
 </head>
 <body>
-<?php include '../templates/menu.php'?>
+<?php include $template["menu"]?>
 <main role="main" class="container-fluid">
     <div class="row d-flex justify-content-center">
         <h3 class="mt-5 text-secondary"><i class='fas fa-map-marked-alt'></i> <?= /** @var TYPE_NAME $title */$title?></h3>
@@ -34,7 +34,7 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
            </thead>
             <tbody class="cursor-pointer">
             <?php foreach ($array as $rute) : ?>
-                <tr class='clickable-row' data-href="excursio.php?name=<?= $rute->getName() ?>">
+                <tr class='clickable-row' data-href="<?php echo $link["excursio"] ?>?name=<?= $rute->getName() ?>">
                     <td><?= $rute->getId() ?></td>
                     <td><?= $rute->getName() ?></td>
                     <td><?= $rute->getZone() ?></td>
@@ -48,7 +48,7 @@ $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4]);
 	</div>
 	</div>
 </main>
-<?php include '../templates/footer.php'?>
+<?php include $template["footer"]?>
 
 <script type="text/javascript">
     $(".clickable-row").click(function() {

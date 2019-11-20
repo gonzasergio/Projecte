@@ -5,6 +5,18 @@ include '../templates/globalIclude.php';
 if (!(isset($_SESSION["AUTH"]))){
     header("Location: ".$link["login"]);
 }
+
+include '../../app/BDConnectio/DBConnection.php';
+include '../../app/Model/Rute.php';
+
+$array = [];
+$sql = "SELECT * FROM rutes WHERE id = '".$_GET['id']."';";
+$stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
+$stmt->execute();
+
+while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+    $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +27,10 @@ if (!(isset($_SESSION["AUTH"]))){
 <body>
 <?php include $template["menu"]?>
 <main role="main" class="container-fluid">
-<div class="row mt-5">
+	<div class="col-lg-6 col-md-10 mx-auto">
+	<p class="mt-5 text-secondary h3"><?= $array[0]->getName() ?></p>
+	</div>
+<div class="row mt-3">
     <div class="col-lg-6 col-md-10 mx-auto">
       <div class="bg-light rounded-top shadow-sm p-2 border border-bottom-0"><h5><i class="far fa-credit-card ml-3 mt-2"></i> <?php echo $lang[$idioma]["pay"]?></h5></div>
       <div class="bg-white rounded-bottom shadow-sm p-5 border">

@@ -18,7 +18,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <html lang="en">
 <head>
     <?php include $template["head"]?>
-    <title><?php echo $lang[$idioma]["route"]?></title>
+    <title><?php echo $lang[$idioma]["route"]?> - <?= $array[0]->getName() ?></title>
 </head>
 <body>
 <?php include $template["menu"]?>

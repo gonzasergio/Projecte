@@ -54,7 +54,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
               <div class="form-group">
                 <textarea class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
+              <a href="#" class="btn btn-primary rounded shadow-sm text-white"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></a>
             </form>
           </div>
         </div>
@@ -91,8 +91,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
       <!-- Sidebar Widgets Column -->
       <div class="col">
 
-        <a class="btn btn-block btn-primary mt-4" href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" type="button"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
-
+        <a href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" class="btn btn-primary btn-block rounded shadow-sm mt-4"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
 
         <!-- Categories Widget -->
         <div class="card rounded mt-5">

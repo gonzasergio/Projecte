@@ -2,7 +2,7 @@
 include '../templates/globalIclude.php';
 
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
-    header("Location: ".$lin["inici"]);
+    header("Location: ".$link["inici"]);
 }
 ?>
 <!DOCTYPE html>

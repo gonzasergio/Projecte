@@ -1,19 +1,5 @@
 <?php
 include '../templates/globalIclude.php';
-include '../../app/BDConnectio/DBConnection.php';
-include '../../app/Model/Rute.php';
-
-$array = [];
-$sql = "SELECT * FROM rutes;";
-$stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
-$stmt->execute();
-
-while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-    $array[] = $var = new Rute($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
-}
-
-//var_dump(basename($_SERVER['REQUEST_URI']));
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

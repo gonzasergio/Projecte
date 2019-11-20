@@ -91,7 +91,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
       <!-- Sidebar Widgets Column -->
       <div class="col">
 
-        <a class="btn btn-block btn-primary mt-4" href="<?php echo $link["pagament"]?>" type="button"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
+        <a class="btn btn-block btn-primary mt-4" href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" type="button"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
 
 
         <!-- Categories Widget -->

@@ -85,3 +85,31 @@ main {
   background: #c0c0c0;
 }
 /* -------- */
+.storyborder {
+	border: solid;
+	border-color: #7bbaff;
+	border-width: 3px;
+}
+.storyborder-seen {
+	border: solid;
+	border-color: #a0a7ad;
+	border-width: 3px;
+}
+.nostoryborder {
+	border: solid;
+	border-color: #e4e7e9;
+	border-width: 3px;
+}
+.userstory {
+	display: inline-block;
+	width: 80px;
+}
+.userstory img {
+	margin: 0px 20px 0px 20px;
+}
+
+.storyrow {
+	height: 78px;
+	white-space: nowrap;
+}
+/*----------*/

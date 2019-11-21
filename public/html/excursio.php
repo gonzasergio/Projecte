@@ -61,13 +61,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
         <!-- Comment with nested comments -->
         <div class="mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+          <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
           <div>
             <h5 class="mt-0">Joan</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
             <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+              <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
               <div>
                 <h5 class="mt-0">Toni</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -79,7 +79,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 		
 		<!-- Single Comment -->
         <div class="mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+          <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
           <div>
             <h5 class="mt-0">Reina isabel</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.

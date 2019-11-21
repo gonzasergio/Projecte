@@ -11,7 +11,8 @@ $link = [
     "registre" => "registre.php",
     "tancarSessio" => "tancarsessio.php",
     "sessioIdioma" => "sesioIdioma.php",
-    "arrayLanguage" => "arrayLanguage.php"
+    "arrayLanguage" => "arrayLanguage.php",
+    "social" => "social.php"
 ];
 
 $template = [

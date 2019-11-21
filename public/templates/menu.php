@@ -35,6 +35,9 @@ switch (doc) {
 case "llistaexcursions.php":
 	$("li#Llista").attr("class","active");
 	break;
+case "social.php":
+	$("li#Social").attr("class","active");
+	break;
 case "index.php":
 	$("li#Home").attr("class","active");
 	  break;
@@ -59,6 +62,9 @@ case "":
           		</li>
           		<li id="Llista" class="nav-item mx-1">
             		<a class="nav-link" href="<?php echo $link["excursions"]?>"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
+          		</li>
+          		<li id="Social" class="nav-item mx-1">
+            		<a class="nav-link" href="<?php echo $link["social"]?>"><i class="fas fa-users"></i> Social</a>
           		</li>
         	</ul>
       </div>

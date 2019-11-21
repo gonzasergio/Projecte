@@ -103,7 +103,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
 
               </div>
-              <button type="button" class="subscribe btn btn-primary btn-block rounded shadow-sm"> <?php echo $lang[$idioma]["confirm"]?>  </button>
+              <button type="button" class="btn btn-primary btn-block rounded shadow-sm"> <?php echo $lang[$idioma]["confirm"]?>  </button>
             </form>
           </div>
           <!-- End -->

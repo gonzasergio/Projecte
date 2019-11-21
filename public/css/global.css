@@ -105,11 +105,11 @@ main {
 	width: 80px;
 }
 .userstory img {
-	margin: 0px 20px 0px 20px;
+	margin-left: 20px;
 }
 
 .storyrow {
-	height: 78px;
+	height: 84px;
 	white-space: nowrap;
 }
 /*----------*/

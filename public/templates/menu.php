@@ -64,7 +64,7 @@ case "":
             		<a class="nav-link" href="<?php echo $link["excursions"]?>"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
           		</li>
           		<li id="Social" class="nav-item mx-1">
-            		<a class="nav-link" href="<?php echo $link["social"]?>"><i class="fas fa-users"></i> Social</a>
+            		<a class="nav-link" href="<?php echo $link["social"]?>"><i class="fas fa-users"></i> <?php echo $lang[$idioma]["social"];?></a>
           		</li>
         	</ul>
       </div>

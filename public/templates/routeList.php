@@ -26,7 +26,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 <div class="row border-bottom mx-2 mx-md-5 mb-4">
                 	<div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-2 text-center">
                     	<a href="#" title="<?= $rute->getUserNom() ?>">
-                        	<img class="rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
+                        	<img class="rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                     	</a>
                     	<p class="text-secondary mt-1">
                     		<a href="#" title="<?= $rute->getUserNom() ?>" class="text-secondary"><?= $rute->getUserNom() ?></a>

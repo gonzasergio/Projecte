@@ -18,18 +18,18 @@ if (!(isset($_SESSION["AUTH"]))){
 <div class="mt-4 px-1 px-md-3 d-block d-md-none storyrow overflow-auto">
     <div class="userstory d-block-inline">
     	<div class="d-flex justify-content-center">
-        <img class="mb-0 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
+        <img title="<?php echo $_SESSION["user"];?>" class="mb-0 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
     	</div>
     	<div class="d-flex justify-content-center">
-    		<small class= "m-0"><?php echo $_SESSION["user"];?></small>
+    		<small title="<?php echo $_SESSION["user"];?>" class="m-0"><?php echo $_SESSION["user"];?></small>
     	</div>
     </div>
     <div class="userstory d-block-inline">
     	<div class="d-flex justify-content-center">
-        <img class="mb-0 mr-3 rounded-circle shadow-sm storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
+        <img title="Toni" class="mb-0 mr-3 rounded-circle shadow-sm storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
     	</div>
     	<div class="d-flex justify-content-center">
-    		<small class= "m-0">Toni</small>
+    		<small title="Toni" class= "m-0">Toni</small>
     	</div>
     </div>
 </div>
@@ -59,8 +59,8 @@ if (!(isset($_SESSION["AUTH"]))){
             <div class="col-md-3 d-none d-lg-block">
                 <div class="card">
                     <div class="card-body">
-						<img class="d-flex mb-2 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="75px">
-                        <div class="h5"><?php echo $_SESSION["user"];?></div>
+						<img title="<?php echo $_SESSION["user"];?>" class="d-flex mb-2 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="75px">
+                        <div title="<?php echo $_SESSION["user"];?>" class="h5"><?php echo $_SESSION["user"];?></div>
                         <div class="h7">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt fugit!
                         </div>
@@ -135,9 +135,9 @@ if (!(isset($_SESSION["AUTH"]))){
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
-                                <img class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+                                <img title="Joan" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
                                 <div class="ml-2">
-                                    <div class="h5 m-0">Joan </div>
+                                    <div title="Joan" class="h5 m-0">Joan </div>
                                     <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> Hace 10 min</small>
                                 </div>
                             </div>
@@ -172,9 +172,9 @@ if (!(isset($_SESSION["AUTH"]))){
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $lang[$idioma]["suggestions"];?></h5>
 							<div class="row px-3 mt-3 mb-3">
-								<img class="d-flex mr-3 rounded-circle shadow-sm mt-2 nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+								<img title="Reina isabel" class="d-flex mr-3 rounded-circle shadow-sm mt-2 nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
 								<div class="ml-2">
-									<b class= "mt-n2">Reina isabel </b><br>
+									<b title="Reina isabel" class= "mt-n2">Reina isabel </b><br>
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>
@@ -191,16 +191,16 @@ if (!(isset($_SESSION["AUTH"]))){
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $lang[$idioma]["stories"];?></h5>
                         <div class="row px-3">
-							<img class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+							<img title="<?php echo $_SESSION["user"];?>" class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
                             <div class="ml-2">
-                                <b class= "m-0"><?php echo $_SESSION["user"];?> </b><br>
+                                <b title="<?php echo $_SESSION["user"];?>" class= "m-0"><?php echo $_SESSION["user"];?> </b><br>
                                 <small class="text-muted"> <i class="fa fa-clock-o"></i> Hace 40 min</small>
                             </div>
 						</div>
 						<div class="row px-3 mt-3">
-							<img class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+							<img title="Toni" class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
                             <div class="ml-2">
-                                <b class= "m-0">Toni </b><br>
+                                <b title="Toni" class= "m-0">Toni </b><br>
                                 <small class="text-muted"> <i class="fa fa-clock-o"></i> Hace 1 h</small>
                             </div>
 						</div>
@@ -211,9 +211,9 @@ if (!(isset($_SESSION["AUTH"]))){
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $lang[$idioma]["suggestions"];?></h5>
 							<div class="row px-3 mt-3 mb-3">
-								<img class="d-flex mr-3 rounded-circle shadow-sm mt-2 nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+								<img title="Reina isabel" class="d-flex mr-3 rounded-circle shadow-sm mt-2 nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
 								<div class="ml-2">
-									<b class= "mt-n2">Reina isabel </b><br>
+									<b title="Reina isabel" class= "mt-n2">Reina isabel </b><br>
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>

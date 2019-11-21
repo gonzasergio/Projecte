@@ -29,10 +29,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4"><?= $array[0]->getName() ?></h1>
+        <h1 class="mt-4 d-block-inline"><?= $array[0]->getName() ?></h1>
 
         <hr>
-
+        <div class="d-block-inline d-lg-none mb-4">
+        	<img class="rounded-circle nostoryborder" title="<?= $array[0]->getUserNom() ?>" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="25px"> <a title="<?= $array[0]->getUserNom() ?>" href="#"><?= $array[0]->getUserNom() ?></a>
+        </div>
+        
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="https://static1.squarespace.com/static/524883b7e4b03fcb7c64e24c/524bba63e4b0bf732ffc8bce/5602efbde4b0becc00344018/1564332731825/?format=2500w" alt="">
 
@@ -80,13 +83,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
         <!-- Comment with nested comments -->
         <div class="mb-4">
-          <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+          <img class="d-flex mr-3 rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
           <div>
             <h5 class="mt-0">Joan</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
             <div class="media mt-4">
-              <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+              <img class="d-flex mr-3 rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
               <div>
                 <h5 class="mt-0">Toni</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -98,7 +101,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 		
 		<!-- Single Comment -->
         <div class="mb-4">
-          <img class="d-flex mr-3 rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+          <img class="d-flex mr-3 rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
           <div>
             <h5 class="mt-0">Reina isabel</h5>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -117,7 +120,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
           <div class="card-body">
             <div class="text-center">
                 <a href="#" title="<?= $array[0]->getUserNom() ?>">
-                    <img class="rounded-circle shadow-sm" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
+                    <img class="rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                 </a>
                 <p class="text-secondary mt-1">
                     <a href="#" title="<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>

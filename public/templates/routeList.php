@@ -40,8 +40,9 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                                 <br>
                             </div>
                             <small>
-                                <i class="fas fa-walking"></i> <?= $rute->getKm() ?> km &nbsp;
-                                <i class="fas fa-medal"></i> <a href="#"> <?= $rute->getDifficulty() ?></a>
+                                <i class="fas fa-walking"></i> <span class="mr-2"><?= $rute->getKm() ?> km &nbsp;</span>
+                                <i class="fas fa-medal"></i> <a class="mr-2" href="#"> <?= $rute->getDifficulty() ?></a>
+                                <i class="fas fa-map-marker-alt"></i> <a class="mr-2" href="#"> <?= $rute->getZone() ?></a>
                             </small>
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

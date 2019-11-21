@@ -45,6 +45,25 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
         <hr>
+        
+         <a href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" class="btn btn-primary btn-block rounded shadow-sm my-4 d-block d-md-none"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
+         
+         <div class="card mt-3 d-block d-md-none">
+          <h5 class="card-header">Information</h5>
+          <div class="card-body">
+			<div class="row px-3">
+				<div class="col-6">
+					<p><i class="fas fa-walking"></i> <?= $array[0]->getKm() ?> km</p>
+					<p><i class="fas fa-map-marker-alt"></i> <a href="#"> <?= $array[0]->getZone() ?></a></p>
+				</div>
+				<div class="col-6">
+					<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
+				</div>
+			</div>
+          </div>
+        </div>
+        
+       <hr class="d-block d-md-none my-4">
 
         <!-- Comments Form -->
         <div class="card mb-3">
@@ -91,10 +110,10 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
       <!-- Sidebar Widgets Column -->
       <div class="col">
 
-        <a href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" class="btn btn-primary btn-block rounded shadow-sm mt-4"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
+        <a href="<?php echo $link["pagament"]?>?id=<?= $array[0]->getId() ?>" class="btn btn-primary btn-block rounded shadow-sm mt-4 d-none d-md-block"><i class="far fa-credit-card"></i> &nbsp;<?php echo $lang[$idioma]["pay"]?></a>
 
         <!-- Categories Widget -->
-        <div class="card rounded mt-5">
+        <div class="card rounded mt-5 d-none d-md-block">
           <div class="card-body">
             <div class="text-center">
                 <a href="#" title="<?= $array[0]->getUserNom() ?>">
@@ -108,12 +127,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         </div>
 
         <!-- Side Widget -->
-        <div class="card mt-3">
+        <div class="card mt-3 d-none d-md-block">
           <h5 class="card-header">Information</h5>
           <div class="card-body">
 			<div class="row px-3">
 				<div class="col-6">
 					<p><i class="fas fa-walking"></i> <?= $array[0]->getKm() ?> km</p>
+					<p><i class="fas fa-map-marker-alt"></i> <a href="#"> <?= $array[0]->getZone() ?></a></p>
 				</div>
 				<div class="col-6">
 					<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>

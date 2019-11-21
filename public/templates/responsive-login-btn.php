@@ -9,7 +9,7 @@
                       
 <div class='d-block d-md-none'>
 	<div class='dropdown show'>
-		<a class='btn text-light dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+		<a class='btn btn-link text-light dropdown-toggle text-decoration-none' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 			<i class='fas fa-user'></i>
  		</a>
 	<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>

@@ -25,18 +25,25 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 	 		<div class="container-fluid">
                 <div class="row border-bottom mx-2 mx-md-5 mb-4">
                 	<div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-2 text-center">
-                    	<a href="#" title="<?= $rute->getUserNom() ?>">
+                    	<a href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>">
                         	<img class="rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                     	</a>
                     	<p class="text-secondary mt-1">
-                    		<a href="#" title="<?= $rute->getUserNom() ?>" class="text-secondary"><?= $rute->getUserNom() ?></a>
+                    		<a href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>" class="text-secondary text-decoration-none"><?= $rute->getUserNom() ?></a>
                     	</p>
                 	</div>
                     <div class="col">
-                            <h4><a href="<?php echo $link["excursio"] ?>?id=<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
+                            <h4 class="mb-0"><a href="<?php echo $link["excursio"] ?>?id=<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
+                            <small>
+                        	<i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-secondary"></i>
+                    		</small>
                             <div class="mb-2">
                             <div class="d-block d-sm-none mb-n1">
-                                <a href="#" title="<?= $rute->getUserNom() ?>"><small><i class='fas fa-user'></i></small> <?= $rute->getUserNom() ?></a>
+                                <a class="text-decoration-none" href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>"><small><i class='fas fa-user'></i></small> <?= $rute->getUserNom() ?></a>
                                 <br>
                             </div>
                             <small>

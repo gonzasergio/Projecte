@@ -9,24 +9,12 @@ $username = $DBConf["username"];
 $password = $DBConf["password"];
 $dbname = $DBConf["dbname"];
 
-$postname = $_POST['name'];
-$postpass = $_POST['pass'];
+$user = "'". $_POST["name"] . "'";
+$pass = "'". $_POST["pass"] . "'";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$insert = "insert into persona values($user, $pass)";
+$conn->query($insert);
 
-$sql = 'SELECT nom FROM persona WHERE nom = "'.$postname.'"';
-$insert = 'INSERT INTO persona VALUES("'.$postname.'", "'.$postpass.'")';
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    echo '<script>alert("Aquest usuari ja esta logueat");parent.location = "'.$link["registre"].'"</script>';
-} else {
-    $conn->query($insert);
-    header("Location: ".$link["login"]);
-}
-$conn->close();
-?>
+header("Location: " . $link["login"]);

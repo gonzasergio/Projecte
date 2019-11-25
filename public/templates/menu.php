@@ -17,7 +17,7 @@
                         <?php
                           foreach ($lang as $i) {
                               $selected = ($idioma==$i["langCode"])?('selected'):('');
-                              echo "<option value='".$i["langCode"]."'".$selected.">".$i["lang"]."</option>";
+                              echo "<option class ='font-weight-normal text-secondary' value='".$i["langCode"]."'".$selected.">".$i["lang"]."</option>";
                         }
     
                         ?>

@@ -1,9 +1,5 @@
 <?php
 include '../templates/globalIclude.php';
-
-if (!(isset($_SESSION["AUTH"]))){
-    header("Location: ".$link["login"]);
-}
 ?>
 
 <!DOCTYPE html>

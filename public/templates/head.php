@@ -6,3 +6,5 @@
     <script src="../js/jquery/jquery.min.js"></script>
     <script src="../js/global.js"></script>
     <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
+    <link rel="manifest" href="../../app/PWA/manifest.json">
+    <script src="../../app/PWA/app.js"></script>

@@ -1,0 +1,22 @@
+{
+  "short_name": "GOATrails",
+  "name": "GOATrails",
+  "icons": [
+    {
+      "src": "../../public/img/icons/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../../public/img/icons/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "landscape",
+  "scope": "/",
+  "theme_color": "#3367D6"
+}

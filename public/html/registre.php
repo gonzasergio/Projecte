@@ -22,17 +22,17 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                     	<div class="form-group">
                             <label><i class="fas fa-user text-secondary"></i> <?php echo $lang[$idioma]["user"]?>:</label>
                             <input class="form-control" type="text" id="name">
-                            <small id="incorrectUser" class="form-text text-muted"></small>
+                            <small id="incorrectUser" class="form-text text-danger"></small>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label>
                             <input class="form-control" type="password" id="pass">
-                            <small id="incorrectPass" class="form-text text-muted"></small>
+                            <small id="incorrectPass" class="form-text text-danger"></small>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["repeatPassword"]?>:</label>
                             <input class="form-control" type="password" id="pass2">
-                            <small id="incorrectPass2" class="form-text text-muted"></small>
+                            <small id="incorrectPass2" class="form-text text-danger"></small>
                         </div>
                     	<button class="btn btn-primary btn-block rounded mt-4" type="button" onClick="compruebaRegistro()"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
                     </form>

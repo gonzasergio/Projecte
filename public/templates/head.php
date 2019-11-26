@@ -5,6 +5,6 @@
     <link rel="stylesheet" href="../css/fontawesome/css/all.min.css"></script>
     <script src="../js/jquery/jquery.min.js"></script>
     <script src="../js/global.js"></script>
-    <link rel="icon" type="image/png" href="http://35.204.235.53/img/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.goatrails.dawman.info/img/favicon.png">
     <link rel="manifest" href="../js/PWA/manifest.json">
     <script src="../js/PWA/app.js"></script>

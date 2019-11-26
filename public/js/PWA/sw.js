@@ -1,6 +1,19 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'goatrails-v1';
 var urlsToCache = [
-  '/'
+  '/',
+  '../../img/icons/logo-192.png',
+  '../../img/icons/logo-512.png',
+  '../../img/icons/logo.png',
+  '../../img/icons/favicon.png',
+  '../css/google-fonts/fonts.css',
+  '../js/crypto-js/aes.js',
+  '../js/popper/popper.min.js"',
+  '../js/bootstrap/bootstrap.min.js',
+  '../css/global.css',
+  '../css/bootstrap/bootstrap.min.css',
+  '../css/fontawesome/css/all.min.css',
+  '../js/jquery/jquery.min.js',
+  '../js/global.js'
 ];
 
 self.addEventListener('install', function(event) {

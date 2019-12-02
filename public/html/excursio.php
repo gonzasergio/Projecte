@@ -122,8 +122,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             </div>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 			<div class="row mb-2 mt-1">
-            <div class="col-4 text-secondary">
-            	<span>3d</span> <a href="#" class="ml-3 text-secondary"><?php echo $lang[$idioma]["reply"];?></a>
+            <div class="col-7 text-secondary">
+            	<span>3d</span> <a href="#" class="ml-3 text-secondary text-decoration-none"><span class="d-none d-sm-inline"><?php echo $lang[$idioma]["reply"];?></span><i class="far fa-paper-plane d-inline d-sm-none"></i></a>
             </div>
             <div class="col text-secondary text-right">
             142 <i class="far fa-heart"></i>
@@ -141,8 +141,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             	</div>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
               	<div class="row mb-2 mt-1">
-                <div class="col-4 text-secondary">
-                	<span>2d</span> <a href="#" class="ml-3 text-secondary"><?php echo $lang[$idioma]["reply"];?></a>
+                <div class="col-7 text-secondary">
+                	<span>2d</span> <a href="#" class="ml-3 text-secondary text-decoration-none"><span class="d-none d-sm-inline"><?php echo $lang[$idioma]["reply"];?></span><i class="far fa-paper-plane d-inline d-sm-none"></i></a>
                 </div>
                 <div class="col text-secondary text-right">
                 23 <i class="far fa-heart"></i>
@@ -174,8 +174,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             </div>
             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
           	<div class="row mb-2 mt-1">
-            <div class="col-4 text-secondary">
-            	<span>6d</span> <a href="#" class="ml-3 text-secondary"><?php echo $lang[$idioma]["reply"];?></a>
+            <div class="col-7 text-secondary">
+            	<span>6d</span> <a href="#" class="ml-3 text-secondary text-decoration-none"><span class="d-none d-sm-inline"><?php echo $lang[$idioma]["reply"];?></span><i class="far fa-paper-plane d-inline d-sm-none"></i></a>
             </div>
             <div class="col text-secondary text-right">
             317 <i class="far fa-heart"></i>

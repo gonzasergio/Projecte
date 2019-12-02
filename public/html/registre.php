@@ -44,7 +44,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
             <a href="<?php echo $link["login"]?>"><?php echo $lang[$idioma]["alreadyRegister"] ?>.</a>
         </div>
     </main>
-    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+    <script src="../js/bootstrap/bootstrap-validate.js" ></script>
     <script>
     	bootstrapValidate("#name", "min:3:<?php echo $lang[$idioma]["userShort"]?>");
     	bootstrapValidate("#pass", "min:2:<?php echo $lang[$idioma]["passwordShort"]?>");

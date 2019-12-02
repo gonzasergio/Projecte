@@ -4,6 +4,12 @@ include '../templates/globalIclude.php';
 if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
     header("Location: ".$link["inici"]);
 }
+
+if (isset($_SESSION["lastRoute"])){
+    $url = ($_SESSION["lastRoute"] == '') ? $link["inici"] : $_SESSION["lastRoute"];
+} else {
+    $url = $link["inici"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +35,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                             <input class="form-control" type="password" id="pass">
                             <small id="incorrectPass" class="form-text text-danger"></small>
                         </div>
-                    	<button class="btn btn-primary btn-block rounded mt-4" type="button" onClick="encripta('compruebaLogin')"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
+                    	<button class="btn btn-primary btn-block rounded mt-4 disabled" type="button" id="submit"><?php echo $lang[$idioma]["submit"]?> &nbsp;&nbsp;<i class="fas fa-angle-right"></i></button>
                		</form>
      	    	</div>
         	</div>
@@ -38,6 +44,55 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
             <a href="<?php echo $link["registre"]?>"><?php echo $lang[$idioma]["noRegister"] ?>.</a>
         </div>
     </main>
+    <script type="text/javascript">
+    $("#name").keyup(function() {
+		  if ($("#incorrectUser").text() != ""){
+			  $("#name").removeClass("is-invalid");
+		  }
+			  $("#incorrectUser").text("");
+	  });
+
+    $("#pass").keyup(function() {
+		  if ($("#incorrectPass").text() != ""){
+			  $("#pass").removeClass("is-invalid");
+		  }
+			  $("#incorrectPass").text("");
+	  });
+	  
+    $('#submit').click(function(){
+	      if (!($("#submit").hasClass("disabled"))){
+  	      var name = $("#name").val();
+  	      var pass = String(CryptoJS.MD5($("#pass").val()));
+  	  $.post( "comp.php", {name: name, pass: pass}, function( data ) {
+		  switch (data) {
+		  case "0":
+			  window.location.href = "<?php echo $url?>";
+		   break;
+		  case "1":
+			  $("#incorrectUser").text("<?php echo $lang[$idioma]['userDoesntExists']?>");
+			  $("#incorrectPass").text("");
+			  $("#name").addClass("is-invalid");
+			  $("#pass").removeClass("is-invalid");
+   		   break;
+		  case "2":
+			  $("#incorrectPass").text("<?php echo $lang[$idioma]['passwordDoesntMatch']?>");
+			  $("#incorrectUser").text("");
+			  $("#pass").addClass("is-invalid");
+			  $("#name").removeClass("is-invalid");
+   		   break;
+		}
+  		});
+	      }
+    });
+
+    $("form").keyup(function(){
+		if($("#name").hasClass("is-invalid") || $("#pass").hasClass("is-invalid") || $("#name").val() == "" || $("#pass").val() == ""){
+			$("#submit").addClass("disabled ");
+		} else {
+			$("#submit").removeClass("disabled");
+		}
+	  	  });
+    </script>
     <?php include $template["footer"];?>
 </body>
 </html>

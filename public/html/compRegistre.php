@@ -1,20 +1,23 @@
 <?php
 include '../templates/links.php';
+include '../../app/BDConnectio/DBConnection.php';
 
-$DBConf = null;
-require_once '../../app/BDConnectio/DBConfig.php';
+$array = [];
+$user = $_POST["name"];
+$pass = $_POST["pass"];
+$sql = "SELECT * FROM persona where nom = '$user'";
+$insert = 'INSERT INTO persona VALUES("'.$user.'", "'.$pass.'")';
+$stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
+$stmt->execute();
 
-$servername = $DBConf["servername"];
-$username = $DBConf["username"];
-$password = $DBConf["password"];
-$dbname = $DBConf["dbname"];
+while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+    $array[] = $row;
+}
 
-$user = "'". $_POST["name"] . "'";
-$pass = "'". $_POST["pass"] . "'";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-$insert = "insert into persona values($user, $pass)";
-$conn->query($insert);
-
-header("Location: " . $link["login"]);
+if ($array){
+    echo "1";
+} else {
+    $stmt = DBConnection::getInstance()->getConnection()->prepare($insert);
+    $stmt->execute();
+    echo "0";
+}

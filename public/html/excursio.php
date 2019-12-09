@@ -37,7 +37,9 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         </div>
         
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="https://static1.squarespace.com/static/524883b7e4b03fcb7c64e24c/524bba63e4b0bf732ffc8bce/5602efbde4b0becc00344018/1564332731825/?format=2500w" alt="">
+        <div id="mapa" style="width: 100%; height: 400px">
+
+        </div>
 
         <hr>
 
@@ -332,5 +334,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 </main>
 <?php include $template["footer"]?>
 
+<script>
+    var m = L.map('mapa').setView([39.66637682250297, 2.9030112138683597], 11);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoicHJvZmV3ZWIiLCJhIjoiY2pwM3JxeHR3MGF6cjNrcXcwbmh0MGZtOCJ9.mxvmjOpVymwltGGlcxHx8g'
+    }).addTo(m);
+</script>
 </body>
 </html>

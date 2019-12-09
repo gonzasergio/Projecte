@@ -28,7 +28,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  <div class="row" style="height: 77.5vh">
  	<div class="col-12 col-md-6" style="height: 77.5vh">
  	
- 	 	<div class="row" style="height: 8.5vh">
+ 	 	<div class="row" style="height: 64.11px">
  	 		<div class="col mx-5 mt-4">
  	 			<div class="input-group mb-3 mb-md-0 pl-0">
                     <div class="input-group mb-3 my-0">
@@ -40,7 +40,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 </div>
  	 		</div>
  	 	</div>
- 	 	<div class="row border-bottom" style="height: 7vh">
+ 	 	<div class="row border-bottom" style="height: 52.8px">
  	 		<div class="col mx-5 mt-2">
  	 			<div>
  	 				<i class="mt-1 float-left d-inline fas fa-angle-double-left text-secondary"></i>

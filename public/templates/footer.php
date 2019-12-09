@@ -1,5 +1,5 @@
 <footer class="footer container-fluid">
-	<div class="row bg-secondary" style="height: 17.8vh">
+	<div class="row bg-secondary" style="height: 134.28px">
       	<div class="col px-5 text-center my-auto">
           	<li class="list-inline-item">
                 <p class="text-light h5"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></p>

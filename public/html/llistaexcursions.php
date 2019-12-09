@@ -60,8 +60,10 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 	
  	</div>
  	
- 	<div class="d-none d-md-block col-6 overflow-hidden" style="height: 584.65px">
- 	 <img class="ml-n3" src="https://www.coolbusinessideas.com/wp-content/uploads/2018/10/Google-Map-Now-Tells-You-Offers-From-Your-Favourite-Places-.jpg">
+ 	<div class="d-none d-md-block col-6 overflow-hidden p-0" style="height: 584.65px">
+        <div id="mapa" style="width: 100%; height: 100%; z-index: 10">
+
+        </div>
  	</div>
  	
  </div>
@@ -72,5 +74,20 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 </main>
 
 <?php include $template["footer"]?>
+
+<script>
+    var m = L.map('mapa').setView([39.66637682250297, 2.9030112138683597], 11);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoicHJvZmV3ZWIiLCJhIjoiY2pwM3JxeHR3MGF6cjNrcXcwbmh0MGZtOCJ9.mxvmjOpVymwltGGlcxHx8g'
+    }).addTo(m);
+
+    let marker = L.marker([39.56961188244454,3.211168229307762]).addTo(m);
+    marker.bindPopup("<b>Manacor</b>");
+
+    marker = L.marker([39.64281188244454,3.011168229307762]).addTo(m);
+    marker.bindPopup("<b>Sineu</b>");
+</script>
 </body>
 </html>

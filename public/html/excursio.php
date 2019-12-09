@@ -335,7 +335,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <?php include $template["footer"]?>
 
 <script>
-    var m = L.map('mapa').setView([39.66637682250297, 2.9030112138683597], 11);
+    var m = L.map('mapa').setView([39.66637682250297, 2.9030112138683597], 12);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         maxZoom: 18,
         id: 'mapbox.streets',

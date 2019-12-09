@@ -78,10 +78,10 @@ main {
 /* -------- */
 /* Sticky nav */
 .sticky {
-    z-index: 5 !important;
+    z-index: 50 !important;
 }
 .sticky-nav {
-    z-index: 3 !important;
+    z-index: 30 !important;
 }
 /* -------- */
 ::selection {

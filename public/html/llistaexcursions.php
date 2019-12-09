@@ -25,8 +25,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <?php include $template["menu"]?>
 
 <main role="main" class="container-fluid m-main">
- <div class="row" style="height: 77.5vh">
- 	<div class="col-12 col-md-6" style="height: 77.5vh">
+ <div class="row" style="height: 584.65px">
+ 	<div class="col-12 col-md-6" style="height: 584.65px">
  	
  	 	<div class="row" style="height: 64.11px">
  	 		<div class="col mx-5 mt-4">
@@ -52,7 +52,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 		</div>
  	 	</div>
  	 	
- 	 	<div class="row overflow-auto" style="height: 62vh">
+ 	 	<div class="row overflow-auto" style="height: 467.73px">
  	 		<div class="col pt-2">
  	 			<?php include $template["routes"]?>
  	 		</div>
@@ -60,7 +60,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 	
  	</div>
  	
- 	<div class="d-none d-md-block col-6 overflow-hidden" style="height: 77.5vh">
+ 	<div class="d-none d-md-block col-6 overflow-hidden" style="height: 584.65px">
  	 <img class="ml-n3" src="https://www.coolbusinessideas.com/wp-content/uploads/2018/10/Google-Map-Now-Tells-You-Offers-From-Your-Favourite-Places-.jpg">
  	</div>
  	

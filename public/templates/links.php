@@ -22,5 +22,6 @@ $template = [
     "profile-dropdown" => "../templates/profile-dropdown.php",
     "responsive-login-btn" => "../templates/responsive-login-btn.php",
     "routeList" => "../templates/routeList.php",
+    "routes" => "../templates/routes.php"
 ];
 ?>

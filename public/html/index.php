@@ -9,7 +9,7 @@ include '../templates/globalIclude.php';
 </head>
 <body>
 	<?php include $template["menu"]?>
-	<main role="main" class="container-fluid">
+	<main role="main" class="container-fluid m-main">
     	<div class="row">
     		<div class="videobackground">
               <div class="overlay"></div>

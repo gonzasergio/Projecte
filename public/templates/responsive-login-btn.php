@@ -12,7 +12,7 @@
 		<a class='btn btn-link text-light dropdown-toggle text-decoration-none' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 			<i class='fas fa-user'></i>
  		</a>
-	<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+	<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuLink'>
 	<a class='dropdown-item' href='<?php echo $link["login"] ?>'><i class='fas fa-sign-in-alt' aria-hidden='true'></i> <?php echo $lang[$idioma]["login"]?></a>
 	<a class='dropdown-item' href='<?php echo $link["registre"] ?>'><i class='far fa-id-card' aria-hidden='true'></i> <?php echo $lang[$idioma]["register"]?></a>
 	</div>

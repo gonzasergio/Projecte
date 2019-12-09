@@ -1,8 +1,8 @@
 <footer class="footer container-fluid">
-	<div class="row">
-      	<div class="col bg-secondary p-5 text-center">
+	<div class="row bg-secondary" style="height: 134.28px">
+      	<div class="col px-5 text-center my-auto">
           	<li class="list-inline-item">
-                <h5 class="text-light"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></h5>
+                <p class="text-light h5"><?php echo (!(isset($_SESSION["AUTH"])))?($lang[$idioma]["registerFree"]):($lang[$idioma]["startSearching"]) ?></p>
             </li>
             <li class="list-inline-item">
                 <a href="<?php echo (!(isset($_SESSION["AUTH"])))?($link["registre"]):($link["excursions"]); ?>" class="btn btn-outline-light rounded">

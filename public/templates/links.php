@@ -13,6 +13,7 @@ $link = [
     "social" => "social.php",
     "perfil" => "perfil.php",
     "cursos" => "llistacursos.php",
+    "historia" => "historia.php",
 ];
 
 $template = [

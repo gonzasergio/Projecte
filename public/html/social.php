@@ -18,18 +18,22 @@ if (!(isset($_SESSION["AUTH"]))){
 <div class="mt-4 px-1 px-md-3 d-block d-md-none storyrow overflow-auto">
     <div class="userstory d-block-inline">
     	<div class="d-flex justify-content-center">
+    	<a href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>">
         <img title="<?php echo $_SESSION["user"];?>" class="mb-0 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
+    	</a>
     	</div>
     	<div class="d-flex justify-content-center">
-    		<small title="<?php echo $_SESSION["user"];?>" class="m-0"><?php echo $_SESSION["user"];?></small>
+    		<a href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>" title="<?php echo $_SESSION["user"];?>" class="m-0 small text-decoration-none text-dark"><?php echo $_SESSION["user"];?></a>
     	</div>
     </div>
     <div class="userstory d-block-inline">
     	<div class="d-flex justify-content-center">
+    	<a href="<?php echo $link["historia"] ?>?user=Toni">
         <img title="Toni" class="mb-0 mr-3 rounded-circle shadow-sm storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="60px">
+    	</a>
     	</div>
     	<div class="d-flex justify-content-center">
-    		<small title="Toni" class= "m-0">Toni</small>
+    		<a href="<?php echo $link["historia"] ?>?user=Toni" title="Toni" class= "m-0 small text-decoration-none text-dark">Toni</a>
     	</div>
     </div>
 </div>
@@ -59,8 +63,10 @@ if (!(isset($_SESSION["AUTH"]))){
             <div class="col-md-3 d-none d-lg-block">
                 <div class="card">
                     <div class="card-body">
+                    	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>">
 						<img title="<?php echo $_SESSION["user"];?>" class="d-flex mb-2 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="75px">
-                        <div title="<?php echo $_SESSION["user"];?>" class="h5"><?php echo $_SESSION["user"];?></div>
+                        </a>
+                        <a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>" title="<?php echo $_SESSION["user"];?>" class="h5 text-dark text-decoration-none"><?php echo $_SESSION["user"];?></a>
                         <div class="h7">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt fugit!
                         </div>
@@ -135,9 +141,13 @@ if (!(isset($_SESSION["AUTH"]))){
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
+                            	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>">
                                 <img title="Joan" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+                                </a>
                                 <div class="ml-2">
+                                	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>" class="text-decoration-none text-dark">
                                     <div title="Joan" class="h5 m-0">Joan </div>
+                                    </a>
                                     <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min</small>
                                 </div>
                             </div>
@@ -193,16 +203,20 @@ if (!(isset($_SESSION["AUTH"]))){
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $lang[$idioma]["stories"];?></h5>
                         <div class="row px-3">
+                        	<a href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>">
 							<img title="<?php echo $_SESSION["user"];?>" class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+                            </a>
                             <div class="ml-2">
-                                <b title="<?php echo $_SESSION["user"];?>" class= "m-0"><?php echo $_SESSION["user"];?> </b><br>
+                                <a  href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>"  title="<?php echo $_SESSION["user"];?>" class="m-0 font-weight-bold text-decoration-none text-dark"><?php echo $_SESSION["user"];?> </a><br>
                                 <small class="text-muted"> <i class="fa fa-clock-o"></i> 40 min</small>
                             </div>
 						</div>
 						<div class="row px-3 mt-3">
+							<a href="<?php echo $link["historia"] ?>?user=Toni">
 							<img title="Toni" class="d-flex mr-3 rounded-circle shadow-sm mt-1 storyborder-seen" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" height="40px" width="40px">
+                            </a>
                             <div class="ml-2">
-                                <b title="Toni" class= "m-0">Toni </b><br>
+                                <a href="<?php echo $link["historia"] ?>?user=Toni" title="Toni" class= "m-0 font-weight-bold text-decoration-none text-dark">Toni </a><br>
                                 <small class="text-muted"> <i class="fa fa-clock-o"></i> 1 h</small>
                             </div>
 						</div>

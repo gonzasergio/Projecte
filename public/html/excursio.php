@@ -37,7 +37,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         </div>
         
         <!-- Preview Image -->
-        <div id="mapa" style="width: 100%; height: 400px">
+        <div id="mapa" style="width: 100%; height: 400px; z-index: 10">
 
         </div>
 

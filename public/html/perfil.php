@@ -13,13 +13,15 @@ include '../templates/globalIclude.php';
 <main role="main" class="container-fluid">
 <div class="row mx-2 mx-md-5 pt-5">
 	<div class="col-3 col-md-4 ml-5 d-flex justify-content-end">
+		<a href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>">
 		<img class="d-none d-md-block rounded-circle nostoryborder mr-5" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="150px" height="150px">
 		<img class="d-block d-md-none rounded-circle nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="100px" height="100px">
+		</a>
 	</div>
 	<div class="col pl-4 pt-2">
 		<div class="row">
 			<div class="col">
-        		<h3 class="d-inline-block mb-3"><?php echo $_GET["user"] ?></h3>
+        		<a href="<?php echo $link["historia"] ?>?user=<?php echo $_SESSION["user"];?>" class="d-inline-block mb-3 h3 text-decoration-none text-dark"><?php echo $_GET["user"] ?></a>
         		<a href="#" class="ml-3 px-4 btn btn-sm btn-light border mt-n2 d-none d-md-inline-block"><?php echo $lang[$idioma]["follow"]?></a>
         		<div class="dropdown d-inline-block">
                 	<button class="mt-n1 btn btn-link dropdown-toggle text-decoration-none text-secondary" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,9 +90,11 @@ include '../templates/globalIclude.php';
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
+                            	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>">
                                 <img title="<?php echo $_GET["user"] ?>" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
+                                </a>
                                 <div class="ml-2">
-                                    <div title="<?php echo $_GET["user"] ?>" class="h5 m-0"><?php echo $_GET["user"] ?> </div>
+                                    <a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>" title="<?php echo $_GET["user"] ?>" class="d-block h5 m-0 text-decoration-none text-dark"><?php echo $_GET["user"] ?> </a>
                                     <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min</small>
                                 </div>
                             </div>

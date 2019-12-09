@@ -11,7 +11,7 @@ if (!(isset($_SESSION["AUTH"]))){
 	<?php include $template["head"]?>
     <title><?php echo $lang[$idioma]["social"]?></title>
 </head>
-<body class="bg-dark">
+<body class="bg-dark overflow-hidden" style="width: 100vw; height: 100vh">
 <div class="container-fluid">
 	<div class="row">
 		<div class="col d-flex justify-content-center">

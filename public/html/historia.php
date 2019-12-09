@@ -41,7 +41,7 @@ if (!(isset($_SESSION["AUTH"]))){
         				
         				<div class="position-absolute"><button class="btn btn-light rounded-pill mr-3 shadow" style="margin-top: 92vh;"><i class="far fa-paper-plane"></i></button></div>
         				
-        				<a href="<?php echo $link["social"]?>" class="btn btn-link text-light rounded-pill position-absolute border-0 mt-2 ml-5"><i class="fas fa-times"></i></a>
+        				<a href="<?php echo $link["social"]?>" class="btn btn-link text-light rounded-pill position-absolute border-0 mt-2 ml-5 d-none d-sm-block"><i class="fas fa-times"></i></a>
         			</div>
     			</div>
         		<img src="https://s2.best-wallpaper.net/wallpaper/iphone/1706/Thick-clouds-sky-top-view_iphone_1080x1920.jpg" style="height: 100vh"/>

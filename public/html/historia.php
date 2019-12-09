@@ -27,7 +27,7 @@ if (!(isset($_SESSION["AUTH"]))){
     					
         				<button class="btn btn-outline-light rounded-pill position-absolute border-0" style="margin-top: 50vh;"><i class="fas fa-angle-left"></i></button>
         			</div>
-        			<div class="col d-flex justify-content-end">
+        			<div class="col-4 d-flex justify-content-end">
         				<div class="dropdown position-absolute mt-3" style="z-index: 10;">
                         	<button class="btn btn-link dropdown-toggle text-decoration-none text-light mr-2" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             	<i class="fa fa-ellipsis-h"></i>

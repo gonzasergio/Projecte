@@ -7,6 +7,9 @@ html {
 main {
 	margin-bottom: 237px;
 }
+.m-main {
+		margin-bottom: 190px  !important;
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -19,7 +22,7 @@ main {
 .videobackground {
   position: relative;
   background-color: black;
-  height: 75vh;
+  height: 82.6vh;
   min-height: 25rem;
   width: 100%;
   overflow: hidden;

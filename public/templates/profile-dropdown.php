@@ -5,7 +5,7 @@
       	<?php echo $_SESSION["user"];?>
 		</span>
 	</a>      				  
-<div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+<div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuLink'>
 	<a class='dropdown-item' href='<?php echo $link["lesMevesExcursions"]?>'><i class='fas fa-map-marked-alt'></i> <?php echo $lang[$idioma]["myRoute"];?></a>
 	<a class='dropdown-item' href='<?php echo $link["tancarSessio"]?>'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> <?php echo $lang[$idioma]["logout"];?></a>
 </div>

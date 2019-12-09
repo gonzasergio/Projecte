@@ -38,10 +38,10 @@ include '../templates/globalIclude.php';
         				<div class="position-absolute"><button class="btn btn-light rounded-pill mr-3 shadow" style="margin-top: 92vh;"><i class="far fa-paper-plane"></i></button></div>
         				
         				<a href="<?php if (isset($_SESSION["lastRoute"])){
-    									$url = ($_SESSION["lastRoute"] == '') ? $link["inici"] : $_SESSION["lastRoute"];
+    									$url = ($_SESSION["lastRoute"] == '') ? $link["social"] : $_SESSION["lastRoute"];
     									echo $url;
 									} else {
-    									header("Location: ".$link["inici"]);
+    									echo $link["social"];
 									}?>" class="btn btn-link text-light rounded-pill position-absolute border-0 mt-2 ml-5 d-none d-sm-block"><i class="fas fa-times"></i></a>
         			</div>
     			</div>

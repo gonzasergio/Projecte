@@ -32,7 +32,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 		<div class="col mx-5 mt-4">
  	 			<div class="input-group mb-3 mb-md-0 pl-0">
                     <div class="input-group mb-3 my-0">
-                      <input type="text" class="form-control" placeholder="Cercar" aria-label="Cercar" aria-describedby="basic-addon2">
+                      <input type="text" class="form-control" placeholder="<?php echo $lang[$idioma]["search"]?>" aria-label="<?php echo $lang[$idioma]["search"]?>" aria-describedby="basic-addon2">
                       <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
                       </div>
@@ -44,9 +44,9 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 		<div class="col mx-5 mt-2">
  	 			<div>
  	 				<i class="mt-1 float-left d-inline fas fa-angle-double-left text-secondary"></i>
- 	 				<div class="d-inline mx-2 text-secondary">Zonas</div>
- 	 				<div class="d-inline mx-2 text-secondary">Dificultad</div>
- 	 				<div class="mx-2 text-secondary d-none d-sm-inline d-md-none d-lg-inline">Distancia</div>
+ 	 				<div class="d-inline mx-2 text-secondary"><?php echo $lang[$idioma]["zone"]?></div>
+ 	 				<div class="d-inline mx-2 text-secondary"><?php echo $lang[$idioma]["difficulty"]?></div>
+ 	 				<div class="mx-2 text-secondary d-none d-sm-inline d-md-none d-lg-inline"><?php echo $lang[$idioma]["distance"]?></div>
  	 				<i class="mt-1 d-inline float-right fas fa-angle-double-right text-secondary"></i>
  	 			</div>
  	 		</div>
@@ -68,8 +68,8 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	
  </div>
  <div class="row bg-light shadow-sm">
- 	<div class="col text-center border"><p class="my-2"><i class="fas fa-route"></i> Excusiones</p></div>
- 	<div class="col text-center border"><p class="my-2"><i class="fas fa-map-marked-alt"></i> Mapa</p></div>
+ 	<div class="col text-center border"><p class="my-2"><i class="fas fa-route"></i> <?php echo $lang[$idioma]["routes"]?></p></div>
+ 	<div class="col text-center border"><p class="my-2"><i class="fas fa-map-marked-alt"></i> <?php echo $lang[$idioma]["map"]?></p></div>
  </div>
 </main>
 

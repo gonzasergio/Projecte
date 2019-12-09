@@ -75,7 +75,11 @@ $lang = [
         "userDoesntExists" => "User doesn't exist",
         "passwordDoesntMatch" => "Password doesn't match",
         "passwordsDoesntMatch" => "Passwords doesn't match",
-        "userShort" => "Username is too short"
+        "userShort" => "Username is too short",
+        "routes" => "Routes",
+        "map" => "Map",
+        "search" => "Search",
+        "distance" => "Distance"
         
     ],
     "es" => [
@@ -152,7 +156,11 @@ $lang = [
         "userDoesntExists" => "El usuario no existe",
         "passwordDoesntMatch" => "La contraseña no coincide",
         "passwordsDoesntMatch" => "Las contraseñas no coinciden",
-        "userShort" => "El nombre de usuario es demasiado corto"
+        "userShort" => "El nombre de usuario es demasiado corto",
+        "routes" => "Rutas",
+        "map" => "Mapa",
+        "search" => "Buscar",
+        "distance" => "Distancia"
         
     ],
     "fr" => [
@@ -229,7 +237,11 @@ $lang = [
         "userDoesntExists" => "L'utilisateur n'existe pas",
         "passwordDoesntMatch" => "Le mot de passe ne correspond pas",
         "passwordsDoesntMatch" => "Les mots de passe ne correspondent pas",
-        "userShort" => "Le nom d'utilisateur est trop court"
+        "userShort" => "Le nom d'utilisateur est trop court",
+        "routes" => "Itinéraires",
+        "map" => "Carte",
+        "search" => "Chercher",
+        "distance" => "Distance"
         
     ],
     "ca" => [
@@ -253,7 +265,7 @@ $lang = [
         "zone" => "Zona",
         "difficulty" => "Dificultat",
         "routeList" => "Llista de rutes",
-        "welcome" => "Bienvingut a GOATrails!",
+        "welcome" => "Benvingut a GOATrails!",
         "keyline" => "Troba ''The Greatest Of All Trails''.",
         "startSearching" => "Comença a cercar rutes!",
         "search" => "Cercar",
@@ -306,7 +318,11 @@ $lang = [
         "userDoesntExists" => "L'usuario no existeix",
         "passwordDoesntMatch" => "La contrasenya no coincideix",
         "passwordsDoesntMatch" => "Les contrasenyes no coincideixen",
-        "userShort" => "El nom d'usuari és massa curt"
+        "userShort" => "El nom d'usuari és massa curt",
+        "routes" => "Rutes",
+        "map" => "Mapa",
+        "search" => "Cercar",
+        "distance" => "Distancia"
         
     ]
 ];

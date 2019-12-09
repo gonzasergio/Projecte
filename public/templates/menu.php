@@ -41,6 +41,9 @@ case "social.php":
 case "index.php":
 	$("li#Home").attr("class","active");
 	  break;
+case "llistacursos.php":
+	$("li#Cursos").attr("class","active");
+	  break;	 
 case "":
 	$("li#Home").attr("class","active");
 	  break;
@@ -64,7 +67,7 @@ case "":
             		<a class="nav-link" href="<?php echo $link["excursions"]?>"><i class="fas fa-route"></i> <?php echo $lang[$idioma]["routeList"] ?></a>
           		</li>
           		<li id="Cursos" class="nav-item mx-1">
-            		<a class="nav-link" href="#"><i class="fas fa-chalkboard-teacher"></i> Cursos</a>
+            		<a class="nav-link" href="<?php echo $link["cursos"]?>"><i class="fas fa-chalkboard-teacher"></i> <?php echo $lang[$idioma]["courses"] ?></a>
           		</li>
           		<li id="Social" class="nav-item mx-1">
             		<a class="nav-link" href="<?php echo $link["social"]?>"><i class="fas fa-users"></i> <?php echo $lang[$idioma]["social"];?></a>

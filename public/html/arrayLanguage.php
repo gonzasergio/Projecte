@@ -79,7 +79,8 @@ $lang = [
         "routes" => "Routes",
         "map" => "Map",
         "search" => "Search",
-        "distance" => "Distance"
+        "distance" => "Distance",
+        "courses" => "Courses"
         
     ],
     "es" => [
@@ -160,7 +161,8 @@ $lang = [
         "routes" => "Rutas",
         "map" => "Mapa",
         "search" => "Buscar",
-        "distance" => "Distancia"
+        "distance" => "Distancia",
+        "courses" => "Cursos"
         
     ],
     "fr" => [
@@ -241,7 +243,8 @@ $lang = [
         "routes" => "Itinéraires",
         "map" => "Carte",
         "search" => "Chercher",
-        "distance" => "Distance"
+        "distance" => "Distance",
+        "courses" => "Cours"
         
     ],
     "ca" => [
@@ -322,7 +325,8 @@ $lang = [
         "routes" => "Rutes",
         "map" => "Mapa",
         "search" => "Cercar",
-        "distance" => "Distancia"
+        "distance" => "Distancia",
+        "courses" => "Cursos"
         
     ]
 ];

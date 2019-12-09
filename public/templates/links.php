@@ -11,7 +11,8 @@ $link = [
     "sessioIdioma" => "sesioIdioma.php",
     "arrayLanguage" => "arrayLanguage.php",
     "social" => "social.php",
-    "perfil" => "perfil.php"
+    "perfil" => "perfil.php",
+    "cursos" => "llistacursos.php",
 ];
 
 $template = [

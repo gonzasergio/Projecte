@@ -23,7 +23,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <body>
 <?php include $template["menu"]?>
 <main role="main" class="container-fluid">
-        <div class="row mx-2 mx-md-5 px-2 px-md-5 mt-4">
+        <div class="row mx-0 mx-sm-2 mx-md-5 px-0 px-sm-2 px-md-5 mt-4">
 
       <!-- Post Content Column -->
       <div class="col-lg-8">

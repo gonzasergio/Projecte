@@ -3,7 +3,7 @@
                 <div class="row border-bottom mx-2 mx-lg-3 mb-4">
                 	<div class="d-none d-md-block col-sm-4 col-md-3 col-lg-2 text-center">
                     	<a href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>">
-                        	<img class="rounded-circle shadow-sm nostoryborder w-100" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg">
+                        	<img style="max-width: 80px" class="rounded-circle shadow-sm nostoryborder w-100" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg">
                     	</a>
                     	<p class="text-secondary mt-1">
                     		<a href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>" class="text-secondary text-decoration-none"><?= $rute->getUserNom() ?></a>

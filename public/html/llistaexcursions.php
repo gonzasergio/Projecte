@@ -25,10 +25,10 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 <?php include $template["menu"]?>
 
 <main role="main" class="container-fluid m-main">
- <div class="row" style="height: 584.65px">
- 	<div class="col-12 col-md-6" style="height: 584.65px">
- 	
- 	 	<div class="row" style="height: 64.11px">
+ <div class="row" style="height: 77.5vh">
+ 
+ 	<div class="col-12 col-md-6 overflow-hidden" style="height: 77.5vh">
+ 	 	<div class="row" style="min-height: 64.11px; height: 8.5vh">
  	 		<div class="col mx-3 mx-md-5 mt-4">
  	 			<div class="input-group mb-3 mb-md-0 pl-0">
                     <div class="input-group mb-3 my-0">
@@ -40,7 +40,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                 </div>
  	 		</div>
  	 	</div>
- 	 	<div class="row border-bottom" style="height: 52.8px">
+ 	 	<div class="row border-bottom" style="min-height: 52.8px; height: 7vh">
  	 		<div class="col mx-3 mx-md-5 mt-2">
  	 			<div>
  	 				<i class="mt-1 float-left d-inline fas fa-angle-double-left text-secondary"></i>
@@ -52,7 +52,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 		</div>
  	 	</div>
  	 	
- 	 	<div class="row overflow-auto" style="height: 467.73px">
+ 	 	<div class="row overflow-auto" style="height: 62vh">
  	 		<div class="col pt-2">
  	 			<?php include $template["routes"]?>
  	 		</div>
@@ -60,7 +60,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
  	 	
  	</div>
  	
- 	<div class="d-none d-md-block col-6 overflow-hidden p-0" style="height: 584.65px">
+ 	<div class="d-none d-md-block col-6 overflow-hidden p-0" style="height: 77.5vh">
         <div id="mapa" style="width: 100%; height: 100%; z-index: 10">
 
         </div>

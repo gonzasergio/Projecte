@@ -88,6 +88,9 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
     marker = L.marker([39.64281188244454,3.011168229307762]).addTo(m);
     marker.bindPopup("<b>Sineu</b>");
+
+    marker = L.marker([39.55881188244454,2.895168229307762]).addTo(m);
+    marker.bindPopup("<b><?= $array[2]->getName() ?></b>");
 </script>
 </body>
 </html>

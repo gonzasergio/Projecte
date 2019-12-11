@@ -4,7 +4,10 @@
             
             <div class='dropdown show'>
             	<a class='btn btn-link text-light dropdown-toggle text-decoration-none' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-            		<img class="mr-0 mr-md-2 mt-n1 rounded-circle shadow-sm" src="../img/lang/<?php echo $lang[$idioma]["lang"];?>.png" width="20px">
+            		<img class="mr-2 mt-n1 rounded-circle shadow-sm" src="../img/lang/<?php echo $lang[$idioma]["lang"];?>.png" width="20px">
+					<span class='d-inline d-md-none'>
+                  	<?php echo strtoupper($lang[$idioma]["langCode"]);?>
+            		</span>
             		<span class='d-none d-md-inline'>
                   	<?php echo $lang[$idioma]["lang"];?>
             		</span>

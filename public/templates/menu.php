@@ -1,7 +1,8 @@
 <header class="container-fluid sticky">
     <div class="row bg-secondary pt-2">
         <div class="col d-flex justify-content-start">
-            <form action="<?php echo $link["sessioIdioma"]?>" method="post">
+        
+            <!-- <form action="<?php echo $link["sessioIdioma"]?>" method="post">
                 <div class="form-group">
                     <select class="form-control float-right custom-select-sm" id="language" onChange="canviaIdioma()">
                         <?php
@@ -13,8 +14,30 @@
                         ?>
                 	</select>
                 </div>
-            </form>
-            <i class="fas fa-language float-left text-light h2 ml-3"></i>
+            </form>-->
+            
+            <div class='dropdown show'>
+            	<a class='btn btn-link text-light dropdown-toggle text-decoration-none' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            		<img class="mr-2 mt-n1 rounded-circle shadow-sm" src="../img/lang/<?php echo $lang[$idioma]["lang"];?>.png" width="20px">
+            		<span class='d-none d-md-inline'>
+                  	<?php echo $lang[$idioma]["lang"];?>
+            		</span>
+            	</a>      				  
+            <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuLink'>
+                        <?php
+                          foreach ($lang as $i) {
+                              $selected = ($idioma==$i["langCode"])?('bg-light'):('');
+                        ?>
+                        <button  onclick="post('<?php echo $link["sessioIdioma"]?>',{language:'<?php echo $i["langCode"]?>'});" class="btn btn-link dropdown-item <?php echo $selected;?>"><img class="mr-2 mt-n1 rounded-circle shadow-sm" src="../img/lang/<?php echo $i["lang"];?>.png" width="20px"> <?php echo $i["lang"];?></button>
+                        <?php
+                        }
+    
+                        ?>
+            </div>
+            </div>
+            
+            <!-- ######## -->
+            
         </div>
     	<div class="col d-flex justify-content-end">
       				<?php

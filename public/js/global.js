@@ -18,8 +18,3 @@ function post(path, params, method='post') {
     document.body.appendChild(form);
     form.submit();
 }
-
-function canviaIdioma(){
-    selector = document.getElementById('language').value;
-    post("sesioIdioma.php",{language:selector});
-}

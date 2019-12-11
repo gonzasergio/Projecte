@@ -6,7 +6,9 @@
 		</span>
 	</a>      				  
 <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuLink'>
-	<a class='dropdown-item' href='<?php echo $link["lesMevesExcursions"]?>'><i class='fas fa-map-marked-alt'></i> <?php echo $lang[$idioma]["myRoute"];?></a>
+	<a class='dropdown-item' href='<?php echo $link["perfil"]."?user=".$_SESSION["user"]?>'><i class='fas fa-user'></i> <?php echo $lang[$idioma]["myProfile"];?></a>
+	<a class='dropdown-item' href='<?php echo $link["lesMevesExcursions"]?>'><i class='fas fa-route'></i> <?php echo $lang[$idioma]["myRoute"];?></a>
+	<a class='dropdown-item' href='<?php echo $link["elsMeusCursos"]?>'><i class='fas fa-chalkboard-teacher'></i> <?php echo $lang[$idioma]["myCourses"];?></a>
 	<a class='dropdown-item' href='<?php echo $link["tancarSessio"]?>'><i class='fas fa-sign-out-alt' aria-hidden='true'></i> <?php echo $lang[$idioma]["logout"];?></a>
 </div>
 </div>

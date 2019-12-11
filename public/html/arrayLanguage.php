@@ -80,7 +80,9 @@ $lang = [
         "map" => "Map",
         "search" => "Search",
         "distance" => "Distance",
-        "courses" => "Courses"
+        "courses" => "Courses",
+        "myProfile" => "My profile",
+        "myCourses" => "My courses"
         
     ],
     "es" => [
@@ -162,7 +164,9 @@ $lang = [
         "map" => "Mapa",
         "search" => "Buscar",
         "distance" => "Distancia",
-        "courses" => "Cursos"
+        "courses" => "Cursos",
+        "myProfile" => "Mi perfil",
+        "myCourses" => "Mis cursos"
         
     ],
     "fr" => [
@@ -244,7 +248,9 @@ $lang = [
         "map" => "Carte",
         "search" => "Chercher",
         "distance" => "Distance",
-        "courses" => "Cours"
+        "courses" => "Cours",
+        "myProfile" => "Mon profil",
+        "myCourses" => "My courses"
         
     ],
     "ca" => [
@@ -326,7 +332,9 @@ $lang = [
         "map" => "Mapa",
         "search" => "Cercar",
         "distance" => "Distancia",
-        "courses" => "Cursos"
+        "courses" => "Cursos",
+        "myProfile" => "El meu perfil",
+        "myCourses" => "Els meus cursos"
         
     ]
 ];

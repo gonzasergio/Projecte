@@ -141,11 +141,11 @@ if (!(isset($_SESSION["AUTH"]))){
                     <div class="card-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
-                            	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>">
+                            	<a href="<?php echo $link["perfil"] ?>?user=Joan">
                                 <img title="Joan" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
                                 </a>
                                 <div class="ml-2">
-                                	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>" class="text-decoration-none text-dark">
+                                	<a href="<?php echo $link["perfil"] ?>?user=Joan" class="text-decoration-none text-dark">
                                     <div title="Joan" class="h5 m-0">Joan </div>
                                     </a>
                                     <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min</small>

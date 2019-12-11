@@ -3,6 +3,7 @@ $link = [
 	"inici" => "index.php",
     "excursions" => "llistaexcursions.php",
     "lesMevesExcursions" => "misExcursiones.php",
+    "elsMeusCursos" => "misCursos.php",
     "pagament" => "pagament.php",
     "excursio" => "excursio.php",
     "login" => "login.php",

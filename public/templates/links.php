@@ -1,20 +1,20 @@
 <?php
 $link = [
-	"inici" => "index.php",
-    "excursions" => "llistaexcursions.php",
+	"inici" => "inici",
+    "excursions" => "excursions",
     "lesMevesExcursions" => "misExcursiones.php",
-    "elsMeusCursos" => "misCursos.php",
-    "pagament" => "pagament.php",
-    "excursio" => "excursio.php",
-    "login" => "login.php",
-    "registre" => "registre.php",
+    "elsMeusCursos" => "elsMeusCursos",
+    "pagament" => "pagament",
+    "excursio" => "excursio",
+    "login" => "login",
+    "registre" => "registre",
     "tancarSessio" => "tancarsessio.php",
     "sessioIdioma" => "sesioIdioma.php",
     "arrayLanguage" => "arrayLanguage.php",
-    "social" => "social.php",
-    "perfil" => "perfil.php",
-    "cursos" => "llistacursos.php",
-    "historia" => "historia.php",
+    "social" => "social",
+    "perfil" => "perfil",
+    "cursos" => "cursos",
+    "historia" => "historia",
 ];
 
 $template = [

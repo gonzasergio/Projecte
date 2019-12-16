@@ -1,0 +1,22 @@
+<?php
+$links = [
+    "inici" => "index.php",
+    "excursions" => "llistaexcursions.php",
+    "lesMevesExcursions" => "misExcursiones.php",
+    "elsMeusCursos" => "misCursos.php",
+    "pagament" => "pagament.php",
+    "excursio" => "excursio.php",
+    "login" => "login.php",
+    "registre" => "registre.php",
+    "tancarSessio" => "tancarsessio.php",
+    "sessioIdioma" => "sesioIdioma.php",
+    "arrayLanguage" => "arrayLanguage.php",
+    "social" => "social.php",
+    "perfil" => "perfil.php",
+    "cursos" => "llistacursos.php",
+    "historia" => "historia.php",
+];
+
+$url = explode('/', $_SERVER['REQUEST_URI']);
+
+include $links[$url[sizeof($url)-1]];

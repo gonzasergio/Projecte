@@ -18,5 +18,6 @@ $links = [
 ];
 
 $url = explode('/', $_SERVER['REQUEST_URI']);
+$link = explode( '?', $url[sizeof($url)-1]);
 
-include $links[$url[sizeof($url)-1]];
+include $links[$link[0]];

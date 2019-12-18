@@ -15,6 +15,7 @@ $links = [
     "perfil" => "perfil.php",
     "cursos" => "llistacursos.php",
     "historia" => "historia.php",
+    "missatges" => "chat.php",
 ];
 
 $url = explode('/', $_SERVER['REQUEST_URI']);

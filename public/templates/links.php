@@ -15,6 +15,7 @@ $link = [
     "perfil" => "perfil",
     "cursos" => "cursos",
     "historia" => "historia",
+    "missatges" => "missatges",
 ];
 
 $template = [

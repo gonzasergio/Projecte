@@ -31,6 +31,12 @@
       				if (!(isset($_SESSION["AUTH"]))){
       				  include $template["responsive-login-btn"];
       				} else {
+      				?>
+      				<a class='btn btn-link text-light text-decoration-none' href='<?php echo $link["missatges"]?>'>
+      						<span class="small bg-danger rounded-pill text-light px-1 mr-n1 d-inline">1</span>
+                    		<i class="far fa-envelope h5 mr-0 d-inline"></i>
+                    </a>
+      				<?php
       				  include $template["profile-dropdown"];
       				}
       				?>

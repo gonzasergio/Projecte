@@ -131,7 +131,7 @@ if (!(isset($_SESSION["AUTH"]))){
         	<div class="fixed-bottom container-fluid mb-4 mb-md-0">
         	<div class="row bg-secondary">
         		<div class="col col-md-3">
-        			<a href="<?php echo $link["inici"]?>" class="btn btn-outline-light mt-3 rounded-pill float-right mr-3"><i class="fas fa-reply"></i></a>
+        			<a href="<?php echo $_SESSION["lastRoute"]?>" class="btn btn-outline-light mt-3 rounded-pill float-right mr-3"><i class="fas fa-reply"></i></a>
         		</div>
         		<div class="d-none d-md-block col px-5 bg-light border-top">
         			<div class="input-group mb-3 mb-md-0 pl-0 mt-3">

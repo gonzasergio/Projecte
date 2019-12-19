@@ -2,8 +2,8 @@
 $links = [
     "inici" => "index.php",
     "excursions" => "llistaexcursions.php",
-    "lesMevesExcursions" => "misExcursiones.php",
-    "elsMeusCursos" => "misCursos.php",
+    "les-meves-excursions" => "misExcursiones.php",
+    "els-meus-cursos" => "misCursos.php",
     "pagament" => "pagament.php",
     "excursio" => "excursio.php",
     "login" => "login.php",

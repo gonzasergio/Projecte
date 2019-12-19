@@ -2,8 +2,8 @@
 $link = [
 	"inici" => "inici",
     "excursions" => "excursions",
-    "lesMevesExcursions" => "lesMevesExcursions",
-    "elsMeusCursos" => "elsMeusCursos",
+    "lesMevesExcursions" => "les-meves-excursions",
+    "elsMeusCursos" => "els-meus-cursos",
     "pagament" => "pagament",
     "excursio" => "excursio",
     "login" => "login",

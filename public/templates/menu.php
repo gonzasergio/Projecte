@@ -17,7 +17,7 @@
                           foreach ($lang as $i) {
                               $selected = ($idioma==$i["langCode"])?('bg-light'):('');
                         ?>
-                        <button  onclick="post('<?php echo $link["sessioIdioma"]?>',{language:'<?php echo $i["langCode"]?>'});" class="btn btn-link dropdown-item <?php echo $selected;?>"><img class="mr-2 mt-n1 rounded-circle shadow-sm" src="../img/lang/<?php echo $i["lang"];?>.png" width="20px"> <?php echo $i["lang"];?></button>
+                        <button  onclick="post('<?php echo $link["sessioIdioma"]?>',{language:'<?php echo $i["langCode"]?>'});" class="btn btn-link dropdown-item <?php echo $selected;?>"><img class="mr-2 mt-n1 rounded-circle shadow-sm" src="/Projecte/public/img/lang/<?php echo $i["lang"];?>.png" width="20px"> <?php echo $i["lang"];?></button>
                         <?php
                         }
     

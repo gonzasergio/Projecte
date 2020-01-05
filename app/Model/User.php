@@ -15,7 +15,7 @@ class User {
     private $pass;
 
 
-    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city , $lvl , $pass, $id = null) {
+    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass,$id = null) {
         $this->id = $id;
         $this->userName = $userName;
         $this->name = $name;
@@ -77,6 +77,20 @@ class User {
         $this->id = $id;
     }
 
+    public function toArray(){
+        return [
+            'id' => $this->id,
+            'userName' => $this->userName,
+            'name' => $this->name,
+            'surname1' => $this->surname1,
+            'surname2' => $this->surname2,
+            'dni' => $this->dni,
+            'phoneNumber' => $this->phoneNumber,
+            'city' => $this->city,
+            'lvl' => $this->lvl,
+            'pass' => $this->pass
+        ];
+    }
 
 
 }

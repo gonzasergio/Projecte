@@ -31,11 +31,23 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-echo $path;
+//echo $path;
 switch ($path) {
     case '/api/insert/user':
-        $controller = new UserController($_REQUEST);
+        $controller = new UserController();
         $controller->insertUser();
+        break;
+    case '/api/get/user':
+        $controller = new UserController();
+        $controller->getUser();
+        break;
+    case '/api/get/user/all':
+        $controller = new UserController();
+        $controller->getAllUsers();
+        break;
+    case '/api/update/user':
+        $controller = new UserController();
+        $controller->updateUser();
         break;
     default:
         include $links[$link[0]];

@@ -10,4 +10,6 @@ interface DAO_User {
 
     public function getAllUsers();
 
+    public function updateUser($id, $colName, $newValue);
+
 }

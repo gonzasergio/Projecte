@@ -18,4 +18,28 @@ class UserController {
         $this->DAO->insert($user);
     }
 
+    public function getUser(){
+        $user = $this->DAO->getUserById($_REQUEST['id']);
+
+        echo json_encode($user->toArray());
+    }
+
+    public function getAllUsers(){
+        $users = $this->DAO->getAllUsers();
+        $array = [];
+
+        foreach ($users as $u)
+            $array[] = $u->toArray();
+
+        echo json_encode($array);
+    }
+
+    public function updateUser(){
+        $id = $_REQUEST['id'];
+        $colName = $_REQUEST['colName'];
+        $newValue = $_REQUEST['newValue'];
+
+        $this->DAO->updateUser($id, $colName, $newValue);
+    }
+
 }

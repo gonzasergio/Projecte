@@ -15,7 +15,7 @@ class User {
     private $pass;
 
 
-    public function __construct($id, $userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city , $lvl , $pass) {
+    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city , $lvl , $pass, $id = null) {
         $this->id = $id;
         $this->userName = $userName;
         $this->name = $name;
@@ -72,5 +72,11 @@ class User {
     public function getPass() {
         return $this->pass;
     }
+
+    public function setId($id): void {
+        $this->id = $id;
+    }
+
+
 
 }

@@ -9,20 +9,19 @@ class UsersDAO implements DAO_User {
     }
 
     public function insert(User $user) {
-        $id = $user->getId();
-        $userName = $user->getUserName();
-        $name = $user->getName();
-        $surname1 = $user->getSurname1();
-        $surname2 = $user->getSurname2();
-        $dni = $user->getDni();
-        $phoneNumber = $user->getPhoneNumber();
-        $email = $user->getEmail();
-        $city = $user->getCity();
-        $lvl = $user->getLvl();
-        $pass = $user->getPass();
+        $userName = '"' . $user->getUserName() . '"';
+        $name = '"' . $user->getName(). '"';
+        $surname1 = '"' . $user->getSurname1(). '"';
+        $surname2 = '"' . $user->getSurname2(). '"';
+        $dni = '"' . $user->getDni(). '"';
+        $phoneNumber = '"' . $user->getPhoneNumber(). '"';
+        $email = '"' . $user->getEmail(). '"';
+        $city = '"' . $user->getCity(). '"';
+        $lvl = '"' . $user->getLvl(). '"';
+        $pass = '"' . $user->getPass(). '"';
 
-        $insert = "INSERT INTO perfil (`nom`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`pass`)
-        values (" . $userName . ", " . $name . ", " . $surname1 . ", " . $surname2 . ", " . $dni . ", " . $phoneNumber . ", " . $email . ", " . $pass . ")";
+        $insert = "INSERT INTO perfil (`nom`,`userName`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`id_ciutat`,`id_nivell`,`pass`)
+        values ($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass)";
 
         $this->connection->prepare($insert)->execute();
 

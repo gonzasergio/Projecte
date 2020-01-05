@@ -5,7 +5,7 @@ class DBConnection {
     private static $instance = null;
     private $conn = null;
 
-    private function __construct() {
+    private function __construct($name) {
         try {
             $DBConf = null;
             require_once '../../app/BDConnectio/DBConfig.php';
@@ -13,7 +13,7 @@ class DBConnection {
             $servername = $DBConf["servername"];
             $username = $DBConf["username"];
             $password = $DBConf["password"];
-            $dbname = $DBConf["dbname"];
+            $dbname = $name;
 
             $this->conn = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,9 +22,9 @@ class DBConnection {
         }
     }
 
-    public static function getInstance(){
+    public static function getInstance($name = "goatrails"){
         if(self::$instance == null)
-            self::$instance = new DBConnection();
+            self::$instance = new DBConnection($name);
 
         return self::$instance;
     }

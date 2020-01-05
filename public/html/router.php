@@ -1,4 +1,11 @@
 <?php
+require '../../app/BDConnectio/DBConnection.php';
+require '../../app/Model/User.php';
+require '../../app/DAOs/DAO_User.php';
+require '../../app/DAO_Implements/UsersDAO.php';
+require '../../app/Controllers/UserController.php';
+
+
 $links = [
     "inici" => "index.php",
     "excursions" => "llistaexcursions.php",
@@ -18,7 +25,19 @@ $links = [
     "missatges" => "chat.php",
 ];
 
-$url = explode('/', $_SERVER['REQUEST_URI']);
+
+$path = str_replace("/projecte/public/html", "", $_SERVER['REQUEST_URI']);
+$url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 
-include $links[$link[0]];
+var_dump($_REQUEST);
+
+switch ($path) {
+    case '/api/insert/user':
+        $controller = new UserController($_REQUEST);
+        $controller->insertUser();
+        break;
+    default:
+        include $links[$link[0]];
+}
+

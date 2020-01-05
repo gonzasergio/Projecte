@@ -20,6 +20,11 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                 <div class="card-body">
                     
                     <form>
+                        <div class="form-group">
+                            <label><i class="fas fa-key text-secondary"></i> Email:</label>
+                            <input class="form-control" type="text" id="email">
+                            <small id="incorrectPass2" class="form-text text-danger"></small>
+                        </div>
                     	<div class="form-group">
                             <label><i class="fas fa-user text-secondary"></i> <?php echo $lang[$idioma]["user"]?>:</label>
                             <input class="form-control" type="text" id="name">

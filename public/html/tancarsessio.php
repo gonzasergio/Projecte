@@ -1,6 +1,6 @@
 <?php
 include '../templates/links.php';
-include $template["arrayLanguage"];
+include $link["arrayLanguage"];
 session_start();
 
 if (!isset($_SESSION["idioma"])){

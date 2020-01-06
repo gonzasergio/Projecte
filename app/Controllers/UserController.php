@@ -1,9 +1,8 @@
 <?php
 
 
-class UserController {
+class UserController extends Controller {
 
-    private $DAO;
 
     public function __construct() {
         $this->DAO = new UsersDAO();
@@ -24,6 +23,10 @@ class UserController {
         echo json_encode($user->toArray());
     }
 
+    public function deleteUser(){
+        $this->DAO->deleteUserById($_REQUEST['id']);
+    }
+
     public function getAllUsers(){
         $users = $this->DAO->getAllUsers();
         $array = [];
@@ -41,5 +44,6 @@ class UserController {
 
         $this->DAO->updateUser($id, $colName, $newValue);
     }
+
 
 }

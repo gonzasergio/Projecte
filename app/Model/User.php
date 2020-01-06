@@ -1,7 +1,7 @@
 <?php
 
 
-class User {
+class User extends Model {
     private $id;
     private $userName;
     private $name;
@@ -72,6 +72,43 @@ class User {
     public function getPass() {
         return $this->pass;
     }
+
+    public function setUserName($userName): void {
+        $this->userName = $userName;
+    }
+
+    public function setName($name): void {
+        $this->name = $name;
+    }
+
+    public function setSurname1($surname1): void {
+        $this->surname1 = $surname1;
+    }
+
+    public function setSurname2($surname2): void {
+        $this->surname2 = $surname2;
+    }
+
+    public function setDni($dni): void {
+        $this->dni = $dni;
+    }
+
+    public function setPhoneNumber($phoneNumber): void {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    public function setEmail($email): void {
+        $this->email = $email;
+    }
+
+    public function setCity($city): void {
+        $this->city = $city;
+    }
+
+    public function setLvl($lvl): void {
+        $this->lvl = $lvl;
+    }
+
 
     public function setId($id): void {
         $this->id = $id;

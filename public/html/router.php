@@ -1,9 +1,16 @@
 <?php
 require '../../app/BDConnectio/DBConnection.php';
+require '../../app/Model/Model.php';
 require '../../app/Model/User.php';
+require '../../app/Model/Publication.php';
 require '../../app/DAOs/DAO_User.php';
+require '../../app/DAOs/DAO_Publication.php';
+require '../../app/DAO_Implements/FormatSQL.php';
 require '../../app/DAO_Implements/UsersDAO.php';
+require '../../app/DAO_Implements/PublicationDAO.php';
+require '../../app/Controllers/Controller.php';
 require '../../app/Controllers/UserController.php';
+require '../../app/Controllers/PublicationController.php';
 
 
 $links = [
@@ -41,6 +48,10 @@ switch ($path) {
         $controller = new UserController();
         $controller->getUser();
         break;
+    case '/api/delete/user':
+        $controller = new UserController();
+        $controller->deleteUser();
+        break;
     case '/api/get/user/all':
         $controller = new UserController();
         $controller->getAllUsers();
@@ -48,6 +59,30 @@ switch ($path) {
     case '/api/update/user':
         $controller = new UserController();
         $controller->updateUser();
+        break;
+    case '/api/insert/publication':
+        $controller = new PublicationController();
+        $controller->insertPublication();
+        break;
+    case '/api/get/publication':
+        $controller = new PublicationController();
+        $controller->getPublication();
+        break;
+    case '/api/delete/publication':
+        $controller = new PublicationController();
+        $controller->deletePublication();
+        break;
+    case '/api/get/user/publications':
+        $controller = new PublicationController();
+        $controller->getUserPublications();
+        break;
+    case '/api/get/route/publications':
+        $controller = new PublicationController();
+        $controller->getRoutePublications();
+        break;
+    case '/api/update/publications':
+        $controller = new PublicationController();
+        $controller->updatePublication();
         break;
     default:
         include $links[$link[0]];

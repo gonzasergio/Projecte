@@ -22,7 +22,7 @@ class GrupDAO implements DAO_Grup {
 
     public function getAllMembersByGrupId($id) {
         $grup = null;
-        $select = "SELECT * FROM grup WHERE id_excursio = $id";
+        $select = "SELECT id_perfil FROM grup WHERE id_excursio = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -44,13 +44,13 @@ class GrupDAO implements DAO_Grup {
 
     public function getAllGrups() {
         $grups = [];
-        $select = "SELECT DISTINCT * FROM grup";
+        $select = "SELECT DISTINCT id_excursio FROM grup";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $grups[] = new Grup($row[1]);
+            $grups[] = new Grup($row[0]);
         }
 
         return $grups;

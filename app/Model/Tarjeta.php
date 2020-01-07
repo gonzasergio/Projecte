@@ -1,6 +1,6 @@
 <?php
 
-class Targeta extends Model {
+class Tarjeta extends Model {
     private $numero;
     private $nom;
     private $lli1;

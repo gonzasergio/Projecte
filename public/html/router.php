@@ -84,6 +84,66 @@ switch ($path) {
         $controller = new PublicationController();
         $controller->updatePublication();
         break;
+    case '/api/insert/paypal':
+        $controller = new PaypalController();
+        $controller->insertPaypal();
+        break;
+    case '/api/get/paypal':
+        $controller = new PaypalController();
+        $controller->getPaypal();
+        break;
+    case '/api/delete/paypal':
+        $controller = new PaypalController();
+        $controller->deletePaypal();
+        break;
+    case '/api/get/paypal/all':
+        $controller = new PaypalController();
+        $controller->getAllPaypals();
+        break;
+    case '/api/update/paypal/':
+        $controller = new PaypalController();
+        $controller->updatePaypal();
+        break;
+    case '/api/insert/targeta':
+        $controller = new TarjetaController();
+        $controller->insertTargeta();
+        break;
+    case '/api/get/targeta':
+        $controller = new TarjetaController();
+        $controller->getTargeta();
+        break;
+    case '/api/delete/targeta':
+        $controller = new TarjetaController();
+        $controller->deleteTargeta();
+        break;
+    case '/api/get/targeta/all':
+        $controller = new TarjetaController();
+        $controller->getAllTargetes();
+        break;
+    case '/api/update/targeta/':
+        $controller = new TarjetaController();
+        $controller->updateTargeta();
+        break;
+    case '/api/insert/grup':
+        $controller = new GrupController();
+        $controller->insertGrup()();
+        break;
+    case '/api/get/grup':
+        $controller = new GrupController();
+        $controller->getGrup();
+        break;
+    case '/api/delete/grup':
+        $controller = new GrupController();
+        $controller->deleteGrup();
+        break;
+    case '/api/get/grup/all':
+        $controller = new GrupController();
+        $controller->getAllGrups();
+        break;
+    case '/api/update/grup/':
+        $controller = new GrupController();
+        $controller->updateGrup();
+        break;
     default:
         include $links[$link[0]];
 }

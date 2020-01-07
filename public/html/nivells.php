@@ -57,9 +57,9 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <button id="b1" class="btn btn-primary">INSERTAR</button>
-    <button id="b2" class="btn btn-primary">EDITAR</button>
-    <button id="b3" class="btn btn-primary">ELIMINAR</button>
+    <button id="b1" class="btn btn-success">INSERTAR</button>
+    <button id="b2" class="btn btn-primary disabled">EDITAR</button>
+    <button id="b3" class="btn btn-danger disabled">ELIMINAR</button>
     <hr>
     <div class="row">
         <div class="col">

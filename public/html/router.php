@@ -3,14 +3,26 @@ require '../../app/BDConnectio/DBConnection.php';
 require '../../app/Model/Model.php';
 require '../../app/Model/User.php';
 require '../../app/Model/Publication.php';
+require '../../app/Model/Paypal.php';
+require '../../app/Model/Tarjeta.php';
+require '../../app/Model/Grup.php';
 require '../../app/DAOs/DAO_User.php';
 require '../../app/DAOs/DAO_Publication.php';
+require '../../app/DAOs/DAO_Paypal.php';
+require '../../app/DAOs/DAO_Targeta.php';
+require '../../app/DAOs/DAO_Grup.php';
 require '../../app/DAO_Implements/FormatSQL.php';
 require '../../app/DAO_Implements/UsersDAO.php';
 require '../../app/DAO_Implements/PublicationDAO.php';
+require '../../app/DAO_Implements/PaypalDAO.php';
+require '../../app/DAO_Implements/TarjetaDAO.php';
+require '../../app/DAO_Implements/GrupDAO.php';
 require '../../app/Controllers/Controller.php';
 require '../../app/Controllers/UserController.php';
 require '../../app/Controllers/PublicationController.php';
+require '../../app/Controllers/PaypalController.php';
+require '../../app/Controllers/TarjetaController.php';
+require '../../app/Controllers/GrupController.php';
 
 
 $links = [

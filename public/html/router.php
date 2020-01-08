@@ -194,7 +194,7 @@ switch ($path) {
         break;
     case '/api/insert/modalitat':
         $controller = new ModalitatController();
-        $controller->insertModalitat()();
+        $controller->insertModalitat();
         break;
     case '/api/get/modalitat':
         $controller = new ModalitatController();

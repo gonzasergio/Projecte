@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>DataTable</title>
+    <title>Regions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -111,7 +111,17 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <h1>Pais</h1>
+    <h1>Regió</h1>
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+        Insertar
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modify" id="openModify">
+        Modificar
+    </button>
+    <button type="button" class="btn btn-danger" id="remove">Eliminar</button>
+
+    <hr>
 
     <div class="row">
         <div class="col">
@@ -119,18 +129,14 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Add
-    </button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modify" id="openModify">
-        Modify
-    </button>
-
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Add</h2>
+                    <h5 class="modal-title" id="titleModalInsert">Inserta Regio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -139,10 +145,13 @@
                                 <label for="nom">Nom</label>
                                 <input type="text" class="form-control" id="nom" placeholder="Nom">
                                 <label for="idPais">ID Pais</label>
-                                <input type="text" class="form-control" id="idPais" placeholder="Nom">
+                                <input type="text" class="form-control" id="idPais" placeholder="ID Pais">
                             </div>
                         </div>
-                        <button type="button" class="btn" id="addRow" data-dismiss="modal">add</button>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
+                            <button type="button" class="btn btn-primary" id="addRow" data-dismiss="modal">Insertar</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -153,7 +162,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Add</h2>
+                    <h5 class="modal-title" id="titleModalModify">Modifica Regió</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -167,14 +179,15 @@
                                 <input type="text" class="form-control" id="idPaisMod" placeholder="Nom">
                             </div>
                         </div>
-                        <button type="button" class="btn" id="modifyRow" data-dismiss="modal">add</button>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
+                            <button type="button" class="btn btn-primary" id="modifyRow" data-dismiss="modal">Modifica</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <button type="button" class="btn" id="remove">remove</button>
 
 </div>
 

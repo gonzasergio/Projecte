@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>DataTable</title>
+    <title>Ciutats</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,13 +24,13 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: 'api/get/modalitat/all',
+                url: 'api/get/country/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'nom'}
+                {title: "NOM", data:'name'}
             ],
             select: true,
             responsive: true
@@ -44,13 +44,14 @@
             console.log(data);
 
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['nom']);
+            $("#nomMod").val(data['name']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
+
             $.ajax({
-                url: 'api/update/modalitat',
+                url: 'api/update/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -61,17 +62,16 @@
             }).always(function () {
                 t.ajax.reload();
             });
-
         });
 
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/insert/modalitat',
+                url: 'api/insert/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    nom: $("#nom").val(),
+                    name: $("#nom").val(),
                 }
             }).always(function () {
                 t.ajax.reload();
@@ -82,7 +82,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: 'api/delete/modalitat',
+                url: 'api/delete/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -97,7 +97,17 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <h1>Modalitat</h1>
+    <h1>Pais</h1>
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+        Insertar
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modify" id="openModify">
+        Modificar
+    </button>
+    <button type="button" class="btn btn-danger" id="remove">Eliminar</button>
+
+    <hr>
 
     <div class="row">
         <div class="col">
@@ -105,18 +115,14 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Add
-    </button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modify" id="openModify">
-        Modify
-    </button>
-
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Add</h2>
+                    <h5 class="modal-title" id="titleModalInsert">Inserta Pais</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -126,7 +132,10 @@
                                 <input type="text" class="form-control" id="nom" placeholder="Nom">
                             </div>
                         </div>
-                        <button type="button" class="btn" id="addRow" data-dismiss="modal">add</button>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
+                            <button type="button" class="btn btn-primary" id="addRow" data-dismiss="modal">Insertar</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -137,7 +146,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Add</h2>
+                    <h5 class="modal-title" id="titleModalModify">Modifica Pais</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -149,14 +161,15 @@
                                 <input type="text" class="form-control" id="nomMod" placeholder="Nom">
                             </div>
                         </div>
-                        <button type="button" class="btn" id="modifyRow" data-dismiss="modal">add</button>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel·lar</button>
+                            <button type="button" class="btn btn-primary" id="modifyRow" data-dismiss="modal">Modifica</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <button type="button" class="btn" id="remove">remove</button>
 
 </div>
 

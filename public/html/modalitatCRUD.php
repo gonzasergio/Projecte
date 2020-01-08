@@ -33,7 +33,7 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: 'api/get/modalitat/all',
+                url: '/Projecte/public/html/api/get/modalitat/all',
                 dataSrc: '',
                 type:"POST"
             },
@@ -63,7 +63,7 @@
         $('#modifyRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/update/modalitat',
+                url: '/Projecte/public/html/api/update/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -80,7 +80,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/insert/modalitat',
+                url: '/Projecte/public/html/api/insert/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -95,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: 'api/delete/modalitat',
+                url: '/Projecte/public/html/api/delete/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {

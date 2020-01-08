@@ -44,4 +44,8 @@ class CountryController extends Controller {
         $this->DAO->updateCountry($id, $colName, $newValue);
     }
 
+    public function viewCRUD(){
+        require_once 'countryCRUD.php';
+    }
+
 }

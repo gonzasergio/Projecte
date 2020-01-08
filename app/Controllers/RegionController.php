@@ -44,4 +44,8 @@ class RegionController extends Controller {
         $this->DAO->updateRegion($id, $colName, $newValue);
     }
 
+    public function viewCRUD(){
+        include 'regionCRUD.php';
+    }
+
 }

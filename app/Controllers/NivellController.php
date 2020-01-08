@@ -43,5 +43,8 @@ class NivellController extends Controller {
         $this->DAO->updateNivell($id, $colName, $newValue);
     }
 
+    public function viewCRUD(){
+        include 'nivellCRUD.php';
+    }
 
 }

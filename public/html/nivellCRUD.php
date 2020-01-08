@@ -33,7 +33,7 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: 'api/get/nivell/all',
+                url: '/Projecte/public/html/api/get/nivell/all',
                 dataSrc: '',
                 type:"POST"
             },
@@ -63,7 +63,7 @@
         $('#modifyRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/update/nivell',
+                url: '/Projecte/public/html/api/update/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -80,7 +80,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/insert/nivell',
+                url: '/Projecte/public/html/api/insert/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -95,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: 'api/delete/nivell',
+                url: '/Projecte/public/html/api/delete/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {

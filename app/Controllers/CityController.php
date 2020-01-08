@@ -44,4 +44,8 @@ class CityController extends Controller {
         $this->DAO->updateCity($id, $colName, $newValue);
     }
 
+    public function viewCRUD(){
+        include 'cityCRUD.php';
+    }
+
 }

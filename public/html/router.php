@@ -169,6 +169,10 @@ switch ($path) {
         $controller = new NivellController();
         $controller->updateNivell();
         break;
+    case '/admin/nivell':
+        $controller = new NivellController();
+        $controller->viewCRUD();
+        break;
     case '/api/insert/modalitat':
         $controller = new ModalitatController();
         $controller->insertModalitat();
@@ -188,6 +192,10 @@ switch ($path) {
     case '/api/update/modalitat':
         $controller = new ModalitatController();
         $controller->updateModalitat();
+        break;
+    case '/admin/modalitat':
+        $controller = new ModalitatController();
+        $controller->viewCRUD();
         break;
     case '/api/insert/country':
         $controller = new CountryController();;
@@ -209,6 +217,10 @@ switch ($path) {
         $controller = new CountryController();
         $controller->updateCountry();
         break;
+    case '/admin/country':
+        $controller = new CountryController();
+        $controller->viewCRUD();
+        break;
     case '/api/insert/region':
         $controller = new RegionController();;
         $controller->insertRegion();
@@ -229,6 +241,10 @@ switch ($path) {
         $controller = new RegionController();
         $controller->updateRegion();
         break;
+    case '/admin/region':
+        $controller = new RegionController();
+        $controller->viewCRUD();
+        break;
     case '/api/insert/city':
         $controller = new CityController();
         $controller->insertCity();
@@ -248,6 +264,10 @@ switch ($path) {
     case '/api/update/city':
         $controller = new CityController();
         $controller->updateCity();
+        break;
+    case '/admin/city':
+        $controller = new CityController();
+        $controller->viewCRUD();
         break;
     default:
         include $links[$link[0]];

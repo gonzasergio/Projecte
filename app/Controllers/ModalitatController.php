@@ -43,5 +43,8 @@ class ModalitatController extends Controller {
         $this->DAO->updateModalitat($id, $colName, $newValue);
     }
 
+    public function viewCRUD(){
+        include 'modalitatCRUD.php';
+    }
 
 }

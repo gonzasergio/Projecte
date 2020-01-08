@@ -16,7 +16,7 @@ class CursosDAO implements DAO_Curs {
         $id_promocio = $this->packUp($curs->getId_promocio());
         $id_dificultat = $this->packUp($curs->getId_dificultat());
 
-        $insert = "INSERT INTO curs (`duracio`,`preu`,`maxim_persones`,`descripcio`,`id_promocio`,`id_dificultat')
+        $insert = "INSERT INTO curs (`duracio`,`preu`,`maxim_persones`,`descripcio`,`id_promocio`,`id_dificultat`)
         values ($duracio, $preu, $maxim_persones, $descripcio, $id_promocio, $id_dificultat)";
 
         $this->connection->prepare($insert)->execute();

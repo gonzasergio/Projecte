@@ -229,6 +229,26 @@ switch ($path) {
         $controller = new RegionController();
         $controller->updateRegion();
         break;
+    case '/api/insert/city':
+        $controller = new CityController();
+        $controller->insertCity();
+        break;
+    case '/api/get/city':
+        $controller = new CityController();
+        $controller->getCity();
+        break;
+    case '/api/delete/city':
+        $controller = new CityController();
+        $controller->deleteCity();
+        break;
+    case '/api/get/city/all':
+        $controller = new CityController();
+        $controller->getAllCity();
+        break;
+    case '/api/update/city':
+        $controller = new CityController();
+        $controller->updateCity();
+        break;
     default:
         include $links[$link[0]];
 }

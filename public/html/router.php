@@ -1,45 +1,22 @@
 <?php
-require '../../app/BDConnectio/DBConnection.php';
-require '../../app/Model/Model.php';
-require '../../app/Model/User.php';
-require '../../app/Model/Publication.php';
-require '../../app/Model/Paypal.php';
-require '../../app/Model/Tarjeta.php';
-require '../../app/Model/Grup.php';
-require '../../app/Model/Nivell.php';
-require '../../app/Model/Modalitat.php';
-require '../../app/Model/Country.php';
-require '../../app/Model/Region.php';
-require '../../app/DAOs/DAO_User.php';
-require '../../app/DAOs/DAO_Publication.php';
-require '../../app/DAOs/DAO_Paypal.php';
-require '../../app/DAOs/DAO_Targeta.php';
-require '../../app/DAOs/DAO_Grup.php';
-require '../../app/DAOs/DAO_Nivell.php';
-require '../../app/DAOs/DAO_Modalitat.php';
-require '../../app/DAOs/DAO_Conurty.php';
-require '../../app/DAOs/DAO_Region.php';
-require '../../app/DAO_Implements/FormatSQL.php';
-require '../../app/DAO_Implements/UsersDAO.php';
-require '../../app/DAO_Implements/PublicationDAO.php';
-require '../../app/DAO_Implements/PaypalDAO.php';
-require '../../app/DAO_Implements/TarjetaDAO.php';
-require '../../app/DAO_Implements/GrupDAO.php';
-require '../../app/DAO_Implements/NivellDAO.php';
-require '../../app/DAO_Implements/ModalitatDAO.php';
-require '../../app/DAO_Implements/CountryDAO.php';
-require '../../app/DAO_Implements/RegionDAO.php';
-require '../../app/Controllers/Controller.php';
-require '../../app/Controllers/UserController.php';
-require '../../app/Controllers/PublicationController.php';
-require '../../app/Controllers/PaypalController.php';
-require '../../app/Controllers/TarjetaController.php';
-require '../../app/Controllers/GrupController.php';
-require '../../app/Controllers/NivellController.php';
-require '../../app/Controllers/ModalitatController.php';
-require '../../app/Controllers/CountryController.php';
-require '../../app/Controllers/RegionController.php';
 
+require '../../app/BDConnectio/DBConnection.php';
+
+function autoloader($classname) {
+    if (file_exists("../../app/Model/".$classname.".php")){
+        require '../../app/Model/'.$classname.'.php';
+    }
+    if (file_exists("../../app/DAOs/".$classname.".php")){
+        require '../../app/DAOs/'.$classname.'.php';
+    }
+    if (file_exists("../../app/Controllers/".$classname.".php")){
+        require '../../app/Controllers/'.$classname.'.php';
+    }
+    if (file_exists("../../app/DAO_Implements/".$classname.".php")){
+        require '../../app/DAO_Implements/'.$classname.'.php';
+    }
+}
+spl_autoload_register("autoloader");
 
 $links = [
     "inici" => "index.php",

@@ -58,9 +58,10 @@
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
+            }).always(function () {
+                t.ajax.reload();
             });
 
-            t.ajax.reload();
         });
 
         $('#addRow').on( 'click', function () {
@@ -72,9 +73,9 @@
                 data: {
                     nom: $("#nom").val(),
                 }
+            }).always(function () {
+                t.ajax.reload();
             });
-
-            t.ajax.reload();
         } );
 
         $('#remove').click( function () {
@@ -87,9 +88,9 @@
                 data: {
                     id: data['id']
                 }
-            })
-
-            t.ajax.reload();
+            }).always(function () {
+                t.ajax.reload();
+            });
         });
     });
 
@@ -144,7 +145,7 @@
                             <div class="form-group col-md-6">
                                 <label for="idMod">ID</label>
                                 <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
-                                <label for="nomMod">Inici</label>
+                                <label for="nomMod">Nom</label>
                                 <input type="text" class="form-control" id="nomMod" placeholder="Nom">
                             </div>
                         </div>

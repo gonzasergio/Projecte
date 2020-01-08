@@ -72,9 +72,9 @@
                     colName: 'id_pais',
                     newValue: $("#idPaisMod").val()
                 }
+            }).always(function () {
+                t.ajax.reload();
             });
-
-            t.ajax.reload();
         });
 
         $('#addRow').on( 'click', function () {
@@ -87,9 +87,9 @@
                     name: $("#nom").val(),
                     countryId:  $("#idPais").val()
                 }
+            }).always(function () {
+                t.ajax.reload();
             });
-
-            t.ajax.reload();
         } );
 
         $('#remove').click( function () {
@@ -102,9 +102,9 @@
                 data: {
                     id: data['id']
                 }
-            })
-
-            t.ajax.reload();
+            }).always(function () {
+                t.ajax.reload();
+            });
         });
     });
 
@@ -138,7 +138,7 @@
                             <div class="form-group col-md-6">
                                 <label for="nom">Nom</label>
                                 <input type="text" class="form-control" id="nom" placeholder="Nom">
-                                <label for="idPais">Nom</label>
+                                <label for="idPais">ID Pais</label>
                                 <input type="text" class="form-control" id="idPais" placeholder="Nom">
                             </div>
                         </div>
@@ -161,9 +161,9 @@
                             <div class="form-group col-md-6">
                                 <label for="idMod">ID</label>
                                 <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
-                                <label for="nomMod">Inici</label>
+                                <label for="nomMod">Nom</label>
                                 <input type="text" class="form-control" id="nomMod" placeholder="Nom">
-                                <label for="idPaisMod">Nom</label>
+                                <label for="idPaisMod">ID Pais</label>
                                 <input type="text" class="form-control" id="idPaisMod" placeholder="Nom">
                             </div>
                         </div>

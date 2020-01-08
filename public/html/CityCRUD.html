@@ -69,7 +69,7 @@
                 dataType: "json",
                 data: {
                     id: $("#idMod").val(),
-                    colName: 'id_pais',
+                    colName: 'id_regio',
                     newValue: $("#idRegioMod").val()
                 }
             }).always(function () {
@@ -111,20 +111,22 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <h1>Pais</h1>
+    <h1>Ciutat</h1>
 
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+        Insertar
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modify" id="openModify">
+        Modificar
+    </button>
+    <button type="button" class="btn btn-danger" id="remove">Eliminar</button>
+
+    <hr>
     <div class="row">
         <div class="col">
             <table id="example" class="table table-striped table-bordered w-100"/>
         </div>
     </div>
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Add
-    </button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modify" id="openModify">
-        Modify
-    </button>
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -173,8 +175,6 @@
             </div>
         </div>
     </div>
-
-    <button type="button" class="btn" id="remove">remove</button>
 
 </div>
 

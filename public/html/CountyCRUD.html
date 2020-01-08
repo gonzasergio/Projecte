@@ -24,13 +24,13 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: 'api/get/modalitat/all',
+                url: 'api/get/country/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'nom'}
+                {title: "NOM", data:'name'}
             ],
             select: true,
             responsive: true
@@ -44,13 +44,14 @@
             console.log(data);
 
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['nom']);
+            $("#nomMod").val(data['name']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
+
             $.ajax({
-                url: 'api/update/modalitat',
+                url: 'api/update/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -66,11 +67,11 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/insert/modalitat',
+                url: 'api/insert/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    nom: $("#nom").val(),
+                    name: $("#nom").val(),
                 }
             });
 
@@ -81,7 +82,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: 'api/delete/modalitat',
+                url: 'api/delete/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -96,7 +97,7 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <h1>Modalitat</h1>
+    <h1>Pais</h1>
 
     <div class="row">
         <div class="col">

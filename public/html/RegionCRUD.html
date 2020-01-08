@@ -24,13 +24,14 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: 'api/get/modalitat/all',
+                url: 'api/get/region/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'nom'}
+                {title: "NOM", data:'name'},
+                {title: "ID Pais", data:'countryId'}
             ],
             select: true,
             responsive: true
@@ -44,13 +45,15 @@
             console.log(data);
 
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['nom']);
+            $("#nomMod").val(data['name']);
+            $("#idPaisMod").val(data['countryId']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
+
             $.ajax({
-                url: 'api/update/modalitat',
+                url: 'api/update/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -60,17 +63,29 @@
                 }
             });
 
+            $.ajax({
+                url: 'api/update/region',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    id: $("#idMod").val(),
+                    colName: 'id_pais',
+                    newValue: $("#idPaisMod").val()
+                }
+            });
+
             t.ajax.reload();
         });
 
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: 'api/insert/modalitat',
+                url: 'api/insert/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    nom: $("#nom").val(),
+                    name: $("#nom").val(),
+                    countryId:  $("#idPais").val()
                 }
             });
 
@@ -81,7 +96,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: 'api/delete/modalitat',
+                url: 'api/delete/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -96,7 +111,7 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <h1>Modalitat</h1>
+    <h1>Pais</h1>
 
     <div class="row">
         <div class="col">
@@ -123,6 +138,8 @@
                             <div class="form-group col-md-6">
                                 <label for="nom">Nom</label>
                                 <input type="text" class="form-control" id="nom" placeholder="Nom">
+                                <label for="idPais">Nom</label>
+                                <input type="text" class="form-control" id="idPais" placeholder="Nom">
                             </div>
                         </div>
                         <button type="button" class="btn" id="addRow" data-dismiss="modal">add</button>
@@ -146,6 +163,8 @@
                                 <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
                                 <label for="nomMod">Inici</label>
                                 <input type="text" class="form-control" id="nomMod" placeholder="Nom">
+                                <label for="idPaisMod">Nom</label>
+                                <input type="text" class="form-control" id="idPaisMod" placeholder="Nom">
                             </div>
                         </div>
                         <button type="button" class="btn" id="modifyRow" data-dismiss="modal">add</button>

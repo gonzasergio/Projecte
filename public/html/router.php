@@ -8,6 +8,8 @@ require '../../app/Model/Tarjeta.php';
 require '../../app/Model/Grup.php';
 require '../../app/Model/Nivell.php';
 require '../../app/Model/Modalitat.php';
+require '../../app/Model/Country.php';
+require '../../app/Model/Region.php';
 require '../../app/DAOs/DAO_User.php';
 require '../../app/DAOs/DAO_Publication.php';
 require '../../app/DAOs/DAO_Paypal.php';
@@ -15,6 +17,8 @@ require '../../app/DAOs/DAO_Targeta.php';
 require '../../app/DAOs/DAO_Grup.php';
 require '../../app/DAOs/DAO_Nivell.php';
 require '../../app/DAOs/DAO_Modalitat.php';
+require '../../app/DAOs/DAO_Conurty.php';
+require '../../app/DAOs/DAO_Region.php';
 require '../../app/DAO_Implements/FormatSQL.php';
 require '../../app/DAO_Implements/UsersDAO.php';
 require '../../app/DAO_Implements/PublicationDAO.php';
@@ -23,6 +27,8 @@ require '../../app/DAO_Implements/TarjetaDAO.php';
 require '../../app/DAO_Implements/GrupDAO.php';
 require '../../app/DAO_Implements/NivellDAO.php';
 require '../../app/DAO_Implements/ModalitatDAO.php';
+require '../../app/DAO_Implements/CountryDAO.php';
+require '../../app/DAO_Implements/RegionDAO.php';
 require '../../app/Controllers/Controller.php';
 require '../../app/Controllers/UserController.php';
 require '../../app/Controllers/PublicationController.php';
@@ -31,6 +37,8 @@ require '../../app/Controllers/TarjetaController.php';
 require '../../app/Controllers/GrupController.php';
 require '../../app/Controllers/NivellController.php';
 require '../../app/Controllers/ModalitatController.php';
+require '../../app/Controllers/CountryController.php';
+require '../../app/Controllers/RegionController.php';
 
 
 $links = [
@@ -53,7 +61,7 @@ $links = [
 ];
 
 
-$path = str_replace("/projecte/public/html", "", $_SERVER['REQUEST_URI']);
+$path = str_replace("/projecte/public/html", "", strtolower($_SERVER['REQUEST_URI']));
 $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
@@ -203,6 +211,46 @@ switch ($path) {
     case '/api/update/modalitat':
         $controller = new ModalitatController();
         $controller->updateModalitat();
+        break;
+    case '/api/insert/country':
+        $controller = new CountryController();;
+        $controller->insertCountry();
+        break;
+    case '/api/get/country':
+        $controller = new CountryController();
+        $controller->getCountry();
+        break;
+    case '/api/delete/country':
+        $controller = new CountryController();
+        $controller->deleteCountry();
+        break;
+    case '/api/get/country/all':
+        $controller = new CountryController();
+        $controller->getAllCountry();
+        break;
+    case '/api/update/country':
+        $controller = new CountryController();
+        $controller->updateCountry();
+        break;
+    case '/api/insert/region':
+        $controller = new RegionController();;
+        $controller->insertRegion();
+        break;
+    case '/api/get/region':
+        $controller = new RegionController();
+        $controller->getRegion();
+        break;
+    case '/api/delete/region':
+        $controller = new RegionController();
+        $controller->deleteRegion();
+        break;
+    case '/api/get/region/all':
+        $controller = new RegionController();
+        $controller->getAllRegion();
+        break;
+    case '/api/update/region':
+        $controller = new RegionController();
+        $controller->updateRegion();
         break;
     default:
         include $links[$link[0]];

@@ -11,7 +11,7 @@ class PaypalController extends Controller {
 
     public function insertPaypal(){
         $r = $_REQUEST;
-        $paypal = new Paypal($r['email'],$r['idPerfil']);
+        $paypal = new Paypal($r['idPerfil'],$r['email']);
 
 
         $this->DAO->insert($paypal);

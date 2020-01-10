@@ -269,6 +269,54 @@ switch ($path) {
         $controller = new CityController();
         $controller->viewCRUD();
         break;
+    case '/api/insert/excursio':
+        $controller = new ExcursioController();
+        $controller->insertExcursio();
+        break;
+    case '/api/get/excursio':
+        $controller = new ExcursioController();
+        $controller->getExcursio();
+        break;
+    case '/api/delete/excursio':
+        $controller = new ExcursioController();
+        $controller->deleteExcursio();
+        break;
+    case '/api/get/excursio/all':
+        $controller = new ExcursioController();
+        $controller->getAllExcursions();
+        break;
+    case '/api/get/excursio/perfil':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByIdPropietari();
+        break;
+    case '/api/update/excursio':
+        $controller = new ExcursioController();
+        $controller->updateExcursio();
+        break;
+    case '/api/insert/curs':
+        $controller = new CursController();
+        $controller->insertCurs();
+        break;
+    case '/api/get/curs':
+        $controller = new CursController();
+        $controller->getCurs();
+        break;
+    case '/api/delete/curs':
+        $controller = new CursController();
+        $controller->deleteCurs();
+        break;
+    case '/api/get/curs/all':
+        $controller = new CursController();
+        $controller->getAllCursos();
+        break;
+    case '/api/get/curs/perfil':
+        $controller = new CursController();
+        $controller->getAllCursosByIdPropietari();
+        break;
+    case '/api/update/curs':
+        $controller = new CursController();
+        $controller->updateCurs();
+        break;
     default:
         include $links[$link[0]];
 }

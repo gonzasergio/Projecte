@@ -10,6 +10,8 @@ interface DAO_Curs {
 
     public function getAllCursos();
 
+    public function getAllCursosByIdPropietari($id);
+
     public function updateCurs($id, $colName, $newValue);
 
 }

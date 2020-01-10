@@ -27,8 +27,8 @@ $links = [
     "excursio" => "excursio.php",
     "login" => "login.php",
     "registre" => "registre.php",
-    "tancariessio" => "tancarsessio.php",
-    "sessioidioma" => "sesioIdioma.php",
+    "tancarSessio" => "tancarsessio.php",
+    "sessioIdioma" => "sesioIdioma.php",
     "arrayLanguage" => "arrayLanguage.php",
     "social" => "social.php",
     "perfil" => "perfil.php",
@@ -43,12 +43,7 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-if(isset($_SESSION['idioma'])){
-    $head = $_SESSION['idioma'] . '/' . $path;
-    header('Location: ');
-}
-
-
+//echo $path;
 switch ($path) {
     case '/api/insert/user':
         $controller = new UserController();

@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /templates
+
+User-agent: *
+Disallow: /templates
+
+Sitemap: http://www.goatrails.dawman.info/sitemap.xml

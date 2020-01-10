@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../../app/BDConnectio/DBConnection.php';
 
 function autoloader($classname) {
@@ -19,6 +19,7 @@ function autoloader($classname) {
 spl_autoload_register("autoloader");
 
 $links = [
+    "" => "index.php",
     "inici" => "index.php",
     "excursions" => "llistaexcursions.php",
     "les-meves-excursions" => "misExcursiones.php",
@@ -28,7 +29,7 @@ $links = [
     "login" => "login.php",
     "registre" => "registre.php",
     "tancarSessio" => "tancarsessio.php",
-    "sessioIdioma" => "sesioIdioma.php",
+    "sessioidioma" => "sesioIdioma.php",
     "arrayLanguage" => "arrayLanguage.php",
     "social" => "social.php",
     "perfil" => "perfil.php",
@@ -43,8 +44,12 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-//echo $path;
+
+
 switch ($path) {
+    case '/':
+        header('Location: inici');
+        break;
     case '/api/insert/user':
         $controller = new UserController();
         $controller->insertUser();

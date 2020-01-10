@@ -4,7 +4,6 @@ $idioma = [$_SESSION["idioma"]];
 $url = explode('/', $_SERVER['HTTP_REFERER']);
 $idiomas = ['es', 'en', 'fr', 'ca' ];
 
-var_dump($url);
 
 foreach ($idiomas as $i) {
     if (($key = array_search($i, $url)) !== false) {
@@ -12,7 +11,6 @@ foreach ($idiomas as $i) {
     }
 }
 
-var_dump($url);
 
 array_splice( $url, sizeof($url)-1 , 0, $idioma );
 

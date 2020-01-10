@@ -1,7 +1,6 @@
 <?php
 $idioma = null;
 include '../templates/globalIclude.php';
-include '../../app/BDConnectio/DBConnection.php';
 include '../../app/Model/Rute.php';
 
 $array = [];

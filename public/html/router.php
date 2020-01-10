@@ -47,9 +47,6 @@ $path = explode( '?', $path)[0];
 
 
 switch ($path) {
-    case '/':
-        header('Location: inici');
-        break;
     case '/api/insert/user':
         $controller = new UserController();
         $controller->insertUser();

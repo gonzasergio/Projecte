@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="/Projecte/public/css/global.css">
     <link rel="stylesheet" href="/Projecte/public/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/Projecte/public/css/fontawesome/css/all.min.css">
-    <script src="/Projecte/public/js/jquery/jquery.min.js"/>
+    <script src="/Projecte/public/js/jquery/jquery.min.js"></script>
     <script src="/Projecte/public/js/global.js"></script>
     <link rel="icon" type="image/png" href="https://www.goatrails.dawman.info/img/favicon.png">
     <link rel="manifest" href="/Projecte/public/js/PWA/manifest.json">

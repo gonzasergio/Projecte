@@ -10,6 +10,8 @@ interface DAO_Excursio {
 
     public function getAllExcursions();
 
+    public function getAllExcursionsByIdPropietari($id);
+
     public function updateExcursio($id, $colName, $newValue);
 
 }

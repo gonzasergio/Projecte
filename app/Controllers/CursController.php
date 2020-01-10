@@ -9,7 +9,7 @@ class CursController extends Controller {
 
     public function insertCurs(){
         $r = $_REQUEST;
-        $curs = new Curs($r['duracio'],$r['preu'],$r['maxim_persones'],$r['descripcio'],$r['id_promocio'],$r['id_dificultat'],$r['descripcio']);
+        $curs = new Curs($r['titol'],$r['duracio'],$r['id_dificultat'],$r['preu'],$r['maxim_persones'],$r['descripcio'],$r['id_ciutat'],$r['id_propietari']);
         
 
         $this->DAO->insert($curs);
@@ -30,6 +30,16 @@ class CursController extends Controller {
         $array = [];
 
         foreach ($cursos as $u)
+            $array[] = $u->toArray();
+
+        echo json_encode($array);
+    }
+
+    public function getAllCursosByIdPropietari(){
+        $excursions = $this->DAO->getAllCursosByIdPropietari($_REQUEST['id']);
+        $array = [];
+
+        foreach ($excursions as $u)
             $array[] = $u->toArray();
 
         echo json_encode($array);

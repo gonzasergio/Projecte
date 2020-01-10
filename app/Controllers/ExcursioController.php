@@ -9,7 +9,7 @@ class ExcursioController extends Controller {
 
     public function insertExcursio(){
         $r = $_REQUEST;
-        $excursio = new Excursio($r['distancia'],$r['id_dificultat'],$r['duracio'],$r['preu'],$r['maxim_persones'],$r['descripcio']);
+        $excursio = new Excursio($r['titol'], $r['distancia'],$r['id_dificultat'],$r['duracio'],$r['preu'],$r['maxim_persones'],$r['descripcio'], $r['id_propietari']);
         
 
         $this->DAO->insert($excursio);
@@ -27,6 +27,16 @@ class ExcursioController extends Controller {
 
     public function getAllExcursions(){
         $excursions = $this->DAO->getAllExcursions();
+        $array = [];
+
+        foreach ($excursions as $u)
+            $array[] = $u->toArray();
+
+        echo json_encode($array);
+    }
+
+    public function getAllExcursionsByIdPropietari(){
+        $excursions = $this->DAO->getAllExcursionsByIdPropietari($_REQUEST['id']);
         $array = [];
 
         foreach ($excursions as $u)

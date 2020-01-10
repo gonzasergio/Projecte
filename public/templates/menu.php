@@ -48,16 +48,16 @@ $('document').ready(function(){
 var loc = window.location.pathname;
 var doc = loc.split(/(\\|\/)/g).pop();
 switch (doc) {
-case "llistaexcursions.php":
+case "excursions":
 	$("li#Llista").attr("class","active");
 	break;
-case "social.php":
+case "social":
 	$("li#Social").attr("class","active");
 	break;
-case "index.php":
+case "inici":
 	$("li#Home").attr("class","active");
 	  break;
-case "llistacursos.php":
+case "cursos":
 	$("li#Cursos").attr("class","active");
 	  break;	 
 case "":

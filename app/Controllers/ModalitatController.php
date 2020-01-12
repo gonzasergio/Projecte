@@ -44,7 +44,7 @@ class ModalitatController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../../app/views/modalitatCRUD.php';
+        include '../../app/Views/modalitatCRUD.php';
     }
 
 }

@@ -45,7 +45,7 @@ class CityController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../../app/views/cityCRUD.php';
+        include '../../app/Views/cityCRUD.php';
     }
 
 }

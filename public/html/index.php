@@ -320,6 +320,6 @@ switch ($path) {
         $controller->updateCurs();
         break;
     default:
-        include '../../app/views/' . $links[$link[0]];
+        include '../../app/Views/' . $links[$link[0]];
 }
 

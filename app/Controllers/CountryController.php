@@ -45,7 +45,7 @@ class CountryController extends Controller {
     }
 
     public function viewCRUD(){
-        require_once 'countryCRUD.php';
+        require_once '../views/countryCRUD.php';
     }
 
 }

@@ -45,7 +45,7 @@ class RegionController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../views/regionCRUD.php';
+        include '../../app/views/regionCRUD.php';
     }
 
 }

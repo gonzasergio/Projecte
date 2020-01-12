@@ -44,7 +44,7 @@ class NivellController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../views/nivellCRUD.php';
+        include '../../app/views/nivellCRUD.php';
     }
 
 }

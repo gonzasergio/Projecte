@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>Modalitats</title>
+    <title>Pais</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,8 +24,8 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/Projecte/public/css/global.css">
-    <link rel="stylesheet" href="/Projecte/public/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 
 </head>
 <body>
@@ -33,13 +33,13 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/Projecte/public/html/api/get/modalitat/all',
+                url: '/Projecte/public/html/api/get/country/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'nom'}
+                {title: "NOM", data:'name'}
             ],
             dom: 'Bfrtip',
             buttons: [
@@ -57,13 +57,14 @@
             console.log(data);
 
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['nom']);
+            $("#nomMod").val(data['name']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
+
             $.ajax({
-                url: '/Projecte/public/html/api/update/modalitat',
+                url: '/Projecte/public/html/api/update/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -74,17 +75,16 @@
             }).always(function () {
                 t.ajax.reload();
             });
-
         });
 
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/Projecte/public/html/api/insert/modalitat',
+                url: '/Projecte/public/html/api/insert/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    nom: $("#nom").val(),
+                    name: $("#nom").val(),
                 }
             }).always(function () {
                 t.ajax.reload();
@@ -95,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/Projecte/public/html/api/delete/modalitat',
+                url: '/Projecte/public/html/api/delete/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -114,7 +114,7 @@
     <div class="row h-100">
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
-            <h1>Modalitat</h1>
+            <h1>Pais</h1>
 
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 Insertar
@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalInsert">Inserta Modalitat</h5>
+                <h5 class="modal-title" id="titleModalInsert">Inserta Pais</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -164,7 +164,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalModify">Modifica Modalitat</h5>
+                <h5 class="modal-title" id="titleModalModify">Modifica Pais</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -189,9 +189,9 @@
     </div>
 </div>
 
-<script src="/Projecte/public/js/crypto-js/aes.js"></script>
-<script src="/Projecte/public/js/popper/popper.min.js"></script>
-<script src="/Projecte/public/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/crypto-js/aes.js"></script>
+<script src="/js/popper/popper.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
 
 </body>
 </html>

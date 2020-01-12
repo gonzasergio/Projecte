@@ -4,7 +4,7 @@
             
             <div class='dropdown show'>
             	<a class='btn btn-link text-light dropdown-toggle text-decoration-none' href='#' role='button' id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-            		<img class="mr-2 mt-n1 rounded-circle shadow-sm" src="/Projecte/public/img/lang/<?php echo $lang[$idioma]["lang"];?>.png" width="20px">
+            		<img class="mr-2 mt-n1 rounded-circle shadow-sm" src="/img/lang/<?php echo $lang[$idioma]["lang"];?>.png" width="20px">
 					<span class='d-inline d-md-none'>
                   	<?php echo strtoupper($lang[$idioma]["langCode"]);?>
             		</span>
@@ -17,7 +17,7 @@
                           foreach ($lang as $i) {
                               $selected = ($idioma==$i["langCode"])?('bg-light'):('');
                         ?>
-                        <button  onclick="post('<?php echo $link["sessioIdioma"]?>',{language:'<?php echo $i["langCode"]?>'});" class="btn btn-link dropdown-item <?php echo $selected;?>"><img class="mr-2 mt-n1 rounded-circle shadow-sm" src="/Projecte/public/img/lang/<?php echo $i["lang"];?>.png" width="20px"> <?php echo $i["lang"];?></button>
+                        <button  onclick="post('<?php echo $link["sessioIdioma"]?>',{language:'<?php echo $i["langCode"]?>'});" class="btn btn-link dropdown-item <?php echo $selected;?>"><img class="mr-2 mt-n1 rounded-circle shadow-sm" src="/img/lang/<?php echo $i["lang"];?>.png" width="20px"> <?php echo $i["lang"];?></button>
                         <?php
                         }
     
@@ -68,7 +68,7 @@ case "":
 </script>
     <nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
     	<a class="navbar-brand mr-5" href="<?php echo $link["inici"]?>">
-            <img src="/Projecte/public/img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
+            <img src="/img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
         	<h1 class="text-secondary">GOATrails</h1>
         </a>
       	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

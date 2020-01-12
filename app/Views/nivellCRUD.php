@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>DataTable</title>
+    <title>Nivells</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,8 +24,8 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/Projecte/public/css/global.css">
-    <link rel="stylesheet" href="/Projecte/public/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 
 </head>
 <body>
@@ -33,14 +33,13 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/Projecte/public/html/api/get/city/all',
+                url: '/Projecte/public/html/api/get/nivell/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'name'},
-                {title: "ID Regio", data:'regionId'}
+                {title: "NOM", data:'nom'}
             ],
             dom: 'Bfrtip',
             buttons: [
@@ -58,15 +57,13 @@
             console.log(data);
 
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['name']);
-            $("#idRegioMod").val(data['regionId']);
+            $("#nomMod").val(data['nom']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
-
             $.ajax({
-                url: '/Projecte/public/html/api/update/city',
+                url: '/Projecte/public/html/api/update/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -74,31 +71,20 @@
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
-            });
-
-            $.ajax({
-                url: '/Projecte/public/html/api/update/city',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: $("#idMod").val(),
-                    colName: 'id_regio',
-                    newValue: $("#idRegioMod").val()
-                }
             }).always(function () {
                 t.ajax.reload();
             });
+
         });
 
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/Projecte/public/html/api/insert/city',
+                url: '/Projecte/public/html/api/insert/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    name: $("#nom").val(),
-                    regionId:  $("#idRegio").val()
+                    nom: $("#nom").val(),
                 }
             }).always(function () {
                 t.ajax.reload();
@@ -109,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/Projecte/public/html/api/delete/city',
+                url: '/Projecte/public/html/api/delete/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -128,7 +114,7 @@
     <div class="row h-100">
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
-            <h1>Ciutat</h1>
+            <h1>Nivell</h1>
 
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 Insertar
@@ -151,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalInsert">Inserta Ciutat</h5>
+                <h5 class="modal-title" id="titleModalInsert">Inserta Modalitat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -162,8 +148,6 @@
                         <div class="form-group col-md-6">
                             <label for="nom">Nom</label>
                             <input type="text" class="form-control" id="nom" placeholder="Nom">
-                            <label for="idRegio">ID Regio</label>
-                            <input type="text" class="form-control" id="idRegio" placeholder="Nom">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -180,7 +164,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalModify">Modifica Ciutat</h5>
+                <h5 class="modal-title" id="titleModalModify">Modifica Modalitat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -193,8 +177,6 @@
                             <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
                             <label for="nomMod">Nom</label>
                             <input type="text" class="form-control" id="nomMod" placeholder="Nom">
-                            <label for="idRegioMod">ID Regio</label>
-                            <input type="text" class="form-control" id="idRegioMod" placeholder="Nom">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -207,9 +189,9 @@
     </div>
 </div>
 
-<script src="/Projecte/public/js/crypto-js/aes.js"></script>
-<script src="/Projecte/public/js/popper/popper.min.js"></script>
-<script src="/Projecte/public/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/crypto-js/aes.js"></script>
+<script src="/js/popper/popper.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
 
 </body>
 </html>

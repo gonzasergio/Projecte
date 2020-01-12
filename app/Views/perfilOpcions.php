@@ -12,7 +12,7 @@ include '../templates/globalIclude.php';
 	<main role="main" class="container-fluid m-main py-5">
     	<div class="row mx-0 mx-lg-5">
     		<div class="col-md-3 ">
-    			<h3><i class="fas fa-user-cog"></i> Opcions</h1>
+    			<h3><i class="fas fa-user-cog"></i> Opcions</h3>
     			<hr>
     		     <div class="list-group my-3">
                   <a href="#" class="list-group-item list-group-item-action active">Informacio personal</a>

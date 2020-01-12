@@ -10,7 +10,7 @@ $link = [
     "registre" => "registre",
     "tancarSessio" => "tancarSessio",
     "sessioIdioma" => "sessioIdioma",
-    "arrayLanguage" => "arrayLanguage.php",
+    "arrayLanguage" => "../../app/views/arrayLanguage.php",
     "social" => "social",
     "perfil" => "perfil",
     "cursos" => "cursos",
@@ -28,4 +28,3 @@ $template = [
     "routeList" => "../templates/routeList.php",
     "routes" => "../templates/routes.php"
 ];
-?>

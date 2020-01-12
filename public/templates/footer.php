@@ -18,6 +18,6 @@
 	</div>
 </footer>
 
-<script src="/Projecte/public/js/crypto-js/aes.js"></script>
-<script src="/Projecte/public/js/popper/popper.min.js"></script>
-<script src="/Projecte/public/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/crypto-js/aes.js"></script>
+<script src="/js/popper/popper.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>

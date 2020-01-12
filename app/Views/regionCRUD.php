@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>Pais</title>
+    <title>Regions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,8 +24,8 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/Projecte/public/css/global.css">
-    <link rel="stylesheet" href="/Projecte/public/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 
 </head>
 <body>
@@ -33,13 +33,14 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/Projecte/public/html/api/get/country/all',
+                url: '/Projecte/public/html/api/get/region/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'name'}
+                {title: "NOM", data:'name'},
+                {title: "ID Pais", data:'countryId'}
             ],
             dom: 'Bfrtip',
             buttons: [
@@ -58,19 +59,31 @@
 
             $("#idMod").val(data['id']);
             $("#nomMod").val(data['name']);
+            $("#idPaisMod").val(data['countryId']);
         } );
 
         $('#modifyRow').on( 'click', function () {
 
 
             $.ajax({
-                url: '/Projecte/public/html/api/update/country',
+                url: '/Projecte/public/html/api/update/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
                     id: $("#idMod").val(),
                     colName: 'nom',
                     newValue: $("#nomMod").val()
+                }
+            });
+
+            $.ajax({
+                url: '/Projecte/public/html/api/update/region',
+                type: 'POST',
+                dataType: "json",
+                data: {
+                    id: $("#idMod").val(),
+                    colName: 'id_pais',
+                    newValue: $("#idPaisMod").val()
                 }
             }).always(function () {
                 t.ajax.reload();
@@ -80,11 +93,12 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/Projecte/public/html/api/insert/country',
+                url: '/Projecte/public/html/api/insert/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
                     name: $("#nom").val(),
+                    countryId:  $("#idPais").val()
                 }
             }).always(function () {
                 t.ajax.reload();
@@ -95,7 +109,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/Projecte/public/html/api/delete/country',
+                url: '/Projecte/public/html/api/delete/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -114,7 +128,7 @@
     <div class="row h-100">
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
-            <h1>Pais</h1>
+            <h1>Regió</h1>
 
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 Insertar
@@ -137,7 +151,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalInsert">Inserta Pais</h5>
+                <h5 class="modal-title" id="titleModalInsert">Inserta Regio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -148,6 +162,8 @@
                         <div class="form-group col-md-6">
                             <label for="nom">Nom</label>
                             <input type="text" class="form-control" id="nom" placeholder="Nom">
+                            <label for="idPais">ID Pais</label>
+                            <input type="text" class="form-control" id="idPais" placeholder="ID Pais">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -164,7 +180,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalModify">Modifica Pais</h5>
+                <h5 class="modal-title" id="titleModalModify">Modifica Regió</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -177,6 +193,8 @@
                             <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
                             <label for="nomMod">Nom</label>
                             <input type="text" class="form-control" id="nomMod" placeholder="Nom">
+                            <label for="idPaisMod">ID Pais</label>
+                            <input type="text" class="form-control" id="idPaisMod" placeholder="Nom">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -189,9 +207,9 @@
     </div>
 </div>
 
-<script src="/Projecte/public/js/crypto-js/aes.js"></script>
-<script src="/Projecte/public/js/popper/popper.min.js"></script>
-<script src="/Projecte/public/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/crypto-js/aes.js"></script>
+<script src="/js/popper/popper.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
 
 </body>
 </html>

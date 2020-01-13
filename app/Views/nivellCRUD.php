@@ -33,7 +33,7 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/html/api/get/nivell/all',
+                url: '/api/get/nivell/all',
                 dataSrc: '',
                 type:"POST"
             },

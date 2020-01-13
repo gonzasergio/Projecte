@@ -63,7 +63,8 @@ if (isset($_SESSION["lastRoute"])){
 	      if (!($("#submit").hasClass("disabled"))){
   	      var name = $("#name").val();
   	      var pass = String(CryptoJS.MD5($("#pass").val()));
-  	  $.post( "comp.php", {name: name, pass: pass}, function( data ) {
+  	  $.post( "/comp", {name: name, pass: pass}, function( data ) {
+  	      console.log(data);
 		  switch (data) {
 		  case "0":
 			  window.location.href = "<?php echo $url?>";

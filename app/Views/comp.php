@@ -1,6 +1,5 @@
 <?php
 include '../templates/links.php';
-include '../../app/BDConnectio/DBConnection.php';
 
 $name = $_POST["name"];
 $pass = $_POST["pass"];
@@ -16,7 +15,6 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 }
 if ($result) {
     if($result == $pass ){
-		session_start();
 		$_SESSION["AUTH"]=true;
 		$_SESSION["user"]=ucfirst(strtolower($name));
 		echo '0';
@@ -26,4 +24,3 @@ if ($result) {
 } else {
     echo '1';
 }
-?>

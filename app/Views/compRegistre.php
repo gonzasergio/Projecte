@@ -1,6 +1,5 @@
 <?php
 include '../templates/links.php';
-include '../../app/BDConnectio/DBConnection.php';
 
 $array = [];
 $user = $_POST["name"];

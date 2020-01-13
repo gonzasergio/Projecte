@@ -68,9 +68,10 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
         	      if (!($("#submit").hasClass("disabled"))){
             	      var name = $("#name").val();
             	      var pass = String(CryptoJS.MD5($("#pass").val()));
-    	    	  $.post( "compRegistre.php", {name: name, pass: pass}, function( data ) {
+    	    	  $.post( "/comp-registre", {name: name, pass: pass}, function( data ) {
+    	    	      console.log(data);
      	    		  if (data == 0) {
-        	    		  window.location.href = "login.php";
+        	    		  window.location.href = "login";
     	    		  } else {
     	    			  $("#incorrectUser").text("<?php echo $lang[$idioma]['userAlreadyExists']?>");
     	    			  $("#name").addClass("is-invalid");

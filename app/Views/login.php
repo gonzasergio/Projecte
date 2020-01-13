@@ -1,9 +1,9 @@
 <?php
-include '../templates/globalIclude.php';
+include '../templates/links.php';
+include $link["arrayLanguage"];
+include $template["detectarIdioma"];
 
-if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
-    header("Location: ".$link["inici"]);
-}
+var_dump($_SESSION["lastRoute"]);
 
 if (isset($_SESSION["lastRoute"])){
     $url = ($_SESSION["lastRoute"] == '') ? $link["inici"] : $_SESSION["lastRoute"];

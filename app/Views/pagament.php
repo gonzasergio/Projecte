@@ -6,7 +6,6 @@ if (!(isset($_SESSION["AUTH"]))){
     header("Location: ".$link["login"]);
 }
 
-include '../../app/BDConnectio/DBConnection.php';
 include '../../app/Model/Rute.php';
 
 $array = [];

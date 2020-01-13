@@ -46,8 +46,6 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-
-
 switch ($path) {
     case '/api/insert/user':
         $controller = new UserController();

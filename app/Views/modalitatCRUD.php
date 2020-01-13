@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>DataTable</title>
+    <title>Modalitats</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,14 +33,13 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/api/get/city/all',
+                url: '/api/get/modalitat/all',
                 dataSrc: '',
                 type:"POST"
             },
             columns:  [
                 {title: "ID", data:'id'},
-                {title: "NOM", data:'name'},
-                {title: "ID Regio", data:'regionId'}
+                {title: "NOM", data:'nom'}
             ],
             dom: 'Bfrtip',
             buttons: [
@@ -49,24 +48,16 @@
             select: true,
             responsive: true
         });
-
         let t = $('#example').DataTable();
-
         $('#openModify').click( function () {
             let data = t.row('.selected').data();
-
             console.log(data);
-
             $("#idMod").val(data['id']);
-            $("#nomMod").val(data['name']);
-            $("#idRegioMod").val(data['regionId']);
+            $("#nomMod").val(data['nom']);
         } );
-
         $('#modifyRow').on( 'click', function () {
-
-
             $.ajax({
-                url: '/api/update/city',
+                url: '/api/update/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -74,42 +65,26 @@
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
-            });
-
-            $.ajax({
-                url: '/api/update/city',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: $("#idMod").val(),
-                    colName: 'id_regio',
-                    newValue: $("#idRegioMod").val()
-                }
             }).always(function () {
                 t.ajax.reload();
             });
         });
-
         $('#addRow').on( 'click', function () {
-
             $.ajax({
-                url: '/api/insert/city',
+                url: '/api/insert/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    name: $("#nom").val(),
-                    regionId:  $("#idRegio").val()
+                    nom: $("#nom").val(),
                 }
             }).always(function () {
                 t.ajax.reload();
             });
         } );
-
         $('#remove').click( function () {
             let data = t.row('.selected').data();
-
             $.ajax({
-                url: '/api/delete/city',
+                url: '/api/delete/modalitat',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -120,7 +95,6 @@
             });
         });
     });
-
 </script>
 
 <?php include '../templates/menuTopBack.html'?>
@@ -128,8 +102,7 @@
     <div class="row h-100">
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
-            <h1>Ciutat</h1>
-
+            <h1>Modalitat</h1>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 Insertar
             </button>
@@ -137,21 +110,18 @@
                 Modificar
             </button>
             <button type="button" class="btn btn-danger" id="remove">Eliminar</button>
-
             <hr>
-
             <div>
                 <table id="example" class="table table-striped table-bordered w-100"/>
             </div>
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalInsert">Inserta Ciutat</h5>
+                <h5 class="modal-title" id="titleModalInsert">Inserta Modalitat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -162,8 +132,6 @@
                         <div class="form-group col-md-6">
                             <label for="nom">Nom</label>
                             <input type="text" class="form-control" id="nom" placeholder="Nom">
-                            <label for="idRegio">ID Regio</label>
-                            <input type="text" class="form-control" id="idRegio" placeholder="Nom">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -175,12 +143,11 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titleModalModify">Modifica Ciutat</h5>
+                <h5 class="modal-title" id="titleModalModify">Modifica Modalitat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -193,8 +160,6 @@
                             <input type="text" class="form-control" id="idMod" placeholder="ID" disabled>
                             <label for="nomMod">Nom</label>
                             <input type="text" class="form-control" id="nomMod" placeholder="Nom">
-                            <label for="idRegioMod">ID Regio</label>
-                            <input type="text" class="form-control" id="idRegioMod" placeholder="Nom">
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
@@ -206,10 +171,8 @@
         </div>
     </div>
 </div>
-
 <script src="/js/crypto-js/aes.js"></script>
 <script src="/js/popper/popper.min.js"></script>
 <script src="/js/bootstrap/bootstrap.min.js"></script>
-
 </body>
 </html>

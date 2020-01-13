@@ -33,7 +33,7 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/Projecte/public/html/api/get/region/all',
+                url: '/api/get/region/all',
                 dataSrc: '',
                 type:"POST"
             },
@@ -66,7 +66,7 @@
 
 
             $.ajax({
-                url: '/Projecte/public/html/api/update/region',
+                url: '/api/update/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -77,7 +77,7 @@
             });
 
             $.ajax({
-                url: '/Projecte/public/html/api/update/region',
+                url: '/api/update/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -93,7 +93,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/Projecte/public/html/api/insert/region',
+                url: '/api/insert/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -109,7 +109,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/Projecte/public/html/api/delete/region',
+                url: '/api/delete/region',
                 type: 'POST',
                 dataType: "json",
                 data: {

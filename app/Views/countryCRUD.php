@@ -33,7 +33,7 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/Projecte/public/html/api/get/country/all',
+                url: '/api/get/country/all',
                 dataSrc: '',
                 type:"POST"
             },
@@ -64,7 +64,7 @@
 
 
             $.ajax({
-                url: '/Projecte/public/html/api/update/country',
+                url: '/api/update/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -80,7 +80,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/Projecte/public/html/api/insert/country',
+                url: '/api/insert/country',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -95,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/Projecte/public/html/api/delete/country',
+                url: '/api/delete/country',
                 type: 'POST',
                 dataType: "json",
                 data: {

@@ -3,8 +3,6 @@ include '../templates/links.php';
 include $link["arrayLanguage"];
 include $template["detectarIdioma"];
 
-var_dump($_SESSION["lastRoute"]);
-
 if (isset($_SESSION["lastRoute"])){
     $url = ($_SESSION["lastRoute"] == '') ? $link["inici"] : $_SESSION["lastRoute"];
 } else {

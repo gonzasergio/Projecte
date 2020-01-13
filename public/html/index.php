@@ -153,13 +153,14 @@ switch ($path) {
         break;
     case '/api/insert/nivell':
         $controller = new NivellController();
-        $controller->insertNivell()();
+        $controller->insertNivell();
         break;
     case '/api/get/nivell':
         $controller = new NivellController();
         $controller->getNivell();
         break;
     case '/api/delete/nivell':
+        echo 'hola';
         $controller = new NivellController();
         $controller->deleteNivell();
         break;

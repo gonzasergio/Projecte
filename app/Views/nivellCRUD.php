@@ -80,7 +80,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/html/api/insert/nivell',
+                url: '/api/insert/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -95,7 +95,7 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/html/api/delete/nivell',
+                url: '/api/delete/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {

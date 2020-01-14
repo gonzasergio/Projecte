@@ -10,7 +10,7 @@
                     	</p>
                 	</div>
                     <div class="col">
-                            <h4 class="mb-0"><a href="<?php echo $link["excursio"] ?>?id=<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
+                            <h4 class="mb-0"><a href="<?php echo $link["excursio"] ?>/<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
                             <small>
                         	<i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star text-warning"></i>

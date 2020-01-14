@@ -46,6 +46,7 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
+
 switch ($path) {
     case '/api/insert/user':
         $controller = new UserController();
@@ -86,6 +87,10 @@ switch ($path) {
     case '/api/get/route/publications':
         $controller = new PublicationController();
         $controller->getRoutePublications();
+        break;
+    case '/api/get/first-point-route/all':
+        $controller = new PointController();
+        $controller->getFirstZoneOfAllRoutes();
         break;
     case '/api/update/publications':
         $controller = new PublicationController();
@@ -319,6 +324,10 @@ switch ($path) {
     case '/api/update/curs':
         $controller = new CursController();
         $controller->updateCurs();
+        break;
+    case ( preg_match( '/excursio\/\.*/', $path ) ? true : false ):
+        $_GET['id'] = $url[sizeof($url)-1];
+        include '../../app/Views/excursio.php';
         break;
     default:
         include '../../app/Views/' . $links[$link[0]];

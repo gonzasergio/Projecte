@@ -82,14 +82,17 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
         accessToken: 'pk.eyJ1IjoicHJvZmV3ZWIiLCJhIjoiY2pwM3JxeHR3MGF6cjNrcXcwbmh0MGZtOCJ9.mxvmjOpVymwltGGlcxHx8g'
     }).addTo(m);
 
-    let marker = L.marker([39.56961188244454,3.211168229307762]).addTo(m);
-    marker.bindPopup("<b>Manacor</b>");
+    $.ajax({
+        type: "POST",
+        url: '/api/get/first-point-route/all',
+        data: "check",
+        dataType: 'json',
+        success: function(response){
+            console.log(response);
+            L.geoJSON(response).addTo(m);
+        }
+    });
 
-    marker = L.marker([39.64281188244454,3.011168229307762]).addTo(m);
-    marker.bindPopup("<b>Sineu</b>");
-
-    marker = L.marker([39.55881188244454,2.895168229307762]).addTo(m);
-    marker.bindPopup("<b><?= $array[2]->getName() ?></b>");
 </script>
 </body>
 </html>

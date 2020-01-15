@@ -8,6 +8,8 @@ class Publication extends Model {
     private $text;
     private $user;
     private $route;
+    private $comment_num;
+    private $like_num;
 
     public function __construct($img, $text, $user, $route, $id = null) {
         $this->id = $id;
@@ -53,6 +55,22 @@ class Publication extends Model {
         $this->Route = $Route;
     }
 
+    /**
+     * @param mixed $comment_num
+     */
+    public function setCommentNum($comment_num): void {
+        $this->comment_num = $comment_num;
+    }
+
+    /**
+     * @param mixed $like_num
+     */
+    public function setLikeNum($like_num): void {
+        $this->like_num = $like_num;
+    }
+
+
+
     public function toArray() {
         return [
             'id' => $this->id,
@@ -60,6 +78,8 @@ class Publication extends Model {
             'text' => $this->text,
             'user' => $this->user,
             'route' => $this->route,
+            'comment_num' => $this->comment_num,
+            'likes_num' =>$this->like_num
         ];
     }
 }

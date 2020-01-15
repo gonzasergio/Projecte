@@ -14,4 +14,6 @@ interface DAO_Publication {
     public function getAllPublicationsFromRoute($routeId);
 
     public function updatePublication($id, $colName, $newValue);
+
+    public function getFollowsPublications($id);
 }

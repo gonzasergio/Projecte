@@ -52,4 +52,14 @@ class PublicationController extends Controller {
 
         $this->DAO->updatePublication($id, $colName, $newValue);
     }
+
+    public function getFollowersPublication(){
+        $publications = $this->DAO->getFollowsPublications($_REQUEST['id']);
+        $array = [];
+
+        foreach ($publications as $p)
+            $array[] = $p->toArray();
+
+        echo json_encode($array);
+    }
 }

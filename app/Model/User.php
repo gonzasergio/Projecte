@@ -13,9 +13,11 @@ class User extends Model {
     private $city;
     private $lvl;
     private $pass;
+    private $follows_num;
+    private $followers_num;
 
 
-    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass,$id = null) {
+    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $id = null) {
         $this->id = $id;
         $this->userName = $userName;
         $this->name = $name;
@@ -114,6 +116,36 @@ class User extends Model {
         $this->id = $id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFollowsNum() {
+        return $this->follows_num;
+    }
+
+    /**
+     * @param mixed $follows_num
+     */
+    public function setFollowsNum($follows_num): void {
+        $this->follows_num = $follows_num;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFollowersNum() {
+        return $this->followers_num;
+    }
+
+    /**
+     * @param mixed $followers_num
+     */
+    public function setFollowersNum($followers_num): void {
+        $this->followers_num = $followers_num;
+    }
+
+
+
     public function toArray(){
         return [
             'id' => $this->id,
@@ -125,7 +157,9 @@ class User extends Model {
             'phoneNumber' => $this->phoneNumber,
             'city' => $this->city,
             'lvl' => $this->lvl,
-            'pass' => $this->pass
+            'pass' => $this->pass,
+            'followers_num' => $this->followers_num,
+            'follows' => $this->follows_num
         ];
     }
 

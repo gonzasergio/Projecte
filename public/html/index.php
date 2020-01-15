@@ -84,6 +84,10 @@ switch ($path) {
         $controller = new PublicationController();
         $controller->getUserPublications();
         break;
+    case '/api/followers/publications':
+        $controller = new PublicationController();
+        $controller->getFollowersPublication();
+        break;
     case '/api/get/route/publications':
         $controller = new PublicationController();
         $controller->getRoutePublications();

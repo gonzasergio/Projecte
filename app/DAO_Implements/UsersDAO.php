@@ -39,6 +39,20 @@ class UsersDAO implements DAO_User {
             $user = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[0]);
         }
 
+        $select = "select seguir.num, seguidors.num
+        from perfil, 
+        (select count(*) as num from seguir where id_perfil = 1) as seguir,
+        (select count(*) as num from seguir where id_perfil_seguit = 1) as seguidors
+        where id = 1 ";
+
+        $stmt = $this->connection->prepare($select);
+        $stmt->execute();
+
+        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $user->setFollowsNum($row[0]);
+            $user->setFollowersNum($row[1]);
+        }
+
         return $user;
 
     }

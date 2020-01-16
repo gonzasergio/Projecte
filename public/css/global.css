@@ -1,5 +1,55 @@
 @import "../css/google-fonts/fonts.css";
 *{font-family: 'Ubuntu', sans-serif;}
+
+:root {
+    --primary: #1f34a0;
+    --dark: #0e1849;
+    --old-primary: #5378ff;
+}
+.bg-custom-secondary {
+    background-color: var(--primary);
+}
+
+.text-custom-secondary {
+    color: var(--primary);
+}
+
+.bg-custom-dark {
+    background-color: var(--dark);
+}
+
+.text-custom-dark {
+    color: var(--dark);
+}
+
+.text-old-primary {
+	color: var(--old-primary)!important;
+}
+
+.bg-old-primary {
+	background-color: var(--old-primary)!important;
+}
+
+.bg-secondary {
+    background-color: #625e86!important;
+}
+.text-secondary {
+    color: #625e86!important;
+}
+.bg-dark{
+    background-color: #38364e!important;
+}
+.text-dark {
+    color: #38364e!important;
+}
+.bg-light {
+    background-color: #f2f3f3!important;
+}
+.text-light {
+    color: #f2f3f3!important;
+}
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -90,17 +140,17 @@ main {
 /* -------- */
 .storyborder {
 	border: solid;
-	border-color: #7bbaff;
+	border-color: #6487ff;
 	border-width: 3px;
 }
 .storyborder-seen {
 	border: solid;
-	border-color: #a0a7ad;
+	border-color: #9592b1;
 	border-width: 3px;
 }
 .nostoryborder {
 	border: solid;
-	border-color: #e4e7e9;
+	border-color: #f2f3f3;
 	border-width: 3px;
 }
 .userstory {

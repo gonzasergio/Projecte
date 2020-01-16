@@ -122,7 +122,7 @@ if (!(isset($_SESSION["AUTH"]))){
                             </div>
                             
                             <div class="btn-group">
-                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle text-decoration-none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle text-decoration-none text-old-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-globe"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
@@ -152,10 +152,10 @@ if (!(isset($_SESSION["AUTH"]))){
                                 </div>
                             </div>
                                 <div class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle text-decoration-none" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-link dropdown-toggle text-decoration-none text-old-primary" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-ellipsis-h"></i>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right " aria-labelledby="gedf-drop1">
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                                         <a class="dropdown-item" href="#"><i class="fas fa-exclamation-circle"></i> <?php echo $lang[$idioma]["report"];?></a>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@ if (!(isset($_SESSION["AUTH"]))){
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="text-primary mr-2"><i class="far fa-heart h4"></i> <small class="h6">23K</small></a>
+                        <a href="#" class="text-old-primary mr-2"><i class="far fa-heart h4"></i> <small class="h6">23K</small></a>
                         <a href="#" class="text-secondary mx-2"><i class="fas fa-comments h4"></i> <small class="h6">145</small></a>
                         <a href="#" class="text-secondary mx-2"><i class="fas fa-share h4"></i></i></a>
                     </div>
@@ -190,7 +190,7 @@ if (!(isset($_SESSION["AUTH"]))){
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>
-                            <a href="#" class="card-link"><?php echo $lang[$idioma]["seeMore"];?></a>
+                            <a href="#" class="card-link text-old-primary"><?php echo $lang[$idioma]["seeMore"];?></a>
                         </div>
                     </div>
 
@@ -235,7 +235,7 @@ if (!(isset($_SESSION["AUTH"]))){
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>
-                            <a href="#" class="card-link"><?php echo $lang[$idioma]["seeMore"];?></a>
+                            <a href="#" class="card-link text-old-primary"><?php echo $lang[$idioma]["seeMore"];?></a>
                         </div>
                     </div>
             </div>

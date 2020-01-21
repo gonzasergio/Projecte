@@ -15,9 +15,11 @@ class User extends Model {
     private $pass;
     private $follows_num;
     private $followers_num;
+    private $hasHitory = false;
+    private $description;
 
 
-    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $id = null) {
+    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description, $id = null) {
         $this->id = $id;
         $this->userName = $userName;
         $this->name = $name;
@@ -29,6 +31,14 @@ class User extends Model {
         $this->city = $city;
         $this->lvl = $lvl;
         $this->pass = $pass;
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription() {
+        return $this->description;
     }
 
 
@@ -144,6 +154,11 @@ class User extends Model {
         $this->followers_num = $followers_num;
     }
 
+    public function hasHitory(){
+        $this->hasHitory = true;
+    }
+
+
 
 
     public function toArray(){
@@ -159,7 +174,9 @@ class User extends Model {
             'lvl' => $this->lvl,
             'pass' => $this->pass,
             'followers_num' => $this->followers_num,
-            'follows' => $this->follows_num
+            'follows_num' => $this->follows_num,
+            'hasHistory' => $this->hasHitory,
+            'description' => $this->description
         ];
     }
 

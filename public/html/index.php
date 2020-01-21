@@ -56,6 +56,10 @@ switch ($path) {
         $controller = new UserController();
         $controller->getUser();
         break;
+    case '/api/get/my-user-id':
+        $controller = new UserController();
+        $controller->getMyUserId();
+        break;
     case '/api/delete/user':
         $controller = new UserController();
         $controller->deleteUser();

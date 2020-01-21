@@ -1,6 +1,6 @@
 <?php
 
-class UsersDAO implements DAO_User {
+class UsersDAO extends DAO implements DAO_User {
     use FormatSQL;
     private $connection;
 
@@ -19,12 +19,13 @@ class UsersDAO implements DAO_User {
         $city = $this->packUp($user->getCity());
         $lvl = $this->packUp($user->getLvl());
         $pass = $this->packUp($user->getPass());
+        $description = $this->packUp($user->getDescription());
 
         $insert = "INSERT INTO perfil 
-        (`nom`,`userName`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`id_ciutat`,`id_nivell`,`pass`)
-        values ($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass)";
+        (`nom`,`userName`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`id_ciutat`,`id_nivell`,`pass`, `descripcio`)
+        values ($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description)";
 
-        $this->connection->prepare($insert)->execute();
+        $this->executeQuery($insert)->execute();
 
     }
 
@@ -36,14 +37,14 @@ class UsersDAO implements DAO_User {
         $stmt->execute();
 
         if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $user = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[0]);
+            $user = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
         }
 
         $select = "select seguir.num, seguidors.num
         from perfil, 
-        (select count(*) as num from seguir where id_perfil = 1) as seguir,
-        (select count(*) as num from seguir where id_perfil_seguit = 1) as seguidors
-        where id = 1 ";
+        (select count(*) as num from seguir where id_perfil = $id) as seguir,
+        (select count(*) as num from seguir where id_perfil_seguit = $id) as seguidors
+        where id = $id ";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -51,6 +52,15 @@ class UsersDAO implements DAO_User {
         if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             $user->setFollowsNum($row[0]);
             $user->setFollowersNum($row[1]);
+        }
+
+        $select = "select count(historia.id) as num from historia where id_perfil_propietari = $id group by id_perfil_propietari ";
+
+        $stmt = $this->connection->prepare($select);
+        $stmt->execute();
+
+        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $user->hasHitory();
         }
 
         return $user;
@@ -72,7 +82,7 @@ class UsersDAO implements DAO_User {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $users[] = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[0]);
+            $users[] = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
         }
 
         return $users;

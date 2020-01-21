@@ -81,13 +81,16 @@ class PublicationDAO implements DAO_Publication {
     public function getFollowsPublications($id){
         $publications = [];
         $select = "select publicacio.id, imatge, publicacio.texte, id_perfil_propietari, id_excursio,
-        count(likes.id_publicacio), count(comenta_publicacio.id_publicacio)
-        from publicacio, likes, comenta_publicacio, seguir
-        where publicacio.id = likes.id_publicacio
-        and publicacio.id = comenta_publicacio.id_publicacio
-        and id_perfil_propietari = seguir.id_perfil_seguit
+        (select count(likes.id_publicacio) num
+        from likes
+        where likes.id_publicacio = publicacio.id) as likes,
+        (select count(comenta_publicacio.id) num
+        from comenta_publicacio
+        where comenta_publicacio.id_publicacio = publicacio.id) as comenari
+        from publicacio, seguir
+        where id_perfil_propietari = seguir.id_perfil_seguit
         and seguir.id_perfil = $id
-        group by publicacio.id;";
+        group by publicacio.id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();

@@ -45,5 +45,9 @@ class UserController extends Controller {
         $this->DAO->updateUser($id, $colName, $newValue);
     }
 
+    public function getMyUserId(){
+        echo json_encode(['id' => $_SESSION['id']]);
+    }
+
 
 }

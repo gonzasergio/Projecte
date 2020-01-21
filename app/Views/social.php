@@ -63,22 +63,22 @@ if (!(isset($_SESSION["AUTH"]))){
             <div class="col-md-3 d-none d-lg-block">
                 <div class="card">
                     <div class="card-body">
-                    	<a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>">
-						<img title="<?php echo $_SESSION["user"];?>" class="d-flex mb-2 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="75px">
+                    	<a id="myUserLink">
+						<img id="myUserImg" class="d-flex mb-2 mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="75px">
                         </a>
-                        <a href="<?php echo $link["perfil"] ?>?user=<?php echo $_SESSION["user"];?>" title="<?php echo $_SESSION["user"];?>" class="h5 text-dark text-decoration-none"><?php echo $_SESSION["user"];?></a>
+                        <a id="myUserName" class="h5 text-dark text-decoration-none"></a>
                         <div class="h7">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt fugit!
+                            <p id="myUserDescription"></p>
                         </div>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="h6 text-muted"><?php echo $lang[$idioma]["followers"];?></div>
-                            <div class="h5">75.2K</div>
+                            <div class="h5"><p id="myFollowersNum"></p></div>
                         </li>
                         <li class="list-group-item">
                             <div class="h6 text-muted"><?php echo $lang[$idioma]["following"];?></div>
-                            <div class="h5">6.7K</div>
+                            <div class="h5"><p id="myFollowingNum"></p></div>
                         </li>
                     </ul>
                 </div>
@@ -137,44 +137,8 @@ if (!(isset($_SESSION["AUTH"]))){
                 <!-- Post /////-->
 
                 <!--- \\\\\\\Post-->
-                <div class="card gedf-card my-5">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                            	<a href="<?php echo $link["perfil"] ?>?user=Joan">
-                                <img title="Joan" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">
-                                </a>
-                                <div class="ml-2">
-                                	<a href="<?php echo $link["perfil"] ?>?user=Joan" class="text-decoration-none text-dark">
-                                    <div title="Joan" class="h5 m-0">Joan </div>
-                                    </a>
-                                    <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min</small>
-                                </div>
-                            </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle text-decoration-none" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-h"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right " aria-labelledby="gedf-drop1">
-                                        <a class="dropdown-item" href="#"><i class="fas fa-exclamation-circle"></i> <?php echo $lang[$idioma]["report"];?></a>
-                                    </div>
-                                </div>
-                        </div>
+                <div id="publication">
 
-                    </div>
-					
-                    <div class="card-body">
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt fugit reprehenderit consectetur exercitationem odio,
-                            quam nobis? Officiis, similique, harum voluptate, facilis voluptas pariatur dolorum tempora sapiente
-                            eius maxime quaerat.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="text-primary mr-2"><i class="far fa-heart h4"></i> <small class="h6">23K</small></a>
-                        <a href="#" class="text-secondary mx-2"><i class="fas fa-comments h4"></i> <small class="h6">145</small></a>
-                        <a href="#" class="text-secondary mx-2"><i class="fas fa-share h4"></i></i></a>
-                    </div>
                 </div>
                 <!-- Post /////-->
                 
@@ -245,4 +209,6 @@ if (!(isset($_SESSION["AUTH"]))){
 
 </main>
 <?php include $template["footer"]?>
+
+<script src="/js/social.js?1500"></script>
 </body>

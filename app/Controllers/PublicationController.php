@@ -54,7 +54,7 @@ class PublicationController extends Controller {
     }
 
     public function getFollowersPublication(){
-        $publications = $this->DAO->getFollowsPublications($_REQUEST['id']);
+        $publications = $this->DAO->getFollowsPublications($_SESSION['id']);
         $array = [];
 
         foreach ($publications as $p)

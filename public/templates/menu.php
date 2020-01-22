@@ -1,5 +1,5 @@
 <header class="container-fluid sticky">
-    <div class="row bg-secondary pt-2">
+    <div class="row bg-custom-secondary pt-2">
         <div class="col d-flex justify-content-start">
             
             <div class='dropdown show'>
@@ -50,18 +50,23 @@ var doc = loc.split(/(\\|\/)/g).pop();
 switch (doc) {
 case "excursions":
 	$("li#Llista").attr("class","active");
+	$("li#Llista a").attr("class","nav-link text-primary");
 	break;
 case "social":
 	$("li#Social").attr("class","active");
+	$("li#Social a").attr("class","nav-link text-primary");
 	break;
 case "inici":
 	$("li#Home").attr("class","active");
+	$("li#Home a").attr("class","nav-link text-primary");
 	  break;
 case "cursos":
 	$("li#Cursos").attr("class","active");
+	$("li#Cursos a").attr("class","nav-link text-primary");
 	  break;	 
 case "":
 	$("li#Home").attr("class","active");
+	$("li#Home a").attr("class","nav-link text-primary");
 	  break;
 }
 });
@@ -69,7 +74,7 @@ case "":
     <nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
     	<a class="navbar-brand mr-5" href="<?php echo $link["inici"]?>">
             <img src="/img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
-        	<h1 class="text-secondary">GOATrails</h1>
+        	<h1 class="text-custom-secondary">GOATrails</h1>
         </a>
       	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       		<span class="navbar-toggler-icon"></span>

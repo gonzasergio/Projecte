@@ -32,7 +32,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 
         <hr>
         <div class="d-block-inline d-lg-none mb-4">
-        	<a href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>"><img class="rounded-circle nostoryborder" title="<?= $array[0]->getUserNom() ?>" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="25px"></a> <a title="<?= $array[0]->getUserNom() ?>" href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>
+        	<a href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>"><img class="rounded-circle nostoryborder" title="<?= $array[0]->getUserNom() ?>" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="25px"></a> <a class="text-old-primary" title="<?= $array[0]->getUserNom() ?>" href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>
         </div>
         
         <!-- Preview Image -->
@@ -60,13 +60,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 			<div class="row px-3">
 				<div class="col col-xl-6">
 					<p><i class="fas fa-walking"></i> <?= $array[0]->getKm() ?> km</p>
-					<p><i class="fas fa-map-marker-alt"></i> <a href="#"> <?= $array[0]->getZone() ?></a></p>
+					<p><i class="fas fa-map-marker-alt"></i> <a class="text-old-primary" href="#"> <?= $array[0]->getZone() ?></a></p>
 					<div class="d-block d-xl-none">
-						<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
+						<p><i class="fas fa-medal"></i> <a class="text-old-primary" href="#"><?= $array[0]->getDifficulty() ?></a></p>
 					</div>
 				</div>
 				<div class="d-none d-xl-block col-6">
-					<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
+					<p><i class="fas fa-medal"></i> <a class="text-old-primary" href="#"><?= $array[0]->getDifficulty() ?></a></p>
 				</div>
 			</div>
           </div>
@@ -200,7 +200,7 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
                     <img class="rounded-circle shadow-sm nostoryborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="80px">
                 </a>
                 <p class="text-secondary mt-1">
-                    <a href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>" title="<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>
+                    <a class="text-old-primary" href="<?php echo $link["perfil"] ?>?user=<?= $array[0]->getUserNom() ?>" title="<?= $array[0]->getUserNom() ?>"><?= $array[0]->getUserNom() ?></a>
                 </p>
             </div>
           </div>
@@ -213,13 +213,13 @@ while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
 			<div class="row px-3">
 				<div class="col col-xl-6">
 					<p><i class="fas fa-walking"></i> <?= $array[0]->getKm() ?> km</p>
-					<p><i class="fas fa-map-marker-alt"></i> <a href="#"> <?= $array[0]->getZone() ?></a></p>
+					<p><i class="fas fa-map-marker-alt"></i> <a class="text-old-primary" href="#"> <?= $array[0]->getZone() ?></a></p>
 					<div class="d-block d-xl-none">
-						<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
+						<p><i class="fas fa-medal"></i> <a class="text-old-primary" href="#"><?= $array[0]->getDifficulty() ?></a></p>
 					</div>
 				</div>
 				<div class="d-none d-xl-block col-6">
-					<p><i class="fas fa-medal"></i> <a href="#"><?= $array[0]->getDifficulty() ?></a></p>
+					<p><i class="fas fa-medal"></i> <a class="text-old-primary" href="#"><?= $array[0]->getDifficulty() ?></a></p>
 				</div>
 			</div>
           </div>

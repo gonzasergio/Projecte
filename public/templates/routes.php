@@ -10,7 +10,7 @@
                     	</p>
                 	</div>
                     <div class="col">
-                            <h4 class="mb-0"><a href="<?php echo $link["excursio"] ?>/<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
+                            <h4 class="mb-0"><a class="text-old-primary" href="<?php echo $link["excursio"] ?>/<?= $rute->getId() ?>"><?= $rute->getName() ?></a></h4>
                             <small>
                         	<i class="fas fa-star text-warning"></i>
                             <i class="fas fa-star text-warning"></i>
@@ -20,13 +20,13 @@
                     		</small>
                             <div class="mb-2">
                             <div class="d-block d-md-none mb-n1">
-                                <a class="text-decoration-none" href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>"><small><i class='fas fa-user'></i></small> <?= $rute->getUserNom() ?></a>
+                                <a class="text-decoration-none text-old-primary" href="<?php echo $link["perfil"] ?>?user=<?= $rute->getUserNom() ?>" title="<?= $rute->getUserNom() ?>"><small><i class='fas fa-user'></i></small> <?= $rute->getUserNom() ?></a>
                                 <br>
                             </div>
-                            <small>
+                            <small class="text-dark">
                                 <i class="fas fa-walking"></i> <span class="mr-2"><?= $rute->getKm() ?> km &nbsp;</span>
-                                <i class="fas fa-medal"></i> <a class="mr-2" href="#"> <?= $rute->getDifficulty() ?></a>
-                                <i class="fas fa-map-marker-alt"></i> <a class="mr-2" href="#"> <?= $rute->getZone() ?></a>
+                                <i class="fas fa-medal"></i> <a class="mr-2 text-old-primary" href="#"> <?= $rute->getDifficulty() ?></a>
+                                <i class="fas fa-map-marker-alt"></i> <a class="mr-2 text-old-primary" href="#"> <?= $rute->getZone() ?></a>
                             </small>
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

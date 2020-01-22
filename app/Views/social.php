@@ -122,7 +122,7 @@ if (!(isset($_SESSION["AUTH"]))){
                             </div>
                             
                             <div class="btn-group">
-                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle text-decoration-none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle text-decoration-none text-old-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-globe"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
@@ -154,7 +154,7 @@ if (!(isset($_SESSION["AUTH"]))){
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>
-                            <a href="#" class="card-link"><?php echo $lang[$idioma]["seeMore"];?></a>
+                            <a href="#" class="card-link text-old-primary"><?php echo $lang[$idioma]["seeMore"];?></a>
                         </div>
                     </div>
 
@@ -199,7 +199,7 @@ if (!(isset($_SESSION["AUTH"]))){
 									<button class="btn btn-light btn-sm"> <small><?php echo $lang[$idioma]["follow"];?></small></button>
 								</div>
 							</div>
-                            <a href="#" class="card-link"><?php echo $lang[$idioma]["seeMore"];?></a>
+                            <a href="#" class="card-link text-old-primary"><?php echo $lang[$idioma]["seeMore"];?></a>
                         </div>
                     </div>
             </div>

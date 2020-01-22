@@ -99,7 +99,7 @@ include '../templates/globalIclude.php';
                                 </div>
                             </div>
                                 <div class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle text-decoration-none" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="text-old-primary btn btn-link dropdown-toggle text-decoration-none" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-ellipsis-h"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right " aria-labelledby="gedf-drop1">
@@ -118,7 +118,7 @@ include '../templates/globalIclude.php';
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="text-primary mr-2"><i class="far fa-heart h4"></i> <small class="h6">23K</small></a>
+                        <a href="#" class="text-old-primary mr-2"><i class="far fa-heart h4"></i> <small class="h6">23K</small></a>
                         <a href="#" class="text-secondary mx-2"><i class="fas fa-comments h4"></i> <small class="h6">145</small></a>
                         <a href="#" class="text-secondary mx-2"><i class="fas fa-share h4"></i></i></a>
                     </div>

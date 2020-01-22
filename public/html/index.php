@@ -337,6 +337,10 @@ switch ($path) {
         $_GET['id'] = $url[sizeof($url)-1];
         include '../../app/Views/excursio.php';
         break;
+    case '/api/test':
+        $controller = new CommentPublicationDAO();
+        $controller->insertCommentari(new CommentPublication(1,1,1,1));
+        break;
     default:
         include '../../app/Views/' . $links[$link[0]];
 }

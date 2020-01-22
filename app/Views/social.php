@@ -210,5 +210,5 @@ if (!(isset($_SESSION["AUTH"]))){
 </main>
 <?php include $template["footer"]?>
 
-<script src="/js/social.js?1500"></script>
+<script src="/js/Social.js?1500"></script>
 </body>

@@ -2,8 +2,8 @@
 include '../templates/links.php';
 
 $array = [];
-$user = $_POST["name"];
-$pass = $_POST["pass"];
+$user = $_REQUEST["name"];
+$pass = $_REQUEST["pass"];
 $sql = "SELECT * FROM persona where nom = '$user'";
 $insert = 'INSERT INTO persona VALUES("'.$user.'", "'.$pass.'")';
 $stmt = DBConnection::getInstance()->getConnection()->prepare($sql);

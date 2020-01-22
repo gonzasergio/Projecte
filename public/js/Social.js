@@ -103,4 +103,9 @@ $('document').ready(function () {
 
     generatePublicaion();
 
+    $('#send').click(function () {
+       console.log(document.querySelector('input[type=file]').files[0]);
+
+    });
+
 });

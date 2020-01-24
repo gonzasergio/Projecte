@@ -101,9 +101,9 @@ class Comment extends Model {
         return [
           'id' => $this->id,
           'userId' => $this->userId,
+          'referenceId' => $this->referenceId,
           'text' => $this->text,
-          'responseId' => $this->responseId,
-          'referenceId' => $this->referenceId
+          'responseId' => $this->responseId
         ];
     }
 }

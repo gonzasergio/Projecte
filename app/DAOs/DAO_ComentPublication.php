@@ -7,8 +7,8 @@ interface DAO_ComentPublication {
 
     public function getCommentById($id);
 
-    public function getAllReferenceComments();
+    public function getAllReferenceComments($id);
 
-    public function getComentResponse($commentId);
+    public function getComentResponse($id);
 
 }

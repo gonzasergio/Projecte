@@ -59,11 +59,11 @@ $('document').ready(function () {
         let img = (item['img'] === null) ? '' : '<img class="card-img" src="'+ item['img'] +'">';
 
         let openDiv = '<div class="card gedf-card my-5">\n' +
-            '                        <div class="card-header">\n' +
+            '                          <div class="card-header">\n' +
             '                            <div class="d-flex justify-content-between align-items-center">\n' +
             '                                <div class="d-flex justify-content-between align-items-center">\n' +
             '                                    <a href="/perfil/'+ item['id'] +'">\n' +
-            '                                        <img title="'+ item[name] +'" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">\n' +
+            '                                        <img title="'+ item['name'] +'" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">\n' +
             '                                    </a>\n' +
             '                                    <div class="ml-2">\n' +
             '                                        <a href="/perfil/'+ item['id'] +'" class="text-decoration-none text-dark">\n' +

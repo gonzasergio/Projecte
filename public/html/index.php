@@ -96,6 +96,22 @@ switch ($path) {
         $controller = new PublicationController();
         $controller->getRoutePublications();
         break;
+    case '/api/insert/publication/comment':
+        $controller = new CommentPublicationController();
+        $controller->insertComment();
+        break;
+    case '/api/get/publication/comment':
+        $controller = new CommentPublicationController();
+        $controller->getCommentById();
+        break;
+    case '/api/get/publication/comments':
+        $controller = new CommentPublicationController();
+        $controller->getReferenceComments();
+        break;
+    case '/api/get/publication/comment/response':
+        $controller = new CommentPublicationController();
+        $controller->getResponseComments();
+        break;
     case '/api/get/first-point-route/all':
         $controller = new PointController();
         $controller->getFirstZoneOfAllRoutes();

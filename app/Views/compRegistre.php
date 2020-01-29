@@ -5,7 +5,7 @@ $array = [];
 $user = $_REQUEST["name"];
 $pass = $_REQUEST["pass"];
 $sql = "SELECT * FROM persona where nom = '$user'";
-$insert = 'INSERT INTO persona VALUES("'.$user.'", "'.$pass.'")';
+$insert = 'INSERT INTO persona (nom, password) VALUES("'.$user.'", "'.$pass.'")';
 $stmt = DBConnection::getInstance()->getConnection()->prepare($sql);
 $stmt->execute();
 

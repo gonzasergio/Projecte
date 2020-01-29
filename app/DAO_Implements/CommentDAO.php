@@ -1,8 +1,18 @@
 <?php
 
 
-class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
+class CommentDAO extends DAO implements DAO_ComentPublication {
     use FormatSQL;
+    private $idReference;
+    private $tableName;
+
+
+    public function __construct($idReference, $tableName) {
+        parent::__construct();
+        $this->idReference = $idReference;
+        $this->tableName = $tableName;
+    }
+
 
     public function insertComment(Comment $comment) {
         $arr = [];
@@ -11,7 +21,7 @@ class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
             $arr[] = ($a != null ) ? $this->packUp($a) : 'null';
 
 
-        $insert = "INSERT INTO `comenta_publicacio`
+        $insert = "INSERT INTO `$this->tableName`
         (`id_perfil`,
         `id_publicacio`,
         `texte`,
@@ -27,7 +37,7 @@ class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
 
     public function getCommentById($id) {
         $comment = null;
-        $select = "select * from comenta_publicacio where id = $id";
+        $select = "select * from $this->tableName where id = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -41,7 +51,7 @@ class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
 
     public function getAllReferenceComments($id) {
         $comment = [];
-        $select = "select * from comenta_publicacio where id_publicacio = $id";
+        $select = "select * from $this->tableName where $this->idReference = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -55,7 +65,7 @@ class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
 
     public function getComentResponse($id) {
         $comment = [];
-        $select = "select * from comenta_publicacio where id_resposta = $id";
+        $select = "select * from $this->tableName where id_resposta = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -66,4 +76,5 @@ class CommentPublicationDAO extends DAO implements DAO_ComentPublication {
 
         return $comment;
     }
+
 }

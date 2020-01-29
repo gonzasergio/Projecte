@@ -18,7 +18,7 @@ class CursosDAO implements DAO_Curs {
         $id_ciutat = $this->packUp($curs->getIdCiutat());
         $id_propietari = $this->packUp($curs->getIdPropietari());
 
-        $insert = "INSERT INTO curs (`titol`,`duracio`,`id_dificultat`,`preu`,`maxim_persones`,`descripcio`,`id_ciutat`,`id_propietari`)
+        $insert = "INSERT INTO curs (`titol`,`duracio`,`id_dificultat`,`preu`,`maxim_persones`,`descripcio`,`id_ciutat`,`id_instructor`)
         values ($titol, $duracio, $id_dificultat, $preu, $maxim_persones, $descripcio, $id_ciutat, $id_propietari)";
 
         $this->connection->prepare($insert)->execute();
@@ -33,7 +33,7 @@ class CursosDAO implements DAO_Curs {
         $stmt->execute();
 
         if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $curs = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[0]);
+            $curs = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
         }
 
         return $curs;
@@ -55,7 +55,7 @@ class CursosDAO implements DAO_Curs {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $cursos[] = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[0]);
+            $cursos[] = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
         }
 
         return $cursos;
@@ -63,13 +63,13 @@ class CursosDAO implements DAO_Curs {
 
     public function getAllCursosByIdPropietari($id){
         $cursos = [];
-        $select = "SELECT * FROM curs where id_propietari = $id";
+        $select = "SELECT * FROM curs where id_instructor = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $cursos[] = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[0]);
+            $cursos[] = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
         }
 
         return $cursos;

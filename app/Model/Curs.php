@@ -11,10 +11,9 @@ class Curs extends Model {
     private $descripcio;
     private $id_ciutat;
     private $id_propietari;
-    private $id_promocio;
 
 
-    public function __construct($titol, $duracio, $id_dificultat, $preu, $maxim_persones, $descripcio, $id_ciutat, $id_propietari, $id_promocio = null, $id = null) {
+    public function __construct($titol, $duracio, $id_dificultat, $preu, $maxim_persones, $descripcio, $id_ciutat, $id_propietari, $id = null) {
         $this->id = $id;
         $this->titol = $titol;
         $this->duracio = $duracio;
@@ -24,7 +23,6 @@ class Curs extends Model {
         $this->descripcio = $descripcio;
         $this->id_ciutat = $id_ciutat;
         $this->id_propietari = $id_propietari;
-        $this->id_promocio = $id_promocio;
     }
 
 
@@ -63,10 +61,6 @@ class Curs extends Model {
     public function getIdPropietari(){
         return $this->id_propietari;
     }
-    
-    public function getId_promocio() {
-        return $this->id_promocio;
-    }
 
     public function setId($id): void {
         $this->id = $id;
@@ -103,10 +97,6 @@ class Curs extends Model {
     public function setIdPropietari($id_propietari){
         $this->id_propietari = $id_propietari;
     }
-    
-    public function setId_promocio($id_promocio): void {
-        $this->id_promocio = $id_promocio;
-    }
 
     public function toArray(){
         return [
@@ -118,8 +108,7 @@ class Curs extends Model {
             'maxim_persones' => $this->maxim_persones,
             'descripcio' => $this->descripcio,
             'id_ciutat' => $this->id_ciutat,
-            'id_propietari' => $this->id_propietari,
-            'id_promocio' => $this->id_promocio
+            'id_propietari' => $this->id_propietari
         ];
     }
 

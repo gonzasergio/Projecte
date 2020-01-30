@@ -2,7 +2,7 @@
 
 class UsersDAO extends DAO implements DAO_User {
     use FormatSQL;
-    private $connection;
+    protected $connection;
 
     public function __construct() {
         $this->connection = DBConnection::getInstance('db_goatrails')->getConnection();

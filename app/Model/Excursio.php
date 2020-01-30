@@ -3,7 +3,7 @@
 
 class Excursio extends Model {
     private $id;
-    private $titol;
+    //private $titol;
     private $distancia;
     private $id_dificultat;
     private $duracio;
@@ -13,27 +13,27 @@ class Excursio extends Model {
     private $id_propietari;
 
 
-    public function __construct($titol, $distancia, $id_dificultat, $duracio, $preu, $maxim_persones, $descripcio, $id_propietari, $id = null) {
+    public function __construct(/*$titol,*/ $distancia, $id_dificultat, $duracio, $preu, $maxim_persones, $descripcio, /*$id_propietari,*/ $id = null) {
         $this->id = $id;
-        $this->titol = $titol;
+        //$this->titol = $titol;
         $this->distancia = $distancia;
         $this->id_dificultat = $id_dificultat;
         $this->duracio = $duracio;
         $this->preu = $preu;
         $this->maxim_persones = $maxim_persones;
         $this->descripcio = $descripcio;
-        $this->id_propietari = $id_propietari;
+        //$this->id_propietari = $id_propietari;
     }
 
 
     public function getId() {
         return $this->id;
     }
-
+    /*
     public function getTitol(){
         return $this->titol;
     }
-
+    */
     public function getDistancia() {
         return $this->distancia;
     }
@@ -64,10 +64,6 @@ class Excursio extends Model {
 
     public function setId($id): void {
         $this->id = $id;
-    }
-
-    public function setTitol($titol): void {
-        $this->titol = $titol;
     }
     
     public function setDistancia($distancia): void {
@@ -101,14 +97,14 @@ class Excursio extends Model {
     public function toArray(){
         return [
             'id' => $this->id,
-            'titol' => $this->titol,
+            //'titol' => $this->titol,
             'distancia' => $this->distancia,
             'id_dificultat' => $this->id_dificultat,
             'duracio' => $this->duracio,
             'preu' => $this->preu,
             'maxim_persones' => $this->maxim_persones,
             'descripcio' => $this->descripcio,
-            'id_propietari' => $this->id_propietari
+            //'id_propietari' => $this->id_propietari
         ];
     }
 

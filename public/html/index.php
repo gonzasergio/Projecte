@@ -114,6 +114,54 @@ switch ($path) {
         $controller = new CommentPublicationController();
         $controller->getResponseComments();
         break;
+    case '/api/insert/route/comment':
+        $controller = new CommentRouteController();
+        $controller->insertComment();
+        break;
+    case '/api/get/route/comment':
+        $controller = new CommentRouteController();
+        $controller->getCommentById();
+        break;
+    case '/api/get/route/comments':
+        $controller = new CommentRouteController();
+        $controller->getReferenceComments();
+        break;
+    case '/api/get/route/comment/response':
+        $controller = new CommentRouteController();
+        $controller->getResponseComments();
+        break;
+    case '/api/insert/curs/comment':
+        $controller = new CommentCursController();
+        $controller->insertComment();
+        break;
+    case '/api/get/curs/comment':
+        $controller = new CommentCursController();
+        $controller->getCommentById();
+        break;
+    case '/api/get/curs/comments':
+        $controller = new CommentCursController();
+        $controller->getReferenceComments();
+        break;
+    case '/api/get/curs/comment/response':
+        $controller = new CommentCursController();
+        $controller->getResponseComments();
+        break;
+    case '/api/insert/user/comment':
+        $controller = new CommentUserController();
+        $controller->insertComment();
+        break;
+    case '/api/get/user/comment':
+        $controller = new CommentUserController();
+        $controller->getCommentById();
+        break;
+    case '/api/get/user/comments':
+        $controller = new CommentUserController();
+        $controller->getReferenceComments();
+        break;
+    case '/api/get/user/comment/response':
+        $controller = new CommentUserController();
+        $controller->getResponseComments();
+        break;
     case '/api/get/first-point-route/all':
         $controller = new PointController();
         $controller->getFirstZoneOfAllRoutes();
@@ -303,29 +351,45 @@ switch ($path) {
         $controller = new CityController();
         $controller->viewCRUD();
         break;
-    case '/api/insert/excursio':
+    case '/api/insert/route':
         $controller = new ExcursioController();
         $controller->insertExcursio();
         break;
-    case '/api/get/excursio':
+    case '/api/get/route':
         $controller = new ExcursioController();
         $controller->getExcursio();
         break;
-    case '/api/delete/excursio':
+    case '/api/delete/route':
         $controller = new ExcursioController();
         $controller->deleteExcursio();
         break;
-    case '/api/get/excursio/all':
+    case '/api/get/route/all':
         $controller = new ExcursioController();
         $controller->getAllExcursions();
         break;
-    case '/api/get/excursio/perfil':
+    case '/api/get/route/user':
         $controller = new ExcursioController();
         $controller->getAllExcursionsByIdPropietari();
         break;
-    case '/api/update/excursio':
+    case '/api/update/route':
         $controller = new ExcursioController();
         $controller->updateExcursio();
+        break;
+    case '/api/get/route/distance':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByDistance();
+        break;
+    case '/api/get/route/duration':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByDuration();
+        break;
+    case '/api/get/route/price':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByPric();
+        break;
+    case '/api/get/route/difficulty':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByDifficulty();
         break;
     case '/api/insert/curs':
         $controller = new CursController();

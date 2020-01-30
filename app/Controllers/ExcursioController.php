@@ -27,12 +27,8 @@ class ExcursioController extends Controller {
 
     public function getAllExcursions(){
         $excursions = $this->DAO->getAllExcursions();
-        $array = [];
 
-        foreach ($excursions as $u)
-            $array[] = $u->toArray();
-
-        echo json_encode($array);
+        echo $this->arrayToJson($excursions);
     }
 
     public function getAllExcursionsByIdPropietari(){
@@ -53,4 +49,33 @@ class ExcursioController extends Controller {
         $this->DAO->updateExcursio($id, $colName, $newValue);
     }
 
+    public function getAllExcursionsByDistance(){
+        $excursions = $this->DAO->getAllExcursionsByDistance($_REQUEST['distance']);
+
+        echo $this->arrayToJson($excursions);
+    }
+
+    public function getAllExcursionsByDifficulty() {
+        $excursions = $this->DAO->getAllExcursionsByDifficulty($_REQUEST['diff']);
+
+        echo $this->arrayToJson($excursions);
+    }
+
+    public function getAllExcursionsByPric() {
+        $excursions = $this->DAO->getAllExcursionsByDifficulty($_REQUEST['price']);
+
+        echo $this->arrayToJson($excursions);
+    }
+
+    public function getAllExcursionsByDuration() {
+        $excursions = $this->DAO->getAllExcursionsByDifficulty($_REQUEST['duration']);
+
+        echo $this->arrayToJson($excursions);
+    }
+
+    public function getAllExcursionsByModality(){
+        $excursions = $this->DAO->getAllExcursionsByModality($_REQUEST['modalidy']);
+
+        echo $this->arrayToJson($excursions);
+    }
 }

@@ -55,12 +55,13 @@ class ExcursionsDAO implements DAO_Excursio {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
+            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
         }
 
         return $excursions;
     }
 
+    //ARAGLARO JBARCE NAM FLUIXOS DE SQL
     public function getAllExcursionsByIdPropietari($id){
         $excursions = [];
         $select = "SELECT * FROM excursio where id_propietari = $id";
@@ -80,5 +81,56 @@ class ExcursionsDAO implements DAO_Excursio {
         $update = "UPDATE excursio SET $colName = $newValue WHERE id = $id";
 
         $this->connection->prepare($update)->execute();
+    }
+
+    public function getAllExcursionsByDistance($distance) {
+        return $this->filter('distancia', $distance);
+    }
+
+    public function getAllExcursionsByDifficulty($idDiff) {
+        return $this->filter('id_dificultat', $idDiff);
+    }
+
+    public function getAllExcursionsByPric($price) {
+        return $this->filter('preu', $price);
+    }
+
+    public function getAllExcursionsByDuration($duration) {
+        return $this->filter('duracio', $duration);
+    }
+
+
+    private function filter($colName, $id){
+        $excursions = [];
+        $select = "SELECT * FROM excursio where $colName = $id";
+
+        $stmt = $this->connection->prepare($select);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
+        }
+
+        return $excursions;
+    }
+
+    public function getAllExcursionsByModality($idMod){
+        $excursions = [];
+        $cond = '';
+
+        foreach ($idMod as $m)
+            $cond += 'and id_modalitat = $m';
+
+
+        $select = "SELECT * FROM excursio where id_excursio = excursio.id";
+
+        $stmt = $this->connection->prepare($select);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
+        }
+
+        return $excursions;
     }
 }

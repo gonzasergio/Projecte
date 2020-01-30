@@ -14,4 +14,12 @@ interface DAO_Excursio {
 
     public function updateExcursio($id, $colName, $newValue);
 
+    public function getAllExcursionsByDistance($discande);
+
+    public function getAllExcursionsByDifficulty($idDiff);
+
+    public function getAllExcursionsByPric($price);
+
+    public function getAllExcursionsByDuration($duration);
+
 }

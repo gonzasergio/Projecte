@@ -58,16 +58,17 @@ $('document').ready(function () {
     function setPublications(item, index) {
         let img = (item['img'] === null) ? '' : '<img class="card-img" src="'+ item['img'] +'">';
 
+        console.log(item);
         let openDiv = '<div class="card gedf-card my-5">\n' +
             '                          <div class="card-header">\n' +
             '                            <div class="d-flex justify-content-between align-items-center">\n' +
             '                                <div class="d-flex justify-content-between align-items-center">\n' +
-            '                                    <a href="/perfil/'+ item['id'] +'">\n' +
-            '                                        <img title="'+ item['name'] +'" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">\n' +
+            '                                    <a href="/perfil/'+ item['user'] +'">\n' +
+            '                                        <img title="'+ item['user'] +'" class="d-flex mr-3 rounded-circle shadow-sm storyborder" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" width="50px">\n' +
             '                                    </a>\n' +
             '                                    <div class="ml-2">\n' +
-            '                                        <a href="/perfil/'+ item['id'] +'" class="text-decoration-none text-dark">\n' +
-            '                                            <div title="'+ item['nom'] +'" class="h5 m-0">'+ item['userName'] +' </div>\n' +
+            '                                        <a href="/perfil/'+ item['user'] +'" class="text-decoration-none text-dark">\n' +
+            '                                            <div title="'+ item['user'] +'" class="h5 m-0">'+ item['user'] +' </div>\n' +
             '                                        </a>\n' +
             '                                        <small class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> 10 min</small>\n' +
             '                                    </div>\n' +

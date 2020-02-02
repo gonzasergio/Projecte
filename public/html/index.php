@@ -43,12 +43,13 @@ $links = [
 ];
 
 
-$path = str_replace("/projecte/public/html", "", strtolower($_SERVER['REQUEST_URI']));
+
+$path = strtolower($_SERVER['REQUEST_URI']);
 $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-// api/user
+
 
 switch ($path) {
     case '/api/insert/user':

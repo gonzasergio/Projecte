@@ -16,8 +16,8 @@ class UsersDAO extends DAO implements DAO_User {
         $pass = $this->packUp($user->getPass());
 
         $insert = "INSERT INTO perfil 
-        (`nom`,`userName`,`llinatge1`,`email`,`pass`)
-        values ($name, $userName, $surname1, $email, $pass)";
+        (`nom`,`userName`,`llinatge1`,`email`,`pass`, `id_nivell`)
+        values ($name, $userName, $surname1, $email, $pass, 1)";
 
         $this->executeQuery($insert)->execute();
 

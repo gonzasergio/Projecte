@@ -46,6 +46,7 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
+// api/user
 
 switch ($path) {
     case '/api/insert/user':
@@ -71,6 +72,10 @@ switch ($path) {
     case '/api/update/user':
         $controller = new UserController();
         $controller->updateUser();
+        break;
+    case '/api/login/user':
+        $controller = new UserController();
+        $controller->login();
         break;
     case '/api/insert/publication':
         $controller = new PublicationController();
@@ -388,6 +393,10 @@ switch ($path) {
     case '/api/get/route/difficulty':
         $controller = new ExcursioController();
         $controller->getAllExcursionsByDifficulty();
+        break;
+    case '/api/get/route/modality':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByModality();
         break;
     case '/api/insert/curs':
         $controller = new CursController();

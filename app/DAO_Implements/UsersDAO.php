@@ -12,18 +12,12 @@ class UsersDAO extends DAO implements DAO_User {
         $userName = $this->packUp($user->getUserName());
         $name = $this->packUp($user->getName());
         $surname1 = $this->packUp($user->getSurname1());
-        $surname2 = $this->packUp($user->getSurname2());
-        $dni = $this->packUp($user->getDni());
-        $phoneNumber = $this->packUp($user->getPhoneNumber());
         $email = $this->packUp($user->getEmail());
-        $city = $this->packUp($user->getCity());
-        $lvl = $this->packUp($user->getLvl());
         $pass = $this->packUp($user->getPass());
-        $description = $this->packUp($user->getDescription());
 
         $insert = "INSERT INTO perfil 
-        (`nom`,`userName`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`id_ciutat`,`id_nivell`,`pass`, `descripcio`)
-        values ($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description)";
+        (`nom`,`userName`,`llinatge1`,`email`,`pass`)
+        values ($name, $userName, $surname1, $email, $pass)";
 
         $this->executeQuery($insert)->execute();
 
@@ -37,7 +31,7 @@ class UsersDAO extends DAO implements DAO_User {
         $stmt->execute();
 
         if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $user = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+            $user = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
         }
 
         $select = "select seguir.num, seguidors.num
@@ -82,7 +76,7 @@ class UsersDAO extends DAO implements DAO_User {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $users[] = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+            $users[] = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
         }
 
         return $users;
@@ -93,5 +87,20 @@ class UsersDAO extends DAO implements DAO_User {
         $update = "UPDATE perfil SET $colName = $newValue WHERE id = $id";
 
         $this->connection->prepare($update)->execute();
+    }
+
+    public function compUserCredentials($userName, $pass) {
+        $select = 'select pass, id from perfil where userName = ' . $this->packUp($userName);
+        $row = null;
+
+        $stmt = $this->connection->prepare($select);
+        $stmt->execute();
+
+        if ($row = $stmt->fetch(PDO::FETCH_NUM))
+            if($row[0] == $pass)
+                return $row[1];
+
+
+        return null;
     }
 }

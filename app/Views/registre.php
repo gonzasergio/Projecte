@@ -21,14 +21,24 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
                     
                     <form>
                         <div class="form-group">
+                            <label><i class="fas fa-user text-secondary"></i> User Name:</label>
+                            <input class="form-control" type="text" id="userName">
+                            <small id="incorrectUser" class="form-text text-danger"></small>
+                        </div>
+                    	<div class="form-group">
+                            <label><i class="fas fa-user text-secondary"></i> Name:</label>
+                            <input class="form-control" type="text" id="name">
+                            <small id="incorrectUser" class="form-text text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key text-secondary"></i> Llinatge:</label>
+                            <input class="form-control" type="text" id="surname">
+                            <small id="incorrectPass2" class="form-text text-danger"></small>
+                        </div>
+                        <div class="form-group">
                             <label><i class="fas fa-key text-secondary"></i> Email:</label>
                             <input class="form-control" type="text" id="email">
                             <small id="incorrectPass2" class="form-text text-danger"></small>
-                        </div>
-                    	<div class="form-group">
-                            <label><i class="fas fa-user text-secondary"></i> <?php echo $lang[$idioma]["user"]?>:</label>
-                            <input class="form-control" type="text" id="name">
-                            <small id="incorrectUser" class="form-text text-danger"></small>
                         </div>
                         <div class="form-group">
                             <label><i class="fas fa-key text-secondary"></i> <?php echo $lang[$idioma]["password"]?>:</label>
@@ -66,18 +76,33 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
 			  
     	      $('#submit').click(function(){
         	      if (!($("#submit").hasClass("disabled"))){
-            	      var name = $("#name").val();
-            	      var pass = String(CryptoJS.MD5($("#pass").val()));
-    	    	  $.post( "/comp-registre", {name: name, pass: pass}, function( data ) {
-    	    	      console.log(data);
-     	    		  if (data == 0) {
-        	    		  window.location.href = "login";
-    	    		  } else {
-    	    			  $("#incorrectUser").text("<?php echo $lang[$idioma]['userAlreadyExists']?>");
-    	    			  $("#name").addClass("is-invalid");
-    	    			  $("#userCreated").addClass("d-none");
-    	    		  }
-    	    		});
+                      let uName = $("#userName").val();
+            	      let name = $("#name").val();
+                      let surname = $("#surname").val();
+                      let email = $("#email").val();
+            	      let pass = String(CryptoJS.MD5($("#pass").val()));
+
+                      $.ajax({
+                          url: '/api/insert/user',
+                          type: 'POST',
+                          data: {
+                              uName: uName,
+                              name: name,
+                              sur1: surname,
+                              email: email,
+                              pass: pass
+                          },
+                          success: function(data) {
+                              console.log(data);
+                              if (data == 0) {
+                                  window.location.href = "login";
+                              } else {
+                                  $("#incorrectUser").text("<?php echo $lang[$idioma]['userAlreadyExists']?>");
+                                  $("#name").addClass("is-invalid");
+                                  $("#userCreated").addClass("d-none");
+                              }
+                          }
+                      });
         	      }
     	      });
     	      

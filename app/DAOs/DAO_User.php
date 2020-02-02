@@ -12,4 +12,6 @@ interface DAO_User {
 
     public function updateUser($id, $colName, $newValue);
 
+    public function compUserCredentials($userName, $pass);
+
 }

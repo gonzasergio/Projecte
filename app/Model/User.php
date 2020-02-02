@@ -19,19 +19,35 @@ class User extends Model {
     private $description;
 
 
-    public function __construct($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description, $id = null) {
-        $this->id = $id;
-        $this->userName = $userName;
-        $this->name = $name;
-        $this->surname1 = $surname1;
-        $this->surname2 = $surname2;
-        $this->dni = $dni;
-        $this->phoneNumber = $phoneNumber;
-        $this->email = $email;
-        $this->city = $city;
-        $this->lvl = $lvl;
-        $this->pass = $pass;
-        $this->description = $description;
+    public static function contructor($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description = null, $id = null) {
+        $user = new User();
+
+        $user->id = $id;
+        $user->userName = $userName;
+        $user->name = $name;
+        $user->surname1 = $surname1;
+        $user->surname2 = $surname2;
+        $user->dni = $dni;
+        $user->phoneNumber = $phoneNumber;
+        $user->email = $email;
+        $user->city = $city;
+        $user->lvl = $lvl;
+        $user->pass = $pass;
+        $user->description = $description;
+
+        return $user;
+    }
+
+    public static function basicConstructor($userName, $name, $surname1,$email, $pass) {
+        $user = new User();
+
+        $user->userName = $userName;
+        $user->name = $name;
+        $user->surname1 = $surname1;
+        $user->email = $email;
+        $user->pass = $pass;
+
+        return $user;
     }
 
     /**

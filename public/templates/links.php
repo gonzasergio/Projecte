@@ -16,6 +16,8 @@ $link = [
     "cursos" => "/cursos",
     "historia" => "/historia",
     "missatges" => "/missatges",
+    "curs" => "/curs",
+    "perfilOpcions" => "/perfil-opcions",
 ];
 
 $template = [

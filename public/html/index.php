@@ -38,6 +38,8 @@ $links = [
     "cursos" => "llistacursos.php",
     "historia" => "historia.php",
     "missatges" => "chat.php",
+    "curs" => "curs.php",
+    "perfil-opcions" => "perfilOpcions.php",
 ];
 
 

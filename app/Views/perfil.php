@@ -66,14 +66,15 @@ include '../templates/globalIclude.php';
     </div>
 </div>
 <div class="row mx-0 mx-lg-5 mt-4 d-flex justify-content-center">
-	<div class="col col-lg-10 col-xl-8 mb-3">
+	<div class="col col-lg-10 col-xl-8 mb-3 px-0 mx-n2">
 		<hr>
 		<nav>
           <div class="nav nav-tabs d-flex justify-content-center border-0" id="nav-tab" role="tablist">
             <a class="border-0 mr-1 mr-sm-3 nav-item nav-link active" id="nav-publications-tab" data-toggle="tab" href="#nav-publications" role="tab" aria-controls="nav-publications" aria-selected="true"><i class="fas fa-th d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-th"></i> <?php echo $lang[$idioma]["posts"];?></span></a>
-            <a class="border-0 mx-1 mx-sm-3 nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false"><i class="fas fa-history d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-history"></i> <?php echo $lang[$idioma]["history"];?></span></a>
             <a class="border-0 mx-1 mx-sm-3 nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab" aria-controls="nav-comments" aria-selected="false"><i class="fas fa-comments d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-comments"></i> <?php echo $lang[$idioma]["comments"];?></span></a>
             <a class="border-0 ml-1 ml-sm-3 nav-item nav-link" id="nav-achievements-tab" data-toggle="tab" href="#nav-achievements" role="tab" aria-controls="nav-achievements" aria-selected="false"><i class="fas fa-award d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-award"></i> <?php echo $lang[$idioma]["achievements"];?></span></a>
+            <a class="border-0 mx-1 mx-sm-3 nav-item nav-link" id="nav-routes-tab" data-toggle="tab" href="#nav-routes" role="tab" aria-controls="nav-routes" aria-selected="false"><i class="fas fa-route d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-route"></i> <?php echo $lang[$idioma]["history"];?></span></a>
+            <a class="border-0 ml-1 ml-sm-3 nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-controls="nav-courses" aria-selected="false"><i class="fas fa-chalkboard-teacher d-inline d-md-none h4"></i><span class="d-none d-md-inline"><i class="fas fa-chalkboard-teacher"></i> <?php echo $lang[$idioma]["history"];?></span></a>
           </div>
         </nav>
         <hr>
@@ -125,9 +126,10 @@ include '../templates/globalIclude.php';
                 </div>
                 <!-- Post /////-->
           	</div>
-          	<div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
           	<div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
           	<div class="tab-pane fade" id="nav-achievements" role="tabpanel" aria-labelledby="nav-achievements-tab">...</div>
+          	<div class="tab-pane fade" id="nav-routes" role="tabpanel" aria-labelledby="nav-routes-tab">...</div>
+          	<div class="tab-pane fade" id="nav-courses" role="tabpanel" aria-labelledby="nav-courses-tab">...</div>
     	</div>
 	</div>
 	<div class="col-3 d-none d-md-block">

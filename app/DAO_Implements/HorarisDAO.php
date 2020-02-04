@@ -8,26 +8,32 @@ class HorarisDAO implements DAO_Horari {
         $this->connection = DBConnection::getInstance('db_goatrails')->getConnection();
     }
 
-    public function insert(Horaris $horari) {
-        $hora = $this->packUp($horari->getHora());
-        $minut = $this->packUp($horari->getMinut());
+    public function insert(Horari $horari) {
+        $hora = $horari->getHora();
+        $minut = $horari->getMinut();
 
-        $insert = "INSERT INTO horari
+        $insert = $this->
+        connection->prepare("INSERT INTO horari
         (`hora`,`minut`)
-        values ($hora, $minut)";
+        values (:hora, :minut)");
 
-        $this->connection->prepare($insert)->execute();
+        $insert->bindParam(':hora', $hora);
+        $insert->bindParam(':minut', $minut);
+
+        $insert->execute();
 
     }
 
     public function getHorariById($id) {
         $horari = null;
-        $select = "SELECT * FROM horari WHERE id = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("SELECT * FROM horari WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $horari = new Horari($row[1], $row[2], $row[0]);
         }
 
@@ -36,10 +42,10 @@ class HorarisDAO implements DAO_Horari {
     }
 
     public function deleteHorariById($id) {
-        $select = "DELETE FROM horari WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM horari WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllHoraris() {
@@ -56,10 +62,13 @@ class HorarisDAO implements DAO_Horari {
         return $horaris;
     }
 
-    public function updateHoraris($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE horari SET $colName = $newValue WHERE id = $id";
+    public function updateHorari($id, $colName, $newValue) {
+        $update = $this->connection->prepare("UPDATE horari SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
+
 }

@@ -9,24 +9,24 @@ class NivellDAO implements DAO_Nivell {
     }
 
     public function insert(Nivell $nivell) {
-        $nom = $this->packUp($nivell->getNom());
+        $name = $nivell->getNom();
 
-        $insert = "INSERT INTO nivell
-        (`nom`)
-        values ($nom)";
+        $insert = $this->connection->prepare("INSERT INTO nivell
+        (`nom`)values (:name)");
+        $insert->bindParam(':name', $name);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getNivellById($id) {
         $nivell = null;
-        $select = "SELECT * FROM nivell WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM nivell WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $nivell = new Nivell($row[0], $row[1]);
         }
 
@@ -35,10 +35,10 @@ class NivellDAO implements DAO_Nivell {
     }
 
     public function deleteNivellById($id) {
-        $select = "DELETE FROM nivell WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM nivell WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllNivells() {
@@ -56,9 +56,11 @@ class NivellDAO implements DAO_Nivell {
     }
 
     public function updateNivell($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE nivell SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE Nivell SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

@@ -9,24 +9,24 @@ class ModalitatDAO implements DAO_Modalitat {
     }
 
     public function insert(Modalitat $modalitat) {
-        $nom = $this->packUp($modalitat->getNom());
+        $name = $modalitat->getNom();
 
-        $insert = "INSERT INTO tipus_modalitat
-        (`nom`)
-        values ($nom)";
+        $insert = $this->connection->prepare("INSERT INTO tipus_modalitat
+        (`nom`)values (:name)");
+        $insert->bindParam(':name', $name);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getModalitatById($id) {
         $modalitat = null;
-        $select = "SELECT * FROM tipus_modalitat WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM tipus_modalitat WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $modalitat = new Modalitat($row[0], $row[1]);
         }
 
@@ -35,10 +35,10 @@ class ModalitatDAO implements DAO_Modalitat {
     }
 
     public function deleteModalitatById($id) {
-        $select = "DELETE FROM tipus_modalitat WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM tipus_modalitat WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllModalitats() {
@@ -56,9 +56,11 @@ class ModalitatDAO implements DAO_Modalitat {
     }
 
     public function updateModalitat($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE tipus_modalitat SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE Modalitat SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

@@ -9,30 +9,32 @@ class CursosDAO implements DAO_Curs {
     }
     
     public function insert(Curs $curs) {
-        $titol = $this->packUp($curs->getTitol());
-        $duracio = $this->packUp($curs->getDuracio());
-        $id_dificultat = $this->packUp($curs->getId_dificultat());
-        $preu = $this->packUp($curs->getPreu());
-        $maxim_persones = $this->packUp($curs->getMaxim_persones());
-        $descripcio = $this->packUp($curs->getDescripcio());
-        $id_ciutat = $this->packUp($curs->getIdCiutat());
-        $id_propietari = $this->packUp($curs->getIdPropietari());
-        
-        $insert = "INSERT INTO curs (`titol`,`duracio`,`id_dificultat`,`preu`,`maxim_persones`,`descripcio`,`id_ciutat`,`id_propietari`)
-        values ($titol, $duracio, $id_dificultat, $preu, $maxim_persones, $descripcio, $id_ciutat, $id_propietari)";
-        
-        $this->connection->prepare($insert)->execute();
+        $insert = $this->connection->prepare
+        ("INSERT INTO curs (`titol`,`duracio`,`id_dificultat`,`preu`,`maxim_persones`,`descripcio`,`id_ciutat`,`id_propietari`)
+        values (:titol, :duracio, :id_dificultat, :preu, :maxim_persones, :descripcio, :id_ciutat, :id_propietari)");
+
+        $insert->bindParam(':titol', $titol = $curs->getTitol());
+        $insert->bindParam(':duracio', $duracio = $curs->getDuracio());
+        $insert->bindParam(':id_dificultat', $id_dificultat = $curs->getId_dificultat());
+        $insert->bindParam(':preu',  $preu = $curs->getPreu());
+        $insert->bindParam(':maxim_persones', $maxim_persones = $curs->getMaxim_persones());
+        $insert->bindParam(':descripcio', $descripcio = $curs->getDescripcio());
+        $insert->bindParam(':id_ciutat', $id_ciutat = $curs->getIdCiutat());
+        $insert->bindParam(':id_propietari', $id_propietari = $curs->getIdPropietari());
+
+        $insert->execute();
         
     }
     
     public function getCursById($id) {
         $curs = null;
-        $select = "SELECT * FROM curs WHERE id = $id";
-        
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
-        
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+
+        $select = $this->connection->prepare("SELECT * FROM curs WHERE id = :id");
+        $select->bindParam(':id', $id);
+
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $curs = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
         }
         
@@ -41,10 +43,10 @@ class CursosDAO implements DAO_Curs {
     }
     
     public function deleteCursById($id) {
-        $select = "DELETE FROM curs WHERE id = $id";
-        
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("DELETE FROM curs WHERE id = :id");
+        $select->bindParam(':id', $id);
+
+        $select->execute();
     }
     
     public function getAllCursos() {
@@ -63,12 +65,13 @@ class CursosDAO implements DAO_Curs {
     
     public function getAllCursosByIdPropietari($id){
         $cursos = [];
-        $select = "SELECT * FROM curs where id_propietari = $id";
+
+        $select = $this->connection->prepare("SELECT * FROM curs where id_propietari = :id");
+        $select->bindParam(':id', $id);
+
+        $select->execute();
         
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
-        
-        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $cursos[] = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
         }
         
@@ -76,9 +79,11 @@ class CursosDAO implements DAO_Curs {
     }
     
     public function updateCurs($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE curs SET $colName = $newValue WHERE id = $id";
-        
-        $this->connection->prepare($update)->execute();
+        $update = $this->connection->prepare("UPDATE curs SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
+
+        $update->execute();
     }
 }

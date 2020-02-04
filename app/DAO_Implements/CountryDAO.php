@@ -11,22 +11,24 @@ class CountryDAO implements DAO_Conurty {
     }
 
     public function insert(Country $country) {
-        $name = $this->packUp($country->getName());
+        $name = $this->$country->getName();
 
-        $insert = "INSERT INTO pais (`nom`) values ($name)";
+        $insert = $this->
+        connection->prepare("INSERT INTO pais (`nom`) values (:name)");
+        $insert->bindParam(':name', $name);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getCountryById($id) {
         $country = null;
-        $select = "SELECT * FROM pais WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM pais WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $country = new Country($row[1], $row[0]);
         }
 
@@ -35,10 +37,10 @@ class CountryDAO implements DAO_Conurty {
     }
 
     public function deleteCountryById($id) {
-        $select = "DELETE FROM pais WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM pais WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllCountrys() {
@@ -56,10 +58,12 @@ class CountryDAO implements DAO_Conurty {
     }
 
     public function updateCountry($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE pais SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE pais SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 
 }

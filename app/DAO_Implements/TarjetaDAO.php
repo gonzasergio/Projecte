@@ -9,30 +9,39 @@ class TarjetaDAO implements DAO_Targeta {
     }
 
     public function insert(Targeta $targeta) {
-        $numero = $this->packUp($targeta->getNumero());
-        $nom = $this->packUp($targeta->getNom());
-        $lli1 = $this->packUp($targeta->getLli1());
-        $lli2 = $this->packUp($targeta->getLli2());
-        $cvv = $this->packUp($targeta->getCvv());
-        $dataVenciment = $this->packUp($targeta->getDataVenciment());
-        $idPerfil = $this->packUp($targeta->getIdPerfil());
+        $numero = $targeta->getNumero();
+        $nom = $targeta->getNom();
+        $lli1 = $targeta->getLli1();
+        $lli2 = $targeta->getLli2();
+        $cvv = $targeta->getCvv();
+        $dataVenciment = $targeta->getDataVenciment();
+        $idPerfil = $targeta->getIdPerfil();
 
-        $insert = "INSERT INTO tarjeta
+        $insert = $this->
+        connection->prepare("INSERT INTO tarjeta
         (`numero`,`nom`,`llinatje1`,`llinatje2`,`cvv`,`data_expirament`,`id_perfil`)
-        values ($numero, $nom, $lli1, $lli2, $cvv, $dataVenciment, $idPerfil)";
+        values (:numero, :nom, :lli1, :lli2, :cvv, :dataVenciment, :idPerfil)");
 
-        $this->connection->prepare($insert)->execute();
+        $insert->bindParam(':numero', $numero);
+        $insert->bindParam(':nom', $nom);
+        $insert->bindParam(':lli1', $lli1);
+        $insert->bindParam(':lli2', $lli2);
+        $insert->bindParam(':cvv', $cvv);
+        $insert->bindParam(':dataVenciment', $dataVenciment);
+        $insert->bindParam(':idPerfil', $idPerfil);
+
+        $insert->execute();
 
     }
 
     public function getTargetaById($id) {
         $targeta = null;
-        $select = "SELECT * FROM tarjeta WHERE numero = $id";
+        $select = $this->connection->prepare("SELECT * FROM tarjeta WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $targeta = new Targeta($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
         }
 
@@ -41,10 +50,10 @@ class TarjetaDAO implements DAO_Targeta {
     }
 
     public function deleteTargetaById($id) {
-        $select = "DELETE FROM tarjeta WHERE numero = $id";
+        $select = $this->connection->prepare("DELETE FROM tarjeta WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllTargetes() {
@@ -62,9 +71,11 @@ class TarjetaDAO implements DAO_Targeta {
     }
 
     public function updateTargeta($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE tarjeta SET $colName = $newValue WHERE numero = $id";
+        $update = $this->connection->prepare("UPDATE tarjeta SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

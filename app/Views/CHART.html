@@ -39,13 +39,13 @@
     var g = svg.append("g")
         .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-    d3.json("data.json", function(error, data) {
+    d3.json("/api/get/user/all", function(error, data) {
         if (error) {
             throw error;
         }
 
         x.domain(data.map(function(d) { return d.id; }));
-        y.domain([0, d3.max(data, function(d) { return d.seguidors; })]);
+        y.domain([0, d3.max(data, function(d) { return d.followers_num; })]);
 
         g.append("g")
             .attr("transform", "translate(0," + height + ")")
@@ -80,14 +80,14 @@
             .on("mouseover", onMouseOver)
             .on("mouseout", onMouseOut)
             .attr("x", function(d) { return x(d.id); })
-            .attr("y", function(d) { return y(d.seguidors); })
+            .attr("y", function(d) { return y(d.followers_num); })
             .attr("width", x.bandwidth()).transition()
             .ease(d3.easeLinear).duration(200)
             .delay(function (d, i) {
                 return i * 25;
             })
 
-            .attr("height", function(d) { return height - y(d.seguidors); });
+            .attr("height", function(d) { return height - y(d.followers_num); });
     });
 
 
@@ -99,8 +99,8 @@
             .transition()
             .duration(200)
             .attr('width', x.bandwidth() + 5)
-            .attr("y", function(d) { return y(d.seguidors) - 10; })
-            .attr("height", function(d) { return height - y(d.seguidors) + 10; });
+            .attr("y", function(d) { return y(d.followers_num) - 10; })
+            .attr("height", function(d) { return height - y(d.followers_num) + 10; });
 
         g.append("text")
             .attr('class', 'val')
@@ -122,8 +122,8 @@
             .transition()
             .duration(200)
             .attr('width', x.bandwidth())
-            .attr("y", function(d) { return y(d.seguidors); })
-            .attr("height", function(d) { return height - y(d.seguidors); });
+            .attr("y", function(d) { return y(d.followers_num); })
+            .attr("height", function(d) { return height - y(d.followers_num); });
 
         d3.selectAll('.val')
             .remove()

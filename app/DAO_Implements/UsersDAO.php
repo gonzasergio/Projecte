@@ -85,7 +85,34 @@ class UsersDAO extends DAO implements DAO_User {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $users[] = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+            $id = $row[0];
+            $user = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+
+            $selectFollow = $this->connection->prepare("select seguir.num, seguidors.num
+            from perfil, 
+            (select count(*) as num from seguir where id_perfil = :id) as seguir,
+            (select count(*) as num from seguir where id_perfil_seguit = :id) as seguidors
+            where id = :id");
+            $selectFollow->bindParam(':id', $id);
+
+            $selectFollow->execute();
+
+            if ($row = $selectFollow->fetch(PDO::FETCH_NUM)) {
+                $user->setFollowsNum($row[0]);
+                $user->setFollowersNum($row[1]);
+            }
+
+            $selectHistory = $this->connection->prepare("select count(historia.id) as num from historia 
+            where id_perfil_propietari = :id group by id_perfil_propietari ");
+            $selectHistory->bindParam(':id', $id);
+
+            $selectHistory->execute();
+
+            if ($row = $selectHistory->fetch(PDO::FETCH_NUM)) {
+                $user->hasHitory();
+            }
+
+            $users[] = $user;
         }
 
         return $users;

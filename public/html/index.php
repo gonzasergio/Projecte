@@ -433,6 +433,12 @@ switch ($path) {
         $controller = new CommentPublicationDAO();
         $controller->insertCommentari(new CommentPublication(1,1,1,1));
         break;
+    case '/api/view/graph':
+        include '../../app/Views/GRAPH.html';
+        break;
+    case '/api/view/chart':
+        include '../../app/Views/CHART.html';
+        break;
     default:
         include '../../app/Views/' . $links[$link[0]];
 }

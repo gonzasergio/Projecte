@@ -21,8 +21,8 @@ class UsersDAO extends DAO implements DAO_User {
         (`nom`,`userName`,`llinatge1`,`email`,`pass`, `id_nivell`)
         values (:name, :userName, :surname1, :email, :pass, 1)");
 
-        $insert->bindParam(':name', $userName);
-        $insert->bindParam(':userName', $name);
+        $insert->bindParam(':name', $name);
+        $insert->bindParam(':userName', $userName);
         $insert->bindParam(':surname1', $surname1);
         $insert->bindParam(':email', $email);
         $insert->bindParam(':pass', $pass);

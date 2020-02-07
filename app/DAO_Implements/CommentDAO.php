@@ -3,13 +3,13 @@
 
 class CommentDAO extends DAO implements DAO_ComentPublication {
     use FormatSQL;
-    private $idReference;
+    private $refereneTable;
     private $tableName;
 
 
-    public function __construct($idReference, $tableName) {
+    public function __construct($refereneTable, $tableName) {
         parent::__construct();
-        $this->idReference = $idReference;
+        $this->refereneTable = $refereneTable;
         $this->tableName = $tableName;
     }
 
@@ -21,28 +21,27 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
             $arr[] = ($a != null ) ? $this->packUp($a) : 'null';
 
 
-        $insert = "INSERT INTO `$this->tableName`
-        (`id_perfil`,
-        `id_publicacio`,
-        `texte`,
-        `id_resposta`)
-        VALUES
-        ($arr[1],
-        $arr[2],
-        $arr[3],
-        $arr[4]);";
+        $insert = $this->connection->
+        prepare("INSERT INTO :table (`id_perfil`,:refereneTable,`texte`,`id_resposta`)
+        VALUES(:idPerfil, :idPublicacio, :text, :idResposta)");
 
-       $this->connection->prepare($insert)->execute();
+        $insert->bindParam(':table', $this->tableName);
+        $insert->bindParam(':referenceTable', $this->refereneTable);
+        $insert->bindParam(':idPerfil', $arr[1]);
+        $insert->bindParam(':idPublicacio', $arr[2]);
+        $insert->bindParam(':text', $arr[3]);
+        $insert->bindParam(':idResposta', $arr[4]);
+        $this->connection->prepare($insert)->execute();
     }
 
     public function getCommentById($id) {
         $comment = null;
-        $select = "select * from $this->tableName where id = $id";
+        $select = $this->connection->prepare("select * from $this->tableName where id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $comment = new Comment($row[1], $row[3], $row[4], $row[2], $row[0]);
         }
 
@@ -51,12 +50,15 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
 
     public function getAllReferenceComments($id) {
         $comment = [];
-        $select = "select * from $this->tableName where $this->idReference = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("select * from :table where :refereneTable = :id");
+        $select->bindParam(':table', $this->tableName);
+        $select->bindParam(':referenceTable', $this->refereneTable);
+        $select->bindParam(':id', $id);
 
-        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+        while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $comment[] = new Comment($row[1], $row[3], $row[4], $row[2], $row[0]);
         }
 
@@ -67,10 +69,13 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
         $comment = [];
         $select = "select * from $this->tableName where id_resposta = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("select * from :table where id_resposta = :id");
+        $select->bindParam(':table', $this->tableName);
+        $select->bindParam(':id', $id);
 
-        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+        while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $comment[] = new Comment($row[1], $row[3], $row[4], $row[2], $row[0]);
         }
 

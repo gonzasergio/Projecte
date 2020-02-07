@@ -5,7 +5,7 @@ class Horari extends Model {
     private $hora;
     private $minut;
 
-    public function __construct($idPerfil, $email) {
+    public function __construct($hora, $minut, $id = null) {
         $this->id = $id;
         $this->hora = $hora;
         $this->minut = $minut;

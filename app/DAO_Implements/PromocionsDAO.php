@@ -1,6 +1,6 @@
 <?php
 
-class PromocionsDAO implements DAO_User {
+class PromocionsDAO implements DAO_Promocio {
     use FormatSQL;
     private $connection;
 
@@ -8,26 +8,30 @@ class PromocionsDAO implements DAO_User {
         $this->connection = DBConnection::getInstance('db_goatrails')->getConnection();
     }
 
-    public function insert(User $user) {
-        $userName = $this->packUp($user->getUserName());
-        $name = $this->packUp($user->getName());
+    public function insert(Promocio $promocio) {
+        $name = $promocio->getNom();
+        $preu = $promocio->getPreu();
 
-        $insert = "INSERT INTO promocio 
-        (`nom`,`preu`)
-        values ($nom, $preu)";
+        $insert = $this->
+        connection->prepare("INSERT INTO promocio (`nom`,`preu`)
+        values (:name, :preu)");
 
-        $this->connection->prepare($insert)->execute();
+        $insert->bindParam(':name', $name);
+        $insert->bindParam(':preu', $preu);
+
+        $insert->execute();
 
     }
 
     public function getPromocioById($id) {
         $promocio = null;
-        $select = "SELECT * FROM promocio WHERE id = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("SELECT * FROM promocio WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $promocio = new Promocio($row[1], $row[2], $row[0]);
         }
 
@@ -36,13 +40,13 @@ class PromocionsDAO implements DAO_User {
     }
 
     public function deletePromocioById($id) {
-        $select = "DELETE FROM promocio WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM promocio WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
-    public function getAllPromocions() {
+    public function getAllPromocio() {
         $promocions = [];
         $select = "SELECT * FROM promocio";
 
@@ -57,9 +61,12 @@ class PromocionsDAO implements DAO_User {
     }
 
     public function updatePromocio($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE promocio SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE promocio SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
+
 }

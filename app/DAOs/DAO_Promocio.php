@@ -5,12 +5,12 @@ interface DAO_Promocio {
 
     public function insert(Promocio $promocio);
 
-    public function getCountryById($id);
+    public function getPromocioById($id);
 
-    public function deleteCountryById($id);
+    public function deletePromocioById($id);
 
-    public function getAllCountrys();
+    public function getAllPromocio();
 
-    public function updateCountry($id, $colName, $newValue);
+    public function updatePromocio($id, $colName, $newValue);
 
 }

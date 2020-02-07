@@ -11,23 +11,26 @@ class RegionDAO implements DAO_Region {
     }
 
     public function insert(Region $region) {
-        $name = $this->packUp($region->getName());
-        $countryId = $this->packUp($region->getCountryId());
+        $name = $region->getName();
+        $countryId = $region->getCountryId();
 
-        $insert = "INSERT INTO regio (`nom`, `id_pais`) values ($name, $countryId)";
+        $insert = $this->
+        connection->prepare("INSERT INTO regio (`nom`, `id_pais`) values (:name, :countryId)");
+        $insert->bindParam(':name', $name);
+        $insert->bindParam(':countryId', $countryId);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getRegionById($id) {
         $region = null;
-        $select = "SELECT * FROM regio WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM regio WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $region = new Region($row[1], $row[2], $row[0]);
         }
 
@@ -36,10 +39,10 @@ class RegionDAO implements DAO_Region {
     }
 
     public function deleteRegionById($id) {
-        $select = "DELETE FROM regio WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM regio WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllRegions() {
@@ -57,10 +60,12 @@ class RegionDAO implements DAO_Region {
     }
 
     public function updateRegion($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE regio SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE regio SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 
 }

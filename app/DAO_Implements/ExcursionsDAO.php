@@ -118,11 +118,13 @@ class ExcursionsDAO implements DAO_Excursio {
         $excursions = [];
         $cond = '';
 
-        foreach ($idMod as $m)
-            $cond += 'and id_modalitat = $m';
+        foreach ($idMod as $k => $m)
+            $cond = $cond . " inner join excursio_modalitat m$k on e.id = m$k.id_excursio and m$k.id_modalitat = $m";
 
 
-        $select = "SELECT * FROM excursio where id_excursio = excursio.id";
+
+        $select = "SELECT e.id, distancia, id_dificultat, duracio, preu, maxim_persones, descripcio
+        FROM excursio e " . $cond;
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();

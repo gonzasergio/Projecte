@@ -9,25 +9,30 @@ class GrupDAO implements DAO_Grup {
     }
 
     public function insert(Grup $grup) {
-        $idExcursio = $this->packUp($grup->getidExcursio());
-        $idPerfil = $this->packUp($grup->getIdPerfil());
+        $idExcursio = $grup->getidExcursio();
+        $idPerfil = $grup->getIdPerfil();
 
-        $insert = "INSERT INTO grup
+        $insert = $this->
+        connection->prepare("INSERT INTO grup
         (`id_perfil`,`id_excursio`)
-        values ($idPerfil, $idExcursio)";
+        values (:idPerfil, :idExcursio)");
 
-        $this->connection->prepare($insert)->execute();
+        $insert->bindParam(':idPerfil', $idPerfil);
+        $insert->bindParam(':idExcursio', $idExcursio);
+
+        $insert->execute();
 
     }
 
     public function getAllMembersByGrupId($id) {
         $grup = null;
-        $select = "SELECT id_perfil FROM grup WHERE id_excursio = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("SELECT id_perfil FROM grup WHERE id_excursio = :id");
+        $select->bindParam(':id', $id);
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $grup = new Grup($row[0]);
         }
 
@@ -36,10 +41,10 @@ class GrupDAO implements DAO_Grup {
     }
 
     public function deleteGrupById($id) {
-        $select = "DELETE FROM grup WHERE id_excursio = $id";
+        $select = $this->connection->prepare("DELETE FROM grup WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllGrups() {
@@ -57,9 +62,11 @@ class GrupDAO implements DAO_Grup {
     }
 
     public function updateGrup($idPerfil, $idExcursio, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE grup SET $colName = $newValue WHERE id_perfil = $idPerfil and id_excursio = $idExcursio";
+        $update = $this->connection->prepare("UPDATE grup SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

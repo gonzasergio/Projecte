@@ -11,7 +11,7 @@ class UserController extends Controller {
 
     public function insertUser(){
         $r = $_REQUEST;
-        $user = new User($r['uName'],$r['Name'],$r['sur1'],$r['sur2'],$r['dni'],$r['pNum'],$r['email'], $r['city'], $r['lvl'], $r['pass']);
+        $user = User::basicConstructor($r['uName'],$r['name'],$r['sur1'],$r['email'], $r['pass']);
         
 
         $this->DAO->insert($user);
@@ -49,5 +49,19 @@ class UserController extends Controller {
         echo json_encode(['id' => $_SESSION['id']]);
     }
 
+    public function login(){
+        $pass = $_REQUEST['password'];
+        $userName = $_REQUEST['userName'];
+        $flag = 2;
+
+        if($id = $this->DAO->compUserCredentials($userName, $pass)){
+            $_SESSION["AUTH"]=true;
+            $_SESSION["id"]=$id;
+            $_SESSION["user"]=ucfirst(strtolower($userName));
+            $flag = 0;
+        }
+
+        echo $flag;
+    }
 
 }

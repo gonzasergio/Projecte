@@ -43,10 +43,12 @@ $links = [
 ];
 
 
-$path = str_replace("/projecte/public/html", "", strtolower($_SERVER['REQUEST_URI']));
+
+$path = strtolower($_SERVER['REQUEST_URI']);
 $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
+
 
 
 switch ($path) {
@@ -73,6 +75,10 @@ switch ($path) {
     case '/api/update/user':
         $controller = new UserController();
         $controller->updateUser();
+        break;
+    case '/api/login/user':
+        $controller = new UserController();
+        $controller->login();
         break;
     case '/api/insert/publication':
         $controller = new PublicationController();
@@ -391,6 +397,10 @@ switch ($path) {
         $controller = new ExcursioController();
         $controller->getAllExcursionsByDifficulty();
         break;
+    case '/api/get/route/modality':
+        $controller = new ExcursioController();
+        $controller->getAllExcursionsByModality();
+        break;
     case '/api/insert/curs':
         $controller = new CursController();
         $controller->insertCurs();
@@ -422,6 +432,12 @@ switch ($path) {
     case '/api/test':
         $controller = new CommentPublicationDAO();
         $controller->insertCommentari(new CommentPublication(1,1,1,1));
+        break;
+    case '/graph':
+        include '../../app/Views/GRAPH.html';
+        break;
+    case '/chart':
+        include '../../app/Views/CHART.html';
         break;
     default:
         include '../../app/Views/' . $links[$link[0]];

@@ -61,26 +61,35 @@ if (isset($_SESSION["lastRoute"])){
 	      if (!($("#submit").hasClass("disabled"))){
   	      var name = $("#name").val();
   	      var pass = String(CryptoJS.MD5($("#pass").val()));
-  	  $.post( "/comp", {name: name, pass: pass}, function( data ) {
-  	      console.log(data);
-		  switch (data) {
-		  case "0":
-			  window.location.href = "<?php echo $url?>";
-		   break;
-		  case "1":
-			  $("#incorrectUser").text("<?php echo $lang[$idioma]['userDoesntExists']?>");
-			  $("#incorrectPass").text("");
-			  $("#name").addClass("is-invalid");
-			  $("#pass").removeClass("is-invalid");
-   		   break;
-		  case "2":
-			  $("#incorrectPass").text("<?php echo $lang[$idioma]['passwordDoesntMatch']?>");
-			  $("#incorrectUser").text("");
-			  $("#pass").addClass("is-invalid");
-			  $("#name").removeClass("is-invalid");
-   		   break;
-		}
-  		});
+
+              $.ajax({
+                  url: '/api/login/user',
+                  type: 'POST',
+                  data: {
+                      password: pass,
+                      userName: name
+                  },
+                  success: function(data) {
+
+                      switch (data) {
+                          case "0":
+                              window.location.href = "<?php echo $url?>";
+                              break;
+                          case "1":
+                              $("#incorrectUser").text("<?php echo $lang[$idioma]['userDoesntExists']?>");
+                              $("#incorrectPass").text("");
+                              $("#name").addClass("is-invalid");
+                              $("#pass").removeClass("is-invalid");
+                              break;
+                          case "2":
+                              $("#incorrectPass").text("<?php echo $lang[$idioma]['passwordDoesntMatch']?>");
+                              $("#incorrectUser").text("");
+                              $("#pass").addClass("is-invalid");
+                              $("#name").removeClass("is-invalid");
+                              break;
+                      }
+                  }
+              });
 	      }
     });
 

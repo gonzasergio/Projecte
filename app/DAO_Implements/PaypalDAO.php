@@ -9,25 +9,29 @@ class PaypalDAO implements DAO_Paypal {
     }
 
     public function insert(Paypal $paypal) {
-        $email = $this->packUp($paypal->getEmail());
-        $idPerfil = $this->packUp($paypal->getIdPerfil());
+        $email = $paypal->getEmail();
+        $idPerfil = $paypal->getIdPerfil();
 
-        $insert = "INSERT INTO paypal
+        $insert = $this->
+        connection->prepare("INSERT INTO paypal
         (`email`,`id_perfil`)
-        values ($email, $idPerfil)";
+        values (:email, :idPerfil)");
+        $insert->bindParam(':email', $email);
+        $insert->bindParam(':idPerfil', $idPerfil);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getPaypalById($id) {
         $paypal = null;
-        $select = "SELECT * FROM paypal WHERE email = $id";
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select = $this->connection->prepare("SELECT * FROM paypal WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $paypal = new Paypal($row[0], $row[1]);
         }
 
@@ -36,10 +40,10 @@ class PaypalDAO implements DAO_Paypal {
     }
 
     public function deletePaypalById($id) {
-        $select = "DELETE FROM paypal WHERE email = $id";
+        $select = $this->connection->prepare("DELETE FROM paypal WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllPaypals() {
@@ -57,9 +61,11 @@ class PaypalDAO implements DAO_Paypal {
     }
 
     public function updatePaypal($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE paypal SET $colName = $newValue WHERE email = $id";
+        $update = $this->connection->prepare("UPDATE paypal SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

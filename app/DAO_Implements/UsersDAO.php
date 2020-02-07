@@ -9,57 +9,60 @@ class UsersDAO extends DAO implements DAO_User {
     }
 
     public function insert(User $user) {
-        $userName = $this->packUp($user->getUserName());
-        $name = $this->packUp($user->getName());
-        $surname1 = $this->packUp($user->getSurname1());
-        $surname2 = $this->packUp($user->getSurname2());
-        $dni = $this->packUp($user->getDni());
-        $phoneNumber = $this->packUp($user->getPhoneNumber());
-        $email = $this->packUp($user->getEmail());
-        $city = $this->packUp($user->getCity());
-        $lvl = $this->packUp($user->getLvl());
-        $pass = $this->packUp($user->getPass());
-        $description = $this->packUp($user->getDescription());
+        $userName = $user->getUserName();
+        $name = $user->getName();
+        $surname1 = $user->getSurname1();
+        $email = $user->getEmail();
+        $pass = $user->getPass();
 
-        $insert = "INSERT INTO perfil 
-        (`nom`,`userName`,`llinatge1`,`llinatge2`,`dni`,`telefon`,`email`,`id_ciutat`,`id_nivell`,`pass`, `descripcio`)
-        values ($userName, $name, $surname1, $surname2, $dni, $phoneNumber, $email, $city, $lvl, $pass, $description)";
 
-        $this->executeQuery($insert)->execute();
+        $insert = $this->
+        connection->prepare("INSERT INTO perfil 
+        (`nom`,`userName`,`llinatge1`,`email`,`pass`, `id_nivell`)
+        values (:name, :userName, :surname1, :email, :pass, 1)");
+
+        $insert->bindParam(':name', $name);
+        $insert->bindParam(':userName', $userName);
+        $insert->bindParam(':surname1', $surname1);
+        $insert->bindParam(':email', $email);
+        $insert->bindParam(':pass', $pass);
+
+        $insert->execute();
 
     }
 
     public function getUserById($id) {
         $user = null;
-        $select = "SELECT * FROM perfil WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM perfil WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $user = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
+            $user = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
         }
 
-        $select = "select seguir.num, seguidors.num
+        $selectFollow = $this->connection->prepare("select seguir.num, seguidors.num
         from perfil, 
-        (select count(*) as num from seguir where id_perfil = $id) as seguir,
-        (select count(*) as num from seguir where id_perfil_seguit = $id) as seguidors
-        where id = $id ";
+        (select count(*) as num from seguir where id_perfil = :id) as seguir,
+        (select count(*) as num from seguir where id_perfil_seguit = :id) as seguidors
+        where id = :id");
+        $selectFollow->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $selectFollow->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $selectFollow->fetch(PDO::FETCH_NUM)) {
             $user->setFollowsNum($row[0]);
             $user->setFollowersNum($row[1]);
         }
 
-        $select = "select count(historia.id) as num from historia where id_perfil_propietari = $id group by id_perfil_propietari ";
+        $selectHistory = $this->connection->prepare("select count(historia.id) as num from historia 
+        where id_perfil_propietari = :id group by id_perfil_propietari ");
+        $selectHistory->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $selectHistory->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $selectHistory->fetch(PDO::FETCH_NUM)) {
             $user->hasHitory();
         }
 
@@ -68,10 +71,10 @@ class UsersDAO extends DAO implements DAO_User {
     }
 
     public function deleteUserById($id) {
-        $select = "DELETE FROM perfil WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM perfil WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllUsers() {
@@ -82,16 +85,61 @@ class UsersDAO extends DAO implements DAO_User {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $users[] = new User($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+            $id = $row[0];
+            $user = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+
+            $selectFollow = $this->connection->prepare("select seguir.num, seguidors.num
+            from perfil, 
+            (select count(*) as num from seguir where id_perfil = :id) as seguir,
+            (select count(*) as num from seguir where id_perfil_seguit = :id) as seguidors
+            where id = :id");
+            $selectFollow->bindParam(':id', $id);
+
+            $selectFollow->execute();
+
+            if ($row = $selectFollow->fetch(PDO::FETCH_NUM)) {
+                $user->setFollowsNum($row[0]);
+                $user->setFollowersNum($row[1]);
+            }
+
+            $selectHistory = $this->connection->prepare("select count(historia.id) as num from historia 
+            where id_perfil_propietari = :id group by id_perfil_propietari ");
+            $selectHistory->bindParam(':id', $id);
+
+            $selectHistory->execute();
+
+            if ($row = $selectHistory->fetch(PDO::FETCH_NUM)) {
+                $user->hasHitory();
+            }
+
+            $users[] = $user;
         }
 
         return $users;
     }
 
     public function updateUser($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE perfil SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE perfil SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
+    }
+
+    public function compUserCredentials($userName, $pass) {
+        $row = null;
+
+        $select = $this->connection->prepare("select pass, id from perfil where userName = :userName");
+        $select->bindParam(':userName', $userName);
+
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM))
+            if($row[0] == $pass)
+                return $row[1];
+
+
+        return null;
     }
 }

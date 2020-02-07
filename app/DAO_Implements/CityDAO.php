@@ -11,23 +11,26 @@ class CityDAO implements DAO_City {
     }
 
     public function insert(City $city) {
-        $name = $this->packUp($city->getName());
-        $regionId = $this->packUp($city->getRegionId());
+        $name = $city->getName();
+        $regionId = $city->getRegionId();
+        $insert = $this->
+        connection->prepare("INSERT INTO ciutat (`nom`, `id_regio`) values (:name, :regionId)");
 
-        $insert = "INSERT INTO ciutat (`nom`, `id_regio`) values ($name, $regionId)";
+        $insert->bindParam(':name', $name);
+        $insert->bindParam(':regionId', $regionId);
 
-        $this->connection->prepare($insert)->execute();
+        $insert->execute();
 
     }
 
     public function getCityById($id) {
         $city = null;
-        $select = "SELECT * FROM ciutat WHERE id = $id";
+        $select = $this->connection->prepare("SELECT * FROM ciutat WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $city = new City($row[1], $row[2], $row[0]);
         }
 
@@ -36,10 +39,10 @@ class CityDAO implements DAO_City {
     }
 
     public function deleteCityById($id) {
-        $select = "DELETE FROM ciutat WHERE id = $id";
+        $select = $this->connection->prepare("DELETE FROM ciutat WHERE id = :id");
+        $select->bindParam(':id', $id);
 
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
+        $select->execute();
     }
 
     public function getAllCitys() {
@@ -57,9 +60,11 @@ class CityDAO implements DAO_City {
     }
 
     public function updateCity($id, $colName, $newValue) {
-        $newValue = $this->packUp($newValue);
-        $update = "UPDATE ciutat SET $colName = $newValue WHERE id = $id";
+        $update = $this->connection->prepare("UPDATE ciutat SET :colName = :newValue WHERE id = :id");
+        $update->bindParam(':colName', $colName);
+        $update->bindParam(':newValue', $newValue);
+        $update->bindParam(':id', $id);
 
-        $this->connection->prepare($update)->execute();
+        $update->execute();
     }
 }

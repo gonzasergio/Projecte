@@ -3,6 +3,10 @@
 
 interface DAO_History {
 
-    public function getFollowersHistorys();
+    public function insertHistory(History $history);
+
+    public function getHistoryByIdPropietari($id);
+
+    public function deleteHistoryById($id);
 
 }

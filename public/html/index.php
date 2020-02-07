@@ -432,6 +432,18 @@ switch ($path) {
         $controller = new CursController();
         $controller->updateCurs();
         break;
+    case '/api/insert/history':
+        $controller = new HistoryController();
+        $controller->insertHistory();
+        break;
+    case '/api/get/history':
+        $controller = new HistoryController();
+        $controller->getHistory();
+        break;
+    case '/api/delete/history':
+        $controller = new HistoryController();
+        $controller->deleteHistory();
+        break;
     case ( preg_match( '/excursio\/\.*/', $path ) ? true : false ):
         echo $path;
         $_GET['id'] = $url[sizeof($url)-1];

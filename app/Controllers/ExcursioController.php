@@ -79,4 +79,10 @@ class ExcursioController extends Controller {
 
         echo $this->arrayToJson($excursions);
     }
+
+    public function getView($param){
+        $_GET['id'] = $param['id'];
+
+        include "../../app/Views/excursio.php";
+    }
 }

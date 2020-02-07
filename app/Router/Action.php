@@ -34,7 +34,7 @@ class Action {
     public function execute(){
         $controller = new $this->controller();
         $method = $this->method;
-        $controller->$method();
+        $controller->$method(null);
     }
 
 }

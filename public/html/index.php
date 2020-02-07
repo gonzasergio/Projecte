@@ -52,9 +52,8 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-//var_dump(preg_match( '/excursio\/\.*/', $path ));
 //$test = new Router();
-//$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 1]);
+//$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 3]);
 
 //$test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 

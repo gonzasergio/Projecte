@@ -14,4 +14,8 @@ class Controller {
 
         return json_encode($array);
     }
+
+    public function error($message){
+        echo $message;
+    }
 }

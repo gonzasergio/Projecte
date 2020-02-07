@@ -36,6 +36,15 @@ class CursosDAO implements DAO_Curs {
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $curs = new Curs($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
+
+            $selectImg = $this->connection->prepare("SELECT img FROM imatges_curs WHERE id_curs = :id");
+            $selectImg->bindParam(':id', $row[0]);
+
+            $selectImg->execute();
+
+            while ($row = $selectImg->fetch(PDO::FETCH_NUM))
+                $curs->addImg($row[0]);
+
         }
         
         return $curs;

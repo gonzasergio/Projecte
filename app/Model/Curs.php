@@ -12,6 +12,7 @@ class Curs extends Model {
     private $id_ciutat;
     private $id_propietari;
     private $id_promocio;
+    private $imgArray = [];
     
     
     public function __construct($titol, $duracio, $id_dificultat, $preu, $maxim_persones, $descripcio, $id_ciutat, $id_propietari, $id_promocio = null, $id = null) {
@@ -106,6 +107,10 @@ class Curs extends Model {
     
     public function setId_promocio($id_promocio): void {
         $this->id_promocio = $id_promocio;
+    }
+
+    public function addImg($img){
+        $this->imgArray[] = $img;
     }
     
     public function toArray(){

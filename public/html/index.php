@@ -18,6 +18,9 @@ function autoloader($classname) {
 }
 spl_autoload_register("autoloader");
 
+require '../../app/Router/Action.php';
+require '../../app/Router/Router.php';
+
 $links = [
     "" => "index.php",
     "inici" => "index.php",
@@ -49,7 +52,11 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
+//var_dump(preg_match( '/excursio\/\.*/', $path ));
+//$test = new Router();
+//$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 1]);
 
+//$test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 
 switch ($path) {
     case '/api/insert/user':
@@ -426,6 +433,7 @@ switch ($path) {
         $controller->updateCurs();
         break;
     case ( preg_match( '/excursio\/\.*/', $path ) ? true : false ):
+        echo $path;
         $_GET['id'] = $url[sizeof($url)-1];
         include '../../app/Views/excursio.php';
         break;

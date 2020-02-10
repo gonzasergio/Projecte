@@ -15,14 +15,14 @@ class ModalitatController extends Controller {
         $this->DAO->insert($modalitat);
     }
 
-    public function getModalitat(){
-        $modalitat = $this->DAO->getNivellById($_REQUEST['id']);
+    public function getModalitat($param){
+        $modalitat = $this->DAO->getModalitatById($param['id']);
 
         echo json_encode($modalitat->toArray());
     }
 
-    public function deleteModalitat(){
-        $this->DAO->deleteModalitatById($_REQUEST['id']);
+    public function deleteModalitat($param){
+        $this->DAO->deleteModalitatById($param['id']);
     }
 
     public function getAllModalitats(){
@@ -35,8 +35,8 @@ class ModalitatController extends Controller {
         echo json_encode($array);
     }
 
-    public function updateModalitat(){
-        $id = $_REQUEST['id'];
+    public function updateModalitat($param){
+        $id = $param['id'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 
@@ -44,7 +44,7 @@ class ModalitatController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../../app/Views/modalitatCRUD.php';
+        include '../../app/Views/modalityCRUD.php';
     }
 
 }

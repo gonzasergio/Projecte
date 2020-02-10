@@ -6,9 +6,9 @@ interface DAO_Paypal {
 
     public function getPaypalById($id);
 
-    public function deletePaypalById($id);
+    public function deletePaypalByEmail($email);
 
     public function getAllPaypals();
 
-    public function updatePaypal($id, $colName, $newValue);
+    public function updatePaypal($email, $colName, $newValue);
 }

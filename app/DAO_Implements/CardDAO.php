@@ -1,6 +1,6 @@
 <?php
 
-class TarjetaDAO implements DAO_Targeta {
+class CardDAO implements DAO_Card {
     use FormatSQL;
     private $connection;
 
@@ -34,29 +34,29 @@ class TarjetaDAO implements DAO_Targeta {
 
     }
 
-    public function getTargetaById($id) {
+    public function getCardById($id) {
         $targeta = null;
-        $select = $this->connection->prepare("SELECT * FROM tarjeta WHERE id = :id");
+        $select = $this->connection->prepare("SELECT * FROM tarjeta WHERE id_perfil = :id");
         $select->bindParam(':id', $id);
 
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $targeta = new Targeta($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+            $targeta = new Card($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6]);
         }
 
         return $targeta;
 
     }
 
-    public function deleteTargetaById($id) {
-        $select = $this->connection->prepare("DELETE FROM tarjeta WHERE id = :id");
-        $select->bindParam(':id', $id);
+    public function deleteCardByNumber($number) {
+        $select = $this->connection->prepare("DELETE FROM tarjeta WHERE numero = :number");
+        $select->bindParam(':number', $number);
 
         $select->execute();
     }
 
-    public function getAllTargetes() {
+    public function getAllCards() {
         $targetes = [];
         $select = "SELECT * FROM tarjeta";
 
@@ -64,17 +64,17 @@ class TarjetaDAO implements DAO_Targeta {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $targetes[] = new Targeta($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+            $targetes[] = new Card($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6]);
         }
 
         return $targetes;
     }
 
-    public function updateTargeta($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE tarjeta SET :colName = :newValue WHERE id = :id");
+    public function updateCard($number, $colName, $newValue) {
+        $update = $this->connection->prepare("UPDATE tarjeta SET :colName = :newValue WHERE numero = :number");
         $update->bindParam(':colName', $colName);
         $update->bindParam(':newValue', $newValue);
-        $update->bindParam(':id', $id);
+        $update->bindParam(':number', $number);
 
         $update->execute();
     }

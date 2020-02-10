@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>Modalitats</title>
+    <title>Nivells</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,9 +33,9 @@
     $(document).ready( function () {
         $('#example').DataTable( {
             ajax: {
-                url: '/api/get/modalitat/all',
+                url: '/api/level',
                 dataSrc: '',
-                type:"POST"
+                type:"get"
             },
             columns:  [
                 {title: "ID", data:'id'},
@@ -48,16 +48,22 @@
             select: true,
             responsive: true
         });
+
         let t = $('#example').DataTable();
+
         $('#openModify').click( function () {
             let data = t.row('.selected').data();
+
             console.log(data);
+
             $("#idMod").val(data['id']);
             $("#nomMod").val(data['nom']);
         } );
+
         $('#modifyRow').on( 'click', function () {
+
             $.ajax({
-                url: '/api/update/modalitat',
+                url: '/api/update/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -68,10 +74,13 @@
             }).always(function () {
                 t.ajax.reload();
             });
+
         });
+
         $('#addRow').on( 'click', function () {
+
             $.ajax({
-                url: '/api/insert/modalitat',
+                url: '/api/insert/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -81,10 +90,12 @@
                 t.ajax.reload();
             });
         } );
+
         $('#remove').click( function () {
             let data = t.row('.selected').data();
+
             $.ajax({
-                url: '/api/delete/modalitat',
+                url: '/api/delete/nivell',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -95,6 +106,7 @@
             });
         });
     });
+
 </script>
 
 <?php include '../templates/menuTopBack.html'?>
@@ -102,7 +114,8 @@
     <div class="row h-100">
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
-            <h1>Modalitat</h1>
+            <h1>Nivell</h1>
+
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 Insertar
             </button>
@@ -110,13 +123,16 @@
                 Modificar
             </button>
             <button type="button" class="btn btn-danger" id="remove">Eliminar</button>
+
             <hr>
+
             <div>
                 <table id="example" class="table table-striped table-bordered w-100"/>
             </div>
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -143,6 +159,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -171,8 +188,10 @@
         </div>
     </div>
 </div>
+
 <script src="/js/crypto-js/aes.js"></script>
 <script src="/js/popper/popper.min.js"></script>
 <script src="/js/bootstrap/bootstrap.min.js"></script>
+
 </body>
 </html>

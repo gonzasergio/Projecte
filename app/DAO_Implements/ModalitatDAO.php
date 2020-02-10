@@ -27,7 +27,7 @@ class ModalitatDAO implements DAO_Modalitat {
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $modalitat = new Modalitat($row[0], $row[1]);
+            $modalitat = new Modalitat($row[1], $row[0]);
         }
 
         return $modalitat;

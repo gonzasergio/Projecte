@@ -1,22 +1,22 @@
 <?php
 
-class Tarjeta extends Model {
+class Card extends Model {
     private $numero;
+    private $idPerfil;
     private $nom;
     private $lli1;
     private $lli2;
     private $cvv;
     private $dataVenciment;
-    private $idPerfil;
 
-    public function __construct($numero, $nom, $lli1, $lli2, $cvv, $dataVenciment, $idPerfil) {
+    public function __construct($numero, $idPerfil, $nom, $lli1, $lli2, $cvv, $dataVenciment) {
         $this->numero = $numero;
+        $this->idPerfil = $idPerfil;
         $this->nom = $nom;
         $this->lli1 = $lli1;
         $this->lli2 = $lli2;
         $this->cvv = $cvv;
         $this->dataVenciment = $dataVenciment;
-        $this->idPerfil = $idPerfil;
     }
 
     public function getNumero(){
@@ -80,12 +80,12 @@ class Tarjeta extends Model {
     public function toArray(){
         return [
             'numero' => $this->numero,
+            'idPerfil' => $this->idPerfil,
             'nom' => $this->nom,
             'lli1' => $this->lli1,
             'lli2' => $this->lli2,
             'cvv' => $this->cvv,
-            'dataVenciment' => $this->dataVenciment,
-            'idPerfil' => $this->idPerfil
+            'dataVenciment' => $this->dataVenciment
         ];
     }
 

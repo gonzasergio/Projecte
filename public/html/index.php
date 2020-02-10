@@ -81,6 +81,24 @@ $test->add('get', '/api/user/{1,9999}/comment', 'CommentUserController', 'getRef
 $test->add('post', '/api/user/{1,9999}/comment', 'CommentUserController', 'insertComment', ['id' => 3]);
 $test->add('get', '/api/user/{1,9999}/comment/{1,9999}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
 $test->add('get', '/api/user/{1,9999}/comment/{1,9999}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+$test->add('post', 'api/paypal', 'PaypalController', 'insertPaypal');
+$test->add('get', 'api/paypal', 'PaypalController', 'getAllPaypals');
+$test->add('get', 'api/paypal/{1,9999}', 'PaypalController', 'getPaypal', ['id' => 3]);
+$test->add('delete','api/paypal/{1,9999}', 'PaypalController', 'deletePaypal', ['id' => 3]);
+$test->add('post', 'api/card', 'CardController', 'insertCard');
+$test->add('get', 'api/card', 'CardController', 'getAllCards');
+$test->add('get', 'api/card/{1,9999}', 'CardController', 'getCard', ['id' => 3]);
+$test->add('delete','api/card/{1,9999}', 'CardController', 'deleteCard', ['id' => 3]);
+$test->add('post', 'api/level', 'NivellController', 'insertNivell');
+$test->add('get', 'api/level', 'NivellController', 'getAllNivells');
+$test->add('get', 'api/level/{1,9999}', 'NivellController', 'getNivell', ['id' => 3]);
+$test->add('delete','api/level/{1,9999}', 'NivellController', 'deleteNivell', ['id' => 3]);
+$test->add('get','admin/level', 'NivellController', 'viewCRUD');
+$test->add('post', 'api/modality', 'ModalitatController', 'insertModalitat');
+$test->add('get', 'api/modality', 'ModalitatController', 'getAllModalitats');
+$test->add('get', 'api/modality/{1,9999}', 'ModalitatController', 'getModalitat', ['id' => 2]);
+$test->add('delete','api/modality/{1,9999}', 'ModalitatController', 'deleteModalitat', ['id' => 3]);
+$test->add('get','admin/modality', 'ModalitatController', 'viewCRUD');
 
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 
@@ -94,45 +112,13 @@ switch ($path) {
         $controller = new PublicationController();
         $controller->updatePublication();
         break;
-    case '/api/insert/paypal':
-        $controller = new PaypalController();
-        $controller->insertPaypal();
-        break;
-    case '/api/get/paypal':
-        $controller = new PaypalController();
-        $controller->getPaypal();
-        break;
-    case '/api/delete/paypal':
-        $controller = new PaypalController();
-        $controller->deletePaypal();
-        break;
-    case '/api/get/paypal/all':
-        $controller = new PaypalController();
-        $controller->getAllPaypals();
-        break;
     case '/api/update/paypal':
         $controller = new PaypalController();
         $controller->updatePaypal();
         break;
-    case '/api/insert/targeta':
-        $controller = new TarjetaController();
-        $controller->insertTargeta();
-        break;
-    case '/api/get/targeta':
-        $controller = new TarjetaController();
-        $controller->getTargeta();
-        break;
-    case '/api/delete/targeta':
-        $controller = new TarjetaController();
-        $controller->deleteTargeta();
-        break;
-    case '/api/get/targeta/all':
-        $controller = new TarjetaController();
-        $controller->getAllTargetes();
-        break;
     case '/api/update/targeta':
-        $controller = new TarjetaController();
-        $controller->updateTargeta();
+        $controller = new CardController();
+        $controller->updateCard();
         break;
     case '/api/insert/grup':
         $controller = new GrupController();
@@ -154,54 +140,13 @@ switch ($path) {
         $controller = new GrupController();
         $controller->updateGrup();
         break;
-    case '/api/insert/nivell':
-        $controller = new NivellController();
-        $controller->insertNivell();
-        break;
-    case '/api/get/nivell':
-        $controller = new NivellController();
-        $controller->getNivell();
-        break;
-    case '/api/delete/nivell':
-        echo 'hola';
-        $controller = new NivellController();
-        $controller->deleteNivell();
-        break;
-    case '/api/get/nivell/all':
-        $controller = new NivellController();
-        $controller->getAllNivells();
-        break;
     case '/api/update/nivell':
         $controller = new NivellController();
         $controller->updateNivell();
         break;
-    case '/admin/nivell':
-        $controller = new NivellController();
-        $controller->viewCRUD();
-        break;
-    case '/api/insert/modalitat':
-        $controller = new ModalitatController();
-        $controller->insertModalitat();
-        break;
-    case '/api/get/modalitat':
-        $controller = new ModalitatController();
-        $controller->getModalitat();
-        break;
-    case '/api/delete/modalitat':
-        $controller = new ModalitatController();
-        $controller->deleteModalitat();
-        break;
-    case '/api/get/modalitat/all':
-        $controller = new ModalitatController();
-        $controller->getAllModalitats();
-        break;
     case '/api/update/modalitat':
         $controller = new ModalitatController();
         $controller->updateModalitat();
-        break;
-    case '/admin/modalitat':
-        $controller = new ModalitatController();
-        $controller->viewCRUD();
         break;
     case '/api/insert/country':
         $controller = new CountryController();;

@@ -17,14 +17,18 @@ class PaypalController extends Controller {
         $this->DAO->insert($paypal);
     }
 
-    public function getPaypal(){
-        $paypal = $this->DAO->getPaypalById($_REQUEST['email']);
+    public function getPaypal($param){
+        $paypals = $this->DAO->getPaypalById($param['id']);
+        $array = [];
 
-        echo json_encode($paypal->toArray());
+        foreach ($paypals as $u)
+            $array[] = $u->toArray();
+
+        echo json_encode($array);
     }
 
-    public function deletePaypal(){
-        $this->DAO->deletePaypalById($_REQUEST['email']);
+    public function deletePaypal($param){
+        $this->DAO->deletePaypalByEmail($param['id']);
     }
 
     public function getAllPaypals(){
@@ -38,11 +42,11 @@ class PaypalController extends Controller {
     }
 
     public function updatePaypal(){
-        $id = $_REQUEST['email'];
+        $email = $_REQUEST['email'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 
-        $this->DAO->updatePaypal($id, $colName, $newValue);
+        $this->DAO->updatePaypal($email, $colName, $newValue);
     }
 
 

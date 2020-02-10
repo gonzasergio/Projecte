@@ -15,14 +15,14 @@ class NivellController extends Controller {
         $this->DAO->insert($nivell);
     }
 
-    public function getNivell(){
-        $nivell = $this->DAO->getNivellById($_REQUEST['id']);
+    public function getNivell($param){
+        $nivell = $this->DAO->getNivellById($param['id']);
 
         echo json_encode($nivell->toArray());
     }
 
-    public function deleteNivell(){
-        $this->DAO->deleteNivellById($_REQUEST['id']);
+    public function deleteNivell($param){
+        $this->DAO->deleteNivellById($param['id']);
     }
 
     public function getAllNivells(){
@@ -35,8 +35,8 @@ class NivellController extends Controller {
         echo json_encode($array);
     }
 
-    public function updateNivell(){
-        $id = $_REQUEST['id'];
+    public function updateNivell($param){
+        $id = $param['id'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 
@@ -44,7 +44,7 @@ class NivellController extends Controller {
     }
 
     public function viewCRUD(){
-        include '../../app/Views/nivellCRUD.php';
+        include '../../app/Views/levelCRUD.php';
     }
 
 }

@@ -27,7 +27,7 @@ class NivellDAO implements DAO_Nivell {
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $nivell = new Nivell($row[0], $row[1]);
+            $nivell = new Nivell($row[1], $row[0]);
         }
 
         return $nivell;

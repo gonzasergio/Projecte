@@ -27,8 +27,8 @@ class Paypal extends Model {
 
     public function toArray(){
         return [
-            'email' => $this->email,
-            'idPerfil' => $this->idPerfil
+            'idPerfil' => $this->idPerfil,
+            'email' => $this->email
         ];
     }
 

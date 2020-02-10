@@ -24,24 +24,22 @@ class PaypalDAO implements DAO_Paypal {
     }
 
     public function getPaypalById($id) {
-        $paypal = null;
+        $paypals = [];
 
-        $select = $this->connection->prepare("SELECT * FROM paypal WHERE id = :id");
-        $select->bindParam(':id', $id);
+        $stmt = $this->connection->prepare("SELECT * FROM paypal WHERE id_perfil = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
 
-        $select->execute();
-
-        if ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $paypal = new Paypal($row[0], $row[1]);
+        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
+            $paypals[] = new Paypal($row[1], $row[0]);
         }
 
-        return $paypal;
-
+        return $paypals;
     }
 
-    public function deletePaypalById($id) {
-        $select = $this->connection->prepare("DELETE FROM paypal WHERE id = :id");
-        $select->bindParam(':id', $id);
+    public function deletePaypalByEmail($email) {
+        $select = $this->connection->prepare("DELETE FROM paypal WHERE email = :email");
+        $select->bindParam(':email', $email);
 
         $select->execute();
     }
@@ -54,17 +52,17 @@ class PaypalDAO implements DAO_Paypal {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $paypals[] = new Paypal($row[0], $row[1]);
+            $paypals[] = new Paypal($row[1], $row[0]);
         }
 
         return $paypals;
     }
 
-    public function updatePaypal($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE paypal SET :colName = :newValue WHERE id = :id");
+    public function updatePaypal($email, $colName, $newValue) {
+        $update = $this->connection->prepare("UPDATE paypal SET :colName = :newValue WHERE email = :email");
         $update->bindParam(':colName', $colName);
         $update->bindParam(':newValue', $newValue);
-        $update->bindParam(':id', $id);
+        $update->bindParam(':email', $email);
 
         $update->execute();
     }

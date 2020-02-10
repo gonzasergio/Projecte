@@ -13,7 +13,7 @@
             <a class="nav-link text-light h5" href="modalitat">Modalitat</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-light h5" href="nivell">Nivell</a>
+            <a class="nav-link text-light h5" href="level">Nivell</a>
         </li>
     </ul>
 </div>

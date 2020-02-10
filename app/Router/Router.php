@@ -30,16 +30,20 @@ class Router {
         return $match == $url;
     }
 
-    private function matchQuery($match, $url){
+    private function matchQuery($path, $url){
         $exp = explode('/', $url);
         $url = str_replace('/', '#', $url);
-        $regExpresion = '/'. str_replace('/', '#', $match) .'/';
+        $regExpresion = '/'. str_replace('/', '#', $path) .'/';
 
-        foreach ($this->action[$match]['query'] as $key => $num){
-            $this->action[$match]['query'][$key] = $exp[$num];
+        $match = preg_match( $regExpresion, $url );
+
+        if($match) {
+            foreach ($this->action[$path]['query'] as $key => $num) {
+                $this->action[$path]['query'][$key] = $exp[$num];
+            }
         }
 
-        return preg_match( $regExpresion, $url );
+        return $match;
     }
 
     public function dispatch($method, $url){

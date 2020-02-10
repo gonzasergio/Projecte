@@ -52,128 +52,40 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
-//$test = new Router();
+$test = new Router();
 //$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 3]);
+$test->add('post', 'api/user', 'UserController', 'insertUser');
+$test->add('get', 'api/user', 'UserController', 'getAllUsers');
+$test->add('get', 'api/user/{1,9999}', 'UserController', 'getUser', ['id' => 3]);
+$test->add('delete', 'api/user/{1,9999}', 'UserController', 'deleteUser', ['id' => 3]);
+$test->add('put', 'api/user/{1,9999}', 'UserController', 'insertUser', ['id' => 3]);
+$test->add('post', '/api/login', 'UserController', 'login');
+$test->add('post', '/api/publicatio', 'PublicationController', 'insertPublication');
+$test->add('post', '/api/publicatio/{1,9999}', 'PublicationController', 'getPublication', ['id' => 3]);
+$test->add('delete', '/api/publicatio/{1,9999}', 'PublicationController', 'deletePublication', ['id' => 3]);
+$test->add('get', '/api/user/{1,9999}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
+$test->add('get', '/api/publication/followers', 'PublicationController', 'getFollowersPublication');
+$test->add('get', '/api/publication/{1,9999}/comment', 'CommentPublicationController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', '/api/publication/{1,9999}/comment', 'CommentPublicationController', 'insertComment', ['id' => 3]);
+$test->add('get', '/api/publication/{1,9999}/comment/{1,9999}', 'CommentPublicationController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/publication/{1,9999}/comment/{1,9999}/response', 'CommentPublicationController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/route/{1,9999}/comment', 'CommentRouteController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', '/api/route/{1,9999}/comment', 'CommentRouteController', 'insertComment', ['id' => 3]);
+$test->add('get', '/api/route/{1,9999}/comment/{1,9999}', 'CommentRouteController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/route/{1,9999}/comment/{1,9999}/response', 'CommentRouteController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/curs/{1,9999}/comment', 'CommentCursController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', '/api/curs/{1,9999}/comment', 'CommentCursController', 'insertComment', ['id' => 3]);
+$test->add('get', '/api/curs/{1,9999}/comment/{1,9999}', 'CommentCursController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/curs/{1,9999}/comment/{1,9999}/response', 'CommentCursController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/user/{1,9999}/comment', 'CommentUserController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', '/api/user/{1,9999}/comment', 'CommentUserController', 'insertComment', ['id' => 3]);
+$test->add('get', '/api/user/{1,9999}/comment/{1,9999}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', '/api/user/{1,9999}/comment/{1,9999}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
 
-//$test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
+$test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 
 switch ($path) {
-    case '/api/insert/user':
-        $controller = new UserController();
-        $controller->insertUser();
-        break;
-    case '/api/get/user':
-        $controller = new UserController();
-        $controller->getUser();
-        break;
-    case '/api/get/my-user-id':
-        $controller = new UserController();
-        $controller->getMyUserId();
-        break;
-    case '/api/delete/user':
-        $controller = new UserController();
-        $controller->deleteUser();
-        break;
-    case '/api/get/user/all':
-        $controller = new UserController();
-        $controller->getAllUsers();
-        break;
-    case '/api/update/user':
-        $controller = new UserController();
-        $controller->updateUser();
-        break;
-    case '/api/login/user':
-        $controller = new UserController();
-        $controller->login();
-        break;
-    case '/api/insert/publication':
-        $controller = new PublicationController();
-        $controller->insertPublication();
-        break;
-    case '/api/get/publication':
-        $controller = new PublicationController();
-        $controller->getPublication();
-        break;
-    case '/api/delete/publication':
-        $controller = new PublicationController();
-        $controller->deletePublication();
-        break;
-    case '/api/get/user/publications':
-        $controller = new PublicationController();
-        $controller->getUserPublications();
-        break;
-    case '/api/followers/publications':
-        $controller = new PublicationController();
-        $controller->getFollowersPublication();
-        break;
-    case '/api/get/route/publications':
-        $controller = new PublicationController();
-        $controller->getRoutePublications();
-        break;
-    case '/api/insert/publication/comment':
-        $controller = new CommentPublicationController();
-        $controller->insertComment();
-        break;
-    case '/api/get/publication/comment':
-        $controller = new CommentPublicationController();
-        $controller->getCommentById();
-        break;
-    case '/api/get/publication/comments':
-        $controller = new CommentPublicationController();
-        $controller->getReferenceComments();
-        break;
-    case '/api/get/publication/comment/response':
-        $controller = new CommentPublicationController();
-        $controller->getResponseComments();
-        break;
-    case '/api/insert/route/comment':
-        $controller = new CommentRouteController();
-        $controller->insertComment();
-        break;
-    case '/api/get/route/comment':
-        $controller = new CommentRouteController();
-        $controller->getCommentById();
-        break;
-    case '/api/get/route/comments':
-        $controller = new CommentRouteController();
-        $controller->getReferenceComments();
-        break;
-    case '/api/get/route/comment/response':
-        $controller = new CommentRouteController();
-        $controller->getResponseComments();
-        break;
-    case '/api/insert/curs/comment':
-        $controller = new CommentCursController();
-        $controller->insertComment();
-        break;
-    case '/api/get/curs/comment':
-        $controller = new CommentCursController();
-        $controller->getCommentById();
-        break;
-    case '/api/get/curs/comments':
-        $controller = new CommentCursController();
-        $controller->getReferenceComments();
-        break;
-    case '/api/get/curs/comment/response':
-        $controller = new CommentCursController();
-        $controller->getResponseComments();
-        break;
-    case '/api/insert/user/comment':
-        $controller = new CommentUserController();
-        $controller->insertComment();
-        break;
-    case '/api/get/user/comment':
-        $controller = new CommentUserController();
-        $controller->getCommentById();
-        break;
-    case '/api/get/user/comments':
-        $controller = new CommentUserController();
-        $controller->getReferenceComments();
-        break;
-    case '/api/get/user/comment/response':
-        $controller = new CommentUserController();
-        $controller->getResponseComments();
-        break;
+
     case '/api/get/first-point-route/all':
         $controller = new PointController();
         $controller->getFirstZoneOfAllRoutes();

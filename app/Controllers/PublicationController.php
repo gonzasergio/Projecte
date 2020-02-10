@@ -15,18 +15,18 @@ class PublicationController extends Controller {
         $this->DAO->insert($publication);
     }
 
-    public function getPublication(){
-        $publication = $this->DAO->getPublicationById($_REQUEST['id']);
+    public function getPublication($param){
+        $publication = $this->DAO->getPublicationById($param['id']);
 
         echo json_encode($publication->toArray());
     }
 
-    public function deletePublication(){
-        $this->DAO->deletePublicationById($_REQUEST['id']);
+    public function deletePublication($param){
+        $this->DAO->deletePublicationById($param['id']);
     }
 
-    public function getUserPublications(){
-        $publications = $this->DAO->getAllPublicationsFromUser($_REQUEST['id']);
+    public function getUserPublications($param){
+        $publications = $this->DAO->getAllPublicationsFromUser($param['id']);
         $array = [];
 
         foreach ($publications as $p)
@@ -35,8 +35,8 @@ class PublicationController extends Controller {
         echo json_encode($array);
     }
 
-    public function getRoutePublications(){
-        $publications = $this->DAO->getAllPublicationsFromRoute($_REQUEST['id']);
+    public function getRoutePublications($param){
+        $publications = $this->DAO->getAllPublicationsFromRoute($param['id']);
         $array = [];
 
         foreach ($publications as $p)

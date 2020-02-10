@@ -17,14 +17,15 @@ class UserController extends Controller {
         $this->DAO->insert($user);
     }
 
-    public function getUser(){
-        $user = $this->DAO->getUserById($_REQUEST['id']);
+    public function getUser($param){
+        echo $param['id'];
+        $user = $this->DAO->getUserById($param['id']);
 
         echo json_encode($user->toArray());
     }
 
-    public function deleteUser(){
-        $this->DAO->deleteUserById($_REQUEST['id']);
+    public function deleteUser($param){
+        $this->DAO->deleteUserById($param['id']);
     }
 
     public function getAllUsers(){
@@ -37,8 +38,8 @@ class UserController extends Controller {
         echo json_encode($array);
     }
 
-    public function updateUser(){
-        $id = $_REQUEST['id'];
+    public function updateUser($param){
+        $id = $param['id'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 

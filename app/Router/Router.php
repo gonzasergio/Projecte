@@ -52,7 +52,7 @@ class Router {
             $match = ($act['query'] == null) ? $this->match($path, $url) : $this->matchQuery($path, $url);
 
             if($match){
-                $act['action']->execute();
+                $act['action']->execute($act['query']);
                 die();
                 break;
             }

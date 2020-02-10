@@ -31,10 +31,10 @@ class Action {
             throw new Exception('Method no exist');
     }
 
-    public function execute(){
+    public function execute($query){
         $controller = new $this->controller();
         $method = $this->method;
-        $controller->$method(null);
+        $controller->$method($query);
     }
 
 }

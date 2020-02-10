@@ -34,7 +34,7 @@ class Router {
         $exp = explode('/', $url);
         $url = str_replace('/', '#', $url);
         $regExpresion = '/'. str_replace('/', '#', $path) .'/';
-
+        echo $regExpresion . ' ' . $url;
         $match = preg_match( $regExpresion, $url );
 
         if($match) {
@@ -42,6 +42,8 @@ class Router {
                 $this->action[$path]['query'][$key] = $exp[$num];
             }
         }
+
+        var_dump($match);
 
         return $match;
     }
@@ -56,7 +58,7 @@ class Router {
             $match = ($act['query'] == null) ? $this->match($path, $url) : $this->matchQuery($path, $url);
 
             if($match){
-                $act['action']->execute($act['query']);
+                $act['action']->execute($this->action[$path]['query']);
                 die();
                 break;
             }

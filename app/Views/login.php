@@ -63,7 +63,7 @@ if (isset($_SESSION["lastRoute"])){
   	      var pass = String(CryptoJS.MD5($("#pass").val()));
 
               $.ajax({
-                  url: '/api/login/user',
+                  url: '/api/login',
                   type: 'POST',
                   data: {
                       password: pass,

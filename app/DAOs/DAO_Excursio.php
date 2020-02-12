@@ -18,8 +18,6 @@ interface DAO_Excursio {
 
     public function getAllExcursionsByDifficulty($idDiff);
 
-    public function getAllExcursionsByPric($price);
-
     public function getAllExcursionsByDuration($duration);
 
 }

@@ -1,25 +1,10 @@
 $('document').ready(function () {
 
-    function generateMyUser() {
+    function getUser() {
 
         $.ajax({
-            url: '/api/get/my-user-id',
-            type: 'POST',
-            success: function(data) {
-                let id = $.parseJSON(data)['id'];
-                getUser(id);
-            }
-        })
-    }
-
-    function getUser(id) {
-
-        $.ajax({
-            url: '/api/get/user',
-            type: 'POST',
-            data: {
-                id: id
-            },
+            url: '/api/my-user',
+            type: 'GET',
             success: function(data) {
                 setMyUser($.parseJSON(data));
             }
@@ -39,16 +24,15 @@ $('document').ready(function () {
         $('#myFollowingNum').text(user['follows_num'])
     }
 
-    generateMyUser();
+    getUser();
 
 
     function generatePublicaion() {
 
         $.ajax({
-            url: '/api/followers/publications',
-            type: 'POST',
+            url: '/api/publication/followers',
+            type: 'GET',
             success: function(data) {
-                console.log(data);
                 $.parseJSON(data).forEach(setPublications);
             }
         })
@@ -103,10 +87,5 @@ $('document').ready(function () {
     }
 
     generatePublicaion();
-
-    $('#send').click(function () {
-       console.log(document.querySelector('input[type=file]').files[0]);
-
-    });
 
 });

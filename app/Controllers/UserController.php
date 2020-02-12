@@ -64,4 +64,7 @@ class UserController extends Controller {
         echo $flag;
     }
 
+    public function getMyUser(){
+        $this->getUser(['id' => $_SESSION['id']]);
+    }
 }

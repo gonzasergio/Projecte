@@ -52,53 +52,96 @@ $url = explode('/', $path);
 $link = explode( '?', $url[sizeof($url)-1]);
 $path = explode( '?', $path)[0];
 
+
 $test = new Router();
 //$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 3]);
+// USER
 $test->add('post', 'api/user', 'UserController', 'insertUser');
 $test->add('get', 'api/user', 'UserController', 'getAllUsers');
 $test->add('get', 'api/user/[0-9]{1,}', 'UserController', 'getUser', ['id' => 3]);
+$test->add('get', 'api/my-user', 'UserController', 'getMyUser');
 $test->add('delete', 'api/user/[0-9]{1,}', 'UserController', 'deleteUser', ['id' => 3]);
 $test->add('put', 'api/user/[0-9]{1,}', 'UserController', 'insertUser', ['id' => 3]);
-$test->add('post', '/api/login', 'UserController', 'login');
-$test->add('post', '/api/publicatio', 'PublicationController', 'insertPublication');
-$test->add('post', '/api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
-$test->add('delete', '/api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
-$test->add('get', '/api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
-$test->add('get', '/api/publication/followers', 'PublicationController', 'getFollowersPublication');
-$test->add('get', '/api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'getReferenceComments', ['id' => 3]);
-$test->add('post', '/api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'insertComment', ['id' => 3]);
-$test->add('get', '/api/publication/[0-9]{1,}/comment/[0-9]{1,}', 'CommentPublicationController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/publication/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentPublicationController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/route/[0-9]{1,}/comment', 'CommentRouteController', 'getReferenceComments', ['id' => 3]);
-$test->add('post', '/api/route/[0-9]{1,}/comment', 'CommentRouteController', 'insertComment', ['id' => 3]);
-$test->add('get', '/api/route/[0-9]{1,}/comment/[0-9]{1,}', 'CommentRouteController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/route/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentRouteController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/curs/[0-9]{1,}/comment', 'CommentCursController', 'getReferenceComments', ['id' => 3]);
-$test->add('post', '/api/curs/[0-9]{1,}/comment', 'CommentCursController', 'insertComment', ['id' => 3]);
-$test->add('get', '/api/curs/[0-9]{1,}/comment/[0-9]{1,}', 'CommentCursController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/curs/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentCursController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/user/[0-9]{1,}/comment', 'CommentUserController', 'getReferenceComments', ['id' => 3]);
-$test->add('post', '/api/user/[0-9]{1,}/comment', 'CommentUserController', 'insertComment', ['id' => 3]);
-$test->add('get', '/api/user/[0-9]{1,}/comment/[0-9]{1,}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
-$test->add('get', '/api/user/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+$test->add('post', 'api/login', 'UserController', 'login');
+$test->add('get', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'insertComment', ['id' => 3]);
+$test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+
+// PUBLICATION
+$test->add('post', 'api/publicatio', 'PublicationController', 'insertPublication');
+$test->add('post', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
+$test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
+$test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
+$test->add('get', 'api/publication/followers', 'PublicationController', 'getFollowersPublication');
+$test->add('get', 'api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', 'api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'insertComment', ['id' => 3]);
+$test->add('get', 'api/publication/[0-9]{1,}/comment/[0-9]{1,}', 'CommentPublicationController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', 'api/publication/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentPublicationController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+
+// ROUTE
+$test->add('get', 'api/route/[0-9]{1,}/comment', 'CommentRouteController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', 'api/route/[0-9]{1,}/comment', 'CommentRouteController', 'insertComment', ['id' => 3]);
+$test->add('get', 'api/route/[0-9]{1,}/comment/[0-9]{1,}', 'CommentRouteController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', 'api/route/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentRouteController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+
+// CURS
+$test->add('get', 'api/curs/[0-9]{1,}/comment', 'CommentCursController', 'getReferenceComments', ['id' => 3]);
+$test->add('post', 'api/curs/[0-9]{1,}/comment', 'CommentCursController', 'insertComment', ['id' => 3]);
+$test->add('get', 'api/curs/[0-9]{1,}/comment/[0-9]{1,}', 'CommentCursController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
+$test->add('get', 'api/curs/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentCursController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
+
+// PAYPAL
 $test->add('post', 'api/paypal', 'PaypalController', 'insertPaypal');
 $test->add('get', 'api/paypal', 'PaypalController', 'getAllPaypals');
 $test->add('get', 'api/paypal/[0-9]{1,}', 'PaypalController', 'getPaypal', ['id' => 3]);
 $test->add('delete','api/paypal/[0-9]{1,}', 'PaypalController', 'deletePaypal', ['id' => 3]);
+
+// CARD
 $test->add('post', 'api/card', 'CardController', 'insertCard');
 $test->add('get', 'api/card', 'CardController', 'getAllCards');
 $test->add('get', 'api/card/[0-9]{1,}', 'CardController', 'getCard', ['id' => 3]);
 $test->add('delete','api/card/[0-9]{1,}', 'CardController', 'deleteCard', ['id' => 3]);
+
+// LEVEL
 $test->add('post', 'api/level', 'NivellController', 'insertNivell');
 $test->add('get', 'api/level', 'NivellController', 'getAllNivells');
 $test->add('get', 'api/level/[0-9]{1,}', 'NivellController', 'getNivell', ['id' => 3]);
 $test->add('delete','api/level/[0-9]{1,}', 'NivellController', 'deleteNivell', ['id' => 3]);
 $test->add('get','admin/level', 'NivellController', 'viewCRUD');
+
+// MODALITY
 $test->add('post', 'api/modality', 'ModalitatController', 'insertModalitat');
 $test->add('get', 'api/modality', 'ModalitatController', 'getAllModalitats');
 $test->add('get', 'api/modality/[0-9]{1,}', 'ModalitatController', 'getModalitat', ['id' => 2]);
 $test->add('delete','api/modality/[0-9]{1,}', 'ModalitatController', 'deleteModalitat', ['id' => 3]);
 $test->add('get','admin/modality', 'ModalitatController', 'viewCRUD');
+
+// COUNTRY
+$test->add('post', 'api/country', 'CountryController', 'insertCountry');
+$test->add('get', 'api/country', 'CountryController', 'getAllCountry');
+$test->add('get', 'api/country/[0-9]{1,}', 'CountryController', 'getCountry', ['id' => 3]);
+$test->add('delete','api/country/[0-9]{1,}', 'CountryController', 'deleteCountry', ['id' => 3]);
+$test->add('get','admin/country', 'CountryController', 'viewCRUD');
+
+// REGION
+$test->add('post', 'api/region', 'RegionController', 'insertRegion');
+$test->add('get', 'api/region', 'RegionController', 'getAllRegion');
+$test->add('get', 'api/region/[0-9]{1,}', 'RegionController', 'getRegion', ['id' => 3]);
+$test->add('delete','api/region/[0-9]{1,}', 'RegionController', 'deleteRegion', ['id' => 3]);
+$test->add('get','admin/region', 'RegionController', 'viewCRUD');
+
+// CITY
+$test->add('post', 'api/city', 'CityController', 'insertCity');
+$test->add('get', 'api/city', 'CityController', 'getAllCity');
+$test->add('get', 'api/city/[0-9]{1,}', 'CityController', 'getCity', ['id' => 3]);
+$test->add('delete','api/city/[0-9]{1,}', 'CityController', 'deleteCity', ['id' => 3]);
+$test->add('get','admin/city', 'CityController', 'viewCRUD');
+
+// HISTORY
+$test->add('post', 'api/history', 'HistoryController', 'insertHistory');
+$test->add('get', 'api/history/[0-9]{1,}', 'HistoryController', 'getHistory', ['id' => 3]);
+$test->add('delete','api/history/[0-9]{1,}', 'HistoryController', 'deleteHistory', ['id' => 3]);
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 
@@ -304,10 +347,6 @@ switch ($path) {
         echo $path;
         $_GET['id'] = $url[sizeof($url)-1];
         include '../../app/Views/excursio.php';
-        break;
-    case '/api/test':
-        $controller = new CommentPublicationDAO();
-        $controller->insertCommentari(new CommentPublication(1,1,1,1));
         break;
     case '/graph':
         include '../../app/Views/GRAPH.html';

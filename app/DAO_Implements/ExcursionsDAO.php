@@ -1,27 +1,22 @@
 <?php
 
-class ExcursionsDAO implements DAO_Excursio {
-    use FormatSQL;
-    private $connection;
-
-    public function __construct() {
-        $this->connection = DBConnection::getInstance('db_goatrails')->getConnection();
-    }
+abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
     public function insert(Excursio $excursio) {
-        $titol = $this->packUp($excursio->getTitol());
-        $distancia = $this->packUp($excursio->getDistancia());
-        $id_dificultat = $this->packUp($excursio->getId_dificultat());
-        $duracio = $this->packUp($excursio->getDuracio());
-        $preu = $this->packUp($excursio->getPreu());
-        $maxim_persones = $this->packUp($excursio->getMaxim_persones());
-        $descripcio = $this->packUp($excursio->getDescripcio());
-        $excursio = $this->packUp($excursio->getIdPropietari());
+        $attr = [':title', ':distance', ':id_dif', ':duration', ':max_person', ':description'];
+        $key = ['titol', 'distancia', 'id_dificultat', 'duracio', 'maxim_persones', 'descripcio'];
+        $val = $excursio->toArray();
 
-        $insert = "INSERT INTO excursio (`titol`,`distancia`,`id_dificultat`,`duracio`,`preu`,`maxim_persones`,`descripcio`,`id_propietari`)
-        values ($titol, $distancia, $id_dificultat, $duracio, $preu, $maxim_persones, $descripcio, $excursio)";
+        $insert = $this->connection->prepare
+        ("INSERT INTO excursio 
+        (`titol`,`distancia`,`id_dificultat`,`duracio`,`maxim_persones`,`descripcio`)
+        values (:title, :distance, :id_dif, :duration, :max_person, :description)");
 
-        $this->connection->prepare($insert)->execute();
+        for ($i = 0 ; $i<sizeof($attr) ; $i++)
+            $insert->bindParam($attr[$i], $val[$key[$i]]);
+
+        $insert->execute();
+        return $this->connection->lastInsertId();
 
     }
 
@@ -32,11 +27,8 @@ class ExcursionsDAO implements DAO_Excursio {
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
 
-        if ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursio = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
-        }
-
-        return $excursio;
+        if ($row = $stmt->fetch(PDO::FETCH_NUM))
+            return $row;
 
     }
     
@@ -45,35 +37,6 @@ class ExcursionsDAO implements DAO_Excursio {
         
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
-    }
-
-    public function getAllExcursions() {
-        $excursions = [];
-        $select = "SELECT * FROM excursio";
-
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
-
-        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
-        }
-
-        return $excursions;
-    }
-
-    //ARAGLARO JBARCE NAM FLUIXOS DE SQL
-    public function getAllExcursionsByIdPropietari($id){
-        $excursions = [];
-        $select = "SELECT * FROM excursio where id_propietari = $id";
-
-        $stmt = $this->connection->prepare($select);
-        $stmt->execute();
-
-        while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[0]);
-        }
-
-        return $excursions;
     }
 
     public function updateExcursio($id, $colName, $newValue) {
@@ -91,16 +54,12 @@ class ExcursionsDAO implements DAO_Excursio {
         return $this->filter('id_dificultat', $idDiff);
     }
 
-    public function getAllExcursionsByPric($price) {
-        return $this->filter('preu', $price);
-    }
-
     public function getAllExcursionsByDuration($duration) {
         return $this->filter('duracio', $duration);
     }
 
 
-    private function filter($colName, $id){
+    protected function filter($colName, $id){
         $excursions = [];
         $select = "SELECT * FROM excursio where $colName = $id";
 
@@ -108,7 +67,7 @@ class ExcursionsDAO implements DAO_Excursio {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
+            $excursions[] = $row;
         }
 
         return $excursions;
@@ -121,8 +80,6 @@ class ExcursionsDAO implements DAO_Excursio {
         foreach ($idMod as $k => $m)
             $cond = $cond . " inner join excursio_modalitat m$k on e.id = m$k.id_excursio and m$k.id_modalitat = $m";
 
-
-
         $select = "SELECT e.id, distancia, id_dificultat, duracio, preu, maxim_persones, descripcio
         FROM excursio e " . $cond;
 
@@ -130,7 +87,7 @@ class ExcursionsDAO implements DAO_Excursio {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = new Excursio($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[0]);
+            $excursions[] = $row;
         }
 
         return $excursions;

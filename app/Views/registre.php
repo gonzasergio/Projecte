@@ -83,7 +83,7 @@ if ((isset($_SESSION["AUTH"])) && ($_SESSION["AUTH"] == true)){
             	      let pass = String(CryptoJS.MD5($("#pass").val()));
 
                       $.ajax({
-                          url: '/api/login',
+                          url: '/api/user',
                           type: 'POST',
                           data: {
                               uName: uName,

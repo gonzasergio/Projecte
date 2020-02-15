@@ -61,13 +61,13 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
     protected function filter($colName, $id){
         $excursions = [];
-        $select = "SELECT * FROM excursio where $colName = $id";
+        $select = "SELECT id FROM excursio where $colName = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = $row;
+            $excursions[] = $row[0];
         }
 
         return $excursions;
@@ -80,14 +80,13 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
         foreach ($idMod as $k => $m)
             $cond = $cond . " inner join excursio_modalitat m$k on e.id = m$k.id_excursio and m$k.id_modalitat = $m";
 
-        $select = "SELECT e.id, distancia, id_dificultat, duracio, preu, maxim_persones, descripcio
-        FROM excursio e " . $cond;
+        $select = "SELECT e.id FROM excursio e " . $cond;
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $excursions[] = $row;
+            $excursions[] = $row[0];
         }
 
         return $excursions;

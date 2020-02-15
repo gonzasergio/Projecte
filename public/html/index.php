@@ -74,18 +74,20 @@ $test->add('post', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPubl
 $test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
 $test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
 $test->add('get', 'api/publication/followers', 'PublicationController', 'getFollowersPublication');
+
+// PUBLICATION Comment
 $test->add('get', 'api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'getReferenceComments', ['id' => 3]);
 $test->add('post', 'api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'insertComment', ['id' => 3]);
 $test->add('get', 'api/publication/[0-9]{1,}/comment/[0-9]{1,}', 'CommentPublicationController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
 $test->add('get', 'api/publication/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentPublicationController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
 
-// ROUTE
+// ROUTE Comment
 $test->add('get', 'api/route/[0-9]{1,}/comment', 'CommentRouteController', 'getReferenceComments', ['id' => 3]);
 $test->add('post', 'api/route/[0-9]{1,}/comment', 'CommentRouteController', 'insertComment', ['id' => 3]);
 $test->add('get', 'api/route/[0-9]{1,}/comment/[0-9]{1,}', 'CommentRouteController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
 $test->add('get', 'api/route/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentRouteController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
 
-// CURS
+// CURS Comment
 $test->add('get', 'api/curs/[0-9]{1,}/comment', 'CommentCursController', 'getReferenceComments', ['id' => 3]);
 $test->add('post', 'api/curs/[0-9]{1,}/comment', 'CommentCursController', 'insertComment', ['id' => 3]);
 $test->add('get', 'api/curs/[0-9]{1,}/comment/[0-9]{1,}', 'CommentCursController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);

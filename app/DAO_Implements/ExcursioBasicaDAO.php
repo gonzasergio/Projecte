@@ -19,7 +19,8 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
 
     public function getAllExcursions() {
         $excursio = [];
-        $select = "SELECT * FROM basica";
+        $select = "select id_excursio, userName from basica, perfil
+        where id_perfil = perfil.id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();
@@ -27,7 +28,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $excursio[] = new ExcursioEmpresa($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $excursio[] = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
         }
 
         return $excursio;
@@ -44,7 +45,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $excursio[] = new ExcursioEmpresa($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $excursio[] = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
         }
 
         return $excursio;
@@ -58,7 +59,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM))
-            return new ExcursioEmpresa($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            return new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
 
     }
 

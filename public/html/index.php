@@ -144,6 +144,13 @@ $test->add('get','admin/city', 'CityController', 'viewCRUD');
 $test->add('post', 'api/history', 'HistoryController', 'insertHistory');
 $test->add('get', 'api/history/[0-9]{1,}', 'HistoryController', 'getHistory', ['id' => 3]);
 $test->add('delete','api/history/[0-9]{1,}', 'HistoryController', 'deleteHistory', ['id' => 3]);
+
+//point
+$test->add('get', 'api/first-points', 'PointController', 'getFirstZoneOfAllRoutes');
+
+//basic Routes
+$test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
+
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);
 

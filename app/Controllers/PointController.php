@@ -8,9 +8,6 @@ class PointController extends Controller {
     }
 
     public function getFirstZoneOfAllRoutes(){
-        $arr = [];
-        $points = $this->DAO->getFirstZoneOfAllRoutes();
-        /*
         $geoJson = '{
         "type": "FeatureCollection",
         "features": [';
@@ -37,12 +34,8 @@ class PointController extends Controller {
         $geoJson = $geoJson . '  ]
         }';
 
-        */
 
-        for( $i = 0 ; $i < sizeof($points) ; $i++){
-            $arr[] = $points[$i]->toArray();
-        }
-        echo json_encode($arr);
+        echo $geoJson;
     }
 
 }

@@ -51,9 +51,7 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
     public function getAllReferenceComments($id) {
         $comment = [];
 
-        $select = $this->connection->prepare("select * from :table where :refereneTable = :id");
-        $select->bindParam(':table', $this->tableName);
-        $select->bindParam(':referenceTable', $this->refereneTable);
+        $select = $this->connection->prepare("select * from $this->tableName where $this->refereneTable = :id");
         $select->bindParam(':id', $id);
 
         $select->execute();
@@ -69,8 +67,7 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
         $comment = [];
         $select = "select * from $this->tableName where id_resposta = $id";
 
-        $select = $this->connection->prepare("select * from :table where id_resposta = :id");
-        $select->bindParam(':table', $this->tableName);
+        $select = $this->connection->prepare("select * from $this->tableName where id_resposta = :id");
         $select->bindParam(':id', $id);
 
         $select->execute();

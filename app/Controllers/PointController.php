@@ -23,8 +23,8 @@ class PointController extends Controller {
               "geometry": {
                 "type": "Point",
                 "coordinates": [
-                  '. $cor['x'] .',
-                  '. $cor['y'] .'
+                  '. $cor['y'] .',
+                  '. $cor['x'] .'
                 ]
               }
             }' . $coma;

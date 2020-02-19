@@ -150,6 +150,7 @@ $test->add('get', 'api/first-points', 'PointController', 'getFirstZoneOfAllRoute
 
 //basic Routes
 $test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
+$test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
 
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);

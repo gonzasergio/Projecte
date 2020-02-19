@@ -11,8 +11,8 @@ class ExcursioController extends Controller {
         $this->DAO->insert($excursio);
     }
 
-    public function getExcursio(){
-        $excursio = $this->DAO->getExcursioById($_REQUEST['id']);
+    public function getExcursio($param){
+        $excursio = $this->DAO->getExcursioById($param['id']);
 
         echo json_encode($excursio->toArray());
     }

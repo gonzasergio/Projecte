@@ -31,15 +31,26 @@ class UsersDAO extends DAO implements DAO_User {
 
     }
 
-    public function getUserById($id) {
+    public function getUserByUsername($username) {
+        $id = null;
         $user = null;
-        $select = $this->connection->prepare("SELECT * FROM perfil WHERE id = :id");
-        $select->bindParam(':id', $id);
+        $select = $this->connection->prepare("SELECT * FROM perfil WHERE userName = :username");
+        $select->bindParam(':username', $username);
 
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
             $user = User::contructor($row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[0]);
+            $id = $row[0];
+        }
+
+        $selectPublications = $this->connection->prepare("SELECT count(*) FROM db_goatrails.publicacio where id_perfil_propietari = :id;");
+        $selectPublications->bindParam(':id', $id);
+
+        $selectPublications->execute();
+
+        if ($row = $selectPublications->fetch(PDO::FETCH_NUM)) {
+            $user->setPublications($row[0]);
         }
 
         $selectFollow = $this->connection->prepare("select seguir.num, seguidors.num

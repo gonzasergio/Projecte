@@ -13,6 +13,7 @@ class User extends Model {
     private $city;
     private $lvl;
     private $pass;
+    private $publications;
     private $follows_num;
     private $followers_num;
     private $hasHitory = false;
@@ -142,6 +143,14 @@ class User extends Model {
         $this->id = $id;
     }
 
+    public function getPublications(){
+        return $this->publications;
+    }
+
+    public function setPublications($publications): void {
+        $this->publications = $publications;
+    }
+
     /**
      * @return mixed
      */
@@ -189,6 +198,7 @@ class User extends Model {
             'city' => $this->city,
             'lvl' => $this->lvl,
             'pass' => $this->pass,
+            'publications' => $this->publications,
             'followers_num' => $this->followers_num,
             'follows_num' => $this->follows_num,
             'hasHistory' => $this->hasHitory,

@@ -18,7 +18,7 @@ class UserController extends Controller {
     }
 
     public function getUser($param){
-        $user = $this->DAO->getUserById($param['id']);
+        $user = $this->DAO->getUserByUsername($param['id']);
 
         echo json_encode($user->toArray());
     }

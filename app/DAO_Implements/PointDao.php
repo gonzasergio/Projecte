@@ -21,4 +21,23 @@ class PointDao extends DAO implements DAO_Point{
 
         return $points;
     }
+
+    public function getRoutesZone($id) {
+        $points = [];
+
+        $select = $this->
+        connection->prepare('select cordenada_x, cordenada_y, id_nivell, punts.id
+        from punts, zona 
+        where id_zona = zona.id
+        and id_excursio = :id');
+
+        $select->bindParam(':id', $id);
+        $select->execute();
+
+        while ($row = $select->fetch(PDO::FETCH_NUM)) {
+            $points[] = new Point($row[0], $row[1], $row[2], $row[3]);
+        }
+
+        return $points;
+    }
 }

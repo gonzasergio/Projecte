@@ -53,7 +53,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
 
     public function getExcursioById($id) {
         $exBase = parent::getExcursioById($id);
-        $select = $this->connection->prepare("SELECT * FROM basica WHERE id_excursio = :id");
+        $select = $this->connection->prepare("SELECT id_excursio, userName FROM basica, perfil WHERE id_excursio = :id and id_perfil = perfil.id");
 
         $select->bindParam(':id', $id);
         $select->execute();

@@ -147,9 +147,11 @@ $test->add('delete','api/history/[0-9]{1,}', 'HistoryController', 'deleteHistory
 
 //point
 $test->add('get', 'api/first-points', 'PointController', 'getFirstZoneOfAllRoutes');
+$test->add('get', 'api/route/[0-9]{1,}/path', 'PointController', 'getRoute', ['id' => 3]);
 
 //basic Routes
 $test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
+$test->add('get', 'api/routes/basic/[0-9]{1,}/avg', 'ExcursioBasicaController', 'getRouteAvg', ['id' => 4]);
 $test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
 
 //[0-9]{1,}

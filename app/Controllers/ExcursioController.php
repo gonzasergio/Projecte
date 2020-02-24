@@ -72,4 +72,10 @@ class ExcursioController extends Controller {
 
         include "../../app/Views/excursio.php";
     }
+
+    public function getRouteAvg($param){
+        $excursions = $this->DAO->getRouteAvg($param['id']);
+
+        echo json_encode($excursions);
+    }
 }

@@ -93,4 +93,36 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
         return $excursions;
     }
+
+    public function getRouteAvg($id){
+        $ret = [];
+        $select = $this->
+        connection->prepare("select avg(puntuacio) 'avg',
+        count(IF(puntuacio=5,1,NULL))*100/count(*) '5',
+        count(IF(puntuacio=4,1,NULL))*100/count(*) '4',
+        count(IF(puntuacio=3,1,NULL))*100/count(*) '3',
+        count(IF(puntuacio=2,1,NULL))*100/count(*) '2',
+        count(IF(puntuacio=1,1,NULL))*100/count(*) '1',
+        count(IF(puntuacio=0,1,NULL))*100/count(*) '0',
+        count(IF(puntuacio=5,1,NULL)) '5count',
+        count(IF(puntuacio=4,1,NULL)) '4count',
+        count(IF(puntuacio=3,1,NULL)) '3count',
+        count(IF(puntuacio=2,1,NULL)) '2count',
+        count(IF(puntuacio=1,1,NULL)) '1count',
+        count(IF(puntuacio=0,1,NULL)) '0count'
+        from puntuar_perfil_excursio 
+        where id_excursio = :id group by id_excursio");
+
+        $select->bindParam(':id', $id);
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
+            return $row;
+        }
+
+        for ($i = 0 ; $i < 13 ; $i++)
+            $ret[$i] = 0;
+
+        return $ret;
+    }
 }

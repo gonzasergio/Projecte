@@ -52,16 +52,16 @@ class UserController extends Controller {
     public function login(){
         $pass = $_REQUEST['password'];
         $userName = $_REQUEST['userName'];
-        $flag = 2;
+        $flag = ['error'];
 
         if($id = $this->DAO->compUserCredentials($userName, $pass)){
             $_SESSION["AUTH"]=true;
             $_SESSION["id"]=$id;
             $_SESSION["user"]=ucfirst(strtolower($userName));
-            $flag = 0;
+            $flag = [$_SESSION["id"], $_SESSION["user"]];
         }
 
-        echo $flag;
+        echo json_encode($flag);
     }
 
     public function getMyUser(){

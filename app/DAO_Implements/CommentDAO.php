@@ -18,20 +18,20 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
         $arr = [];
 
         foreach ($comment->toArray() as $a)
-            $arr[] = ($a != null ) ? $this->packUp($a) : 'null';
-
+            $arr[] = ($a != null ) ? $a : null;
 
         $insert = $this->connection->
-        prepare("INSERT INTO :table (`id_perfil`,:refereneTable,`texte`,`id_resposta`)
+        prepare("INSERT INTO $this->tableName (`id_perfil`,`$this->refereneTable`,`texte`,`id_resposta`)
         VALUES(:idPerfil, :idPublicacio, :text, :idResposta)");
 
-        $insert->bindParam(':table', $this->tableName);
-        $insert->bindParam(':referenceTable', $this->refereneTable);
+
         $insert->bindParam(':idPerfil', $arr[1]);
         $insert->bindParam(':idPublicacio', $arr[2]);
         $insert->bindParam(':text', $arr[3]);
         $insert->bindParam(':idResposta', $arr[4]);
-        $this->connection->prepare($insert)->execute();
+
+        $insert->execute();
+
     }
 
     public function getCommentById($id) {

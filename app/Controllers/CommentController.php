@@ -9,7 +9,11 @@ abstract class CommentController extends Controller {
 
     public function insertComment($param){
         $req = $_REQUEST;
-        $comment = new Comment($req['userId'],$req['text'], $req['respId'],$param['id']);
+
+        if(!isset($req['respId']))
+            $req['respId'] = null;
+
+        $comment = new Comment($req['userId'],$req['text'], $req['respId'], $param['id']);
         $this->DAO->insertComment($comment);
     }
 

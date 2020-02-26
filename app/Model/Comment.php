@@ -15,7 +15,7 @@ class Comment extends Model {
      * @param $responseId
      * @param $id
      */
-    public function __construct($userId, $text, $responseId, $referenceId,$id = null) {
+    public function __construct($userId, $text, $responseId, $referenceId, $id = null) {
         $this->id = $id;
         $this->userId = $userId;
         $this->text = $text;

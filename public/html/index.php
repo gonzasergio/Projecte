@@ -63,6 +63,8 @@ $test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'delet
 $test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
 $test->add('get', 'api/publication/followers', 'PublicationController', 'getFollowersPublication');
 
+
+
 // USER
 $test->add('post', 'api/user', 'UserController', 'insertUser');
 $test->add('get', 'api/user', 'UserController', 'getAllUsers');

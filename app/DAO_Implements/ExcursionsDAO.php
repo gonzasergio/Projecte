@@ -125,4 +125,21 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
         return $ret;
     }
+
+    public function getAllExcursionsByText($text) {
+        $excursions = [];
+        $text = '%' . $text . '%';
+        $select = $this->connection->
+        prepare("SELECT id FROM excursio where descripcio like :desc or titol like :tit ; ");
+
+        $select->bindParam(':desc', $text);
+        $select->bindParam(':tit', $text);
+
+        $select->execute();
+
+        while ($row = $select->fetch(PDO::FETCH_NUM))
+            $excursions[] = $row[0];
+
+        return $excursions;
+    }
 }

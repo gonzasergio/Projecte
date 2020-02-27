@@ -96,6 +96,12 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         return $this->getAllExcursionsByFiltre($idArray);
     }
 
+    public function getAllExcursionsByText($text) {
+        $idArray = parent::getAllExcursionsByText($text);
+
+        return $this->getAllExcursionsByFiltre($idArray);
+    }
+
     public function getAllExcursionsByFiltre($idArray) {
         $excursion = [];
 

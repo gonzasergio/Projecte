@@ -60,6 +60,12 @@ class ExcursioController extends Controller {
         echo $this->arrayToJson($excursions);
     }
 
+    public function getAllExcursionsByText() {
+        $excursions = $this->DAO->getAllExcursionsByText($_REQUEST['text']);
+
+        echo $this->arrayToJson($excursions);
+    }
+
     public function getAllExcursionsByModality(){
         $mod = json_decode($_REQUEST['modality'], true);
         $excursions = $this->DAO->getAllExcursionsByModality($mod[0]);

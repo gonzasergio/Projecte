@@ -55,6 +55,14 @@ $path = explode( '?', $path)[0];
 
 $test = new Router();
 //$test->add('get', 'test/excursio/{1,100}', 'ExcursioController', 'getView', ['id' => 3]);
+
+// PUBLICATION
+$test->add('post', 'api/publicatio', 'PublicationController', 'insertPublication');
+$test->add('post', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
+$test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
+$test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
+$test->add('get', 'api/publication/followers', 'PublicationController', 'getFollowersPublication');
+
 // USER
 $test->add('post', 'api/user', 'UserController', 'insertUser');
 $test->add('get', 'api/user', 'UserController', 'getAllUsers');
@@ -68,12 +76,6 @@ $test->add('post', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'inser
 $test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
 $test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);
 
-// PUBLICATION
-$test->add('post', 'api/publicatio', 'PublicationController', 'insertPublication');
-$test->add('post', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
-$test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
-$test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
-$test->add('get', 'api/publication/followers', 'PublicationController', 'getFollowersPublication');
 
 // PUBLICATION Comment
 $test->add('get', 'api/publication/[0-9]{1,}/comment', 'CommentPublicationController', 'getReferenceComments', ['id' => 3]);
@@ -153,6 +155,7 @@ $test->add('get', 'api/route/[0-9]{1,}/path', 'PointController', 'getRoute', ['i
 $test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
 $test->add('get', 'api/routes/basic/[0-9]{1,}/avg', 'ExcursioBasicaController', 'getRouteAvg', ['id' => 4]);
 $test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
+$test->add('get', 'api/routes/text', 'ExcursioBasicaController', 'getAllExcursionsByText');
 
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);

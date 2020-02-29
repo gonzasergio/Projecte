@@ -66,6 +66,7 @@ $test->add('get', 'api/publication/followers', 'PublicationController', 'getFoll
 
 
 // USER
+$test->add('get', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'getReferenceComments', ['id' => 3]);
 $test->add('post', 'api/user', 'UserController', 'insertUser');
 $test->add('get', 'api/user', 'UserController', 'getAllUsers');
 $test->add('get', 'api/user/[A-Za-z0-9_]{1,}', 'UserController', 'getUser', ['id' => 3]);
@@ -73,7 +74,6 @@ $test->add('get', 'api/my-user', 'UserController', 'getMyUser');
 $test->add('delete', 'api/user/[0-9]{1,}', 'UserController', 'deleteUser', ['id' => 3]);
 $test->add('put', 'api/user/[0-9]{1,}', 'UserController', 'insertUser', ['id' => 3]);
 $test->add('post', 'api/login', 'UserController', 'login');
-$test->add('get', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'getReferenceComments', ['id' => 3]);
 $test->add('post', 'api/user/[0-9]{1,}/comment', 'CommentUserController', 'insertComment', ['id' => 3]);
 $test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}', 'CommentUserController', 'getCommentById', ['idPub' => 3, 'idCom' => 3]);
 $test->add('get', 'api/user/[0-9]{1,}/comment/[0-9]{1,}/response', 'CommentUserController', 'getResponseComments', ['idPub' => 3, 'idCom' => 3]);

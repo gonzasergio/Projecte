@@ -52,8 +52,8 @@ class CommentDAO extends DAO implements DAO_ComentPublication {
         $comment = [];
 
         $select = $this->connection->prepare(
-            "select comentari_perfil_excursio.id, userName, id_excursio, texte, id_resposta
-                      from comentari_perfil_excursio, perfil
+            "select $this->tableName.id, userName, $this->refereneTable, texte, id_resposta
+                      from $this->tableName, perfil
                       where id_perfil = perfil.id and $this->refereneTable = :id");
         $select->bindParam(':id', $id);
 

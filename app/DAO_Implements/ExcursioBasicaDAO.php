@@ -28,7 +28,10 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $excursio[] = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc->setModality($this->getRouteModalitys($row[0]));
+
+            $excursio[] = $exc;
         }
 
         return $excursio;
@@ -45,21 +48,28 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $excursio[] = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc->setModality($this->getRouteModalitys($row[0]));
+
+            $excursio[] = $exc;
         }
 
         return $excursio;
     }
 
     public function getExcursioById($id) {
+        $excurio = null;
         $exBase = parent::getExcursioById($id);
         $select = $this->connection->prepare("SELECT id_excursio, userName FROM basica, perfil WHERE id_excursio = :id and id_perfil = perfil.id");
 
         $select->bindParam(':id', $id);
         $select->execute();
 
-        if ($row = $select->fetch(PDO::FETCH_NUM))
-            return new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
+            $excurio = new ExcursioBasica($exBase[1], $exBase[2], $exBase[3], $exBase[4], $exBase[5], $exBase[6], $row[1], $row[0]);
+            $excurio->setModality($this->getRouteModalitys($row[0]));
+            return $excurio;
+        }
 
     }
 
@@ -86,12 +96,6 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
 
     public function getAllExcursionsByDuration($duration) {
         $idArray = parent::getAllExcursionsByDuration($duration);
-
-        return $this->getAllExcursionsByFiltre($idArray);
-    }
-
-    public function getAllExcursionsByModality($idMod) {
-        $idArray = parent::getAllExcursionsByModality($idMod);
 
         return $this->getAllExcursionsByFiltre($idArray);
     }

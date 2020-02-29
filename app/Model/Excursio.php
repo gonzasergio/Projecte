@@ -9,6 +9,7 @@ class Excursio extends Model {
     private $duracio;
     private $maxim_persones;
     private $descripcio;
+    private $modality;
 
     /**
      * Excursio constructor.
@@ -30,6 +31,23 @@ class Excursio extends Model {
         $this->maxim_persones = $maxim_persones;
         $this->descripcio = $descripcio;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getModality() {
+        return $this->modality;
+    }
+
+    /**
+     * @param mixed $modality
+     */
+    public function setModality($modality) {
+        $this->modality = $modality;
+    }
+
+
+
 
     /**
      * @return null
@@ -139,7 +157,8 @@ class Excursio extends Model {
             'id_dificultat' => $this->id_dificultat,
             'duracio' => $this->duracio,
             'maxim_persones' => $this->maxim_persones,
-            'descripcio' => $this->descripcio
+            'descripcio' => $this->descripcio,
+            'modalitat' => $this->modality
         ];
     }
 

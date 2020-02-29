@@ -123,6 +123,7 @@ $test->add('get', 'api/modality/[0-9]{1,}', 'ModalitatController', 'getModalitat
 $test->add('delete','api/modality/[0-9]{1,}', 'ModalitatController', 'deleteModalitat', ['id' => 3]);
 $test->add('get','admin/modality', 'ModalitatController', 'viewCRUD');
 
+
 // COUNTRY
 $test->add('post', 'api/country', 'CountryController', 'insertCountry');
 $test->add('get', 'api/country', 'CountryController', 'getAllCountry');
@@ -157,7 +158,8 @@ $test->add('get', 'api/route/[0-9]{1,}/path', 'PointController', 'getRoute', ['i
 $test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
 $test->add('get', 'api/routes/basic/[0-9]{1,}/avg', 'ExcursioBasicaController', 'getRouteAvg', ['id' => 4]);
 $test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
-$test->add('get', 'api/routes/text', 'ExcursioBasicaController', 'getAllExcursionsByText');
+$test->add('get', 'api/routes/basic/text', 'ExcursioBasicaController', 'getAllExcursionsByText');
+$test->add('get', 'api/routes/basic/modality', 'ExcursioBasicaController', 'getAllExcursionsByModality');
 
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);

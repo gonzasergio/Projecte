@@ -80,7 +80,7 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
         $cond = '';
 
         foreach ($idMod as $k => $m)
-            $cond = $cond . " inner join excursio_modalitat m$k on e.id = m$k.id_excursio and m$k.id_modalitat = $m";
+            $cond = $cond . " inner join excursio_modalitat m$k on e.id = m$k.id_excursio and m$k.id_modalitat = (select id from tipus_modalitat where nom = '$m')";
 
         $select = "SELECT e.id FROM excursio e " . $cond;
 
@@ -141,5 +141,21 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
             $excursions[] = $row[0];
 
         return $excursions;
+    }
+
+    public function getRouteModalitys($id){
+        $mod = '';
+        $flag = true;
+        $select = $this->connection->prepare("select nom from excursio_modalitat, tipus_modalitat where id_excursio = :id and tipus_modalitat.id = id_modalitat");
+        $select->bindParam(':id', $id);
+
+        $select->execute();
+        while ($row = $select->fetch(PDO::FETCH_NUM)) {
+            $com = ($flag == true) ? '' : ',';
+            $mod = $mod . $com . $row[0];
+            $flag = false;
+        }
+
+        return $mod;
     }
 }

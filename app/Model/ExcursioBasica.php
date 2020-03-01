@@ -4,9 +4,9 @@
 class ExcursioBasica extends Excursio {
     private $propietari;
 
-    public function __construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $propietari, $id = null) {
+    public function __construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $propietari, $zone, $id = null) {
         $this->propietari = $propietari;
-        parent::__construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $id);
+        parent::__construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $zone, $id);
     }
 
     /**

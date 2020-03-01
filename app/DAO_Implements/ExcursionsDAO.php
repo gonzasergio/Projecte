@@ -22,9 +22,11 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
     public function getExcursioById($id) {
         $excursio = null;
-        $select = "select excursio.id, titol, distancia, nom, duracio, maxim_persones, descripcio
-        from excursio, nivell
-        where id_dificultat = nivell.id and excursio.id = $id";
+        $select = "select excursio.id, titol, distancia, nivell.nom, duracio, maxim_persones, descripcio, regio.nom
+        from excursio, nivell, regio
+        where id_dificultat = nivell.id 
+        and id_regio = regio.id 
+        and excursio.id = $id";
 
         $stmt = $this->connection->prepare($select);
         $stmt->execute();

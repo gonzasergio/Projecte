@@ -10,6 +10,7 @@ class Excursio extends Model {
     private $maxim_persones;
     private $descripcio;
     private $modality;
+    private $zone;
 
     /**
      * Excursio constructor.
@@ -22,7 +23,7 @@ class Excursio extends Model {
      * @param $descripcio
      * @param $id_propietari
      */
-    public function __construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $id = null) {
+    public function __construct($titol, $distancia, $id_dificultat, $duracio, $maxim_persones, $descripcio, $zone, $id = null) {
         $this->id = $id;
         $this->titol = $titol;
         $this->distancia = $distancia;
@@ -30,6 +31,7 @@ class Excursio extends Model {
         $this->duracio = $duracio;
         $this->maxim_persones = $maxim_persones;
         $this->descripcio = $descripcio;
+        $this->zone = $zone;
     }
 
     /**
@@ -158,7 +160,8 @@ class Excursio extends Model {
             'duracio' => $this->duracio,
             'maxim_persones' => $this->maxim_persones,
             'descripcio' => $this->descripcio,
-            'modalitat' => $this->modality
+            'modalitat' => $this->modality,
+            'zone' => $this->zone
         ];
     }
 

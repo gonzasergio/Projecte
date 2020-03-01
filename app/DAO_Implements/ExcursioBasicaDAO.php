@@ -28,7 +28,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1], $exBase[7], $row[0]);
             $exc->setModality($this->getRouteModalitys($row[0]));
 
             $excursio[] = $exc;
@@ -66,7 +66,8 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         $select->execute();
 
         if ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $excurio = new ExcursioBasica($exBase[1], $exBase[2], $exBase[3], $exBase[4], $exBase[5], $exBase[6], $row[1], $row[0]);
+
+            $excurio = new ExcursioBasica($exBase[1], $exBase[2], $exBase[3], $exBase[4], $exBase[5], $exBase[6], $row[1], $exBase[7], $row[0]);
             $excurio->setModality($this->getRouteModalitys($row[0]));
             return $excurio;
         }

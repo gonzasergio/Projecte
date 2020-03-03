@@ -40,7 +40,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
     public function getAllExcursionsByIdPropietari($id) {
         $excursio = [];
         $select = $this->
-        connection->prepare("SELECT * FROM basica WHERE id_perfil = :id");
+        connection->prepare("SELECT id_excursio, userName FROM basica, perfil WHERE id_perfil = :id and id_perfil = perfil.id");
 
         $select->bindParam(':id', $id);
         $select->execute();
@@ -48,7 +48,7 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         while ($row = $select->fetch(PDO::FETCH_NUM)) {
             $exBase = parent::getExcursioById($row[0]);
 
-            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1],$row[0]);
+            $exc = new ExcursioBasica($exBase[1],$exBase[2],$exBase[3],$exBase[4],$exBase[5],$exBase[6],$row[1], $exBase[7], $row[0]);
             $exc->setModality($this->getRouteModalitys($row[0]));
 
             $excursio[] = $exc;

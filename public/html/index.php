@@ -160,6 +160,7 @@ $test->add('get', 'api/routes/basic/[0-9]{1,}/avg', 'ExcursioBasicaController', 
 $test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
 $test->add('get', 'api/routes/basic/text', 'ExcursioBasicaController', 'getAllExcursionsByText');
 $test->add('get', 'api/routes/basic/modality', 'ExcursioBasicaController', 'getAllExcursionsByModality');
+$test->add('get', 'api/routes/basic/user/[0-9]{1,}', 'ExcursioBasicaController', 'getAllExcursionsByIdPropietari', ['id' => 5]);
 
 //[0-9]{1,}
 $test->dispatch(strtolower($_SERVER['REQUEST_METHOD']), $path);

@@ -7,4 +7,9 @@ class ExcursioBasicaController extends ExcursioController {
         $this->DAO = new ExcursioBasicaDAO();
     }
 
+    public function getAllExcursionsByIdPropietari($param){
+        $excursions = $this->DAO->getAllExcursionsByIdPropietari($param['id']);
+
+        echo $this->arrayToJson($excursions);
+    }
 }

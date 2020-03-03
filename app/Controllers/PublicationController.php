@@ -53,8 +53,8 @@ class PublicationController extends Controller {
         $this->DAO->updatePublication($id, $colName, $newValue);
     }
 
-    public function getFollowersPublication(){
-        $publications = $this->DAO->getFollowsPublications($_SESSION['id']);
+    public function getFollowersPublication($param){
+        $publications = $this->DAO->getFollowsPublications($param['id']);
         $array = [];
 
         foreach ($publications as $p)

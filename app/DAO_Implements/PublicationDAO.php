@@ -105,7 +105,16 @@ class PublicationDAO implements DAO_Publication {
         $select->execute();
 
         while ($row = $select->fetch(PDO::FETCH_NUM)) {
-            $publication = new Publication($row[1], $row[2], $row[3], $row[4], $row[0]);
+
+            $userName = $this->connection->prepare('SELECT userName FROM perfil where id = :id;');
+            $userName->bindParam(':id', $row[3]);
+
+            $userName->execute();
+
+            $userName = $userName->fetch(PDO::FETCH_NUM);
+            $userName = $userName[0];
+
+            $publication = new Publication($row[1], $row[2], $userName, $row[4], $row[0]);
             $publication->setLikeNum($row[5]);
             $publication->setCommentNum($row[6]);
 

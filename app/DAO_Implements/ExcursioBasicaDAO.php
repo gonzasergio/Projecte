@@ -15,6 +15,8 @@ class ExcursioBasicaDAO extends ExcursionsDAO {
         $insert->bindParam(':id_prop', $prop);
 
         $insert->execute();
+
+        return $id;
     }
 
     public function getAllExcursions() {

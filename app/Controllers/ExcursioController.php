@@ -5,7 +5,7 @@ class ExcursioController extends Controller {
 
     public function insertExcursio(){
         $r = $_REQUEST;
-        $excursio = new Excursio($r['titol'], $r['distancia'],$r['id_dificultat'],$r['duracio'],$r['preu'],$r['maxim_persones'],$r['descripcio'], $r['id_propietari']);
+        $excursio = new Excursio($r['titol'], $r['distancia'],$r['id_dificultat'], $r['duracio'],$r['maxim_persones'],$r['descripcio'], $r['id_propietari']);
         
 
         $this->DAO->insert($excursio);

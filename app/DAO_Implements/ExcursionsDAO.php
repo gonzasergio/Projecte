@@ -3,14 +3,14 @@
 abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
 
     public function insert(Excursio $excursio) {
-        $attr = [':title', ':distance', ':id_dif', ':duration', ':max_person', ':description'];
-        $key = ['titol', 'distancia', 'id_dificultat', 'duracio', 'maxim_persones', 'descripcio'];
+        $attr = [':title', ':distance', ':id_dif', ':duration', ':max_person', ':description', ':zone'];
+        $key = ['titol', 'distancia', 'id_dificultat', 'duracio', 'maxim_persones', 'descripcio', 'zone'];
         $val = $excursio->toArray();
 
         $insert = $this->connection->prepare
         ("INSERT INTO excursio 
-        (`titol`,`distancia`,`id_dificultat`,`duracio`,`maxim_persones`,`descripcio`)
-        values (:title, :distance, :id_dif, :duration, :max_person, :description)");
+        (`titol`,`distancia`,`id_dificultat`,`duracio`,`maxim_persones`,`descripcio`, `id_regio`)
+        values (:title, :distance, :id_dif, :duration, :max_person, :description, :zone)");
 
         for ($i = 0 ; $i<sizeof($attr) ; $i++)
             $insert->bindParam($attr[$i], $val[$key[$i]]);
@@ -159,5 +159,15 @@ abstract class ExcursionsDAO extends DAO implements DAO_Excursio {
         }
 
         return $mod;
+    }
+
+    public function insertMod($id, $idMod) {
+        $insert = $this->connection->prepare
+        ("INSERT INTO excursio_modalitat 
+        values (:id, :idMod)");
+
+        $insert->bindParam(':id', $id);
+        $insert->bindParam(':idMod', $idMod);
+        $insert->execute();
     }
 }

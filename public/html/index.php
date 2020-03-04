@@ -156,6 +156,8 @@ $test->add('get', 'api/route/[0-9]{1,}/path', 'PointController', 'getRoute', ['i
 
 //basic Routes
 $test->add('get', 'api/routes/basic', 'ExcursioBasicaController', 'getAllExcursions');
+$test->add('post', 'api/routes/basic', 'ExcursioBasicaController', 'insertExcursio');
+$test->add('post', 'api/routes/basic/[0-9]{1,}/mod', 'ExcursioBasicaController', 'insertMod', ['id' => 4]);
 $test->add('get', 'api/routes/basic/[0-9]{1,}/avg', 'ExcursioBasicaController', 'getRouteAvg', ['id' => 4]);
 $test->add('get', 'api/routes/basic/[0-9]{1,}', 'ExcursioBasicaController', 'getExcursio', ['id' => 4]);
 $test->add('get', 'api/routes/basic/text', 'ExcursioBasicaController', 'getAllExcursionsByText');

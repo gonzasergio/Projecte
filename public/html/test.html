@@ -6,7 +6,13 @@
 </head>
 <body>
 <form>
-    <input>
+    <form enctype="multipart/form-data" action="http://localhost/api/publicatio" method="POST">
+        <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+        Send this file: <input name="userfile" type="file" />
+        <input name="text" type="text" />
+        <input name="text" type="user" />
+        <input type="submit" value="Send File" />
+    </form>
 </form>
 </body>
 </html>

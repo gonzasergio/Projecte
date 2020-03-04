@@ -25,8 +25,6 @@ class PublicationDAO implements DAO_Publication {
         $insert->bindParam(':route', $route);
 
         $insert->execute();
-
-        $this->connection->prepare($insert)->execute();
     }
 
     public function getPublicationById($id) {
@@ -99,7 +97,7 @@ class PublicationDAO implements DAO_Publication {
         from publicacio, seguir
         where id_perfil_propietari = seguir.id_perfil_seguit
         and seguir.id_perfil = :id
-        group by publicacio.id");
+        group by publicacio.id order by publicacio.id desc ");
         $select->bindParam(':id', $id);
 
         $select->execute();
@@ -122,6 +120,21 @@ class PublicationDAO implements DAO_Publication {
         }
 
         return $publications;
+    }
+
+
+    public function getMaxId($id) {
+        $maxId = 0;
+        $select = $this->connection->prepare("select IFNULL(max(id), 0) from publicacio where id_perfil_propietari = :id");
+        $select->bindParam(':id', $id);
+
+        $select->execute();
+
+        if ($row = $select->fetch(PDO::FETCH_NUM)) {
+            $maxId = $row[0];
+        }
+
+        return $maxId;
     }
 
 }

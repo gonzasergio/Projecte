@@ -10,9 +10,27 @@ class PublicationController extends Controller {
 
     public function insertPublication(){
         $r = $_REQUEST;
-        $publication = new Publication($r['img'], $r['text'], $r['user'], $r['route']);
+
+        if(!isset($r['route']))
+            $r['route'] = null;
+
+        $name =  $this->DAO->getMaxId($r['user']) . '-' . $r['user'];
+
+        $img = '/img/' . $name . '.jpg';
+
+        $publication = new Publication($img , $r['text'], $r['user'], $r['route']);
 
         $this->DAO->insert($publication);
+
+        echo json_encode([$name]);
+    }
+
+    public function insertPublicationImg($param){
+        var_dump($_REQUEST);
+        $uploaddir = '../img/';
+        $uploadfile = $uploaddir . $param['id'] . '.jpg';
+
+        move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile);
     }
 
     public function getPublication($param){

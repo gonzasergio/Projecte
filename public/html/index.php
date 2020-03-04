@@ -58,11 +58,11 @@ $test = new Router();
 
 // PUBLICATION
 $test->add('post', 'api/publicatio', 'PublicationController', 'insertPublication');
-$test->add('post', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
+$test->add('post', 'api/publicatio/[0-9]{1,}-[0-9]{1,}/img', 'PublicationController', 'insertPublicationImg', ['id' => 3]);
+$test->add('get', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'getPublication', ['id' => 3]);
 $test->add('delete', 'api/publicatio/[0-9]{1,}', 'PublicationController', 'deletePublication', ['id' => 3]);
 $test->add('get', 'api/user/[0-9]{1,}/publication', 'PublicationController', 'getUserPublications', ['id' => 3]);
 $test->add('get', 'api/publication/followers/[0-9]{1,}', 'PublicationController', 'getFollowersPublication', ['id' => 4]);
-
 
 
 // USER

@@ -96,6 +96,7 @@ class PublicationDAO implements DAO_Publication {
         where comenta_publicacio.id_publicacio = publicacio.id) as comenari
         from publicacio, seguir
         where id_perfil_propietari = seguir.id_perfil_seguit
+        or id_perfil_propietari = :id
         and seguir.id_perfil = :id
         group by publicacio.id order by publicacio.id desc ");
         $select->bindParam(':id', $id);

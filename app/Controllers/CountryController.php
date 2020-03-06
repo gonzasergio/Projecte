@@ -22,8 +22,8 @@ class CountryController extends Controller {
         echo json_encode($country->toArray());
     }
 
-    public function deleteCountry(){
-        $this->DAO->deleteCountryById($_REQUEST['id']);
+    public function deleteCountry($param){
+        $this->DAO->deleteCountryById($param['id']);
     }
 
     public function getAllCountry(){
@@ -36,8 +36,8 @@ class CountryController extends Controller {
         echo json_encode($array);
     }
 
-    public function updateCountry(){
-        $id = $_REQUEST['id'];
+    public function updateCountry($param){
+        $id = $param['id'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 

@@ -61,19 +61,20 @@
         } );
 
         $('#modifyRow').on( 'click', function () {
+            let data = t.row('.selected').data();
 
 
             $.ajax({
-                url: '/api/update/country',
+                url: '/api/country/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
-                    id: $("#idMod").val(),
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         });
 
@@ -86,8 +87,9 @@
                 data: {
                     name: $("#nom").val(),
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         } );
 
@@ -95,12 +97,8 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/delete/country',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: data['id']
-                }
+                url: '/api/country/' + data['id'],
+                type: 'delete',
             }).always(function () {
                 t.ajax.reload();
             });

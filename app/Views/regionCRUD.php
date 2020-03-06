@@ -101,8 +101,9 @@
                     name: $("#nom").val(),
                     countryId:  $("#idPais").val()
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         } );
 

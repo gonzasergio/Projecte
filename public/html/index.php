@@ -133,6 +133,8 @@ $test->add('get', 'api/country', 'CountryController', 'getAllCountry');
 $test->add('get', 'api/country/[0-9]{1,}', 'CountryController', 'getCountry', ['id' => 3]);
 $test->add('delete','api/country/[0-9]{1,}', 'CountryController', 'deleteCountry', ['id' => 3]);
 $test->add('get','api/country/view', 'CountryController', 'viewCRUD');
+$test->add('post', 'api/country/[0-9]{1,}', 'CountryController', 'updateCountry', ['id' => 3]);
+
 
 // REGION
 $test->add('post', 'api/region', 'RegionController', 'insertRegion');

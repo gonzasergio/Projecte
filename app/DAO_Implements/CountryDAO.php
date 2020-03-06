@@ -11,7 +11,7 @@ class CountryDAO implements DAO_Conurty {
     }
 
     public function insert(Country $country) {
-        $name = $this->$country->getName();
+        $name = $country->getName();
 
         $insert = $this->
         connection->prepare("INSERT INTO pais (`nom`) values (:name)");
@@ -58,8 +58,7 @@ class CountryDAO implements DAO_Conurty {
     }
 
     public function updateCountry($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE pais SET :colName = :newValue WHERE id = :id");
-        $update->bindParam(':colName', $colName);
+        $update = $this->connection->prepare("UPDATE pais SET $colName = :newValue WHERE id = :id");
         $update->bindParam(':newValue', $newValue);
         $update->bindParam(':id', $id);
 

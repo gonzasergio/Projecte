@@ -115,6 +115,8 @@ $test->add('get', 'api/level', 'NivellController', 'getAllNivells');
 $test->add('get', 'api/level/[0-9]{1,}', 'NivellController', 'getNivell', ['id' => 3]);
 $test->add('delete','api/level/[0-9]{1,}', 'NivellController', 'deleteNivell', ['id' => 3]);
 $test->add('get','api/level/view', 'NivellController', 'viewCRUD');
+$test->add('post', 'api/level/[0-9]{1,}', 'NivellController', 'updateNivell', ['id' => 3]);
+
 
 // MODALITY
 $test->add('post', 'api/modality', 'ModalitatController', 'insertModalitat');

@@ -61,9 +61,10 @@
         } );
 
         $('#modifyRow').on( 'click', function () {
+            let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/update/nivell',
+                url: '/api/level/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -71,8 +72,9 @@
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
 
         });
@@ -80,14 +82,15 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/api/insert/nivell',
+                url: '/api/level',
                 type: 'POST',
                 dataType: "json",
                 data: {
                     nom: $("#nom").val(),
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         } );
 
@@ -95,14 +98,11 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/delete/nivell',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: data['id']
-                }
-            }).always(function () {
+                url: '/api/level/' + data['id'],
+                type: 'delete',
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         });
     });

@@ -56,8 +56,7 @@ class NivellDAO implements DAO_Nivell {
     }
 
     public function updateNivell($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE Nivell SET :colName = :newValue WHERE id = :id");
-        $update->bindParam(':colName', $colName);
+        $update = $this->connection->prepare("UPDATE nivell SET $colName = :newValue WHERE id = :id");
         $update->bindParam(':newValue', $newValue);
         $update->bindParam(':id', $id);
 

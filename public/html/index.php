@@ -118,8 +118,9 @@ $test->add('get','api/level/view', 'NivellController', 'viewCRUD');
 
 // MODALITY
 $test->add('post', 'api/modality', 'ModalitatController', 'insertModalitat');
+$test->add('post', 'api/modality/[0-9]{1,}', 'ModalitatController', 'updateModalitat', ['id' => 3]);
 $test->add('get', 'api/modality', 'ModalitatController', 'getAllModalitats');
-$test->add('get', 'api/modality/[0-9]{1,}', 'ModalitatController', 'getModalitat', ['id' => 2]);
+$test->add('get', 'api/modality/[0-9]{1,}', 'ModalitatController', 'getModalitat', ['id' => 3]);
 $test->add('delete','api/modality/[0-9]{1,}', 'ModalitatController', 'deleteModalitat', ['id' => 3]);
 $test->add('get','api/modalitat/view', 'ModalitatController', 'viewCRUD');
 

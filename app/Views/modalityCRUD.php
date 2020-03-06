@@ -56,23 +56,25 @@
             $("#nomMod").val(data['nom']);
         } );
         $('#modifyRow').on( 'click', function () {
+            let data = t.row('.selected').data();
             $.ajax({
-                url: '/api/update/modalitat',
-                type: 'POST',
+                url: '/api/modality/' + data['id'],
+                type: 'post',
                 dataType: "json",
                 data: {
-                    id: $("#idMod").val(),
                     colName: 'nom',
                     newValue: $("#nomMod").val()
                 }
-            }).always(function () {
+            }).always(function (res) {
+                console.log(res);
                 t.ajax.reload();
             });
         });
         $('#addRow').on( 'click', function () {
+            let data = t.row('.selected').data();
             $.ajax({
                 url: '/api/modality',
-                type: 'POST',
+                type: 'post',
                 dataType: "json",
                 data: {
                     nom: $("#nom").val(),
@@ -84,7 +86,7 @@
         $('#remove').click( function () {
             let data = t.row('.selected').data();
             $.ajax({
-                url: '/api/modality',
+                url: '/api/modality/' + data['id'],
                 type: 'delete',
                 dataType: "json",
                 data: {

@@ -56,8 +56,7 @@ class ModalitatDAO implements DAO_Modalitat {
     }
 
     public function updateModalitat($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE Modalitat SET :colName = :newValue WHERE id = :id");
-        $update->bindParam(':colName', $colName);
+        $update = $this->connection->prepare("UPDATE tipus_modalitat SET $colName = :newValue WHERE id = :id");
         $update->bindParam(':newValue', $newValue);
         $update->bindParam(':id', $id);
 

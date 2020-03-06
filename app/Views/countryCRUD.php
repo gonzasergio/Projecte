@@ -80,7 +80,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/api/insert/country',
+                url: '/api/country',
                 type: 'POST',
                 dataType: "json",
                 data: {

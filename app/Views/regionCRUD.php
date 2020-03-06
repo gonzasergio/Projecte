@@ -63,10 +63,10 @@
         } );
 
         $('#modifyRow').on( 'click', function () {
-
+            let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/update/region',
+                url: '/api/region/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -77,7 +77,7 @@
             });
 
             $.ajax({
-                url: '/api/update/region',
+                url: '/api/region/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -85,15 +85,16 @@
                     colName: 'id_pais',
                     newValue: $("#idPaisMod").val()
                 }
-            }).always(function () {
+            }).always(function (res) {
                 t.ajax.reload();
+                console.log(res);
             });
         });
 
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/api/insert/region',
+                url: '/api/region',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -109,12 +110,8 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/delete/region',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: data['id']
-                }
+                url: '/api/region/' + data['id'],
+                type: 'delete',
             }).always(function () {
                 t.ajax.reload();
             });

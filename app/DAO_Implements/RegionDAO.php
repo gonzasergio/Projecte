@@ -60,8 +60,7 @@ class RegionDAO implements DAO_Region {
     }
 
     public function updateRegion($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE regio SET :colName = :newValue WHERE id = :id");
-        $update->bindParam(':colName', $colName);
+        $update = $this->connection->prepare("UPDATE regio SET $colName = :newValue WHERE id = :id");
         $update->bindParam(':newValue', $newValue);
         $update->bindParam(':id', $id);
 

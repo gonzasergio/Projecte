@@ -22,8 +22,8 @@ class RegionController extends Controller {
         echo json_encode($region->toArray());
     }
 
-    public function deleteRegion(){
-        $this->DAO->deleteRegionById($_REQUEST['id']);
+    public function deleteRegion($param){
+        $this->DAO->deleteRegionById($param['id']);
     }
 
     public function getAllRegion(){
@@ -36,8 +36,8 @@ class RegionController extends Controller {
         echo json_encode($array);
     }
 
-    public function updateRegion(){
-        $id = $_REQUEST['id'];
+    public function updateRegion($param){
+        $id = $param['id'];
         $colName = $_REQUEST['colName'];
         $newValue = $_REQUEST['newValue'];
 

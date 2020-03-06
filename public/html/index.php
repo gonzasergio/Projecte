@@ -140,6 +140,8 @@ $test->add('get', 'api/region', 'RegionController', 'getAllRegion');
 $test->add('get', 'api/region/[0-9]{1,}', 'RegionController', 'getRegion', ['id' => 3]);
 $test->add('delete','api/region/[0-9]{1,}', 'RegionController', 'deleteRegion', ['id' => 3]);
 $test->add('get','api/region/view', 'RegionController', 'viewCRUD');
+$test->add('post', 'api/region/[0-9]{1,}', 'RegionController', 'updateRegion', ['id' => 3]);
+
 
 // CITY
 $test->add('post', 'api/city', 'CityController', 'insertCity');

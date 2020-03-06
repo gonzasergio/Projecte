@@ -114,14 +114,14 @@ $test->add('post', 'api/level', 'NivellController', 'insertNivell');
 $test->add('get', 'api/level', 'NivellController', 'getAllNivells');
 $test->add('get', 'api/level/[0-9]{1,}', 'NivellController', 'getNivell', ['id' => 3]);
 $test->add('delete','api/level/[0-9]{1,}', 'NivellController', 'deleteNivell', ['id' => 3]);
-$test->add('get','admin/level', 'NivellController', 'viewCRUD');
+$test->add('get','api/level/view', 'NivellController', 'viewCRUD');
 
 // MODALITY
 $test->add('post', 'api/modality', 'ModalitatController', 'insertModalitat');
 $test->add('get', 'api/modality', 'ModalitatController', 'getAllModalitats');
 $test->add('get', 'api/modality/[0-9]{1,}', 'ModalitatController', 'getModalitat', ['id' => 2]);
 $test->add('delete','api/modality/[0-9]{1,}', 'ModalitatController', 'deleteModalitat', ['id' => 3]);
-$test->add('get','admin/modality', 'ModalitatController', 'viewCRUD');
+$test->add('get','api/modalitat/view', 'ModalitatController', 'viewCRUD');
 
 
 // COUNTRY
@@ -129,21 +129,21 @@ $test->add('post', 'api/country', 'CountryController', 'insertCountry');
 $test->add('get', 'api/country', 'CountryController', 'getAllCountry');
 $test->add('get', 'api/country/[0-9]{1,}', 'CountryController', 'getCountry', ['id' => 3]);
 $test->add('delete','api/country/[0-9]{1,}', 'CountryController', 'deleteCountry', ['id' => 3]);
-$test->add('get','admin/country', 'CountryController', 'viewCRUD');
+$test->add('get','api/country/view', 'CountryController', 'viewCRUD');
 
 // REGION
 $test->add('post', 'api/region', 'RegionController', 'insertRegion');
 $test->add('get', 'api/region', 'RegionController', 'getAllRegion');
 $test->add('get', 'api/region/[0-9]{1,}', 'RegionController', 'getRegion', ['id' => 3]);
 $test->add('delete','api/region/[0-9]{1,}', 'RegionController', 'deleteRegion', ['id' => 3]);
-$test->add('get','admin/region', 'RegionController', 'viewCRUD');
+$test->add('get','api/region/view', 'RegionController', 'viewCRUD');
 
 // CITY
 $test->add('post', 'api/city', 'CityController', 'insertCity');
 $test->add('get', 'api/city', 'CityController', 'getAllCity');
 $test->add('get', 'api/city/[0-9]{1,}', 'CityController', 'getCity', ['id' => 3]);
 $test->add('delete','api/city/[0-9]{1,}', 'CityController', 'deleteCity', ['id' => 3]);
-$test->add('get','admin/city', 'CityController', 'viewCRUD');
+$test->add('get','api/city/view', 'CityController', 'viewCRUD');
 
 // HISTORY
 $test->add('post', 'api/history', 'HistoryController', 'insertHistory');
@@ -371,10 +371,10 @@ switch ($path) {
         include '../../app/Views/excursio.php';
         break;
     case '/api/graph':
-        include '../../app/Views/GRAPH.html';
+        include '../../app/Views/GRAPH.php';
         break;
     case '/api/chart':
-        include '../../app/Views/CHART.html';
+        include '../../app/Views/CHART.php';
         break;
     default:
         include '../../app/Views/' . $links[$link[0]];

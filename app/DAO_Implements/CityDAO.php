@@ -60,8 +60,7 @@ class CityDAO implements DAO_City {
     }
 
     public function updateCity($id, $colName, $newValue) {
-        $update = $this->connection->prepare("UPDATE ciutat SET :colName = :newValue WHERE id = :id");
-        $update->bindParam(':colName', $colName);
+        $update = $this->connection->prepare("UPDATE ciutat SET $colName = :newValue WHERE id = :id");
         $update->bindParam(':newValue', $newValue);
         $update->bindParam(':id', $id);
 

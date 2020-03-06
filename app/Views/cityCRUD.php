@@ -63,10 +63,10 @@
         } );
 
         $('#modifyRow').on( 'click', function () {
-
+            let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/update/city',
+                url: '/api/city/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -77,7 +77,7 @@
             });
 
             $.ajax({
-                url: '/api/update/city',
+                url: '/api/city/' + data['id'],
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -93,7 +93,7 @@
         $('#addRow').on( 'click', function () {
 
             $.ajax({
-                url: '/api/insert/city',
+                url: '/api/city',
                 type: 'POST',
                 dataType: "json",
                 data: {
@@ -109,13 +109,10 @@
             let data = t.row('.selected').data();
 
             $.ajax({
-                url: '/api/delete/city',
-                type: 'POST',
-                dataType: "json",
-                data: {
-                    id: data['id']
-                }
-            }).always(function () {
+                url: '/api/city/' + data['id'],
+                type: 'delete'
+            }).always(function (res) {
+                console.log(res);
                 t.ajax.reload();
             });
         });

@@ -22,8 +22,8 @@ class CityController extends Controller {
         echo json_encode($city->toArray());
     }
 
-    public function deleteCity(){
-        $this->DAO->deleteCityById($_REQUEST['id']);
+    public function deleteCity($param){
+        $this->DAO->deleteCityById($param['id']);
     }
 
     public function getAllCity(){

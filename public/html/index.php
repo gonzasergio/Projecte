@@ -147,6 +147,8 @@ $test->add('get', 'api/city', 'CityController', 'getAllCity');
 $test->add('get', 'api/city/[0-9]{1,}', 'CityController', 'getCity', ['id' => 3]);
 $test->add('delete','api/city/[0-9]{1,}', 'CityController', 'deleteCity', ['id' => 3]);
 $test->add('get','api/city/view', 'CityController', 'viewCRUD');
+$test->add('post', 'api/city/[0-9]{1,}', 'CityController', 'updateCity', ['id' => 3]);
+
 
 // HISTORY
 $test->add('post', 'api/history', 'HistoryController', 'insertHistory');

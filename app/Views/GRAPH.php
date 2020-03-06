@@ -51,13 +51,12 @@
         <?php include '../templates/menuBack.php'?>
         <div class="col mx-3" style="margin-top: 102px">
 
-            <div>
-                <table id="example" class="table table-striped table-bordered w-100"/>
+            <div style="margin-bottom: 48vh">
+                <svg width = "400" height = "400"></svg>
             </div>
         </div>
     </div>
 </div>
-<svg width = "400" height = "400"></svg>
 <script>
     var svg = d3.select("svg"),
         width = svg.attr("width"),

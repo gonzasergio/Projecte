@@ -46,7 +46,7 @@
         .outerRadius(radius)
         .innerRadius(radius - 80);
 
-    d3.json("/api/user", function(error, data) {
+    d3.json("http://www.goatrails.dawman.info/api/user", function(error, data) {
         if (error) {
             throw error;
         }

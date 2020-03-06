@@ -370,10 +370,10 @@ switch ($path) {
         $_GET['id'] = $url[sizeof($url)-1];
         include '../../app/Views/excursio.php';
         break;
-    case '/graph':
+    case '/api/graph':
         include '../../app/Views/GRAPH.html';
         break;
-    case '/chart':
+    case '/api/chart':
         include '../../app/Views/CHART.html';
         break;
     default:
